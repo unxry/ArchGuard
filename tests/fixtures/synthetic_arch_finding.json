@@ -1,0 +1,94 @@
+{
+  "finding_schema_version": "1.0",
+  "id": "08338708-c9ac-5e87-a3ee-474fe3e0c6f0",
+  "namespace": "ARCH",
+  "rule_id": "ARCH002",
+  "category": "layering",
+  "title": "Synthetic layer violation fixture",
+  "description": "Hand-authored contract example; no architecture rule engine was executed.",
+  "severity": "HIGH",
+  "confidence": null,
+  "primary_location": {
+    "file_path": "src/OrderController.java",
+    "start_line": 5
+  },
+  "evidence": [
+    {
+      "id": "64eb69da-4175-5e5a-8c47-53ce483b12c8",
+      "namespace": "ARCH",
+      "type": "ARCHITECTURE_RULE",
+      "message": "Synthetic target layer constraint for validation tests only.",
+      "properties": {
+        "synthetic": true,
+        "constraint": {
+          "from": "presentation",
+          "to": "infrastructure",
+          "allowed": false
+        }
+      }
+    }
+  ],
+  "trace": {
+    "id": "96ec438c-03e6-5dbc-a8e5-7ee0e0123762",
+    "steps": [
+      {
+        "sequence": 1,
+        "node_id": "137022fe-7a0f-5a77-98ff-b70417132fcc",
+        "location": {
+          "file_path": "src/OrderController.java",
+          "start_line": 1,
+          "start_column": 1,
+          "end_line": 10,
+          "end_column": 1
+        },
+        "relation": null,
+        "label": "OrderController",
+        "metadata": {
+          "synthetic": true
+        }
+      },
+      {
+        "sequence": 2,
+        "node_id": "55dd0d0a-b2ed-52da-93d8-f4defbe4f6ef",
+        "location": {
+          "file_path": "src/OrderService.java",
+          "start_line": 1,
+          "start_column": 1,
+          "end_line": 10,
+          "end_column": 1
+        },
+        "relation": "CALLS",
+        "label": "OrderService",
+        "metadata": {
+          "synthetic": true
+        }
+      },
+      {
+        "sequence": 3,
+        "node_id": "55adc5af-7d4a-5afb-9946-771cecbe2700",
+        "location": {
+          "file_path": "src/OrderRepository.java",
+          "start_line": 1,
+          "start_column": 1,
+          "end_line": 10,
+          "end_column": 1
+        },
+        "relation": "CALLS",
+        "label": "OrderRepository",
+        "metadata": {
+          "synthetic": true
+        }
+      }
+    ]
+  },
+  "detector": {
+    "source": "STATIC",
+    "name": "synthetic-fixture",
+    "version": "test"
+  },
+  "recommendation": "Synthetic recommendation for serialization tests only.",
+  "metadata": {
+    "synthetic": true,
+    "purpose": "contract-tests-only"
+  }
+}

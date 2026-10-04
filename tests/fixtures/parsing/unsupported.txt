@@ -1,0 +1,1 @@
+Synthetic non-source fixture for parser selection.

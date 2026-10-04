@@ -1,0 +1,186 @@
+{
+  "iam_schema_version": "1.0",
+  "project": {
+    "id": "d5fc7d68-69cb-5c74-9828-6c2f7c6bd6db",
+    "name": "Synthetic orders contract fixture",
+    "description": "Test fixture; not parser or analyzer output."
+  },
+  "modules": [
+    {
+      "id": "08a45a88-dffb-5ebe-a749-e27fbb5698be",
+      "project_id": "d5fc7d68-69cb-5c74-9828-6c2f7c6bd6db",
+      "name": "synthetic-orders"
+    }
+  ],
+  "packages": [
+    {
+      "id": "010ff90d-1e66-5c85-afa2-49702d102fd5",
+      "module_id": "08a45a88-dffb-5ebe-a749-e27fbb5698be",
+      "name": "sample",
+      "qualified_name": "sample"
+    }
+  ],
+  "source_files": [
+    {
+      "id": "7eb52c4d-9eba-5cb6-aff8-8f673ff058eb",
+      "module_id": "08a45a88-dffb-5ebe-a749-e27fbb5698be",
+      "package_id": "010ff90d-1e66-5c85-afa2-49702d102fd5",
+      "file_path": "src/OrderController.java",
+      "language": "JAVA"
+    },
+    {
+      "id": "7f1e80bc-57b9-599a-ba99-863c63b3ca12",
+      "module_id": "08a45a88-dffb-5ebe-a749-e27fbb5698be",
+      "package_id": "010ff90d-1e66-5c85-afa2-49702d102fd5",
+      "file_path": "src/OrderService.java",
+      "language": "JAVA"
+    },
+    {
+      "id": "55696501-7ace-5a6f-af21-b3c465785dfb",
+      "module_id": "08a45a88-dffb-5ebe-a749-e27fbb5698be",
+      "package_id": "010ff90d-1e66-5c85-afa2-49702d102fd5",
+      "file_path": "src/OrderRepository.java",
+      "language": "JAVA"
+    }
+  ],
+  "symbols": [
+    {
+      "id": "69a1baf1-310b-5954-a143-4e12505fe370",
+      "file_id": "7eb52c4d-9eba-5cb6-aff8-8f673ff058eb",
+      "kind": "CLASS",
+      "name": "OrderController",
+      "qualified_name": "sample.OrderController",
+      "source_location": {
+        "file_path": "src/OrderController.java",
+        "start_line": 1,
+        "start_column": 1,
+        "end_line": 10,
+        "end_column": 1
+      }
+    },
+    {
+      "id": "b670d3e9-fb7e-5239-944e-6720ba73d39d",
+      "file_id": "7f1e80bc-57b9-599a-ba99-863c63b3ca12",
+      "kind": "CLASS",
+      "name": "OrderService",
+      "qualified_name": "sample.OrderService",
+      "source_location": {
+        "file_path": "src/OrderService.java",
+        "start_line": 1,
+        "start_column": 1,
+        "end_line": 10,
+        "end_column": 1
+      }
+    },
+    {
+      "id": "0d73b99d-b60c-5f7d-8baf-a311a924b7b7",
+      "file_id": "55696501-7ace-5a6f-af21-b3c465785dfb",
+      "kind": "CLASS",
+      "name": "OrderRepository",
+      "qualified_name": "sample.OrderRepository",
+      "source_location": {
+        "file_path": "src/OrderRepository.java",
+        "start_line": 1,
+        "start_column": 1,
+        "end_line": 10,
+        "end_column": 1
+      }
+    }
+  ],
+  "nodes": [
+    {
+      "id": "137022fe-7a0f-5a77-98ff-b70417132fcc",
+      "kind": "CLASS",
+      "name": "OrderController",
+      "qualified_name": "sample.OrderController",
+      "language": "JAVA",
+      "module": "08a45a88-dffb-5ebe-a749-e27fbb5698be",
+      "package": "010ff90d-1e66-5c85-afa2-49702d102fd5",
+      "file_id": "7eb52c4d-9eba-5cb6-aff8-8f673ff058eb",
+      "symbol_id": "69a1baf1-310b-5954-a143-4e12505fe370",
+      "layer": "presentation",
+      "source_location": {
+        "file_path": "src/OrderController.java",
+        "start_line": 1,
+        "start_column": 1,
+        "end_line": 10,
+        "end_column": 1
+      },
+      "attributes": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "55dd0d0a-b2ed-52da-93d8-f4defbe4f6ef",
+      "kind": "CLASS",
+      "name": "OrderService",
+      "qualified_name": "sample.OrderService",
+      "language": "JAVA",
+      "module": "08a45a88-dffb-5ebe-a749-e27fbb5698be",
+      "package": "010ff90d-1e66-5c85-afa2-49702d102fd5",
+      "file_id": "7f1e80bc-57b9-599a-ba99-863c63b3ca12",
+      "symbol_id": "b670d3e9-fb7e-5239-944e-6720ba73d39d",
+      "layer": "application",
+      "source_location": {
+        "file_path": "src/OrderService.java",
+        "start_line": 1,
+        "start_column": 1,
+        "end_line": 10,
+        "end_column": 1
+      },
+      "attributes": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "55adc5af-7d4a-5afb-9946-771cecbe2700",
+      "kind": "CLASS",
+      "name": "OrderRepository",
+      "qualified_name": "sample.OrderRepository",
+      "language": "JAVA",
+      "module": "08a45a88-dffb-5ebe-a749-e27fbb5698be",
+      "package": "010ff90d-1e66-5c85-afa2-49702d102fd5",
+      "file_id": "55696501-7ace-5a6f-af21-b3c465785dfb",
+      "symbol_id": "0d73b99d-b60c-5f7d-8baf-a311a924b7b7",
+      "layer": "infrastructure",
+      "source_location": {
+        "file_path": "src/OrderRepository.java",
+        "start_line": 1,
+        "start_column": 1,
+        "end_line": 10,
+        "end_column": 1
+      },
+      "attributes": {
+        "synthetic": true
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "6668c0c4-17f7-5035-a957-b12bc505dbe1",
+      "source_id": "137022fe-7a0f-5a77-98ff-b70417132fcc",
+      "target_id": "55dd0d0a-b2ed-52da-93d8-f4defbe4f6ef",
+      "kind": "CALLS",
+      "weight": 1.0,
+      "source_location": {
+        "file_path": "src/OrderController.java",
+        "start_line": 5
+      }
+    },
+    {
+      "id": "56ce60e5-4ca2-54b0-9992-e385e193c7a8",
+      "source_id": "55dd0d0a-b2ed-52da-93d8-f4defbe4f6ef",
+      "target_id": "55adc5af-7d4a-5afb-9946-771cecbe2700",
+      "kind": "CALLS",
+      "weight": 1.0,
+      "source_location": {
+        "file_path": "src/OrderService.java",
+        "start_line": 5
+      }
+    }
+  ],
+  "metadata": {
+    "synthetic": true,
+    "purpose": "contract-tests-only"
+  }
+}

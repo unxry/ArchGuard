@@ -1,0 +1,72 @@
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "archguard-ai"
+dynamic = ["version"]
+description = "Research foundation for hybrid architecture conformance analysis"
+readme = "README.md"
+requires-python = ">=3.13,<3.14"
+dependencies = [
+    "fastapi>=0.115,<1",
+    "pydantic>=2.10,<3",
+    "pydantic-settings>=2.7,<3",
+    "sqlalchemy>=2.0.36,<3",
+    "alembic>=1.14,<2",
+    "psycopg[binary]>=3.2,<4",
+    "uvicorn>=0.34,<1",
+    "pathspec>=1.1,<2",
+    "tree-sitter==0.26.0",
+    "tree-sitter-java==0.23.5",
+    "tree-sitter-typescript==0.23.2",
+    "tree-sitter-javascript==0.25.0",
+]
+
+[project.scripts]
+archguard = "archguard.cli:main"
+
+[project.optional-dependencies]
+dev = [
+    "httpx2>=2.13,<3",
+    "pytest>=8.3,<10",
+    "pytest-cov>=6,<8",
+    "ruff>=0.11,<1",
+    "mypy>=1.15,<2",
+]
+
+[tool.hatch.version]
+path = "src/archguard/__init__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/archguard"]
+
+[tool.ruff]
+target-version = "py313"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.mypy]
+python_version = "3.13"
+strict = true
+plugins = ["pydantic.mypy"]
+
+[tool.pydantic-mypy]
+init_forbid_extra = true
+init_typed = true
+warn_required_dynamic_aliases = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --strict-markers --strict-config"
+filterwarnings = ["error"]
+
+[tool.coverage.run]
+source = ["archguard"]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+skip_empty = true

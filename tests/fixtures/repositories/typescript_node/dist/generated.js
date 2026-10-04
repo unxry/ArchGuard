@@ -1,0 +1,1 @@
+const syntheticGeneratedFixture = true;
