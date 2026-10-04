@@ -1,6 +1,6 @@
 # ArchGuard AI
 
-**Current stage: Symbol & Dependency Extraction / IAM Builder** · версия **0.1.0**
+**Current stage: Architecture Specification & Static Conformance** · версия **0.1.0**
 
 Магистерская ВКР: «Разработка гибридного метода автоматизированного контроля соответствия
 программной архитектуры исходному коду на основе статического, графового и интеллектуального
@@ -11,9 +11,10 @@
 с будущей границей analysis worker.
 
 ```text
-Source → Repository Intake → Parsing → Extraction → Resolution → language-neutral IAM → graph projections
-                                      ├─ Static + Graph + LLM → Hybrid → ARCH
-                                      └─ будущий Security pipeline     → SEC
+Source → Repository Intake → Parsing → Extraction → Resolution → language-neutral IAM
+                                                       + architecture.yaml → Static → ARCH
+Future: IAM → Graph + LLM + Static → Hybrid → ARCH
+        IAM / graph → separate Security pipeline → SEC
 ```
 
 ARCH и SEC используют общие Finding / Evidence / Trace, но независимые решения. SEC не поступает
@@ -36,10 +37,37 @@ ARCH и SEC используют общие Finding / Evidence / Trace, но н�
 - Java/TypeScript/JavaScript/TSX syntax extraction, compact declaration/import/reference facts,
   SymbolIndex, conservative resolution, deterministic IAM builder, provenance aggregation и CLI.
 
-Architecture specification, graph algorithms, ARCH rules, LLM calls, hybrid fusion,
-Security Engine и production frontend ещё не реализованы. В API нет endpoint анализа.
-Synthetic fixtures находятся только в `tests/fixtures`; они не являются результатами анализатора.
+- Architecture specification YAML v1, bounded safe loader, deterministic layer/module classification.
+- Static rule registry и реальные ARCH001/ARCH002/ARCH004/ARCH005 findings из resolved IAM edges,
+  с едиными Finding/Evidence/Trace contracts, file-pair aggregation, JSON export и application/CLI.
+
+ARCH003/Graph Engine, graph metrics, LLM calls, hybrid fusion, Security Engine и production frontend
+ещё не реализованы. В API нет endpoint анализа; IAM/findings persistence отсутствует.
+Synthetic IAM fixture находится в `tests/fixtures/synthetic_iam.json`; реальные conformance fixtures
+проходят весь pipeline и создают findings из исходного кода.
 HTML-прототип и все его показатели — только design reference.
+
+## Static architecture conformance
+
+```bash
+.venv/bin/archguard architecture validate examples/architecture/layered-clean.yaml --json
+.venv/bin/archguard architecture check tests/fixtures/conformance/clean/java \
+  --spec examples/architecture/layered-clean.yaml
+.venv/bin/archguard architecture check tests/fixtures/conformance/violating/typescript \
+  --spec examples/architecture/layered-clean.yaml --json --output /tmp/result.json
+```
+
+`CheckArchitecture` переиспользует intake → streaming parsing → extraction → resolution → IAM.
+Target YAML не меняет actual IAM. Overlap selectors — configuration diagnostic, а не code finding.
+Exit codes: 0 CONFORMANT, 1 NON_CONFORMANT, 2 invalid input/spec/classification/IAM,
+3 INCOMPLETE без подтверждённых нарушений. Неполнота также отражается отдельно в `is_complete`.
+CONFORMANT означает отсутствие реализованных нарушений для указанной valid target spec в доступном
+IAM scope; это не оценка идеальности архитектуры или security safety. Unclassified nodes и неизвестные
+references ограничивают покрытие. Для разных проектов выбирайте разные стабильные `--namespace`.
+DSL и границы: [Specification](docs/architecture/ARCHITECTURE_SPECIFICATION.md),
+[Static Conformance](docs/architecture/STATIC_CONFORMANCE.md).
+Результаты quality gate, manual fixtures и macOS/Linux comparison:
+[PROMPT 005 Verification](docs/architecture/STATIC_VERIFICATION.md).
 
 ## Repository discovery
 
@@ -158,13 +186,13 @@ src/archguard/
   extraction/          language extractors, compact facts, symbol index, conservative resolver
   iam_building/        deterministic mapping, structural validation, serialization
   iam/                 language-neutral snapshots
-  architecture/        rules, graph, intelligence, hybrid contracts
+  architecture/        specification, classification, conformance, rules; future graph/intelligence
   security/            future boundary; implementation gated by thesis milestone
-  application/         DiscoverRepository, ParseRepository, BuildIAM и use cases
+  application/         DiscoverRepository, ParseRepository, BuildIAM, CheckArchitecture
   experiments/         reproducibility contract
   reports/             future boundary
   infrastructure/      settings, logging, SQLAlchemy, Local/ZIP/Git adapters
-  cli.py               developer repository inspection, parsing и IAM build
+  cli.py               repository inspection, parsing, IAM build, architecture validate/check
 tests/                 unit, integration, explicitly synthetic fixtures
 migrations/            Alembic environment; no application revisions
 experiments/           separate dataset, ground-truth, result locations
@@ -186,7 +214,7 @@ AnalysisId, repository revision и versioned analysis config, сохраняет
   [воспроизводимость](docs/experiments/REPRODUCIBILITY.md).
 - [UI reference](docs/design/UI_REFERENCE.md): исходный HTML сохранён без изменений.
 
-Следующий этап: **PROMPT 005 — Architecture Specification & Static Conformance Foundation**.
-Далее — graph projections/algorithms, ARCH rules, graph-guided semantic
+Следующий этап: **PROMPT 006 — Graph Engine & Structural Architecture Analysis**.
+Далее — graph projections/algorithms, graph-guided semantic
 analysis, hybrid decision, benchmark и ablation. После CORE THESIS COMPLETE — отдельный Security
 Engine. Frontend реализуется отдельными этапами по реальным backend contracts.

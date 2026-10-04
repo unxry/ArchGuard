@@ -1,0 +1,16 @@
+version: "1.0"
+architecture:
+  layers:
+    - name: presentation
+      include: ["**/controller/**"]
+    - name: application
+      include: ["**/service/**"]
+    - name: persistence
+      include: ["**/repository/**"]
+rules:
+  - id: ARCH002
+    type: layer_dependency
+    from: presentation
+    allow: [application]
+    allow_same_layer: true
+    severity: high

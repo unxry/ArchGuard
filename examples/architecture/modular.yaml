@@ -1,0 +1,14 @@
+version: "1.0"
+architecture:
+  modules:
+    - name: orders
+      include: ["**/orders/**"]
+    - name: payments
+      include: ["**/payments/**"]
+rules:
+  - id: ARCH005
+    type: module_boundary
+    from: orders
+    deny: [payments]
+    relations: [IMPORTS, CALLS, CREATES, USES]
+    severity: high

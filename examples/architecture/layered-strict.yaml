@@ -1,0 +1,39 @@
+version: "1.0"
+architecture:
+  layers:
+    - name: presentation
+      include: ["**/controller/**"]
+    - name: application
+      include: ["**/service/**"]
+    - name: persistence
+      include: ["**/repository/**"]
+    - name: domain
+      include: ["**/domain/**"]
+    - name: infrastructure
+      include: ["**/infrastructure/**"]
+  modules:
+    - name: orders
+      include: ["**/orders/**"]
+    - name: payments
+      include: ["**/payments/**"]
+rules:
+  - id: ARCH001
+    type: forbidden_dependency
+    from: {layer: domain}
+    to: {layer: infrastructure}
+    severity: high
+  - id: ARCH002
+    type: layer_dependency
+    from: presentation
+    allow: [application]
+    allow_same_layer: false
+    severity: high
+  - id: ARCH004
+    type: reverse_dependency
+    expected: {from: application, to: domain}
+    severity: medium
+  - id: ARCH005
+    type: module_boundary
+    from: orders
+    deny: [payments]
+    severity: high

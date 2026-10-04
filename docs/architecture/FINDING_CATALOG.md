@@ -1,15 +1,16 @@
-# Planned finding catalog
+# Finding catalog
 
-Это целевой каталог, **правила и детекторы не реализованы в foundation**.
+ARCH001, ARCH002, ARCH004 и ARCH005 реализованы в PROMPT 005 как static rules по explicit target spec
+и resolved internal IAM edges. ARCH003 и все ARCH1xx/ARCH2xx остаются planned.
 Каталог не содержит measured outputs и не означает одинаковую обнаружимость всеми baseline methods.
 
-| ID | Name | Planned basis |
+| ID | Name | Basis / status |
 | --- | --- | --- |
-| ARCH001 | Forbidden Dependency | explicit constraint / deterministic |
-| ARCH002 | Layer Violation | explicit constraint / deterministic |
-| ARCH003 | Circular Dependency | graph path / cycle |
-| ARCH004 | Reverse Dependency | explicit direction constraint |
-| ARCH005 | Module Boundary Violation | explicit module constraint |
+| ARCH001 | Forbidden Dependency | implemented: explicit constraint / deterministic |
+| ARCH002 | Layer Violation | implemented: explicit layer constraint / deterministic |
+| ARCH003 | Circular Dependency | deferred: Graph Engine / cycle |
+| ARCH004 | Reverse Dependency | implemented: explicit direction constraint |
+| ARCH005 | Module Boundary Violation | implemented: explicit module constraint |
 | ARCH101 | Excessive Coupling | structural / heuristic |
 | ARCH102 | Dependency Hub | structural / heuristic |
 | ARCH103 | Potential God Component | structural / heuristic candidate |

@@ -8,12 +8,18 @@ from pathlib import Path
 from pydantic import ValidationError
 
 from archguard.application.build_iam import BuildIAM
+from archguard.application.check_architecture import CheckArchitecture
 from archguard.application.parse_repository import ParseRepository
+from archguard.architecture.conformance.analyzer import serialize_conformance
+from archguard.architecture.conformance.models import ConformanceStatus, StaticConformanceResult
+from archguard.architecture.specification.errors import ArchitectureSpecificationError
+from archguard.architecture.specification.models import ArchitectureSpecification
 from archguard.extraction.config import ExtractionConfig
 from archguard.extraction.errors import IAMValidationError
 from archguard.extraction.factory import create_extractor_registry
 from archguard.iam_building.models import IAMBuildResult
 from archguard.iam_building.serialization import serialize_iam
+from archguard.infrastructure.architecture_specification import load_architecture_file
 from archguard.infrastructure.logging import JsonFormatter
 from archguard.infrastructure.repository.factory import create_discovery
 from archguard.parsing.config import ParserConfig
@@ -32,27 +38,36 @@ def _parser() -> argparse.ArgumentParser:
         ("repo", ["repository"], "Discover files without parsing or executing code"),
         ("parse", [], "Parse eligible sources without extraction or code execution"),
         ("iam", [], "Build IAM from syntax facts and conservative reference resolution"),
+        (
+            "architecture",
+            [],
+            "Check explicit target architecture against resolved IAM dependencies",
+        ),
     ):
         group = groups.add_parser(name, aliases=aliases)
         commands = group.add_subparsers(dest="command", required=True)
-        inspect = commands.add_parser("build" if name == "iam" else "inspect", help=description)
+        command = "build" if name == "iam" else "check" if name == "architecture" else "inspect"
+        inspect = commands.add_parser(command, help=description)
         inspect.add_argument("location")
         inspect.add_argument("--source", choices=["local", "zip", "git"], default="local")
         inspect.add_argument("--ref", help="Public Git branch, tag or full commit SHA")
         inspect.add_argument("--exclude", action="append", default=[])
         inspect.add_argument("--no-gitignore", action="store_true")
         inspect.add_argument("--json", action="store_true")
-        if name in {"parse", "iam"}:
+        if name in {"parse", "iam", "architecture"}:
             inspect.add_argument("--strict", action="store_true", help="Mark syntax errors invalid")
-        if name == "iam":
-            inspect.add_argument(
-                "--output", type=Path, help="Write deterministic ArchitectureModel JSON"
-            )
+        if name in {"iam", "architecture"}:
+            inspect.add_argument("--output", type=Path, help="Write deterministic analysis JSON")
             inspect.add_argument(
                 "--namespace",
                 default="archguard:default-project",
                 help="Stable project identity namespace",
             )
+        if name == "architecture":
+            inspect.add_argument("--spec", type=Path, required=True)
+            validate = commands.add_parser("validate", help="Validate target architecture YAML")
+            validate.add_argument("spec", type=Path)
+            validate.add_argument("--json", action="store_true")
     return parser
 
 
@@ -120,6 +135,33 @@ def _print_iam_summary(result: IAMBuildResult) -> None:
         print(f"Extractor: {extractor.extractor_id} {extractor.extractor_version}")
 
 
+def _print_spec_summary(spec: ArchitectureSpecification) -> None:
+    print(f"Specification: {spec.version}; fingerprint: {spec.fingerprint}")
+    print("Valid: True")
+    print("Layers: " + (", ".join(item.name for item in spec.architecture.layers) or "none"))
+    print("Modules: " + (", ".join(item.name for item in spec.architecture.modules) or "none"))
+    print("Rules: " + (", ".join(item.id for item in spec.rules) or "none"))
+    print("Diagnostics: none")
+
+
+def _print_conformance_summary(result: StaticConformanceResult) -> None:
+    stats = result.statistics
+    print(f"Project: {result.reproducibility.project_id}")
+    print(f"Snapshot: {result.reproducibility.snapshot_id}")
+    print(f"IAM nodes: {stats.iam_nodes_total}; edges: {stats.iam_edges_total}")
+    print("Layer nodes: " + json.dumps(stats.nodes_by_layer, sort_keys=True))
+    print("Module nodes: " + json.dumps(stats.nodes_by_module, sort_keys=True))
+    print(f"Unclassified: {stats.nodes_unclassified}; ambiguous: {stats.ambiguous_nodes}")
+    print(f"Rules evaluated: {stats.rules_evaluated}/{stats.rules_enabled}")
+    print(f"Findings: {stats.findings_total}; status: {result.status.value}")
+    print("Findings by rule: " + json.dumps(stats.findings_by_rule, sort_keys=True))
+    print("Findings by severity: " + json.dumps(stats.findings_by_severity, sort_keys=True))
+    for finding in result.findings:
+        print(f"{finding.rule_id} {finding.severity.value}: {finding.description}")
+    for diagnostic in result.diagnostics:
+        print(f"{diagnostic.code}: {diagnostic.message}")
+
+
 def main(argv: Sequence[str] | None = None) -> int:
     arguments = _parser().parse_args(argv)
     handler = logging.StreamHandler(sys.stderr)
@@ -135,8 +177,30 @@ def main(argv: Sequence[str] | None = None) -> int:
         logger.propagate = False
     parse_result = None
     iam_result = None
+    conformance = None
     try:
         try:
+            spec = None
+            if arguments.group == "architecture":
+                spec = load_architecture_file(arguments.spec)
+                if arguments.command == "validate":
+                    if arguments.json:
+                        print(
+                            json.dumps(
+                                {
+                                    "is_valid": True,
+                                    "fingerprint": spec.fingerprint,
+                                    "specification": spec.model_dump(mode="json", by_alias=True),
+                                    "diagnostics": [],
+                                },
+                                sort_keys=True,
+                                ensure_ascii=False,
+                                indent=2,
+                            )
+                        )
+                    else:
+                        _print_spec_summary(spec)
+                    return 0
             policy = RepositoryScanPolicy(
                 extra_exclusions=tuple(arguments.exclude),
                 respect_gitignore=not arguments.no_gitignore,
@@ -147,17 +211,27 @@ def main(argv: Sequence[str] | None = None) -> int:
                 ref=arguments.ref,
             )
             discovery = create_discovery(policy)
-            if arguments.group in {"parse", "iam"}:
+            if arguments.group in {"parse", "iam", "architecture"}:
                 config = ParserConfig(strict_syntax_errors=arguments.strict)
                 with discovery.open(source) as repository:
                     parsing = ParseRepository(create_parser_registry(), config)
-                    if arguments.group == "iam":
-                        iam_result = BuildIAM(
+                    if arguments.group in {"iam", "architecture"}:
+                        building = BuildIAM(
                             parsing,
                             create_extractor_registry(),
                             ExtractionConfig(repository_namespace=arguments.namespace),
-                        ).execute(repository.snapshot, repository.workspace)
-                        if arguments.output is not None:
+                        )
+                        if spec is not None:
+                            conformance = CheckArchitecture(building).execute(
+                                repository.snapshot, repository.workspace, spec
+                            )
+                            if arguments.output is not None:
+                                arguments.output.write_text(
+                                    serialize_conformance(conformance), encoding="utf-8"
+                                )
+                        else:
+                            iam_result = building.execute(repository.snapshot, repository.workspace)
+                        if iam_result is not None and arguments.output is not None:
                             arguments.output.write_text(
                                 serialize_iam(iam_result.iam), encoding="utf-8"
                             )
@@ -166,10 +240,16 @@ def main(argv: Sequence[str] | None = None) -> int:
                 snapshot = repository.snapshot
             else:
                 snapshot = discovery.execute(source)
-        except (RepositoryIntakeError, ValidationError, IAMValidationError, OSError) as error:
+        except (
+            RepositoryIntakeError,
+            ArchitectureSpecificationError,
+            ValidationError,
+            IAMValidationError,
+            OSError,
+        ) as error:
             code = (
                 error.code
-                if isinstance(error, RepositoryIntakeError)
+                if isinstance(error, (RepositoryIntakeError, ArchitectureSpecificationError))
                 else "iam_validation_error"
                 if isinstance(error, IAMValidationError)
                 else "output_write_error"
@@ -178,18 +258,44 @@ def main(argv: Sequence[str] | None = None) -> int:
             )
             message = (
                 str(error)
-                if isinstance(error, RepositoryIntakeError)
+                if isinstance(error, (RepositoryIntakeError, ArchitectureSpecificationError))
                 else "IAM structure could not be validated"
                 if isinstance(error, IAMValidationError)
-                else "IAM output could not be written"
+                else "analysis output could not be written"
                 if isinstance(error, OSError)
                 else "repository input or scan policy is invalid"
             )
             if arguments.json:
-                print(json.dumps({"error": {"code": code, "message": message}}), file=sys.stderr)
+                detail = {"code": code, "message": message}
+                if isinstance(error, ArchitectureSpecificationError):
+                    print(
+                        json.dumps(
+                            {
+                                "error": {
+                                    **detail,
+                                    "line": error.line,
+                                    "column": error.column,
+                                }
+                            }
+                        ),
+                        file=sys.stderr,
+                    )
+                else:
+                    print(json.dumps({"error": detail}), file=sys.stderr)
             else:
                 print(f"{code}: {message}", file=sys.stderr)
             return 2
+        if conformance is not None:
+            if arguments.json:
+                print(serialize_conformance(conformance), end="")
+            else:
+                _print_conformance_summary(conformance)
+            return {
+                ConformanceStatus.CONFORMANT: 0,
+                ConformanceStatus.NON_CONFORMANT: 1,
+                ConformanceStatus.INVALID: 2,
+                ConformanceStatus.INCOMPLETE: 3,
+            }[conformance.status]
         if arguments.json:
             result = (
                 iam_result

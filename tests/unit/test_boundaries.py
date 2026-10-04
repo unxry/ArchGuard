@@ -16,6 +16,7 @@ def test_domain_dependency_direction() -> None:
             "archguard.parsing",
             "archguard.extraction",
             "archguard.iam_building",
+            "archguard.architecture",
         ),
         "repository": ("archguard.core", "archguard.repository"),
         "parsing": ("archguard.core", "archguard.repository", "archguard.parsing"),
