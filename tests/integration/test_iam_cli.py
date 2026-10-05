@@ -46,7 +46,7 @@ def test_iam_cli_json_full_export_summary_and_determinism(
     output = capsys.readouterr().out
     assert "Files extracted: 1/1" in output and "declarations: 2" in output
     assert "IAM schema: 1.0" in output and "resolver: 1.0.0" in output
-    assert "Extractor: typescript-syntax-extractor 1.0.0" in output
+    assert "Extractor: typescript-syntax-extractor 1.1.0" in output
 
 
 def test_iam_cli_zip_exclusions_and_strict(

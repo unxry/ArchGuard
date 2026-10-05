@@ -89,6 +89,26 @@ def _flags(node: Node) -> tuple[tuple[str, ...], Visibility, bool, bool]:
     return tuple(sorted(values)), visibility, exported, default
 
 
+def _decorators(node: Node) -> tuple[str, ...]:
+    owners = [node]
+    if node.parent is not None and node.parent.type == "export_statement":
+        owners.append(node.parent)
+    names = set()
+    for owner in owners:
+        for decorator in owner.named_children:
+            if decorator.type != "decorator" or not decorator.named_children:
+                continue
+            expression = decorator.named_children[0]
+            target = (
+                child(expression, "function")
+                if expression.type == "call_expression"
+                else expression
+            )
+            if name := dotted_name(target):
+                names.add(name)
+    return tuple(sorted(names))
+
+
 class ECMAScriptExtractor:
     def __init__(self, language: ParserLanguage) -> None:
         if language not in {
@@ -100,7 +120,7 @@ class ECMAScriptExtractor:
         self.language = language
         self.metadata = ExtractorMetadata(
             extractor_id=f"{language.value.lower()}-syntax-extractor",
-            extractor_version="1.0.0",
+            extractor_version="1.1.0",
             dialect=language,
         )
 
@@ -161,6 +181,7 @@ class ECMAScriptExtractor:
                     signature,
                     visibility,
                     values,
+                    annotations=_decorators(node),
                     type_parameters=type_parameters,
                     parameters=parameters,
                     type_name=type_signature(child(node, "return_type")),

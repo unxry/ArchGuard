@@ -10,11 +10,15 @@ from pydantic import ValidationError
 from archguard.application.analyze_graph import AnalyzeGraph
 from archguard.application.build_iam import BuildIAM
 from archguard.application.check_architecture import CheckArchitecture
+from archguard.application.discover_architecture import DiscoverArchitecture
 from archguard.application.parse_repository import ParseRepository
 from archguard.architecture.check_result import ArchitectureCheckResult
 from archguard.architecture.classification.models import ConformanceDiagnostic
 from archguard.architecture.conformance.analyzer import serialize_conformance
 from archguard.architecture.conformance.models import ConformanceStatus, StaticConformanceResult
+from archguard.architecture.discovery.analyzer import serialize_discovery
+from archguard.architecture.discovery.config import ArchitectureDiscoveryConfig
+from archguard.architecture.discovery.models import ArchitectureDiscoveryResult
 from archguard.architecture.graph.analyzer import serialize_graph_result
 from archguard.architecture.graph.config import GraphAnalysisConfig, GraphProjectionSpec
 from archguard.architecture.graph.enums import GraphProjection
@@ -29,6 +33,10 @@ from archguard.extraction.factory import create_extractor_registry
 from archguard.iam_building.models import IAMBuildResult
 from archguard.iam_building.serialization import serialize_iam
 from archguard.infrastructure.architecture_specification import load_architecture_file
+from archguard.infrastructure.discovery_configuration import (
+    DiscoveryConfigurationError,
+    load_discovery_configuration,
+)
 from archguard.infrastructure.graph_configuration import (
     GraphConfigurationError,
     load_graph_configuration,
@@ -44,6 +52,24 @@ from archguard.repository.models import RepositoryInput, RepositorySnapshot
 from archguard.repository.policy import RepositoryScanPolicy
 
 
+def _repository_arguments(parser: argparse.ArgumentParser, group: str) -> None:
+    parser.add_argument("location")
+    parser.add_argument("--source", choices=["local", "zip", "git"], default="local")
+    parser.add_argument("--ref", help="Public Git branch, tag or full commit SHA")
+    parser.add_argument("--exclude", action="append", default=[])
+    parser.add_argument("--no-gitignore", action="store_true")
+    parser.add_argument("--json", action="store_true")
+    if group in {"parse", "iam", "architecture", "graph"}:
+        parser.add_argument("--strict", action="store_true", help="Mark syntax errors invalid")
+    if group in {"iam", "architecture", "graph"}:
+        parser.add_argument("--output", type=Path, help="Write deterministic analysis JSON")
+        parser.add_argument(
+            "--namespace",
+            default="archguard:default-project",
+            help="Stable project identity namespace",
+        )
+
+
 def _parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="archguard")
     groups = parser.add_subparsers(dest="group", required=True)
@@ -55,7 +81,7 @@ def _parser() -> argparse.ArgumentParser:
         (
             "architecture",
             [],
-            "Check explicit target architecture against resolved IAM dependencies",
+            "Discover actual structure or check explicit target architecture",
         ),
     ):
         group = groups.add_parser(name, aliases=aliases)
@@ -70,26 +96,17 @@ def _parser() -> argparse.ArgumentParser:
             else "inspect"
         )
         inspect = commands.add_parser(command, help=description)
-        inspect.add_argument("location")
-        inspect.add_argument("--source", choices=["local", "zip", "git"], default="local")
-        inspect.add_argument("--ref", help="Public Git branch, tag or full commit SHA")
-        inspect.add_argument("--exclude", action="append", default=[])
-        inspect.add_argument("--no-gitignore", action="store_true")
-        inspect.add_argument("--json", action="store_true")
-        if name in {"parse", "iam", "architecture", "graph"}:
-            inspect.add_argument("--strict", action="store_true", help="Mark syntax errors invalid")
-        if name in {"iam", "architecture", "graph"}:
-            inspect.add_argument("--output", type=Path, help="Write deterministic analysis JSON")
-            inspect.add_argument(
-                "--namespace",
-                default="archguard:default-project",
-                help="Stable project identity namespace",
-            )
+        _repository_arguments(inspect, name)
         if name == "architecture":
             inspect.add_argument("--spec", type=Path, required=True)
             validate = commands.add_parser("validate", help="Validate target architecture YAML")
             validate.add_argument("spec", type=Path)
             validate.add_argument("--json", action="store_true")
+            discover = commands.add_parser(
+                "discover", help="Infer structural architecture hypotheses"
+            )
+            _repository_arguments(discover, name)
+            discover.add_argument("--config", type=Path, help="Typed discovery JSON profile")
         if name == "graph":
             inspect.add_argument("--spec", type=Path)
             inspect.add_argument(
@@ -254,6 +271,38 @@ def _print_graph_summary(result: GraphAnalysisResult) -> None:
         print(f"Graph conformance: {result.conformance.status.value}")
 
 
+def _print_discovery_summary(result: ArchitectureDiscoveryResult) -> None:
+    stats = result.statistics
+    print("Architecture Discovery")
+    print("Discovery results are hypotheses, not architecture conformance findings.")
+    print(f"Profile: {result.reproducibility.configuration.profile}; NOT CALIBRATED")
+    print(f"Components: {stats.components_total}; processing: {result.status}")
+    print("Role hypotheses: " + json.dumps(stats.role_counts, sort_keys=True))
+    print("Role strengths: " + json.dumps(stats.role_strength_counts, sort_keys=True))
+    print("Layers: " + json.dumps(stats.layer_counts, sort_keys=True))
+    print(f"Ambiguous roles/layers: {stats.role_ambiguous}/{stats.layer_ambiguous}")
+    print(f"Unknown roles/layers: {stats.role_unknown}/{stats.layer_unknown}")
+    print(
+        f"Modules: {stats.module_candidates}; assigned: {stats.module_assigned_components}; "
+        f"unassigned: {stats.module_unassigned_components}"
+    )
+    for module in result.discovered.module_candidates:
+        print(
+            f"Potential module {module.namespace}: {len(module.members)} members, {module.strength}"
+        )
+    print(
+        f"Discovery coverage (not accuracy): roles={stats.role_coverage}; "
+        f"layers={stats.layer_coverage}"
+    )
+    for cell in result.discovered.layer_dependency_matrix.cells:
+        print(
+            f"Discovered dependency: {cell.source} → {cell.target}: {cell.unique_projected_edges}"
+        )
+    print(f"Graph observations: cyclic SCCs={len(result.discovered.topology.cyclic_sccs)}")
+    for diagnostic in result.diagnostics:
+        print(f"{diagnostic.code}: {diagnostic.message}")
+
+
 def main(argv: Sequence[str] | None = None) -> int:
     arguments = _parser().parse_args(argv)
     handler = logging.StreamHandler(sys.stderr)
@@ -271,11 +320,19 @@ def main(argv: Sequence[str] | None = None) -> int:
     iam_result = None
     conformance = None
     graph_result = None
+    discovery_result = None
     try:
         try:
             spec = None
             graph_config = None
-            if arguments.group == "architecture":
+            discovery_config = None
+            if arguments.group == "architecture" and arguments.command == "discover":
+                discovery_config = (
+                    load_discovery_configuration(arguments.config)
+                    if arguments.config
+                    else ArchitectureDiscoveryConfig()
+                )
+            elif arguments.group == "architecture":
                 spec = load_architecture_file(arguments.spec)
                 if arguments.command == "validate":
                     if arguments.json:
@@ -318,7 +375,15 @@ def main(argv: Sequence[str] | None = None) -> int:
                             create_extractor_registry(),
                             ExtractionConfig(repository_namespace=arguments.namespace),
                         )
-                        if graph_config is not None:
+                        if discovery_config is not None:
+                            discovery_result = DiscoverArchitecture(building).execute(
+                                repository.snapshot, repository.workspace, discovery_config
+                            )
+                            if arguments.output is not None:
+                                arguments.output.write_text(
+                                    serialize_discovery(discovery_result), encoding="utf-8"
+                                )
+                        elif graph_config is not None:
                             graph_result = AnalyzeGraph(building).execute(
                                 repository.snapshot, repository.workspace, graph_config, spec
                             )
@@ -349,6 +414,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             RepositoryIntakeError,
             ArchitectureSpecificationError,
             GraphConfigurationError,
+            DiscoveryConfigurationError,
             ValidationError,
             IAMValidationError,
             OSError,
@@ -361,6 +427,7 @@ def main(argv: Sequence[str] | None = None) -> int:
                         RepositoryIntakeError,
                         ArchitectureSpecificationError,
                         GraphConfigurationError,
+                        DiscoveryConfigurationError,
                     ),
                 )
                 else "iam_validation_error"
@@ -377,6 +444,7 @@ def main(argv: Sequence[str] | None = None) -> int:
                         RepositoryIntakeError,
                         ArchitectureSpecificationError,
                         GraphConfigurationError,
+                        DiscoveryConfigurationError,
                     ),
                 )
                 else "IAM structure could not be validated"
@@ -405,6 +473,12 @@ def main(argv: Sequence[str] | None = None) -> int:
             else:
                 print(f"{code}: {message}", file=sys.stderr)
             return 2
+        if discovery_result is not None:
+            if arguments.json:
+                print(serialize_discovery(discovery_result), end="")
+            else:
+                _print_discovery_summary(discovery_result)
+            return 2 if not discovery_result.is_valid else 0 if discovery_result.is_complete else 3
         if graph_result is not None:
             if arguments.json:
                 print(serialize_graph_result(graph_result), end="")

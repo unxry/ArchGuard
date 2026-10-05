@@ -1,0 +1,8 @@
+{
+  "profile": "structural-baseline-v1",
+  "framework_signals": true,
+  "graph_refinement": true,
+  "module_root_hints": ["src"],
+  "min_module_components": 2,
+  "java_min_package_depth": 3
+}

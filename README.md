@@ -1,6 +1,6 @@
 # ArchGuard AI
 
-**Current stage: Graph Engine & Structural Architecture Analysis** · версия **0.1.0**
+**Current stage: Architecture Discovery & Structural Classification** · версия **0.1.0**
 
 Магистерская ВКР: «Разработка гибридного метода автоматизированного контроля соответствия
 программной архитектуры исходному коду на основе статического, графового и интеллектуального
@@ -14,6 +14,7 @@
 Source → Repository Intake → Parsing → Extraction → Resolution → language-neutral IAM
                                                        + architecture.yaml → Static + Graph → ARCH
         IAM → Graph → observations / metrics / candidates
+        IAM + Graph → Discovery → actual architecture hypotheses
 Future: IAM → Graph + LLM + Static → Hybrid → ARCH
         IAM / graph → separate Security pipeline → SEC
 ```
@@ -44,8 +45,10 @@ ARCH и SEC используют общие Finding / Evidence / Trace, но н�
 
 - NetworkX dependency projections, bounded SCC/cycle proofs, directed metrics и path/neighbourhood API.
 - Explicit ARCH003 circular-dependency findings и отдельно ARCH101–105 candidates по заданным порогам.
+- Structural architecture discovery: role/layer hypotheses, feature module candidates, evidence,
+  dependency matrices, unknown/ambiguous semantics и assignment coverage.
 
-LLM calls, hybrid fusion, Security Engine и production frontend
+LLM semantic analysis, graph-guided LLM context, hybrid fusion/calibration, Security Engine и production frontend
 ещё не реализованы. В API нет endpoint анализа; IAM/findings persistence отсутствует.
 Synthetic IAM fixture находится в `tests/fixtures/synthetic_iam.json`; реальные conformance fixtures
 проходят весь pipeline и создают findings из исходного кода.
@@ -95,6 +98,27 @@ Exit codes: 0 COMPLETE без ARCH003, 1 confirmed ARCH003, 2 INVALID, 3 INCOMPL
 Contracts/limits: [Graph Engine](docs/architecture/GRAPH_ENGINE.md),
 [Metrics](docs/architecture/GRAPH_METRICS.md), [Candidates](docs/architecture/GRAPH_CANDIDATES.md).
 Проверки: [PROMPT 006 Verification](docs/architecture/GRAPH_VERIFICATION.md).
+
+## Architecture discovery
+
+```bash
+.venv/bin/archguard architecture discover tests/fixtures/discovery/mixed
+.venv/bin/archguard architecture discover tests/fixtures/discovery/mixed \
+  --config examples/discovery/structural-baseline.json --json --output /tmp/discovered.json
+```
+
+Discovery формирует hypotheses об actual architecture без target spec и ARCH findings. Generic
+Component/Injectable не означают Service; conflicting layers остаются ambiguous, неизвестные роли
+UNKNOWN допустимы. Strength/coverage не probability/accuracy; profile NOT CALIBRATED.
+Java annotations и TS decorators используются как name hints без arguments. Graph position —
+secondary evidence; modules — package/directory candidates с явной size/strength policy и cohesion.
+`--spec` не принимается, architecture.yaml не создаётся. IAM/Graph строятся по одному разу.
+Exit 0 COMPLETE, 2 INVALID, 3 INCOMPLETE; hypothesis ambiguity сама по себе не processing failure.
+
+[Discovery](docs/architecture/ARCHITECTURE_DISCOVERY.md),
+[Classification](docs/architecture/STRUCTURAL_CLASSIFICATION.md),
+[Modules](docs/architecture/MODULE_DISCOVERY.md),
+[PROMPT 007 Verification](docs/architecture/DISCOVERY_VERIFICATION.md).
 
 ## Repository discovery
 
@@ -215,11 +239,11 @@ src/archguard/
   iam/                 language-neutral snapshots
   architecture/        specification, classification, conformance, rules; future graph/intelligence
   security/            future boundary; implementation gated by thesis milestone
-  application/         DiscoverRepository, ParseRepository, BuildIAM, CheckArchitecture, AnalyzeGraph
+  application/         DiscoverRepository, ParseRepository, BuildIAM, CheckArchitecture, AnalyzeGraph, DiscoverArchitecture
   experiments/         reproducibility contract
   reports/             future boundary
   infrastructure/      settings, logging, SQLAlchemy, Local/ZIP/Git adapters
-  cli.py               repository inspection, parsing, IAM build, architecture validate/check, graph analyze
+  cli.py               repository inspection, parsing, IAM build, architecture validate/check/discover, graph analyze
 tests/                 unit, integration, explicitly synthetic fixtures
 migrations/            Alembic environment; no application revisions
 experiments/           separate dataset, ground-truth, result locations
@@ -241,7 +265,7 @@ AnalysisId, repository revision и versioned analysis config, сохраняет
   [воспроизводимость](docs/experiments/REPRODUCIBILITY.md).
 - [UI reference](docs/design/UI_REFERENCE.md): исходный HTML сохранён без изменений.
 
-Следующий этап после review: **PROMPT 007 — Architecture Discovery & Structural Classification Foundation**
-или корректирующий PROMPT 006.1. Далее — graph-guided semantic
+Следующий вероятный этап после review: **PROMPT 008 — Graph-Guided Context Construction & AI Architecture Analysis Foundation**.
+Далее — graph-guided semantic
 analysis, hybrid decision, benchmark и ablation. После CORE THESIS COMPLETE — отдельный Security
 Engine. Frontend реализуется отдельными этапами по реальным backend contracts.
