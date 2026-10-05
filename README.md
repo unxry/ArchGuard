@@ -64,22 +64,26 @@ Synthetic IAM fixture находится в `tests/fixtures/synthetic_iam.json`;
 проходят весь pipeline и создают findings из исходного кода.
 HTML-прототип и все его показатели — только design reference.
 
-## Benchmark and ground truth foundation
+## Expanded Benchmark & Calibration Cohort Foundation
 
 ```bash
-uv run archguard benchmark validate benchmarks/v1/dataset.json
-uv run archguard benchmark smoke benchmarks/v1/dataset.json \
-  --mode GRAPH_ONLY --task STRUCTURAL_SIGNAL_RETRIEVAL
-uv run archguard benchmark export-features benchmarks/v1/dataset.json --output /tmp/new-features
+uv run archguard benchmark validate benchmarks/v1/dataset-1.1.json --json
+uv run archguard benchmark readiness benchmarks/v1/dataset-1.1.json
+uv run archguard benchmark export-cohort benchmarks/v1/dataset-1.1.json --output /tmp/new-cohort
 ```
 
-Engineering seed: 24 repositories, seven families, 62 independent cases (Java/TypeScript).
-Mutations and language translations share one split. Unknown/out-of-scope/abstained cases are
-explicit; graph signals are not architecture defects. The default export has only positive records
-and the seed lacks semantic/graph holdouts. No model training, final benchmark or LLM quality
-experiment is claimed. See [dataset](docs/research/BENCHMARK_DATASET.md),
-[truth](docs/research/GROUND_TRUTH.md), [mutations](docs/research/MUTATION_TESTING.md) and
-[metrics](docs/research/EVALUATION_METRICS.md).
+Engineering dataset 1.1.0: 56 repositories, 18 families, 138 cases (68 positive / 70 negative).
+TRAIN/VALIDATION/TEST contain Static, Graph and Semantic families with both classes. Mutations and
+translations stay in one family/split. Independent truth, mutation verification, frozen partitions,
+positive/negative Hybrid features and readiness validation are implemented. Evaluation anchors extract
+real evidence even when detectors or AI target selection supply no candidate.
+
+Four variants export 552 records (262 structurally eligible). Structural Hybrid: **READY** by declared
+composition; Full Hybrid: **NOT_READY** without real AI assessments and semantic review. Fitting,
+threshold tuning, live LLM benchmarking, final OSS dataset and statistical tests remain future work.
+The unchanged original seed remains at `benchmarks/v1/dataset.json`. See
+[dataset](docs/research/BENCHMARK_DATASET.md), [truth](docs/research/GROUND_TRUTH.md),
+[splits](docs/research/EXPERIMENT_SPLITS.md) and [cohort](docs/research/CALIBRATION_DATASET.md).
 
 ## Hybrid evidence and decisions
 

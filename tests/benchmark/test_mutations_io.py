@@ -294,7 +294,9 @@ def test_split_manifest_and_changed_hashes_cannot_be_forged(loaded, tmp_path):
     with pytest.raises(ValueError):
         load_dataset(root / "dataset.json")
     split.write_bytes((loaded.root / "splits.json").read_bytes())
-    path = next((root / "mutations").glob("*.json"))
+    path = root / next(
+        r.mutation_manifest for r in loaded.dataset.repositories if r.mutation_manifest
+    )
     m = json.loads(path.read_text())
     m["changed_files"][0]["before_hash"] = "0" * 64
     path.write_text(json.dumps(m))

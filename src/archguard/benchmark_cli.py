@@ -13,6 +13,7 @@ from archguard.benchmark.models import (
     Task,
 )
 from archguard.benchmark.mutations import MutationConfig
+from archguard.benchmark.readiness import human_readiness
 from archguard.benchmark.splits import plan_splits
 from archguard.infrastructure.benchmark import (
     BenchmarkLimits,
@@ -22,11 +23,21 @@ from archguard.infrastructure.benchmark import (
     read_manifest,
     validate_dataset,
 )
+from archguard.infrastructure.calibration_cohort import export_cohort, extract_cohort
 
 
 def benchmark_arguments(group: argparse.ArgumentParser) -> None:
     commands = group.add_subparsers(dest="command", required=True)
-    for name in ("validate", "split", "mutate", "evaluate", "smoke", "export-features"):
+    for name in (
+        "validate",
+        "split",
+        "mutate",
+        "evaluate",
+        "smoke",
+        "export-features",
+        "readiness",
+        "export-cohort",
+    ):
         child = commands.add_parser(name)
         child.add_argument("dataset", type=Path)
         child.add_argument("--output", type=Path)
@@ -67,6 +78,20 @@ def execute_benchmark(arguments: argparse.Namespace) -> int:
                 )
             },
         }
+    elif arguments.command in {"readiness", "export-cohort"}:
+        cohort, report = extract_cohort(loaded)
+        if arguments.command == "export-cohort":
+            if arguments.output is None:
+                raise ValueError("cohort export requires a new --output directory")
+            export_cohort(cohort, report, arguments.output)
+        elif arguments.output:
+            arguments.output.write_text(canonical(report) + "\n", encoding="utf-8")
+        print(
+            canonical(report)
+            if arguments.json or arguments.command == "export-cohort"
+            else human_readiness(report)
+        )
+        return 0
     elif arguments.command == "mutate":
         if arguments.output is None:
             raise ValueError("mutate requires a new --output directory")

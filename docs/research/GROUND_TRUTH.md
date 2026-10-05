@@ -40,3 +40,30 @@ persistence abstraction; pricing policy in Controller versus delegation; domain 
 port; HTTP presenter in domain versus presentation; presentation/pricing/SQL combined versus
 single-purpose service. All five have Java and TypeScript positive/negative controls with explicit
 rationales. Semantic labels require independent review before a research-quality benchmark.
+
+
+## Expanded responsibilities and controls — PROMPT 010.1
+
+Expanded labels remain independently CURATED or MUTATION_DERIVED and all review metadata remains
+UNREVIEWED with no invented annotators/agreement. Review-ready rationales identify subject scope,
+responsibility and expected structural evidence in each ground-truth file. Annotation depends on
+method responsibilities and dependency direction, not Controller/Repository/Service suffixes.
+
+Shipping positives place policy or pricing/SQL/request work in neutral Coordinator/Processor classes.
+Controls validate, map and delegate, or implement one shipping purpose. Ledger positives manage
+SQLite protocol/transaction SQL directly, or combine HTTP/fees/persistence; controls depend on an
+abstract CommitPort or orchestrate multiple ports for one posting responsibility. Reporting distinguishes
+business CSV/report assembly from storage and legitimate infrastructure serialization. UI ordering
+separates business approval/inventory workflow and domain HTML from expected presentation rendering.
+High coupling alone is not a semantic violation; simple abstract persistence dependencies are allowed.
+
+These responsibility judgments are provisional semantic annotations, not measured AI quality or final
+human consensus. No source contains its truth label/rationale, and no LLM context includes annotation
+metadata. Future semantic calibration needs independent reviewer assessment and saved real provider
+artifacts. Scripted outputs test contracts only and cannot validate these labels.
+
+Benchmark-only EvaluationAnchor resolution uses the same exact locators as scoring. Feature extraction
+receives only repository/rule/subjects; labels join afterward. No-candidate negatives and positives retain
+actual metrics and selection flags. A truth flip can change the exported label/ground-truth case ID but
+cannot change extracted features, feature fingerprint or benchmark materialization identity. UNKNOWN
+stays unknown/ineligible. See [calibration cohort](CALIBRATION_DATASET.md).

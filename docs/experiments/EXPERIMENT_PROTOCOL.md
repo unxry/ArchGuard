@@ -95,3 +95,15 @@ preregistered before scientific runs; conditional F1 alone is insufficient.
 No RQ is answered by this seed. Expand independent families, semantic/graph holdouts and negative
 feature cohort before training. Keep all seven planned ablations; unsupported execution stays explicit.
 No fitting, statistical tests, threshold/prompt tuning on TEST or calibrated artifacts in PROMPT 010.
+
+
+## PROMPT 010.1 readiness boundary
+
+The [expanded partitions](../research/EXPERIMENT_SPLITS.md) and
+[calibration cohort](../research/CALIBRATION_DATASET.md) add independent task holdouts and both-class
+features. Structural READY permits a subsequent machinery stage; it does not establish sufficient
+statistical power or external validity. Full Hybrid remains NOT_READY without real validated provider
+assessments and reviewed semantic truth. Family is the experimental unit, and four variants per case
+must never be treated as independent observations. Production proposal/AI-target selection flags are
+explicit features so future ablations can expose selection bias. No fitting, threshold/prompt selection,
+live provider calls or final test experiment occurs in 010.1. PROMPT 011 requires review before starting.

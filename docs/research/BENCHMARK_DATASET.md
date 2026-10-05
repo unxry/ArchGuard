@@ -1,4 +1,42 @@
-# Benchmark Dataset Foundation — PROMPT 010
+# Expanded Benchmark & Calibration Cohort Foundation — PROMPT 010.1
+
+Current manifest: `benchmarks/v1/dataset-1.1.json`, schema `1.0`, dataset version `1.1.0`.
+Generation: `uv run python benchmarks/expand_seed.py`; original PROMPT 010 sources/manifests are
+reused unchanged. Eleven additional independent scenario families add 32 repositories and 76 cases.
+Current total: **56 repositories, 18 families, 138 cases (68 positive / 70 negative)**.
+The expanded benchmark remains an ENGINEERING_SEED without an external-validity claim.
+
+| Split | Families | Repositories | Cases | Positive | Negative |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| TRAIN | 12 | 32 | 90 | 44 | 46 |
+| VALIDATION | 3 | 12 | 24 | 12 | 12 |
+| TEST | 3 | 12 | 24 | 12 | 12 |
+
+New static holdouts are multi-rule webshop and batch-workflow families. Graph scenarios use fan-in,
+fan-out, diamond, bridged clusters and stable-core/unstable-adapter topology; they are not renamed
+copies of one adjacency matrix. Semantic families cover shipping, reporting, ledger and UI ordering.
+Java/TypeScript counterparts are correlated translations and share a family. Reporting is independently
+authored Java-only; UI ordering is independently authored TypeScript-only.
+
+Hard negatives exercise legitimate validation/mapping/delegation, persistence, abstract storage ports,
+presentation rendering and highly coupled single-purpose orchestration. Neutral-name positives carry
+actual business/persistence/protocol responsibility. Labels originate in source scenarios and independent
+mutation intent before IAM verification; no analyzer output supplies truth or human review.
+
+[Split and rule tables](EXPERIMENT_SPLITS.md), [calibration contract](CALIBRATION_DATASET.md) and
+[ground truth](GROUND_TRUTH.md) describe the expanded cohort. New benchmark-only evaluation anchors
+materialize positives and negatives before label joins, even without production proposals. Four variants
+produce 552 canonical records; 262 are structurally eligible. Structural Hybrid is READY by engineering
+composition; Full Hybrid remains NOT_READY without reviewed semantic truth and real AI evidence.
+No fitting, tuning, live LLM calls, final OSS evaluation or statistical inference occurred.
+
+```bash
+uv run archguard benchmark validate benchmarks/v1/dataset-1.1.json --json
+uv run archguard benchmark readiness benchmarks/v1/dataset-1.1.json --json
+uv run archguard benchmark export-cohort benchmarks/v1/dataset-1.1.json --output /tmp/new-cohort
+```
+
+## Original PROMPT 010 baseline (unchanged)
 
 `benchmarks/v1/dataset.json` is the versioned **engineering seed**, not the final thesis dataset.
 Schema `1.0`, dataset `archguard-benchmark-v1`, version `1.0.0`. Generation definitions are checked
