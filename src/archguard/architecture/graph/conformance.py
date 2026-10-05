@@ -5,6 +5,7 @@ import networkx as nx
 from pydantic import Field, JsonValue
 
 from archguard.architecture.classification.classifier import ArchitectureClassifier
+from archguard.architecture.conformance.analyzer import iam_fingerprint
 from archguard.architecture.conformance.dependencies import location_order
 from archguard.architecture.conformance.models import ConformanceStatus
 from archguard.architecture.graph.algorithms import (
@@ -256,6 +257,7 @@ class GraphConformanceAnalyzer:
             findings=findings,
             diagnostics=tuple(diagnostics),
             reproducibility={
+                "iam_fingerprint": iam_fingerprint(model),
                 "engine_version": self.version,
                 "networkx_version": nx.__version__,
                 "configuration": actual.model_dump(mode="json"),

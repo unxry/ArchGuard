@@ -25,6 +25,8 @@ from archguard.architecture.graph.config import GraphAnalysisConfig, GraphProjec
 from archguard.architecture.graph.enums import GraphProjection
 from archguard.architecture.graph.models import GraphDiagnostic
 from archguard.architecture.graph.result import GraphAnalysisResult
+from archguard.architecture.hybrid.assembler import HybridInputError
+from archguard.architecture.hybrid.policies import HybridPolicyError
 from archguard.architecture.intelligence.selection import ContextSelectionError
 from archguard.architecture.specification.errors import ArchitectureSpecificationError
 from archguard.architecture.specification.models import ArchitectureSpecification
@@ -32,6 +34,7 @@ from archguard.core.model.enums import EdgeKind
 from archguard.extraction.config import ExtractionConfig
 from archguard.extraction.errors import IAMValidationError
 from archguard.extraction.factory import create_extractor_registry
+from archguard.hybrid_cli import execute_hybrid, hybrid_arguments
 from archguard.iam_building.models import IAMBuildResult
 from archguard.iam_building.serialization import serialize_iam
 from archguard.infrastructure.ai_configuration import AIConfigurationError
@@ -44,6 +47,7 @@ from archguard.infrastructure.graph_configuration import (
     GraphConfigurationError,
     load_graph_configuration,
 )
+from archguard.infrastructure.hybrid_configuration import HybridConfigurationError
 from archguard.infrastructure.logging import JsonFormatter
 from archguard.infrastructure.repository.factory import create_discovery
 from archguard.parsing.config import ParserConfig
@@ -62,9 +66,9 @@ def _repository_arguments(parser: argparse.ArgumentParser, group: str) -> None:
     parser.add_argument("--exclude", action="append", default=[])
     parser.add_argument("--no-gitignore", action="store_true")
     parser.add_argument("--json", action="store_true")
-    if group in {"parse", "iam", "architecture", "graph", "ai"}:
+    if group in {"parse", "iam", "architecture", "graph", "ai", "hybrid"}:
         parser.add_argument("--strict", action="store_true", help="Mark syntax errors invalid")
-    if group in {"iam", "architecture", "graph", "ai"}:
+    if group in {"iam", "architecture", "graph", "ai", "hybrid"}:
         parser.add_argument("--output", type=Path, help="Write deterministic analysis JSON")
         parser.add_argument(
             "--namespace",
@@ -125,6 +129,10 @@ def _parser() -> argparse.ArgumentParser:
         child = commands.add_parser(command)
         _repository_arguments(child, "ai")
         ai_arguments(child, command)
+    hybrid = groups.add_parser("hybrid", help="Typed evidence fusion with deterministic precedence")
+    analyze = hybrid.add_subparsers(dest="command", required=True).add_parser("analyze")
+    _repository_arguments(analyze, "hybrid")
+    hybrid_arguments(analyze)
     return parser
 
 
@@ -334,6 +342,8 @@ def main(argv: Sequence[str] | None = None) -> int:
         try:
             if arguments.group == "ai":
                 return execute_ai(arguments)
+            if arguments.group == "hybrid":
+                return execute_hybrid(arguments)
             spec = None
             graph_config = None
             discovery_config = None
@@ -427,6 +437,9 @@ def main(argv: Sequence[str] | None = None) -> int:
             GraphConfigurationError,
             DiscoveryConfigurationError,
             AIConfigurationError,
+            HybridConfigurationError,
+            HybridInputError,
+            HybridPolicyError,
             ContextSelectionError,
             ValidationError,
             IAMValidationError,
@@ -442,6 +455,9 @@ def main(argv: Sequence[str] | None = None) -> int:
                         GraphConfigurationError,
                         DiscoveryConfigurationError,
                         AIConfigurationError,
+                        HybridConfigurationError,
+                        HybridInputError,
+                        HybridPolicyError,
                     ),
                 )
                 else "INVALID_AI_TARGET"
@@ -462,6 +478,9 @@ def main(argv: Sequence[str] | None = None) -> int:
                         GraphConfigurationError,
                         DiscoveryConfigurationError,
                         AIConfigurationError,
+                        HybridConfigurationError,
+                        HybridInputError,
+                        HybridPolicyError,
                     ),
                 )
                 else str(error)

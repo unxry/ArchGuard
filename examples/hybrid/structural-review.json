@@ -1,0 +1,17 @@
+{
+  "ai": {
+    "graph": {
+      "candidates": {
+        "excessive_coupling": 4,
+        "hub_fan_in": 3,
+        "god_min_members": 3,
+        "god_min_methods": 3,
+        "god_min_coupling": 4,
+        "unstable_delta": 0.4,
+        "bottleneck_betweenness": 0.25,
+        "bottleneck_min_neighbors": 4
+      }
+    }
+  },
+  "max_candidate_cases": 1000
+}

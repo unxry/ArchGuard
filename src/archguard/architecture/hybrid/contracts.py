@@ -2,6 +2,21 @@ from typing import Protocol, Self
 
 from pydantic import model_validator
 
+# The original batch contracts remain the compatibility facade. These typed case
+# contracts are the same boundary's detailed representation; they never clone Findings.
+from archguard.architecture.hybrid.models import (
+    HybridAnalysisResult as HybridAnalysisResult,
+)
+from archguard.architecture.hybrid.models import (
+    HybridCase as HybridCase,
+)
+from archguard.architecture.hybrid.models import (
+    HybridDecision as HybridDecision,
+)
+from archguard.architecture.hybrid.models import (
+    HybridEvidenceBundle as HybridEvidenceBundle,
+)
+from archguard.architecture.hybrid.policies import HybridDecisionPolicy as HybridDecisionPolicy
 from archguard.core.evidence import Evidence, EvidenceType
 from archguard.core.findings.enums import DetectorSource, FindingNamespace
 from archguard.core.findings.model import Finding
@@ -58,7 +73,7 @@ class ArchitectureDecision(DomainModel):
 
 
 class HybridDecisionEngine(Protocol):
-    """Future implementations must retain deterministic findings; no scoring exists in v0.1.0."""
+    """Batch compatibility facade, implemented by HybridAnalyzer with deterministic precedence."""
 
     def decide(
         self, model: ArchitectureModel, evidence: ArchitectureEvidenceBundle, /

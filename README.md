@@ -1,6 +1,6 @@
 # ArchGuard AI
 
-**Current stage: Graph-Guided Context & AI Architecture Analysis Foundation** · версия **0.1.0**
+**Current stage: Hybrid Evidence Fusion & Decision Engine Foundation (PROMPT 009)** · версия **0.1.0**
 
 Магистерская ВКР: «Разработка гибридного метода автоматизированного контроля соответствия
 программной архитектуры исходному коду на основе статического, графового и интеллектуального
@@ -16,7 +16,8 @@ Source → Repository Intake → Parsing → Extraction → Resolution → langu
         IAM → Graph → observations / metrics / candidates
         IAM + Graph → Discovery → actual architecture hypotheses
         IAM + Graph + Discovery → bounded context → LLM port → semantic candidates
-Future: IAM → Graph + LLM + Static → Hybrid → ARCH
+        Static + Graph + semantic candidates + Discovery → Hybrid cases / evidence / decisions
+Future:
         IAM / graph → separate Security pipeline → SEC
 ```
 
@@ -53,11 +54,33 @@ ARCH и SEC используют общие Finding / Evidence / Trace, но н�
 - Provider abstraction, OpenAI Responses adapter, strict evidence-reference semantic pipeline ARCH201–205.
 - CLI context / ai analyze / dry-run, explicit remote source opt-in и offline scripted verification.
 
-Hybrid fusion/calibration, benchmark LLM evaluation, Security Engine, persistent analysis jobs/API и
+- Hybrid cases, typed evidence channels, versioned features и deterministic precedence policy.
+
+Calibrated Hybrid policies, benchmark LLM evaluation, Security Engine, persistent analysis jobs/API и
 production frontend ещё не реализованы. IAM/findings persistence отсутствует.
 Synthetic IAM fixture находится в `tests/fixtures/synthetic_iam.json`; реальные conformance fixtures
 проходят весь pipeline и создают findings из исходного кода.
 HTML-прототип и все его показатели — только design reference.
+
+## Hybrid evidence and decisions
+
+```bash
+.venv/bin/archguard hybrid analyze tests/fixtures/conformance/violating/java \
+  --spec examples/architecture/layered-strict.yaml --without-ai
+.venv/bin/archguard hybrid analyze tests/fixtures/graph/hub \
+  --config examples/hybrid/structural-review.json --json --output hybrid.json
+# Optional: --ai-result saved-ai.json (source-free output of ai analyze for identical context inputs).
+```
+
+Default Hybrid CLI makes zero LLM calls. Saved AI contexts are reconstructed and checked locally;
+the namespace, graph profile, discovery and target specification must match the original input.
+ARCH001–005 deterministic proofs keep their Finding IDs and rule severity. ARCH101–105 and
+ARCH201–205 remain review candidates with `confidence=null`, including graph/AI agreement.
+Canonical JSON contains interpretable features with provenance, availability and separate evidence
+and feature fingerprints; it contains no source fragments or training labels.
+[Hybrid engine](docs/architecture/HYBRID_ENGINE.md),
+[evidence and alignment](docs/architecture/HYBRID_EVIDENCE.md),
+[research method](docs/research/HYBRID_METHOD.md), [verification](docs/verification/PROMPT_009.md).
 
 ## AI context and semantic candidates
 
@@ -287,7 +310,6 @@ AnalysisId, repository revision и versioned analysis config, сохраняет
   [воспроизводимость](docs/experiments/REPRODUCIBILITY.md).
 - [UI reference](docs/design/UI_REFERENCE.md): исходный HTML сохранён без изменений.
 
-Следующий вероятный этап после review: **PROMPT 009 — Hybrid Architecture Decision Engine Foundation**;
-возможно сначала PROMPT 008.1 для уточнения AI boundary. Он самостоятельно не начинается.
-Далее — benchmark и ablation. После CORE THESIS COMPLETE — отдельный Security
+Следующий этап после review: **PROMPT 010 — Benchmark, Ground Truth & Mutation Dataset Foundation**.
+Он самостоятельно не начинается. Далее — benchmark, calibration и ablation. После CORE THESIS COMPLETE — отдельный Security
 Engine. Frontend реализуется отдельными этапами по реальным backend contracts.

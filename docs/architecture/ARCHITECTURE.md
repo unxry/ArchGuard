@@ -34,7 +34,7 @@ Security — независимое расширение после архите
 | `architecture/rules` | будущие deterministic rules | `core`, `iam` |
 | `architecture/graph` | будущие algorithms/metrics/projections | `core`, `iam` |
 | `architecture/intelligence` | будущий graph-guided semantic context | `core`, `iam`, application ports |
-| `architecture/hybrid` | ARCH-only contracts, будущая fusion | `core`, `iam` |
+| `architecture/hybrid` | ARCH cases, typed evidence, features, deterministic precedence | `core`, `iam`, другие `architecture` boundaries |
 | `security` | отдельный будущий SEC pipeline | общий domain/IAM, собственные решения |
 | `experiments` | reproducibility contract, будущий benchmark | `core`, будущие analysis ports |
 | `reports` | будущие представления measured results | `core`, application ports |

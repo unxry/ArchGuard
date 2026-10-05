@@ -88,9 +88,13 @@ calibration_reference на зафиксированный calibration artifact; 
 deterministic findings. Static channel принимает STATIC_RULE/SOURCE_CODE/ARCHITECTURE_RULE;
 graph — GRAPH_PATH/GRAPH_METRIC; semantic — LLM_RESULT. Все элементы ARCH. Подтверждённые
 findings имеют STATIC source. `ArchitectureDecision` принимает только ARCH findings.
-`HybridDecisionEngine` — Protocol, без implementation/scoring/fusion. Future implementation
-обязана сохранять deterministic findings и соответствующий AnalysisId; LLM не может их отменить.
-Это postcondition будущего engine, алгоритм сохранения результатов сейчас не имитируется.
+`HybridAnalyzer.decide` реализует этот batch facade: сохраняет AnalysisId и исходные Finding objects.
+Он не переинтерпретирует generic evidence как case-level proof. Detailed boundary доступен через
+тот же `hybrid/contracts.py`: `HybridCase`, `HybridEvidenceBundle`, `HybridDecision`,
+`HybridAnalysisResult` и `HybridDecisionPolicy`. Результат содержит ссылки на Finding IDs;
+детерминированные findings не клонируются. `analyze` валидирует prepared results и применяет
+versioned policy. Case-level proof включает STATIC ARCH001/002/004/005 и валидный explicit GRAPH
+ARCH003, с жёстким сохранением severity. [Engine](HYBRID_ENGINE.md), [evidence](HYBRID_EVIDENCE.md).
 
 Основные библиотеки: [Pydantic models](https://docs.pydantic.dev/latest/concepts/models/),
 [SQLAlchemy sessions](https://docs.sqlalchemy.org/en/20/orm/session_basics.html),
