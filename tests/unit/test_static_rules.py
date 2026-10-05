@@ -124,4 +124,8 @@ def test_registry_duplicate_missing_and_instance_isolation() -> None:
         registry.register(LayerDependencyRule())
     with pytest.raises(StaticRuleRegistrationError):
         StaticRuleRegistry().get(RuleType.LAYER)
-    assert set(create_static_rule_registry().supported_types()) == set(RuleType)
+    assert set(create_static_rule_registry().supported_types()) == set(RuleType) - {
+        RuleType.CIRCULAR
+    }
+    with pytest.raises(StaticRuleRegistrationError):
+        create_static_rule_registry().get(RuleType.CIRCULAR)

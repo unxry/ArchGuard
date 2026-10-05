@@ -102,6 +102,9 @@ overlap инвалидирует весь result даже вне rule source sco
 также ограничивают coverage. IAM и spec модели frozen, но nested JSON metadata словари shallow-mutable;
 analyzer revalidates inputs и не изменяет их.
 
-Не реализованы: ARCH003, cycles/SCC, graph metrics/NetworkX, LLM/embeddings, scoring/Hybrid fusion,
-SEC pipeline, analysis API, IAM/findings database persistence и frontend. Следующий этап:
-**PROMPT 006 — Graph Engine & Structural Architecture Analysis**.
+PROMPT 006 добавляет отдельный [Graph Engine](GRAPH_ENGINE.md) с ARCH003, cycles/SCC и metrics.
+Application `CheckArchitecture` строит IAM один раз и объединяет static/graph findings, если enabled
+ARCH003 присутствует. Без него сохраняется прежний StaticConformanceResult. Static registry не
+импортирует NetworkX и не исполняет graph rules. Invalid aggregate подавляет итоговые findings;
+дочерние results сохраняют собственный контекст validity/completeness.
+LLM/embeddings, scoring/Hybrid fusion, SEC pipeline, analysis API, persistence и frontend отложены.

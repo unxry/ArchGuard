@@ -1,28 +1,31 @@
 # Finding catalog
 
 ARCH001, ARCH002, ARCH004 и ARCH005 реализованы в PROMPT 005 как static rules по explicit target spec
-и resolved internal IAM edges. ARCH003 и все ARCH1xx/ARCH2xx остаются planned.
+и resolved internal IAM edges. PROMPT 006 добавляет explicit ARCH003 и отдельные heuristic
+GraphCandidate ARCH101–105. ARCH2xx остаются planned.
 Каталог не содержит measured outputs и не означает одинаковую обнаружимость всеми baseline methods.
 
 | ID | Name | Basis / status |
 | --- | --- | --- |
 | ARCH001 | Forbidden Dependency | implemented: explicit constraint / deterministic |
 | ARCH002 | Layer Violation | implemented: explicit layer constraint / deterministic |
-| ARCH003 | Circular Dependency | deferred: Graph Engine / cycle |
+| ARCH003 | Circular Dependency | implemented: enabled explicit rule / one finding per cyclic SCC |
 | ARCH004 | Reverse Dependency | implemented: explicit direction constraint |
 | ARCH005 | Module Boundary Violation | implemented: explicit module constraint |
-| ARCH101 | Excessive Coupling | structural / heuristic |
-| ARCH102 | Dependency Hub | structural / heuristic |
-| ARCH103 | Potential God Component | structural / heuristic candidate |
-| ARCH104 | Unstable Dependency | structural / heuristic |
-| ARCH105 | Architecture Bottleneck | structural / heuristic |
+| ARCH101 | Excessive Coupling | implemented candidate: explicit distinct-neighbour threshold |
+| ARCH102 | Dependency Hub | implemented candidate: explicit Ca threshold |
+| ARCH103 | Potential God Component | implemented candidate: size AND coupling, component only |
+| ARCH104 | Unstable Dependency | implemented candidate: I(target) − I(source) ≥ delta |
+| ARCH105 | Architecture Bottleneck | implemented candidate: directed betweenness + optional support |
 | ARCH201 | Responsibility Mismatch | semantic |
 | ARCH202 | Business Logic in Controller | semantic |
 | ARCH203 | Infrastructure Leakage | semantic |
 | ARCH204 | Misplaced Component | semantic |
 | ARCH205 | Suspicious Cross-Layer Responsibility | semantic |
 
-Graph signal может быть детерминированным фактом, а interpretation/threshold — эвристическим.
+ARCH101–105 не создают Finding: default disabled, confidence absent, `not_calibrated: true`.
+Пороги и формулы: [Graph Candidates](GRAPH_CANDIDATES.md). Cycle observation без explicit rule
+также не violation. Graph signal может быть детерминированным фактом, а interpretation/threshold — эвристическим.
 Severity определяется отдельно от calibration/confidence. Confirmed explicit violation LLM
 не отменяет. Target scope ARCH001–ARCH205 означает перечисленные 15 правил, не все 205 чисел.
 

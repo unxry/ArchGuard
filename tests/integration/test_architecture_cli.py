@@ -69,7 +69,7 @@ def test_clean_mixed_check_exit_zero(capsys: pytest.CaptureFixture[str]) -> None
     [
         "missing_spec",
         "bad_yaml",
-        "graph_rule",
+        "unsupported_rule",
         "missing_repository",
         "unwritable_output",
         "invalid_namespace",
@@ -85,9 +85,9 @@ def test_cli_input_errors_are_typed_and_do_not_leak(
         spec.unlink()
     elif case == "bad_yaml":
         spec.write_text("version: [PRIVATE_YAML_MARKER")
-    elif case == "graph_rule":
+    elif case == "unsupported_rule":
         spec.write_text(
-            'version: "1.0"\narchitecture: {}\nrules: [{id: ARCH003, type: circular_dependency}]'
+            'version: "1.0"\narchitecture: {}\nrules: [{id: ARCH003, type: future_cycle}]'
         )
     elif case == "missing_repository":
         args[2] = str(tmp_path / "absent")

@@ -7,19 +7,32 @@ from pathlib import Path
 
 from pydantic import ValidationError
 
+from archguard.application.analyze_graph import AnalyzeGraph
 from archguard.application.build_iam import BuildIAM
 from archguard.application.check_architecture import CheckArchitecture
 from archguard.application.parse_repository import ParseRepository
+from archguard.architecture.check_result import ArchitectureCheckResult
+from archguard.architecture.classification.models import ConformanceDiagnostic
 from archguard.architecture.conformance.analyzer import serialize_conformance
 from archguard.architecture.conformance.models import ConformanceStatus, StaticConformanceResult
+from archguard.architecture.graph.analyzer import serialize_graph_result
+from archguard.architecture.graph.config import GraphAnalysisConfig, GraphProjectionSpec
+from archguard.architecture.graph.enums import GraphProjection
+from archguard.architecture.graph.models import GraphDiagnostic
+from archguard.architecture.graph.result import GraphAnalysisResult
 from archguard.architecture.specification.errors import ArchitectureSpecificationError
 from archguard.architecture.specification.models import ArchitectureSpecification
+from archguard.core.model.enums import EdgeKind
 from archguard.extraction.config import ExtractionConfig
 from archguard.extraction.errors import IAMValidationError
 from archguard.extraction.factory import create_extractor_registry
 from archguard.iam_building.models import IAMBuildResult
 from archguard.iam_building.serialization import serialize_iam
 from archguard.infrastructure.architecture_specification import load_architecture_file
+from archguard.infrastructure.graph_configuration import (
+    GraphConfigurationError,
+    load_graph_configuration,
+)
 from archguard.infrastructure.logging import JsonFormatter
 from archguard.infrastructure.repository.factory import create_discovery
 from archguard.parsing.config import ParserConfig
@@ -38,6 +51,7 @@ def _parser() -> argparse.ArgumentParser:
         ("repo", ["repository"], "Discover files without parsing or executing code"),
         ("parse", [], "Parse eligible sources without extraction or code execution"),
         ("iam", [], "Build IAM from syntax facts and conservative reference resolution"),
+        ("graph", [], "Analyze actual dependency structure, metrics and graph signals"),
         (
             "architecture",
             [],
@@ -46,7 +60,15 @@ def _parser() -> argparse.ArgumentParser:
     ):
         group = groups.add_parser(name, aliases=aliases)
         commands = group.add_subparsers(dest="command", required=True)
-        command = "build" if name == "iam" else "check" if name == "architecture" else "inspect"
+        command = (
+            "build"
+            if name == "iam"
+            else "check"
+            if name == "architecture"
+            else "analyze"
+            if name == "graph"
+            else "inspect"
+        )
         inspect = commands.add_parser(command, help=description)
         inspect.add_argument("location")
         inspect.add_argument("--source", choices=["local", "zip", "git"], default="local")
@@ -54,9 +76,9 @@ def _parser() -> argparse.ArgumentParser:
         inspect.add_argument("--exclude", action="append", default=[])
         inspect.add_argument("--no-gitignore", action="store_true")
         inspect.add_argument("--json", action="store_true")
-        if name in {"parse", "iam", "architecture"}:
+        if name in {"parse", "iam", "architecture", "graph"}:
             inspect.add_argument("--strict", action="store_true", help="Mark syntax errors invalid")
-        if name in {"iam", "architecture"}:
+        if name in {"iam", "architecture", "graph"}:
             inspect.add_argument("--output", type=Path, help="Write deterministic analysis JSON")
             inspect.add_argument(
                 "--namespace",
@@ -68,6 +90,15 @@ def _parser() -> argparse.ArgumentParser:
             validate = commands.add_parser("validate", help="Validate target architecture YAML")
             validate.add_argument("spec", type=Path)
             validate.add_argument("--json", action="store_true")
+        if name == "graph":
+            inspect.add_argument("--spec", type=Path)
+            inspect.add_argument(
+                "--config", type=Path, help="Typed graph analysis JSON configuration"
+            )
+            inspect.add_argument("--projection", choices=[item.value for item in GraphProjection])
+            inspect.add_argument(
+                "--relations", nargs="+", choices=[item.value for item in EdgeKind]
+            )
     return parser
 
 
@@ -144,7 +175,7 @@ def _print_spec_summary(spec: ArchitectureSpecification) -> None:
     print("Diagnostics: none")
 
 
-def _print_conformance_summary(result: StaticConformanceResult) -> None:
+def _print_conformance_summary(result: StaticConformanceResult | ArchitectureCheckResult) -> None:
     stats = result.statistics
     print(f"Project: {result.reproducibility.project_id}")
     print(f"Snapshot: {result.reproducibility.snapshot_id}")
@@ -158,8 +189,69 @@ def _print_conformance_summary(result: StaticConformanceResult) -> None:
     print("Findings by severity: " + json.dumps(stats.findings_by_severity, sort_keys=True))
     for finding in result.findings:
         print(f"{finding.rule_id} {finding.severity.value}: {finding.description}")
+    diagnostics: tuple[ConformanceDiagnostic | GraphDiagnostic, ...] = (
+        result.diagnostics
+        if isinstance(result, StaticConformanceResult)
+        else (*result.static_result.diagnostics, *result.graph_result.diagnostics)
+    )
+    for diagnostic in diagnostics:
+        print(f"{diagnostic.code}: {diagnostic.message}")
+
+
+def _serialize_architecture(result: StaticConformanceResult | ArchitectureCheckResult) -> str:
+    if isinstance(result, StaticConformanceResult):
+        return serialize_conformance(result)
+    return (
+        json.dumps(
+            ArchitectureCheckResult.model_validate(result).model_dump(mode="json"),
+            sort_keys=True,
+            ensure_ascii=False,
+            allow_nan=False,
+            indent=2,
+        )
+        + "\n"
+    )
+
+
+def _graph_config(arguments: argparse.Namespace) -> GraphAnalysisConfig:
+    config = (
+        load_graph_configuration(arguments.config) if arguments.config else GraphAnalysisConfig()
+    )
+    projection = config.projection.model_dump()
+    if arguments.projection is not None:
+        projection["projection"] = GraphProjection(arguments.projection)
+    if arguments.relations is not None:
+        projection["included_relations"] = tuple(EdgeKind(value) for value in arguments.relations)
+    return GraphAnalysisConfig.model_validate(
+        config.model_copy(update={"projection": GraphProjectionSpec.model_validate(projection)})
+    )
+
+
+def _print_graph_summary(result: GraphAnalysisResult) -> None:
+    stats = result.statistics
+    print(f"Projection: {result.graph.projection.projection.value}")
+    print(f"Nodes: {len(result.graph.nodes)}; edges: {len(result.graph.edges)}")
+    print(f"SCCs: {stats.scc_count}; cyclic SCCs: {stats.cyclic_scc_count}")
+    print(f"ARCH003 findings: {len(result.findings)}; metric nodes: {len(result.metrics)}")
+    print("Candidates: " + json.dumps(stats.candidate_count_by_rule, sort_keys=True))
+    print("Metrics computed: " + ", ".join(stats.metrics_computed))
+    labels = {node.id: node.label for node in result.graph.nodes}
+    for cycle in result.cycles:
+        print(
+            "Cycle observation: "
+            + (
+                "proof exceeds trace budget"
+                if cycle.truncated
+                else " → ".join(labels[node] for node in cycle.node_ids)
+            )
+        )
+    for finding in result.findings:
+        print(f"{finding.rule_id} {finding.severity.value}: {finding.description}")
     for diagnostic in result.diagnostics:
         print(f"{diagnostic.code}: {diagnostic.message}")
+    print(f"Analysis: {result.status}")
+    if result.conformance and result.conformance.rule_enabled:
+        print(f"Graph conformance: {result.conformance.status.value}")
 
 
 def main(argv: Sequence[str] | None = None) -> int:
@@ -178,9 +270,11 @@ def main(argv: Sequence[str] | None = None) -> int:
     parse_result = None
     iam_result = None
     conformance = None
+    graph_result = None
     try:
         try:
             spec = None
+            graph_config = None
             if arguments.group == "architecture":
                 spec = load_architecture_file(arguments.spec)
                 if arguments.command == "validate":
@@ -201,6 +295,9 @@ def main(argv: Sequence[str] | None = None) -> int:
                     else:
                         _print_spec_summary(spec)
                     return 0
+            elif arguments.group == "graph":
+                spec = load_architecture_file(arguments.spec) if arguments.spec else None
+                graph_config = _graph_config(arguments)
             policy = RepositoryScanPolicy(
                 extra_exclusions=tuple(arguments.exclude),
                 respect_gitignore=not arguments.no_gitignore,
@@ -211,23 +308,31 @@ def main(argv: Sequence[str] | None = None) -> int:
                 ref=arguments.ref,
             )
             discovery = create_discovery(policy)
-            if arguments.group in {"parse", "iam", "architecture"}:
+            if arguments.group in {"parse", "iam", "architecture", "graph"}:
                 config = ParserConfig(strict_syntax_errors=arguments.strict)
                 with discovery.open(source) as repository:
                     parsing = ParseRepository(create_parser_registry(), config)
-                    if arguments.group in {"iam", "architecture"}:
+                    if arguments.group in {"iam", "architecture", "graph"}:
                         building = BuildIAM(
                             parsing,
                             create_extractor_registry(),
                             ExtractionConfig(repository_namespace=arguments.namespace),
                         )
-                        if spec is not None:
+                        if graph_config is not None:
+                            graph_result = AnalyzeGraph(building).execute(
+                                repository.snapshot, repository.workspace, graph_config, spec
+                            )
+                            if arguments.output is not None:
+                                arguments.output.write_text(
+                                    serialize_graph_result(graph_result), encoding="utf-8"
+                                )
+                        elif spec is not None:
                             conformance = CheckArchitecture(building).execute(
                                 repository.snapshot, repository.workspace, spec
                             )
                             if arguments.output is not None:
                                 arguments.output.write_text(
-                                    serialize_conformance(conformance), encoding="utf-8"
+                                    _serialize_architecture(conformance), encoding="utf-8"
                                 )
                         else:
                             iam_result = building.execute(repository.snapshot, repository.workspace)
@@ -243,13 +348,21 @@ def main(argv: Sequence[str] | None = None) -> int:
         except (
             RepositoryIntakeError,
             ArchitectureSpecificationError,
+            GraphConfigurationError,
             ValidationError,
             IAMValidationError,
             OSError,
         ) as error:
             code = (
                 error.code
-                if isinstance(error, (RepositoryIntakeError, ArchitectureSpecificationError))
+                if isinstance(
+                    error,
+                    (
+                        RepositoryIntakeError,
+                        ArchitectureSpecificationError,
+                        GraphConfigurationError,
+                    ),
+                )
                 else "iam_validation_error"
                 if isinstance(error, IAMValidationError)
                 else "output_write_error"
@@ -258,7 +371,14 @@ def main(argv: Sequence[str] | None = None) -> int:
             )
             message = (
                 str(error)
-                if isinstance(error, (RepositoryIntakeError, ArchitectureSpecificationError))
+                if isinstance(
+                    error,
+                    (
+                        RepositoryIntakeError,
+                        ArchitectureSpecificationError,
+                        GraphConfigurationError,
+                    ),
+                )
                 else "IAM structure could not be validated"
                 if isinstance(error, IAMValidationError)
                 else "analysis output could not be written"
@@ -285,9 +405,23 @@ def main(argv: Sequence[str] | None = None) -> int:
             else:
                 print(f"{code}: {message}", file=sys.stderr)
             return 2
+        if graph_result is not None:
+            if arguments.json:
+                print(serialize_graph_result(graph_result), end="")
+            else:
+                _print_graph_summary(graph_result)
+            return (
+                2
+                if not graph_result.is_valid
+                else 1
+                if graph_result.findings
+                else 0
+                if graph_result.is_complete
+                else 3
+            )
         if conformance is not None:
             if arguments.json:
-                print(serialize_conformance(conformance), end="")
+                print(_serialize_architecture(conformance), end="")
             else:
                 _print_conformance_summary(conformance)
             return {

@@ -1,6 +1,6 @@
 # ArchGuard AI
 
-**Current stage: Architecture Specification & Static Conformance** · версия **0.1.0**
+**Current stage: Graph Engine & Structural Architecture Analysis** · версия **0.1.0**
 
 Магистерская ВКР: «Разработка гибридного метода автоматизированного контроля соответствия
 программной архитектуры исходному коду на основе статического, графового и интеллектуального
@@ -12,7 +12,8 @@
 
 ```text
 Source → Repository Intake → Parsing → Extraction → Resolution → language-neutral IAM
-                                                       + architecture.yaml → Static → ARCH
+                                                       + architecture.yaml → Static + Graph → ARCH
+        IAM → Graph → observations / metrics / candidates
 Future: IAM → Graph + LLM + Static → Hybrid → ARCH
         IAM / graph → separate Security pipeline → SEC
 ```
@@ -41,7 +42,10 @@ ARCH и SEC используют общие Finding / Evidence / Trace, но н�
 - Static rule registry и реальные ARCH001/ARCH002/ARCH004/ARCH005 findings из resolved IAM edges,
   с едиными Finding/Evidence/Trace contracts, file-pair aggregation, JSON export и application/CLI.
 
-ARCH003/Graph Engine, graph metrics, LLM calls, hybrid fusion, Security Engine и production frontend
+- NetworkX dependency projections, bounded SCC/cycle proofs, directed metrics и path/neighbourhood API.
+- Explicit ARCH003 circular-dependency findings и отдельно ARCH101–105 candidates по заданным порогам.
+
+LLM calls, hybrid fusion, Security Engine и production frontend
 ещё не реализованы. В API нет endpoint анализа; IAM/findings persistence отсутствует.
 Synthetic IAM fixture находится в `tests/fixtures/synthetic_iam.json`; реальные conformance fixtures
 проходят весь pipeline и создают findings из исходного кода.
@@ -68,6 +72,29 @@ DSL и границы: [Specification](docs/architecture/ARCHITECTURE_SPECIFICAT
 [Static Conformance](docs/architecture/STATIC_CONFORMANCE.md).
 Результаты quality gate, manual fixtures и macOS/Linux comparison:
 [PROMPT 005 Verification](docs/architecture/STATIC_VERIFICATION.md).
+
+## Graph analysis
+
+```bash
+.venv/bin/archguard graph analyze tests/fixtures/graph/cyclic/java --json
+.venv/bin/archguard graph analyze tests/fixtures/graph/cyclic/java \
+  --spec examples/architecture/circular-component.yaml --json --output /tmp/graph.json
+.venv/bin/archguard graph analyze tests/fixtures/graph/hub \
+  --config examples/graph/research-demo.json
+```
+
+`A → B` означает, что A зависит от B. Без explicit `circular_dependency` cycles остаются observations;
+ARCH003 создаётся только по enabled rule в valid spec, по одному finding на cyclic SCC.
+Candidates отключены по default, имеют `confidence: null`, `not_calibrated: true` и не являются
+violations. Demo thresholds исследовательские, не production defaults.
+`--projection` и `--relations` переопределяют соответствующие поля bounded typed JSON `--config`.
+Остальные intake flags совпадают с IAM CLI; target `layer`/`module` требуют classification spec.
+Exit codes: 0 COMPLETE без ARCH003, 1 confirmed ARCH003, 2 INVALID, 3 INCOMPLETE без findings.
+`architecture check` объединяет static и explicit graph conformance, строя IAM один раз.
+
+Contracts/limits: [Graph Engine](docs/architecture/GRAPH_ENGINE.md),
+[Metrics](docs/architecture/GRAPH_METRICS.md), [Candidates](docs/architecture/GRAPH_CANDIDATES.md).
+Проверки: [PROMPT 006 Verification](docs/architecture/GRAPH_VERIFICATION.md).
 
 ## Repository discovery
 
@@ -188,11 +215,11 @@ src/archguard/
   iam/                 language-neutral snapshots
   architecture/        specification, classification, conformance, rules; future graph/intelligence
   security/            future boundary; implementation gated by thesis milestone
-  application/         DiscoverRepository, ParseRepository, BuildIAM, CheckArchitecture
+  application/         DiscoverRepository, ParseRepository, BuildIAM, CheckArchitecture, AnalyzeGraph
   experiments/         reproducibility contract
   reports/             future boundary
   infrastructure/      settings, logging, SQLAlchemy, Local/ZIP/Git adapters
-  cli.py               repository inspection, parsing, IAM build, architecture validate/check
+  cli.py               repository inspection, parsing, IAM build, architecture validate/check, graph analyze
 tests/                 unit, integration, explicitly synthetic fixtures
 migrations/            Alembic environment; no application revisions
 experiments/           separate dataset, ground-truth, result locations
@@ -214,7 +241,7 @@ AnalysisId, repository revision и versioned analysis config, сохраняет
   [воспроизводимость](docs/experiments/REPRODUCIBILITY.md).
 - [UI reference](docs/design/UI_REFERENCE.md): исходный HTML сохранён без изменений.
 
-Следующий этап: **PROMPT 006 — Graph Engine & Structural Architecture Analysis**.
-Далее — graph projections/algorithms, graph-guided semantic
+Следующий этап после review: **PROMPT 007 — Architecture Discovery & Structural Classification Foundation**
+или корректирующий PROMPT 006.1. Далее — graph-guided semantic
 analysis, hybrid decision, benchmark и ablation. После CORE THESIS COMPLETE — отдельный Security
 Engine. Frontend реализуется отдельными этапами по реальным backend contracts.

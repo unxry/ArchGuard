@@ -193,12 +193,12 @@ def test_loader_resource_limits(config: ArchitectureSpecLoaderConfig, source: st
         ArchitectureSpecLoader(config).load(source)
 
 
-def test_version_and_graph_rule_have_typed_errors() -> None:
+def test_version_and_unsupported_rule_have_typed_errors() -> None:
     with pytest.raises(UnsupportedArchitectureSpecVersionError):
         ArchitectureSpecLoader().load('version: "2.0"\narchitecture: {}')
     with pytest.raises(UnsupportedArchitectureRuleError):
         ArchitectureSpecLoader().load(
-            'version: "1.0"\narchitecture: {}\nrules: [{id: ARCH003, type: circular_dependency}]'
+            'version: "1.0"\narchitecture: {}\nrules: [{id: ARCH003, type: future_cycle}]'
         )
 
 

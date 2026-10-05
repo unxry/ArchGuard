@@ -1,6 +1,6 @@
 # Architecture Specification v1
 
-Stage: PROMPT 005. Target architecture — explicit проверяемые ограничения автора проекта.
+Stage: PROMPT 005, extended in PROMPT 006. Target architecture — explicit проверяемые ограничения автора проекта.
 Actual architecture — существующий language-neutral IAM, построенный из синтаксиса и conservative
 resolution. Target spec не дописывает layers, modules или guessed dependencies в actual IAM.
 
@@ -35,8 +35,8 @@ YAML использует только aliases `from`/`to`; Python models име
 
 Каждый rule принимает `severity` (info/low/medium/high/critical, без учёта регистра; default medium),
 `enabled` (boolean, default true), optional description, непустой `relations` (default six IAM
-dependency kinds). v1 разрешает один экземпляр каждого builtin ID: ARCH001/002/004/005, максимум
-четыре rules. ID должен соответствовать type; произвольные rule IDs и SEC IDs не принимаются.
+dependency kinds). v1 разрешает один экземпляр каждого builtin ID: ARCH001/002/003/004/005, максимум
+пять rules. ID должен соответствовать type; произвольные rule IDs и SEC IDs не принимаются.
 Повторные IDs, unknown references, empty allow/deny, одновременные allow и deny запрещены.
 Disabled rules тоже проходят schema/reference validation.
 
@@ -62,12 +62,13 @@ Java package/source-group MODULE и ES structural MODULE без file link, PROJE
 Rule не проверяет endpoint, у которого отсутствует нужная dimension. Status node вычисляется из
 candidate lists; JSON хранит candidates и unique layer/module assignment.
 
-## Четыре правила
+## Пять правил
 
 | ID / type | Constraint | Violation |
 | --- | --- | --- |
 | ARCH001 / forbidden_dependency | `from: {layer: domain}`, `to: {layer: infrastructure}` | Actual edge from exact source scope to exact target scope |
 | ARCH002 / layer_dependency | `from: presentation`, `allow: [application]` либо `deny: [persistence]` | Source layer matches; classified target violates allow/deny |
+| ARCH003 / circular_dependency | `projection: component` (default), `relations`, `severity`, `enabled` | Один finding на cyclic SCC в выбранной dependency projection |
 | ARCH004 / reverse_dependency | `expected: {from: application, to: domain}` | Exact reverse edge domain → application |
 | ARCH005 / module_boundary | `from: orders`, `deny: [payments]` либо `allow: [shared]` | Source target-module matches; different classified target-module violates constraint |
 
@@ -77,7 +78,12 @@ ARCH002 same-layer edges разрешены по default `allow_same_layer: true
 ARCH004 требует разные declared layers; YAML order/имена/вес edges не определяют направление.
 Rules ограничивают только указанный source; неуказанные directions allowed. Например layered-clean
 проверяет presentation → application, но не вводит отдельный запрет service → repository.
-ARCH003 требует cycle/path analysis и отклоняется как unsupported до будущего Graph Engine.
+ARCH003 исполняется Graph Engine; static registry его не исполняет. Projections: `component`, `file`,
+`package`, `layer`, `module`; aliases `target_layer`/`target_module` нормализуются. Для layer/module
+нужны соответствующие declared scopes и valid classification; другие projections допускают
+`architecture: {}`. Без enabled rule cycles являются observations. Self-loops и external endpoints
+исключены из conformance. Closed representative trace подтверждает dependency cycle, не execution path.
+Пример: [circular-component](../../examples/architecture/circular-component.yaml).
 
 Default relations: IMPORTS, INHERITS, IMPLEMENTS, CALLS, CREATES, USES. Future IAM relation kinds
 не принимаются DSL v1. Каждый rule может сузить этот set; duplicates/order нормализуются.

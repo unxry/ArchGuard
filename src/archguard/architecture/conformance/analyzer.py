@@ -16,7 +16,11 @@ from archguard.architecture.conformance.models import (
 )
 from archguard.architecture.rules.registry import StaticRuleRegistry, create_static_rule_registry
 from archguard.architecture.specification.errors import StaticRuleRegistrationError
-from archguard.architecture.specification.models import ArchitectureSpecification, RuleSpecification
+from archguard.architecture.specification.models import (
+    ArchitectureSpecification,
+    RuleSpecification,
+    RuleType,
+)
 from archguard.core.findings.model import Finding
 from archguard.core.identifiers import SnapshotId
 from archguard.core.model.types import JsonObject
@@ -69,7 +73,9 @@ class StaticConformanceAnalyzer:
                     code="INCOMPLETE_IAM", message="IAM build did not cover all source constructs"
                 )
             )
-        enabled = tuple(rule for rule in spec.rules if rule.enabled)
+        enabled = tuple(
+            rule for rule in spec.rules if rule.enabled and rule.type != RuleType.CIRCULAR
+        )
         for rule in enabled:
             try:
                 self.registry.get(rule.type)

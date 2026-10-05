@@ -75,6 +75,8 @@ def test_domain_dependency_direction() -> None:
                     )
                     if boundary != "parsing" and not native_extractor:
                         assert not imported.startswith("tree_sitter"), (path, imported)
+                    if boundary != "architecture" or "graph" not in path.parts:
+                        assert not imported.startswith("networkx"), (path, imported)
                     if imported.startswith("archguard."):
                         assert any(
                             imported == prefix or imported.startswith(prefix + ".")

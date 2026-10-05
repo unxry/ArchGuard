@@ -1,0 +1,7 @@
+version: "1.0"
+architecture: {}
+rules:
+  - id: ARCH003
+    type: circular_dependency
+    projection: component
+    severity: high

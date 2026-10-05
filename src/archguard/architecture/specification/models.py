@@ -6,6 +6,7 @@ from typing import Annotated, Literal, Self
 
 from pydantic import ConfigDict, Field, StrictBool, field_validator, model_validator
 
+from archguard.architecture.graph.enums import GraphProjection
 from archguard.core.findings.enums import Severity
 from archguard.core.model.base import DomainModel
 from archguard.core.model.enums import EdgeKind
@@ -27,6 +28,7 @@ class RuleType(StrEnum):
     LAYER = "layer_dependency"
     REVERSE = "reverse_dependency"
     MODULE = "module_boundary"
+    CIRCULAR = "circular_dependency"
 
 
 class ArchitectureSpecModel(DomainModel):
@@ -161,11 +163,27 @@ class ModuleBoundarySpecification(DependencyConstraint):
     type: Literal[RuleType.MODULE]
 
 
+class CircularDependencySpecification(RuleBase):
+    id: Literal["ARCH003"]
+    type: Literal[RuleType.CIRCULAR]
+    projection: GraphProjection = GraphProjection.COMPONENT
+
+    @field_validator("projection", mode="before")
+    @classmethod
+    def projection_alias(cls, value: object) -> object:
+        return (
+            {"target_layer": "layer", "target_module": "module"}.get(value, value)
+            if isinstance(value, str)
+            else value
+        )
+
+
 RuleSpecification = Annotated[
     ForbiddenDependencySpecification
     | LayerDependencySpecification
     | ReverseDependencySpecification
-    | ModuleBoundarySpecification,
+    | ModuleBoundarySpecification
+    | CircularDependencySpecification,
     Field(discriminator="type"),
 ]
 
@@ -194,8 +212,13 @@ class ArchitectureSpecification(ArchitectureSpecModel):
             elif isinstance(rule, ReverseDependencySpecification):
                 if not {rule.expected.source, rule.expected.target} <= layers:
                     raise ValueError("direction refers to an unknown layer")
-            elif not {rule.source, *(rule.allow or ()), *(rule.deny or ())} <= modules:
-                raise ValueError("module constraint refers to an unknown module")
+            elif isinstance(rule, ModuleBoundarySpecification):
+                if not {rule.source, *(rule.allow or ()), *(rule.deny or ())} <= modules:
+                    raise ValueError("module constraint refers to an unknown module")
+            elif (rule.projection == GraphProjection.TARGET_LAYER and not layers) or (
+                rule.projection == GraphProjection.TARGET_MODULE and not modules
+            ):
+                raise ValueError("target cycle projection requires declared scopes")
         object.__setattr__(self, "rules", tuple(sorted(self.rules, key=lambda item: item.id)))
         return self
 
