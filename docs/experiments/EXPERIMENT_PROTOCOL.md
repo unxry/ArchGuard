@@ -107,3 +107,16 @@ assessments and reviewed semantic truth. Family is the experimental unit, and fo
 must never be treated as independent observations. Production proposal/AI-target selection flags are
 explicit features so future ablations can expose selection bias. No fitting, threshold/prompt selection,
 live provider calls or final test experiment occurs in 010.1. PROMPT 011 requires review before starting.
+
+
+## PROMPT 011.1 leakage correction
+
+V1 is diagnostic/leakage-sensitive and superseded for research. Its old TEST is consumed.
+The PROMPT 011 held-out score is retained as an engineering diagnostic and is not used as thesis evidence after the post-hoc feature-leakage review.
+
+[Protocol v2](../research/MODEL_SELECTION_PROTOCOL.md) fixes raw-graph-only features, TRAIN-only
+preprocessing/family-weighted native models and VALIDATION-only selection. Direct Graph baseline
+uses separate metadata. V2 freezes AWAITING_FRESH_HOLDOUT and blocks TEST access. A new independently
+annotated lineage is required; no v2 TEST evaluation or full Hybrid validity claim exists.
+[Formal feature audit](../research/FEATURE_LEAKAGE_AUDIT.md) and
+[results](../research/STRUCTURAL_META_CLASSIFIER.md) document descriptive limitations.

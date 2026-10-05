@@ -60,6 +60,8 @@ class HybridDecisionState(StrEnum):
     INSUFFICIENT_EVIDENCE = "INSUFFICIENT_EVIDENCE"
     SUPPORTED_BY_CALIBRATED_POLICY = "SUPPORTED_BY_CALIBRATED_POLICY"
     REJECTED_BY_CALIBRATED_POLICY = "REJECTED_BY_CALIBRATED_POLICY"
+    STRUCTURAL_SIGNAL_SUPPORTED = "STRUCTURAL_SIGNAL_SUPPORTED"
+    STRUCTURAL_SIGNAL_NOT_SUPPORTED = "STRUCTURAL_SIGNAL_NOT_SUPPORTED"
 
 
 class SubjectPair(DomainModel):
@@ -308,6 +310,8 @@ class HybridDecision(DomainModel):
     confirmed_finding_ids: tuple[FindingId, ...] = ()
     severity: Severity | None = None
     confidence: Confidence | None = None
+    model_score: float | None = None
+    model_artifact_fingerprint: Digest | None = None
 
     @model_validator(mode="after")
     def state_contract(self) -> Self:
@@ -337,10 +341,24 @@ class HybridDecision(DomainModel):
             in {
                 HybridDecisionState.SUPPORTED_BY_CALIBRATED_POLICY,
                 HybridDecisionState.REJECTED_BY_CALIBRATED_POLICY,
+                HybridDecisionState.STRUCTURAL_SIGNAL_SUPPORTED,
+                HybridDecisionState.STRUCTURAL_SIGNAL_NOT_SUPPORTED,
             }
             and self.calibration_status != CalibrationStatus.CALIBRATED
         ):
             raise ValueError("calibrated decision states require a calibrated policy")
+        structural = self.state in {
+            HybridDecisionState.STRUCTURAL_SIGNAL_SUPPORTED,
+            HybridDecisionState.STRUCTURAL_SIGNAL_NOT_SUPPORTED,
+        }
+        if (self.model_score is None) != (self.model_artifact_fingerprint is None):
+            raise ValueError("model score and artifact must be paired")
+        if structural != (
+            self.model_score is not None and self.model_artifact_fingerprint is not None
+        ):
+            raise ValueError("structural decisions require separate model score and artifact")
+        if structural and self.confidence is not None:
+            raise ValueError("structural model scores are not calibrated confidence")
         return self
 
 

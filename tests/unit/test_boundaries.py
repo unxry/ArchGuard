@@ -41,6 +41,12 @@ def test_domain_dependency_direction() -> None:
             "archguard.benchmark",
         ),
         "experiments": ("archguard.core", "archguard.experiments"),
+        "calibration": (
+            "archguard.core",
+            "archguard.architecture",
+            "archguard.benchmark",
+            "archguard.calibration",
+        ),
     }
     forbidden = {
         "fastapi",

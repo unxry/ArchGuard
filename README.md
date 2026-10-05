@@ -58,11 +58,39 @@ ARCH и SEC используют общие Finding / Evidence / Trace, но н�
 - Benchmark schema 1.0, independent ground truth, safe mutation framework, family split,
   exact scoped metrics, saved prediction adapters и source-free Hybrid feature export.
 
-Calibrated Hybrid policies, benchmark LLM evaluation, Security Engine, persistent analysis jobs/API и
+Full Static+Graph+LLM calibration, benchmark LLM evaluation, Security Engine, persistent analysis jobs/API и
 production frontend ещё не реализованы. IAM/findings persistence отсутствует.
 Synthetic IAM fixture находится в `tests/fixtures/synthetic_iam.json`; реальные conformance fixtures
 проходят весь pipeline и создают findings из исходного кода.
 HTML-прототип и все его показатели — только design reference.
+
+## Graph structural calibration machinery
+
+**CALIBRATION_MACHINERY_READY / STRUCTURAL_V2_AWAITING_FRESH_HOLDOUT / FULL_HYBRID_NOT_READY.**
+V2 fits native ridge/logistic on TRAIN raw graph measurements, selects on VALIDATION and freezes an
+explicitly loaded research candidate. Detector decisions, labels and identities are excluded.
+Static proofs bypass scoring; structural scores create no normative Finding or calibrated confidence.
+V1 F1=1 is retained only as an engineering diagnostic after feature-leakage review.
+
+```bash
+uv run archguard calibration train --train /tmp/cohort/train.jsonl \
+  --manifest experiments/calibration/structural-v2.json --output /tmp/training.json
+uv run archguard calibration select --training /tmp/training.json \
+  --validation /tmp/cohort/validation.jsonl --output /tmp/selection.json
+uv run archguard calibration freeze --selection /tmp/selection.json --output /tmp/policy.json
+uv run archguard calibration baseline --train /tmp/cohort/train.jsonl \
+  --validation /tmp/cohort/validation.jsonl --manifest experiments/calibration/structural-v2.json \
+  --output /tmp/baseline.json
+```
+
+Use TRAIN/VALIDATION-only exports. V2 **TEST NOT ACCESSED**; consumed dataset-1.1 TEST is blocked.
+A fresh holdout needs new independent families and annotation, never a resplit of consumed data.
+Default runtime stays deterministic; experimental policy loading requires `--structural-policy`.
+[Leakage audit](docs/research/FEATURE_LEAKAGE_AUDIT.md),
+[result contracts](experiments/results/structural-v2/policy.json),
+[coefficients/baseline](docs/research/STRUCTURAL_META_CLASSIFIER.md),
+[protocol](docs/research/MODEL_SELECTION_PROTOCOL.md) and
+[verification](docs/verification/PROMPT_011_1.md) record scope and limitations.
 
 ## Expanded Benchmark & Calibration Cohort Foundation
 
@@ -333,6 +361,7 @@ AnalysisId, repository revision и versioned analysis config, сохраняет
   [воспроизводимость](docs/experiments/REPRODUCIBILITY.md).
 - [UI reference](docs/design/UI_REFERENCE.md): исходный HTML сохранён без изменений.
 
-Следующий этап после review: **PROMPT 011 — Hybrid Calibration & Meta-Classifier Experiment Foundation**.
+Следующий этап после review PROMPT 011.1: **PROMPT 012 — REAL-WORLD OSS BENCHMARK &
+INDEPENDENT ANNOTATION FOUNDATION**, включая fresh structural holdout.
 Он самостоятельно не начинается. Далее — benchmark, calibration и ablation. После CORE THESIS COMPLETE — отдельный Security
 Engine. Frontend реализуется отдельными этапами по реальным backend contracts.

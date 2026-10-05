@@ -4,12 +4,17 @@ from pathlib import Path
 from archguard.application.analyze_architecture_hybrid import AnalyzeArchitectureHybrid
 from archguard.application.build_iam import BuildIAM
 from archguard.application.parse_repository import ParseRepository
-from archguard.architecture.hybrid.analyzer import HybridAnalysisConfig
+from archguard.architecture.hybrid.analyzer import HybridAnalysisConfig, HybridAnalyzer
+from archguard.architecture.hybrid.calibration import (
+    CalibratedStructuralHybridPolicy,
+    StructuralCalibrationError,
+)
 from archguard.architecture.hybrid.models import HybridAnalysisResult
 from archguard.architecture.hybrid.serialization import serialize_hybrid
 from archguard.extraction.config import ExtractionConfig
 from archguard.extraction.factory import create_extractor_registry
 from archguard.infrastructure.architecture_specification import load_architecture_file
+from archguard.infrastructure.calibration import load_policy
 from archguard.infrastructure.hybrid_configuration import (
     load_hybrid_ai_result,
     load_hybrid_configuration,
@@ -25,6 +30,7 @@ from archguard.repository.policy import RepositoryScanPolicy
 def hybrid_arguments(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--config", type=Path, help="Typed Hybrid configuration JSON")
     parser.add_argument("--spec", type=Path)
+    parser.add_argument("--structural-policy", type=Path, help="Frozen structural policy JSON")
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument(
         "--without-ai", action="store_true", help="Explicit offline analysis without AI"
@@ -49,7 +55,9 @@ def human_summary(result: HybridAnalysisResult) -> str:
         for c, d in zip(result.cases, result.decisions, strict=True)
     )
     lines.append(
-        "Graph and AI signals are uncalibrated review candidates, not confirmed violations."
+        "Calibrated graph decisions are structural signals; model scores are not confidence."
+        if any(d.model_score is not None for d in result.decisions)
+        else "Graph and AI signals are uncalibrated review candidates, not confirmed violations."
     )
     if result.diagnostics:
         lines.append("Diagnostics: " + ", ".join(result.diagnostics))
@@ -62,6 +70,9 @@ def execute_hybrid(arguments: argparse.Namespace) -> int:
     )
     spec = load_architecture_file(arguments.spec) if arguments.spec else None
     ai = load_hybrid_ai_result(arguments.ai_result) if arguments.ai_result else None
+    learned = load_policy(arguments.structural_policy) if arguments.structural_policy else None
+    if learned and ai:
+        raise StructuralCalibrationError("FULL_HYBRID_NOT_READY: structural policy excludes AI")
     building = BuildIAM(
         ParseRepository(
             create_parser_registry(), ParserConfig(strict_syntax_errors=arguments.strict)
@@ -78,9 +89,10 @@ def execute_hybrid(arguments: argparse.Namespace) -> int:
         extra_exclusions=tuple(arguments.exclude), respect_gitignore=not arguments.no_gitignore
     )
     with create_discovery(policy).open(source) as repository:
-        result = AnalyzeArchitectureHybrid(building).execute(
-            repository.snapshot, repository.workspace, config, spec, saved_ai=ai
-        )
+        result = AnalyzeArchitectureHybrid(
+            building,
+            hybrid=HybridAnalyzer(CalibratedStructuralHybridPolicy(learned)) if learned else None,
+        ).execute(repository.snapshot, repository.workspace, config, spec, saved_ai=ai)
     rendered = serialize_hybrid(result)
     if arguments.output:
         arguments.output.write_text(rendered, encoding="utf-8")

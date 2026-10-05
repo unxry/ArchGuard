@@ -31,6 +31,7 @@ from archguard.architecture.intelligence.selection import ContextSelectionError
 from archguard.architecture.specification.errors import ArchitectureSpecificationError
 from archguard.architecture.specification.models import ArchitectureSpecification
 from archguard.benchmark_cli import benchmark_arguments, execute_benchmark
+from archguard.calibration_cli import calibration_arguments, execute_calibration
 from archguard.core.model.enums import EdgeKind
 from archguard.extraction.config import ExtractionConfig
 from archguard.extraction.errors import IAMValidationError
@@ -137,6 +138,7 @@ def _parser() -> argparse.ArgumentParser:
     benchmark_arguments(
         groups.add_parser("benchmark", help="Independent ground truth and offline evaluation")
     )
+    calibration_arguments(groups.add_parser("calibration", help="Offline structural calibration"))
     return parser
 
 
@@ -344,6 +346,12 @@ def main(argv: Sequence[str] | None = None) -> int:
     discovery_result = None
     try:
         try:
+            if arguments.group == "calibration":
+                try:
+                    return execute_calibration(arguments)
+                except (ValueError, OSError, RecursionError) as error:
+                    print(f"INVALID_CALIBRATION: {error}", file=sys.stderr)
+                    return 2
             if arguments.group == "benchmark":
                 try:
                     return execute_benchmark(arguments)

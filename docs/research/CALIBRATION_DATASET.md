@@ -109,3 +109,12 @@ classes, tasks, record counts and separate Structural/Full Hybrid statuses.
 Repeated exports and regeneration are byte-identical. macOS and nonroot, network-disabled Docker
 Linux match validate, readiness and all five export files. See
 [verification](../verification/PROMPT_010_1.md) and [frozen splits](EXPERIMENT_SPLITS.md).
+
+
+## Subsequent structural machinery
+
+PROMPT 011.1 keeps the 010.1 dataset/export immutable. V2 uses 42 TRAIN / 4 VALIDATION graph cases;
+TEST NOT ACCESSED for v2. The four graph TEST cases were consumed by v1 and cannot be a fresh holdout
+after feature review. V1 is superseded engineering diagnostic history; v2 is AWAITING_FRESH_HOLDOUT.
+[Leakage audit](FEATURE_LEAKAGE_AUDIT.md) excludes candidate decisions/identities/labels from predictors.
+Full Hybrid remains NOT_READY. New holdout families must be unused by v1, review, v2 design or validation.
