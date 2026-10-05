@@ -1,6 +1,6 @@
 # ArchGuard AI
 
-**Current stage: Architecture Discovery & Structural Classification** · версия **0.1.0**
+**Current stage: Graph-Guided Context & AI Architecture Analysis Foundation** · версия **0.1.0**
 
 Магистерская ВКР: «Разработка гибридного метода автоматизированного контроля соответствия
 программной архитектуры исходному коду на основе статического, графового и интеллектуального
@@ -15,6 +15,7 @@ Source → Repository Intake → Parsing → Extraction → Resolution → langu
                                                        + architecture.yaml → Static + Graph → ARCH
         IAM → Graph → observations / metrics / candidates
         IAM + Graph → Discovery → actual architecture hypotheses
+        IAM + Graph + Discovery → bounded context → LLM port → semantic candidates
 Future: IAM → Graph + LLM + Static → Hybrid → ARCH
         IAM / graph → separate Security pipeline → SEC
 ```
@@ -48,11 +49,32 @@ ARCH и SEC используют общие Finding / Evidence / Trace, но н�
 - Structural architecture discovery: role/layer hypotheses, feature module candidates, evidence,
   dependency matrices, unknown/ambiguous semantics и assignment coverage.
 
-LLM semantic analysis, graph-guided LLM context, hybrid fusion/calibration, Security Engine и production frontend
-ещё не реализованы. В API нет endpoint анализа; IAM/findings persistence отсутствует.
+- Bounded LOCAL_ONLY / GRAPH_GUIDED / EXPANDED_BASELINE context, source-free manifests/fingerprints.
+- Provider abstraction, OpenAI Responses adapter, strict evidence-reference semantic pipeline ARCH201–205.
+- CLI context / ai analyze / dry-run, explicit remote source opt-in и offline scripted verification.
+
+Hybrid fusion/calibration, benchmark LLM evaluation, Security Engine, persistent analysis jobs/API и
+production frontend ещё не реализованы. IAM/findings persistence отсутствует.
 Synthetic IAM fixture находится в `tests/fixtures/synthetic_iam.json`; реальные conformance fixtures
 проходят весь pipeline и создают findings из исходного кода.
 HTML-прототип и все его показатели — только design reference.
+
+## AI context and semantic candidates
+
+```bash
+.venv/bin/archguard ai context tests/fixtures/discovery/java-layered --node UserController --json
+.venv/bin/archguard ai analyze tests/fixtures/discovery/java-layered --target UserController \
+  --rule ARCH202 --config examples/ai/graph-guided.json --dry-run --json
+```
+
+Remote source upload disabled by default; configured OpenAI adapter requires `--allow-remote-ai`.
+`--dry-run` makes zero provider calls. Source is transient; default exports are source-free.
+ARCH201–205 produce uncalibrated semantic candidates with validated evidence refs, not Findings.
+[Context construction](docs/architecture/GRAPH_GUIDED_CONTEXT.md),
+[AI analysis](docs/architecture/AI_ARCHITECTURE_ANALYSIS.md),
+[provider/privacy](docs/architecture/LLM_PROVIDER.md),
+[research hypothesis](docs/research/GRAPH_GUIDED_LLM_CONTEXT.md),
+[verification](docs/verification/PROMPT_008.md).
 
 ## Static architecture conformance
 
@@ -265,7 +287,7 @@ AnalysisId, repository revision и versioned analysis config, сохраняет
   [воспроизводимость](docs/experiments/REPRODUCIBILITY.md).
 - [UI reference](docs/design/UI_REFERENCE.md): исходный HTML сохранён без изменений.
 
-Следующий вероятный этап после review: **PROMPT 008 — Graph-Guided Context Construction & AI Architecture Analysis Foundation**.
-Далее — graph-guided semantic
-analysis, hybrid decision, benchmark и ablation. После CORE THESIS COMPLETE — отдельный Security
+Следующий вероятный этап после review: **PROMPT 009 — Hybrid Architecture Decision Engine Foundation**;
+возможно сначала PROMPT 008.1 для уточнения AI boundary. Он самостоятельно не начинается.
+Далее — benchmark и ablation. После CORE THESIS COMPLETE — отдельный Security
 Engine. Frontend реализуется отдельными этапами по реальным backend contracts.

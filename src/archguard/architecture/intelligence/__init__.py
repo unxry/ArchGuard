@@ -1,1 +1,1 @@
-"""architecture intelligence boundary for ArchGuard AI."""
+"""Bounded context and semantic candidates; independent of vendor transports."""

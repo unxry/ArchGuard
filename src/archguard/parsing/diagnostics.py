@@ -40,8 +40,8 @@ def collect_syntax_diagnostics(
                             if node.is_missing
                             else "syntax error detected"
                         ),
-                        line=node.start_point.row + 1,
-                        column=node.start_point.column + 1,
+                        line=node.start_point[0] + 1,
+                        column=node.start_point[1] + 1,
                         start_byte=node.start_byte,
                         end_byte=node.end_byte,
                     )

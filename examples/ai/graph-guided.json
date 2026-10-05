@@ -1,0 +1,25 @@
+{
+  "context": {
+    "strategy": "GRAPH_GUIDED",
+    "hop_count": 1,
+    "direction": "BOTH",
+    "max_nodes": 20,
+    "max_files": 10,
+    "max_fragments": 20,
+    "max_fragment_chars": 4000,
+    "max_total_chars": 20000
+  },
+  "targets": {
+    "max_targets": 10,
+    "include_ambiguous": true,
+    "include_unknown": false,
+    "include_controllers": true
+  },
+  "budget": {
+    "max_calls": 10,
+    "max_candidates": 10,
+    "timeout_seconds": 30,
+    "max_output_tokens": 2000
+  },
+  "allow_remote_source": false
+}

@@ -39,18 +39,21 @@ def dotted_name(node: Node | None) -> str | None:
 
 
 def location(node: Node, path: str) -> SourceLocation:
-    start = (node.start_point.row + 1, node.start_point.column + 1)
+    # py-tree-sitter 0.26.0 Point attribute getters return borrowed references.
+    start_row, start_column = node.start_point
+    end_row, end_column = node.end_point
+    start = (start_row + 1, start_column + 1)
     if node.end_byte <= node.start_byte:
         return SourceLocation(file_path=path, start_line=start[0], start_column=start[1])
-    if node.end_point.column:
-        end = (node.end_point.row + 1, node.end_point.column)
+    if end_column:
+        end = (end_row + 1, end_column)
     else:
         data = node.text or b""
         previous_newline = data.rfind(b"\n", 0, max(0, len(data) - 1))
         column = len(data) - previous_newline - 1
         if previous_newline < 0:
-            column += node.start_point.column
-        end = (node.end_point.row, max(1, column))
+            column += start_column
+        end = (end_row, max(1, column))
     return SourceLocation(
         file_path=path,
         start_line=start[0],

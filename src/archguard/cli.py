@@ -7,6 +7,7 @@ from pathlib import Path
 
 from pydantic import ValidationError
 
+from archguard.ai_cli import ai_arguments, execute_ai
 from archguard.application.analyze_graph import AnalyzeGraph
 from archguard.application.build_iam import BuildIAM
 from archguard.application.check_architecture import CheckArchitecture
@@ -24,6 +25,7 @@ from archguard.architecture.graph.config import GraphAnalysisConfig, GraphProjec
 from archguard.architecture.graph.enums import GraphProjection
 from archguard.architecture.graph.models import GraphDiagnostic
 from archguard.architecture.graph.result import GraphAnalysisResult
+from archguard.architecture.intelligence.selection import ContextSelectionError
 from archguard.architecture.specification.errors import ArchitectureSpecificationError
 from archguard.architecture.specification.models import ArchitectureSpecification
 from archguard.core.model.enums import EdgeKind
@@ -32,6 +34,7 @@ from archguard.extraction.errors import IAMValidationError
 from archguard.extraction.factory import create_extractor_registry
 from archguard.iam_building.models import IAMBuildResult
 from archguard.iam_building.serialization import serialize_iam
+from archguard.infrastructure.ai_configuration import AIConfigurationError
 from archguard.infrastructure.architecture_specification import load_architecture_file
 from archguard.infrastructure.discovery_configuration import (
     DiscoveryConfigurationError,
@@ -59,9 +62,9 @@ def _repository_arguments(parser: argparse.ArgumentParser, group: str) -> None:
     parser.add_argument("--exclude", action="append", default=[])
     parser.add_argument("--no-gitignore", action="store_true")
     parser.add_argument("--json", action="store_true")
-    if group in {"parse", "iam", "architecture", "graph"}:
+    if group in {"parse", "iam", "architecture", "graph", "ai"}:
         parser.add_argument("--strict", action="store_true", help="Mark syntax errors invalid")
-    if group in {"iam", "architecture", "graph"}:
+    if group in {"iam", "architecture", "graph", "ai"}:
         parser.add_argument("--output", type=Path, help="Write deterministic analysis JSON")
         parser.add_argument(
             "--namespace",
@@ -116,6 +119,12 @@ def _parser() -> argparse.ArgumentParser:
             inspect.add_argument(
                 "--relations", nargs="+", choices=[item.value for item in EdgeKind]
             )
+    ai = groups.add_parser("ai", help="Bounded architecture context and semantic candidates")
+    commands = ai.add_subparsers(dest="command", required=True)
+    for command in ("context", "analyze"):
+        child = commands.add_parser(command)
+        _repository_arguments(child, "ai")
+        ai_arguments(child, command)
     return parser
 
 
@@ -323,6 +332,8 @@ def main(argv: Sequence[str] | None = None) -> int:
     discovery_result = None
     try:
         try:
+            if arguments.group == "ai":
+                return execute_ai(arguments)
             spec = None
             graph_config = None
             discovery_config = None
@@ -415,6 +426,8 @@ def main(argv: Sequence[str] | None = None) -> int:
             ArchitectureSpecificationError,
             GraphConfigurationError,
             DiscoveryConfigurationError,
+            AIConfigurationError,
+            ContextSelectionError,
             ValidationError,
             IAMValidationError,
             OSError,
@@ -428,8 +441,11 @@ def main(argv: Sequence[str] | None = None) -> int:
                         ArchitectureSpecificationError,
                         GraphConfigurationError,
                         DiscoveryConfigurationError,
+                        AIConfigurationError,
                     ),
                 )
+                else "INVALID_AI_TARGET"
+                if isinstance(error, ContextSelectionError)
                 else "iam_validation_error"
                 if isinstance(error, IAMValidationError)
                 else "output_write_error"
@@ -445,8 +461,11 @@ def main(argv: Sequence[str] | None = None) -> int:
                         ArchitectureSpecificationError,
                         GraphConfigurationError,
                         DiscoveryConfigurationError,
+                        AIConfigurationError,
                     ),
                 )
+                else str(error)
+                if isinstance(error, ContextSelectionError)
                 else "IAM structure could not be validated"
                 if isinstance(error, IAMValidationError)
                 else "analysis output could not be written"
