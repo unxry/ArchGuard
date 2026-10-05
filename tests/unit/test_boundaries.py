@@ -34,6 +34,12 @@ def test_domain_dependency_direction() -> None:
             "archguard.iam",
             "archguard.iam_building",
         ),
+        "benchmark": (
+            "archguard.core",
+            "archguard.iam",
+            "archguard.architecture",
+            "archguard.benchmark",
+        ),
         "experiments": ("archguard.core", "archguard.experiments"),
     }
     forbidden = {

@@ -55,12 +55,31 @@ ARCH и SEC используют общие Finding / Evidence / Trace, но н�
 - CLI context / ai analyze / dry-run, explicit remote source opt-in и offline scripted verification.
 
 - Hybrid cases, typed evidence channels, versioned features и deterministic precedence policy.
+- Benchmark schema 1.0, independent ground truth, safe mutation framework, family split,
+  exact scoped metrics, saved prediction adapters и source-free Hybrid feature export.
 
 Calibrated Hybrid policies, benchmark LLM evaluation, Security Engine, persistent analysis jobs/API и
 production frontend ещё не реализованы. IAM/findings persistence отсутствует.
 Synthetic IAM fixture находится в `tests/fixtures/synthetic_iam.json`; реальные conformance fixtures
 проходят весь pipeline и создают findings из исходного кода.
 HTML-прототип и все его показатели — только design reference.
+
+## Benchmark and ground truth foundation
+
+```bash
+uv run archguard benchmark validate benchmarks/v1/dataset.json
+uv run archguard benchmark smoke benchmarks/v1/dataset.json \
+  --mode GRAPH_ONLY --task STRUCTURAL_SIGNAL_RETRIEVAL
+uv run archguard benchmark export-features benchmarks/v1/dataset.json --output /tmp/new-features
+```
+
+Engineering seed: 24 repositories, seven families, 62 independent cases (Java/TypeScript).
+Mutations and language translations share one split. Unknown/out-of-scope/abstained cases are
+explicit; graph signals are not architecture defects. The default export has only positive records
+and the seed lacks semantic/graph holdouts. No model training, final benchmark or LLM quality
+experiment is claimed. See [dataset](docs/research/BENCHMARK_DATASET.md),
+[truth](docs/research/GROUND_TRUTH.md), [mutations](docs/research/MUTATION_TESTING.md) and
+[metrics](docs/research/EVALUATION_METRICS.md).
 
 ## Hybrid evidence and decisions
 
@@ -310,6 +329,6 @@ AnalysisId, repository revision и versioned analysis config, сохраняет
   [воспроизводимость](docs/experiments/REPRODUCIBILITY.md).
 - [UI reference](docs/design/UI_REFERENCE.md): исходный HTML сохранён без изменений.
 
-Следующий этап после review: **PROMPT 010 — Benchmark, Ground Truth & Mutation Dataset Foundation**.
+Следующий этап после review: **PROMPT 011 — Hybrid Calibration & Meta-Classifier Experiment Foundation**.
 Он самостоятельно не начинается. Далее — benchmark, calibration и ablation. После CORE THESIS COMPLETE — отдельный Security
 Engine. Frontend реализуется отдельными этапами по реальным backend contracts.

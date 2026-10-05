@@ -99,3 +99,13 @@ ARCH003, с жёстким сохранением severity. [Engine](HYBRID_ENGI
 Основные библиотеки: [Pydantic models](https://docs.pydantic.dev/latest/concepts/models/),
 [SQLAlchemy sessions](https://docs.sqlalchemy.org/en/20/orm/session_basics.html),
 [Alembic tutorial](https://alembic.sqlalchemy.org/en/latest/tutorial.html).
+
+## Benchmark contracts
+
+Schema 1.0 defines BenchmarkDataset/Repository, GroundTruthCase, per-rule annotation scope,
+Locator/Subjects, MutationConfig/Result, PredictionArtifact, BenchmarkPrediction/Run and
+HybridTrainingRecord. Family, ancestry and source fingerprints isolate splits. Exact IAM resolution
+preserves direction and granularity; abstention, unknown, out-of-scope and unresolved truth stay
+separate. Graph signal retrieval and semantic candidate detection are distinct from conformance.
+Source-free feature/label joins occur only after analysis. See research/GROUND_TRUTH.md and
+research/EVALUATION_METRICS.md; no calibrated policy is supplied.

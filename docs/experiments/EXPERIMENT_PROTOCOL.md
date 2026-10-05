@@ -1,6 +1,6 @@
 # Architecture experiment protocol
 
-Status: planned; foundation contains no experiment runner or results.
+Status: scientific experiment planned; PROMPT 010 supplies an independent engineering seed, scoped evaluator and offline foundation smokes. No final research results.
 
 ## Methods and ablation
 
@@ -73,3 +73,25 @@ context при одинаковом model/budget/test split, качество и
 
 **SEC findings не входят ни в Architecture F1, ни в confusion matrix основного эксперимента.**
 Security требует отдельного protocol после CORE THESIS COMPLETE.
+
+
+## PROMPT 010 task semantics and next experiments
+
+[Seed dataset](../research/BENCHMARK_DATASET.md) and [metrics](../research/EVALUATION_METRICS.md)
+fix scoped matching, negative controls and family partitions. Graph structural retrieval is a separate
+task. AI abstention/unselected targets remain outside the conditional confusion matrix with explicit
+coverage, rather than inventing negatives. Full-universe coverage-aware comparisons must be
+preregistered before scientific runs; conditional F1 alone is insufficient.
+
+| RQ | Foundation support | Future measurement |
+| --- | --- | --- |
+| RQ1 | Static controls, explicit constraints and negatives | Reviewed conformance benchmark |
+| RQ2 | Known topology and metric thresholds | Signal usefulness on reviewed projects |
+| RQ3 | Curated ARCH201–205 pairs | Real saved LLM assessments and independent review |
+| RQ4 | Exact Hybrid feature/label joins | TRAIN fit, VALIDATION selection, frozen TEST |
+| RQ5 | Existing context strategies/manifests | Real token/cost/coverage comparison |
+| RQ6 | Bounded loaders/analysis | Runtime and memory scaling on larger sources |
+
+No RQ is answered by this seed. Expand independent families, semantic/graph holdouts and negative
+feature cohort before training. Keep all seven planned ablations; unsupported execution stays explicit.
+No fitting, statistical tests, threshold/prompt tuning on TEST or calibrated artifacts in PROMPT 010.

@@ -85,3 +85,10 @@ SEC evidence запрещена в Hybrid input, SEC findings запрещены
 
 См. [contracts](CONTRACTS.md), [data model](DATA_MODEL.md), [ADRs](adr/0001-modular-monolith.md)
 и [research specification](../research/RESEARCH_SPECIFICATION.md).
+
+## Benchmark boundary
+
+PROMPT 010 adds `archguard.benchmark` for independent truth, exact IAM locator resolution,
+family splits, pure metrics, mutations and adapters. It consumes architecture results; analyzers
+cannot import it. Filesystem/safe manifests and preparation stay in infrastructure/CLI. Dataset
+labels never enter Static/Graph/AI/Hybrid inputs. See ADR 0017 and research/BENCHMARK_DATASET.md.

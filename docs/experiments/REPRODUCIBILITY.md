@@ -1,7 +1,7 @@
 # Scientific reproducibility
 
-Foundation предоставляет `ReproducibilityManifest` как versioned typed config envelope, без
-runner/results. При measured runs хранить manifest и ссылки на immutable raw artifacts.
+Foundation предоставляет `ReproducibilityManifest` как versioned typed config envelope.
+PROMPT 010 добавляет canonical benchmark manifests/results для offline foundation smokes. При measured runs хранить manifest и ссылки на immutable raw artifacts.
 
 | Field / artifact | Requirement |
 | --- | --- |

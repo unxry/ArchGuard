@@ -1,0 +1,1 @@
+{"candidates":{"bottleneck_betweenness":0.2,"excessive_coupling":4,"god_min_coupling":4,"god_min_members":3,"god_min_methods":2,"hub_fan_in":3,"unstable_delta":0.4}}

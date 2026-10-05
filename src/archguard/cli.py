@@ -30,6 +30,7 @@ from archguard.architecture.hybrid.policies import HybridPolicyError
 from archguard.architecture.intelligence.selection import ContextSelectionError
 from archguard.architecture.specification.errors import ArchitectureSpecificationError
 from archguard.architecture.specification.models import ArchitectureSpecification
+from archguard.benchmark_cli import benchmark_arguments, execute_benchmark
 from archguard.core.model.enums import EdgeKind
 from archguard.extraction.config import ExtractionConfig
 from archguard.extraction.errors import IAMValidationError
@@ -133,6 +134,9 @@ def _parser() -> argparse.ArgumentParser:
     analyze = hybrid.add_subparsers(dest="command", required=True).add_parser("analyze")
     _repository_arguments(analyze, "hybrid")
     hybrid_arguments(analyze)
+    benchmark_arguments(
+        groups.add_parser("benchmark", help="Independent ground truth and offline evaluation")
+    )
     return parser
 
 
@@ -340,6 +344,15 @@ def main(argv: Sequence[str] | None = None) -> int:
     discovery_result = None
     try:
         try:
+            if arguments.group == "benchmark":
+                try:
+                    return execute_benchmark(arguments)
+                except ValueError:
+                    print(
+                        "INVALID_BENCHMARK: artifact or configuration validation failed",
+                        file=sys.stderr,
+                    )
+                    return 2
             if arguments.group == "ai":
                 return execute_ai(arguments)
             if arguments.group == "hybrid":
