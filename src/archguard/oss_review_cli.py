@@ -38,6 +38,9 @@ def review_arguments(parser: argparse.ArgumentParser) -> None:
         "adjudication-export",
         "freeze",
         "request-extra-context",
+        "assist",
+        "wizard",
+        "draft-export",
     ):
         child = commands.add_parser(name)
         child.add_argument(
@@ -61,6 +64,10 @@ def review_arguments(parser: argparse.ArgumentParser) -> None:
         child.add_argument("--catalog", type=Path)
         child.add_argument("--store", type=Path)
         child.add_argument("--output", type=Path)
+        if name in {"wizard", "draft-export"}:
+            child.add_argument("--bundle", type=Path, required=True)
+            child.add_argument("--assistance", type=Path, required=True)
+            child.add_argument("--draft", type=Path, required=True)
         if name in {"validate", "import"}:
             child.add_argument("--annotations", type=Path, required=True)
         if name == "import":
@@ -86,10 +93,55 @@ def execute_review(args: argparse.Namespace) -> int:
         if args.catalog
         else initial_catalog(bound, sample)
     )
+    name = args.review_command
+    if name in {"assist", "wizard", "draft-export"}:
+        from archguard.infrastructure.oss_assistance import (
+            AssistancePackage,
+            build_assistance,
+            publish_assistance,
+        )
+        from archguard.infrastructure.oss_review_wizard import export_draft, wizard
+
+        package = build_assistance(bound, sample, cache, catalog)
+        if name == "assist":
+            if args.output is None:
+                raise ValueError("assistance requires a new --output directory")
+            publish_assistance(package, args.output)
+            print(canonical({"cases": len(package.cases), "fingerprint": package.fingerprint}))
+        else:
+            supplied = AssistancePackage.model_validate(_read(args.assistance, 8388608))
+            if supplied != package:
+                raise ValueError("assistance differs from deterministic pinned-source extraction")
+            if args.draft.resolve().is_relative_to(args.assistance.parent.resolve()):
+                raise ValueError("draft must be outside immutable assistance package")
+            if name == "wizard":
+                draft = wizard(package, args.bundle, args.draft)
+                print(
+                    canonical(
+                        {
+                            "draft_rows": len(draft.reviews),
+                            "remaining": len(package.cases) - len(draft.reviews),
+                        }
+                    )
+                )
+            else:
+                if args.output is None:
+                    raise ValueError("explicit draft export requires a new --output file")
+                if args.output.resolve().is_relative_to(args.assistance.parent.resolve()):
+                    raise ValueError("export must be outside immutable assistance package")
+                print(
+                    canonical(
+                        {
+                            "exported_rows": export_draft(
+                                package, args.bundle, args.draft, args.output
+                            )
+                        }
+                    )
+                )
+        return 0
     validate_context(bound, sample, cache, catalog)
     previous = ReviewStore.model_validate(_read(args.store, 8388608)) if args.store else None
     store = append_reviews(sample, catalog, previous=previous)
-    name = args.review_command
     if name == "status":
         frozen = False
         if args.freeze_receipt:

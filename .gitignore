@@ -48,3 +48,4 @@ result-linux.json
 experiments/oss/blinded/
 experiments/oss/evaluation-private/
 experiments/oss/cache/
+experiments/oss/annotation-assistance/
