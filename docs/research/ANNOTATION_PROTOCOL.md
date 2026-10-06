@@ -75,4 +75,20 @@ STRUCTURAL_SIGNAL and human ARCHITECTURAL_QUALITY_JUDGMENT are distinct packet t
 is not automatically a defect. A future threshold-derived structural holdout comparison is secondary
 and cannot substantiate the central Hybrid semantic/architectural-quality claim.
 
-Current actual status: all 40 UNREVIEWED, no human reviewer identities or completed labels.
+Current actual status: ANNOTATION_FROZEN, 39 DOUBLE_REVIEW and 1 ADJUDICATED. Human truth is
+P/N/U/OOS=0/32/0/8; binary eligible=32, excluded=8. Two initial humans supplied 80 reviews; a
+distinct third human adjudicated the one ARCH202 OOS/NEGATIVE conflict as OUT_OF_SCOPE.
+Original A/B exact agreement remains 39/40=97.5%; binary agreement 32/32=100%, kappa null due
+to degenerate NEGATIVE-only marginals. The adjudicator is not an additional paired rater.
+
+ANNOTATION_VALID=YES, POSITIVE_CLASS_PRESENT=NO, REAL_AI_EXECUTION_READY=YES,
+PRIMARY_BINARY_SEMANTIC_METRICS_READY=NO and PRIMARY_SEMANTIC_EFFECTIVENESS_READY=NO.
+Zero positives does not invalidate annotation; this cohort alone cannot support meaningful
+violation Recall, positive-class F1 or false-negative rate. Specificity/negative correctness,
+abstention/OOS handling, context-mode comparison and resource/false-positive analysis remain
+possible in a separately authorized future experiment. Never convert OOS to NEGATIVE or repair
+class balance post hoc. A positive-bearing cohort needs a new prospective sampling/freeze protocol.
+
+See the [full lineage freeze](../../experiments/oss/annotation-results/prompt013-f/README.md).
+Any annotation correction creates a new explicit version, lineage and freeze. Real AI, Structural
+V2 and Hybrid evaluation remain unexecuted; PROMPT 014 is not started by this freeze.

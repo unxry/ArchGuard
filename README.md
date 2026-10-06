@@ -93,26 +93,31 @@ remain pending. Human packets/private analysis stay local; canonical manifests/r
 
 ## Human annotation workflow
 
-PROMPT 013.C: **READY_FOR_HUMAN_REVIEW** — 40 final packets; human ground truth remains pending.
-31 pinned requests added common context to 29 cases; 11 original revisions remain active.
-Fresh availability audit: 0 SUFFICIENT / 37 LIMITED / 3 UNRESOLVED. Both humans receive identical
-source/questions and blank forms with independently regenerated source assistance. Human IDs,
-labels, reviews and binary-eligible cases remain zero; agreement/kappa remain undefined.
+PROMPT 013.F: **ANNOTATION_FROZEN** — 40 terminal cases: 39 DOUBLE_REVIEW and 1 ADJUDICATED.
+Two initial humans supplied 80 reviews; a distinct third human supplied one adjudication.
+Final truth: POSITIVE=0, NEGATIVE=32, UNCERTAIN=0, OUT_OF_SCOPE=8; 32 binary-eligible, 8 excluded.
+Original A/B exact agreement remains 39/40 (97.5%); binary agreement is 32/32 (100%). Kappa is
+null because both binary marginals contain only NEGATIVE. Adjudication preserves this history.
+
+**ANNOTATION_VALID=YES / REAL_AI_EXECUTION_READY=YES / PRIMARY_SEMANTIC_EFFECTIVENESS_READY=NO.**
+There are no human positives: this cohort alone cannot substantiate semantic violation Recall,
+positive-class F1 or false-negative rate. A separately authorized experiment may study specificity,
+abstention/OOS handling, context modes, tokens, latency, cost and false positives. A positive-bearing
+cohort requires a new prospective dataset/version; never relabel or resample this frozen cohort.
 
 ```bash
 uv run archguard benchmark oss review status \
   --catalog experiments/oss/annotation/review-packet-revisions-final-v1.json \
-  --ready-directory experiments/oss/blinded/prompt013-final-context-v1
+  --store experiments/oss/blinded/prompt013-e/import-adjudicated/reviews.json \
+  --freeze-receipt experiments/oss/annotation-results/prompt013-f/protocol-freeze/annotation-freeze.json
 ```
 
-[Final human execution commands](docs/research/HUMAN_ANNOTATION_EXECUTION.md),
-[common context freeze](docs/research/SUPPLEMENTAL_CONTEXT_FREEZE.md),
-[assistance and private drafts](docs/annotation-assistance.md),
-[adjudication and annotation freeze](docs/research/ANNOTATION_ADJUDICATION.md).
-Local A/B forms: `experiments/oss/blinded/prompt013-final-context-v1/reviewer-{a,b}/review-form.json`.
-Historical artifacts remain immutable. No human annotation is claimed complete. Two real humans
-must independently review, resolve conflicts and freeze annotations before real AI evaluation.
-Full Hybrid remains NOT_READY; V2/Hybrid evaluation and live AI calls remain zero.
+[Source-free ground truth and full lineage freeze](experiments/oss/annotation-results/prompt013-f/README.md),
+[human execution history](docs/research/HUMAN_ANNOTATION_EXECUTION.md),
+[adjudication protocol](docs/research/ANNOTATION_ADJUDICATION.md).
+Frozen packets, context and original human answers remain immutable. Private submissions/stores
+stay local; the versioned freeze binds their fingerprints. No real AI, V2 or Hybrid evaluation
+has run; Full Hybrid remains NOT_READY. PROMPT 014 does not start automatically.
 
 ## Graph structural calibration machinery
 

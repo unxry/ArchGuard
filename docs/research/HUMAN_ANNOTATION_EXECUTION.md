@@ -1,9 +1,17 @@
 # Human annotation execution
 
-PROMPT 013.C completes context preparation for the frozen 40-case OSS sample. Current state:
-**READY_FOR_HUMAN_REVIEW**. Human reviewers, labels and binary-eligible cases: **0**.
-Completed annotation freeze, Structural V2 evaluation and live AI assessments: **none**.
-Full Hybrid remains **NOT_READY**. No case is treated as a negative merely because it is unreviewed.
+PROMPT 013.F status: **ANNOTATION_FROZEN**. All 40 cases are terminal: 39 DOUBLE_REVIEW,
+1 ADJUDICATED; 80 initial review events from two humans and one event from a distinct adjudicator.
+Final P/N/U/OOS=0/32/0/8; binary eligible=32, excluded=8. Frozen source-free artifacts and full
+lineage bindings are in [prompt013-f](../../experiments/oss/annotation-results/prompt013-f/README.md).
+
+ANNOTATION_VALID=YES and REAL_AI_EXECUTION_READY=YES. POSITIVE_CLASS_PRESENT=NO;
+PRIMARY_SEMANTIC_EFFECTIVENESS_READY=NO. This negative-only binary truth cannot substantiate
+positive-class Recall/F1/false-negative rate. No real AI/V2/Hybrid evaluation has run.
+Full Hybrid remains NOT_READY. Corrections require a new explicit version/lineage/freeze.
+
+The workflow below documents historical human preparation/import. Preserve its frozen packages
+and submissions; do not restart annotation or modify frozen truth for the planned evaluation.
 
 ## Give each human their own bundle
 
