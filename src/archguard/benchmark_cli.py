@@ -24,10 +24,12 @@ from archguard.infrastructure.benchmark import (
     validate_dataset,
 )
 from archguard.infrastructure.calibration_cohort import export_cohort, extract_cohort
+from archguard.oss_cli import execute_oss, oss_arguments
 
 
 def benchmark_arguments(group: argparse.ArgumentParser) -> None:
     commands = group.add_subparsers(dest="command", required=True)
+    oss_arguments(commands.add_parser("oss", help="Frozen real OSS corpus and blinded annotation"))
     for name in (
         "validate",
         "split",
@@ -58,6 +60,8 @@ def benchmark_arguments(group: argparse.ArgumentParser) -> None:
 
 
 def execute_benchmark(arguments: argparse.Namespace) -> int:
+    if arguments.command == "oss":
+        return execute_oss(arguments)
     limits = (
         BenchmarkLimits.model_validate(read_manifest(arguments.limits))
         if arguments.limits

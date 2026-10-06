@@ -64,6 +64,33 @@ Synthetic IAM fixture находится в `tests/fixtures/synthetic_iam.json`;
 проходят весь pipeline и создают findings из исходного кода.
 HTML-прототип и все его показатели — только design reference.
 
+## Real-World OSS Benchmark & Annotation Foundation
+
+PROMPT 012 adds a separate **OSS_ANNOTATION_SEED**: 8 pinned independent public repositories
+(4 Java / 4 TypeScript), preregistered metadata-only selection, license/provenance hashes, explicit
+reproducible fetch, offline characterization and blinded annotation export/import.
+40 frozen semantic packets cover ARCH201–205; **all UNREVIEWED**, with no invented labels/reviewers.
+
+```bash
+archguard benchmark oss validate
+archguard benchmark oss fetch --dry-run
+archguard benchmark oss fetch --cache /tmp/oss-cache
+archguard benchmark oss characterize --cache /tmp/oss-cache --output /tmp/characterization
+archguard benchmark oss sample --frame /tmp/characterization/sampling-frame.json --output /tmp/sample
+archguard benchmark oss annotation-export --cache /tmp/oss-cache \
+  --sample /tmp/sample/sample.json --output /tmp/blinded
+```
+
+Source code is never executed or vendored; fetch is the only network stage. Corpus freeze precedes
+analysis, sample freeze precedes AI/human labels. All repositories remain PARTIAL; source-resolution
+limitations and library-heavy sampling are reported. V2 stays **AWAITING_FRESH_HOLDOUT** and was not
+used for selection, sampling or evaluation. Live AI=0; **FULL_HYBRID_NOT_READY**.
+[OSS benchmark](docs/research/OSS_BENCHMARK.md), [selection](docs/research/OSS_SELECTION_PROTOCOL.md),
+[annotation](docs/research/ANNOTATION_PROTOCOL.md), [external validity](docs/research/EXTERNAL_VALIDITY.md)
+and [verification](docs/verification/PROMPT_012.md) describe evidence and remaining work.
+Completed independent human annotation, fresh V2 evaluation, real LLM cohort and final thesis experiments
+remain pending. Human packets/private analysis stay local; canonical manifests/receipts contain no source.
+
 ## Graph structural calibration machinery
 
 **CALIBRATION_MACHINERY_READY / STRUCTURAL_V2_AWAITING_FRESH_HOLDOUT / FULL_HYBRID_NOT_READY.**
@@ -361,7 +388,7 @@ AnalysisId, repository revision и versioned analysis config, сохраняет
   [воспроизводимость](docs/experiments/REPRODUCIBILITY.md).
 - [UI reference](docs/design/UI_REFERENCE.md): исходный HTML сохранён без изменений.
 
-Следующий этап после review PROMPT 011.1: **PROMPT 012 — REAL-WORLD OSS BENCHMARK &
-INDEPENDENT ANNOTATION FOUNDATION**, включая fresh structural holdout.
+После review PROMPT 012 следующий этап будет выбран отдельно: Independent Semantic Annotation
+Execution & Adjudication или Real AI Assessment Cohort на frozen blinded OSS cases.
 Он самостоятельно не начинается. Далее — benchmark, calibration и ablation. После CORE THESIS COMPLETE — отдельный Security
 Engine. Frontend реализуется отдельными этапами по реальным backend contracts.

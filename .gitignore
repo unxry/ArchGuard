@@ -43,3 +43,8 @@ iam-linux.json
 result-a.json
 result-b.json
 result-linux.json
+
+# Third-party source/context and human working forms stay local.
+experiments/oss/blinded/
+experiments/oss/evaluation-private/
+experiments/oss/cache/
