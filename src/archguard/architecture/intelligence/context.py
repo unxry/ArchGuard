@@ -97,10 +97,18 @@ class GraphGuidedContextBuilder:
         config: ContextSelectionConfig | None = None,
         spec: ArchitectureSpecification | None = None,
         discovery: ArchitectureDiscoveryResult | None = None,
+        *,
+        allow_invalid_iam_context: bool = False,
     ) -> ArchitectureContextPack:
         config = ContextSelectionConfig.model_validate(config or ContextSelectionConfig())
+        partial_iam = (
+            allow_invalid_iam_context
+            and iam.metadata.get("is_valid") is False
+            and "INVALID_IAM" in {d.code for d in graph.diagnostics}
+            and {d.code for d in graph.diagnostics} <= {"INVALID_IAM", "INCOMPLETE_IAM"}
+        )
         if (
-            not graph.is_valid
+            (not graph.is_valid and not partial_iam)
             or graph.graph.project_id != iam.project.id
             or graph.reproducibility.iam_fingerprint != iam_fingerprint(iam)
         ):
@@ -226,6 +234,14 @@ class GraphGuidedContextBuilder:
             )
             for _ in errors
         )
+        if partial_iam:
+            diagnostics += (
+                ContextDiagnostic(
+                    code="CONTEXT_INVALID_IAM_PARTIAL_DATA",
+                    message="Raw resolved dependencies from globally invalid IAM; "
+                    "source and topology remain untrusted, incomplete context data",
+                ),
+            )
         if config.token_budget is not None:
             diagnostics += (
                 ContextDiagnostic(
