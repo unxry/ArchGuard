@@ -91,6 +91,29 @@ and [verification](docs/verification/PROMPT_012.md) describe evidence and remain
 Completed independent human annotation, fresh V2 evaluation, real LLM cohort and final thesis experiments
 remain pending. Human packets/private analysis stay local; canonical manifests/receipts contain no source.
 
+## Human annotation workflow
+
+PROMPT 013: **WAITING_FOR_HUMAN_REVIEW** — 40 unreviewed cases, zero human IDs/labels,
+zero binary-eligible cases. Two local independent bundles provide neutral questions, pinned
+source/dependency/doc context, an index and blank forms. Review histories support explicit
+amendments, distinct third-human adjudication and guarded final freeze. Agreement/kappa are
+undefined until actual paired reviews exist. Full Hybrid remains NOT_READY; V2 evaluation and
+live AI calls remain zero.
+
+```bash
+uv run archguard benchmark oss review prepare --output /tmp/independent-human-bundles
+uv run archguard benchmark oss review status
+# After actual humans complete independent forms, follow the validated import procedure.
+```
+
+[Execution and exact import commands](docs/research/HUMAN_ANNOTATION_EXECUTION.md),
+[one-page review guide](docs/research/ANNOTATION_REVIEW_GUIDE.md),
+[adjudication and freeze](docs/research/ANNOTATION_ADJUDICATION.md),
+[verification](docs/verification/PROMPT_013.md).
+Local A/B forms: `experiments/oss/blinded/prompt013-final-v1/reviewer-{a,b}/review-form.json`.
+Original corpus/sample and PROMPT 012 packets remain immutable. No human annotation is claimed
+complete. The next required action belongs to two real independent human reviewers.
+
 ## Graph structural calibration machinery
 
 **CALIBRATION_MACHINERY_READY / STRUCTURAL_V2_AWAITING_FRESH_HOLDOUT / FULL_HYBRID_NOT_READY.**
@@ -388,7 +411,7 @@ AnalysisId, repository revision и versioned analysis config, сохраняет
   [воспроизводимость](docs/experiments/REPRODUCIBILITY.md).
 - [UI reference](docs/design/UI_REFERENCE.md): исходный HTML сохранён без изменений.
 
-После review PROMPT 012 следующий этап будет выбран отдельно: Independent Semantic Annotation
-Execution & Adjudication или Real AI Assessment Cohort на frozen blinded OSS cases.
+PROMPT 013 подготовил workflow; сейчас нужны две независимые реальные human reviews и, при
+конфликтах, adjudication. После явного annotation freeze следующий этап выбирается отдельно.
 Он самостоятельно не начинается. Далее — benchmark, calibration и ablation. После CORE THESIS COMPLETE — отдельный Security
 Engine. Frontend реализуется отдельными этапами по реальным backend contracts.

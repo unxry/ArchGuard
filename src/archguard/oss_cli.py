@@ -33,7 +33,10 @@ from archguard.infrastructure.oss_benchmark import (
 
 
 def oss_arguments(parser: argparse.ArgumentParser) -> None:
+    from archguard.oss_review_cli import review_arguments
+
     commands = parser.add_subparsers(dest="oss_command", required=True)
+    review_arguments(commands.add_parser("review"))
     for name in (
         "validate",
         "fetch",
@@ -74,6 +77,10 @@ def execute_oss(args: argparse.Namespace) -> int:
 
 
 def _execute(args: argparse.Namespace) -> int:
+    if args.oss_command == "review":
+        from archguard.oss_review_cli import execute_review
+
+        return execute_review(args)
     bound = load_corpus(args.corpus, args.protocol, args.freeze)
     cache = cache_root(args.cache)
     if args.output and args.output.exists():
