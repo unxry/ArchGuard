@@ -13,6 +13,7 @@ from archguard.benchmark.oss.review import ReviewInput
 from archguard.core.model.base import DomainModel
 from archguard.infrastructure.hybrid_configuration import _read
 from archguard.infrastructure.oss_assistance import AssistanceCase, AssistancePackage, render_case
+from archguard.infrastructure.oss_assistance_b import ReviewerBAssistance
 from archguard.infrastructure.oss_benchmark import write_new
 
 
@@ -37,6 +38,10 @@ def bundle_fingerprint(bundle: Path, package: AssistancePackage) -> str:
         or raw.get("slot") not in {"a", "b"}
     ):
         raise ValueError("bundle fingerprint/context mismatch")
+    if (raw["slot"] == "b") != isinstance(package, ReviewerBAssistance):
+        raise ValueError(
+            "bundle/assistance slot mismatch; Reviewer B requires independent B assistance"
+        )
     files = raw.get("files")
     if not isinstance(files, list) or raw.get("content_fingerprint") != digest(files):
         raise ValueError("bundle content manifest mismatch")
@@ -191,7 +196,7 @@ def wizard(
             if case.case_id in done:
                 continue
             tell(f"Case {i}/{len(package.cases)} · {case.rule} · {case.subject}\n")
-            tell(render_case(case))
+            tell(render_case(case, behavior_first=isinstance(package, ReviewerBAssistance)))
             row = _human_row(case, ask, tell)
             if row is not None:
                 updated = draft.model_copy(update={"reviews": draft.reviews + (row,)})

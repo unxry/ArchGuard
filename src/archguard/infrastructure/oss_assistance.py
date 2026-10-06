@@ -447,7 +447,7 @@ def build_assistance(
     )
 
 
-def render_case(case: AssistanceCase) -> str:
+def render_case(case: AssistanceCase, *, behavior_first: bool = False) -> str:
     sections = [
         f"# {case.case_id}",
         f"Repository: {case.repository}\n\nRule: {case.rule}\n\nSubject: {case.subject}\n\n"
@@ -456,13 +456,16 @@ def render_case(case: AssistanceCase) -> str:
         f"Original packet fingerprint: {case.original_packet_fingerprint}",
         "## Question\n\n" + case.question,
     ]
-    for title, values in (
+    observations: tuple[tuple[str, tuple[str, ...]], ...] = (
         ("Observed role evidence", case.observed_role_evidence),
         ("Observed implementation structure", case.observed_behavior),
         ("Methods/functions", case.important_methods_functions),
         ("Dependencies / dependents", case.dependency_facts),
         ("Documentation", case.documentation_evidence),
-    ):
+    )
+    if behavior_first:
+        observations = tuple(observations[i] for i in (1, 3, 2, 0, 4))
+    for title, values in observations:
         sections.append(
             "## "
             + title
@@ -503,15 +506,25 @@ def render_case(case: AssistanceCase) -> str:
     return "\n\n".join(sections) + "\n"
 
 
-def publish_assistance(package: AssistancePackage, destination: Path) -> None:
+def publish_assistance(
+    package: AssistancePackage,
+    destination: Path,
+    *,
+    behavior_first: bool = False,
+    cheatsheet: str = CHEATSHEET,
+) -> None:
     def build(stage: Path) -> None:
         write_new(stage / "assistance.json", package)
-        (stage / "ANNOTATION_CHEATSHEET.md").write_text(CHEATSHEET, encoding="utf-8")
+        (stage / "ANNOTATION_CHEATSHEET.md").write_text(cheatsheet, encoding="utf-8")
         rows = [
             "# Local annotation assistance",
             "",
             "Source navigation only. Open each card beside its original packet. "
-            "Both reviewers use this same package; decisions remain private.",
+            + (
+                "Independent Reviewer B source pass; human responses remain private."
+                if behavior_first
+                else "Both reviewers use this same package; decisions remain private."
+            ),
             "",
             "[Human quick sheet](ANNOTATION_CHEATSHEET.md)",
             "",
@@ -521,7 +534,9 @@ def publish_assistance(package: AssistancePackage, destination: Path) -> None:
             "| --- | --- | --- | --- | --- | --- |",
         ]
         for case in package.cases:
-            (stage / (case.case_id + ".md")).write_text(render_case(case), encoding="utf-8")
+            (stage / (case.case_id + ".md")).write_text(
+                render_case(case, behavior_first=behavior_first), encoding="utf-8"
+            )
             context = (
                 "EXTRA_CONTEXT_RECOMMENDED"
                 if case.extra_context_recommended

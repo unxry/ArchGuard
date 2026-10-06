@@ -39,6 +39,8 @@ def review_arguments(parser: argparse.ArgumentParser) -> None:
         "freeze",
         "request-extra-context",
         "assist",
+        "assist-b",
+        "context-compare",
         "wizard",
         "draft-export",
     ):
@@ -64,6 +66,9 @@ def review_arguments(parser: argparse.ArgumentParser) -> None:
         child.add_argument("--catalog", type=Path)
         child.add_argument("--store", type=Path)
         child.add_argument("--output", type=Path)
+        if name == "context-compare":
+            child.add_argument("--a-assistance", type=Path, required=True)
+            child.add_argument("--b-assistance", type=Path, required=True)
         if name in {"wizard", "draft-export"}:
             child.add_argument("--bundle", type=Path, required=True)
             child.add_argument("--assistance", type=Path, required=True)
@@ -85,6 +90,28 @@ def review_arguments(parser: argparse.ArgumentParser) -> None:
 
 
 def execute_review(args: argparse.Namespace) -> int:
+    if args.review_command == "context-compare":
+        from archguard.infrastructure.oss_context_comparison import (
+            compare_context,
+            publish_context_comparison,
+        )
+
+        if args.output is None:
+            raise ValueError("context comparison requires a new --output directory")
+        comparison = compare_context(args.a_assistance, args.b_assistance)
+        publish_context_comparison(comparison, args.output)
+        print(
+            canonical(
+                {
+                    "both": len(comparison.both_need_context),
+                    "a_only": len(comparison.a_only),
+                    "b_only": len(comparison.b_only),
+                    "neither": len(comparison.neither),
+                    "fingerprint": comparison.fingerprint,
+                }
+            )
+        )
+        return 0
     bound = load_corpus(args.corpus, args.protocol, args.freeze)
     sample = load_sample(args.sample, args.sample_freeze)
     cache = cache_root(args.cache)
@@ -94,22 +121,52 @@ def execute_review(args: argparse.Namespace) -> int:
         else initial_catalog(bound, sample)
     )
     name = args.review_command
-    if name in {"assist", "wizard", "draft-export"}:
+    if name in {"assist", "assist-b", "wizard", "draft-export"}:
         from archguard.infrastructure.oss_assistance import (
             AssistancePackage,
             build_assistance,
             publish_assistance,
         )
+        from archguard.infrastructure.oss_assistance_b import (
+            build_b_assistance,
+            publish_b_assistance,
+            verify_b_freeze,
+        )
         from archguard.infrastructure.oss_review_wizard import export_draft, wizard
 
-        package = build_assistance(bound, sample, cache, catalog)
+        if name == "assist-b":
+            if args.output is None:
+                raise ValueError("B assistance requires a new --output directory")
+            b_package = build_b_assistance(bound, sample, cache, catalog)
+            b_receipt = publish_b_assistance(b_package, args.output)
+            print(
+                canonical(
+                    {
+                        "cases": len(b_package.cases),
+                        "fingerprint": b_package.fingerprint,
+                        "freeze_fingerprint": b_receipt.fingerprint,
+                    }
+                )
+            )
+            return 0
         if name == "assist":
+            package = build_assistance(bound, sample, cache, catalog)
             if args.output is None:
                 raise ValueError("assistance requires a new --output directory")
             publish_assistance(package, args.output)
             print(canonical({"cases": len(package.cases), "fingerprint": package.fingerprint}))
         else:
-            supplied = AssistancePackage.model_validate(_read(args.assistance, 8388608))
+            raw_assistance = _read(args.assistance, 8388608)
+            supplied: AssistancePackage
+            if (
+                isinstance(raw_assistance, dict)
+                and raw_assistance.get("strategy") == "reviewer-b-assistance-v1"
+            ):
+                supplied, _ = verify_b_freeze(args.assistance.parent)
+                package = build_b_assistance(bound, sample, cache, catalog)
+            else:
+                supplied = AssistancePackage.model_validate(raw_assistance)
+                package = build_assistance(bound, sample, cache, catalog)
             if supplied != package:
                 raise ValueError("assistance differs from deterministic pinned-source extraction")
             if args.draft.resolve().is_relative_to(args.assistance.parent.resolve()):
