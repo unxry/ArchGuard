@@ -29,16 +29,22 @@ human export. Changing mock inference metadata does not change frame/sample. Sou
 
 ## Human workflow
 
+Use the final-context catalog and bundles documented in [execution](HUMAN_ANNOTATION_EXECUTION.md).
+Historical 013 packets remain immutable. READY_FOR_HUMAN_REVIEW freezes context, not ground truth.
+29 active revisions are 2; 11 remain 1. New forms must match the active revision; old drafts/forms
+are rejected without copying decisions. All 40 cases remain UNREVIEWED.
+
 Read each Markdown packet and pinned project docs/source. Edit only reviewer_id, label, rationale,
-uncertainty and attestation in review-form.json; declaration evidence and case/packet hashes are already
-filled. Add referenced evidence where needed. Submit only completed rows; remove untouched forms from
+uncertainty and attestation in review-form.json; case/packet hashes are already
+filled; evidence selection is empty and must be chosen manually. Submit only completed rows; remove untouched forms from
 reviews. Use a pseudonymous actual reviewer ID and HUMAN_REVIEW_COMPLETED only after real inspection.
 These declarations are process attestations, not cryptographic proof of a real person's review.
 
 Labels: POSITIVE, NEGATIVE, UNCERTAIN, OUT_OF_SCOPE. Binary labels require nonempty rationale and a
 concrete frozen evidence reference. CLEAR/AMBIGUOUS is annotator metadata, not detector confidence.
 Context includes declaration plus bounded direct dependencies/dependents and README/documented evidence:
-<=7 files, <=128 KiB excerpts, <=240 lines each. Bounds are validated against actual file lines/hashes.
+<=7 files and <=128 KiB numbered excerpts. New supplements are <=240 lines per range;
+historical ranges are preserved. Aggregate cap is 7×240 lines. Bounds are validated against actual file lines/hashes.
 If context is insufficient, inspect more pinned source and request a separately versioned packet with
 additional hash/line references; do not force a binary answer. Schema versions are
 oss-annotation-packet-v1 and oss-annotation-result-v1, with separate fingerprints.

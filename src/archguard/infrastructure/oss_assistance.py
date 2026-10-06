@@ -153,14 +153,18 @@ CALLS = {"call_lexeme"}
 BRANCHES = {"branch_lexeme"}
 
 
-def _facts(lines: list[str]) -> list[SourceFact]:
+def masked_source(lines: list[str]) -> str:
     # Mask comments and literals while preserving line numbers. This is lexical navigation.
-    masked = re.sub(
+    return re.sub(
         r"/\*.*?\*/|//[^\n]*|\"(?:\\.|[^\"\\])*\"|'(?:\\.|[^'\\])*'|`(?:\\.|[^`\\])*`",
         lambda m: re.sub(r"[^\n]", " ", m.group()),
         "\n".join(lines),
         flags=re.DOTALL,
-    ).splitlines()
+    )
+
+
+def _facts(lines: list[str]) -> list[SourceFact]:
+    masked = masked_source(lines).splitlines()
     result: list[SourceFact] = []
     excluded = {"if", "for", "while", "switch", "catch", "synchronized"}
     for i, line in enumerate(masked, 1):
@@ -386,19 +390,27 @@ def build_assistance(
         ]
         if implementations:
             implementation = implementations[0]
-            extra.append(
-                ContextRequest(
-                    evidence=source.model_copy(
-                        update={
-                            "start_line": implementation.line,
-                            "end_line": min(len(lines), implementation.line + 39),
-                        }
-                    ),
-                    reason="A following signature with the same name lies outside the frozen "
-                    "declaration. Inspect implementation/overload context and request more ranges "
-                    "if needed.",
-                )
+            implementation_ref = source.model_copy(
+                update={
+                    "start_line": implementation.line,
+                    "end_line": min(len(lines), implementation.line + 39),
+                }
             )
+            if not any(
+                r.path == source.path
+                and r.start_line <= implementation_ref.start_line
+                and r.end_line >= implementation_ref.end_line
+                for r in references
+            ):
+                extra.append(
+                    ContextRequest(
+                        evidence=implementation_ref,
+                        reason="A following signature with the same name lies outside the frozen "
+                        "declaration. Inspect implementation/overload context and request "
+                        "more ranges "
+                        "if needed.",
+                    )
+                )
         if not docs:
             ambiguity.append(
                 "No documentation reference is present in this packet; intent and placement "

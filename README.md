@@ -93,26 +93,26 @@ remain pending. Human packets/private analysis stay local; canonical manifests/r
 
 ## Human annotation workflow
 
-PROMPT 013: **WAITING_FOR_HUMAN_REVIEW** — 40 unreviewed cases, zero human IDs/labels,
-zero binary-eligible cases. Two local independent bundles provide neutral questions, pinned
-source/dependency/doc context, an index and blank forms. Review histories support explicit
-amendments, distinct third-human adjudication and guarded final freeze. Agreement/kappa are
-undefined until actual paired reviews exist. Full Hybrid remains NOT_READY; V2 evaluation and
-live AI calls remain zero.
+PROMPT 013.C: **READY_FOR_HUMAN_REVIEW** — 40 final packets; human ground truth remains pending.
+31 pinned requests added common context to 29 cases; 11 original revisions remain active.
+Fresh availability audit: 0 SUFFICIENT / 37 LIMITED / 3 UNRESOLVED. Both humans receive identical
+source/questions and blank forms with independently regenerated source assistance. Human IDs,
+labels, reviews and binary-eligible cases remain zero; agreement/kappa remain undefined.
 
 ```bash
-uv run archguard benchmark oss review prepare --output /tmp/independent-human-bundles
-uv run archguard benchmark oss review status
-# After actual humans complete independent forms, follow the validated import procedure.
+uv run archguard benchmark oss review status \
+  --catalog experiments/oss/annotation/review-packet-revisions-final-v1.json \
+  --ready-directory experiments/oss/blinded/prompt013-final-context-v1
 ```
 
-[Execution and exact import commands](docs/research/HUMAN_ANNOTATION_EXECUTION.md),
-[one-page review guide](docs/research/ANNOTATION_REVIEW_GUIDE.md),
-[adjudication and freeze](docs/research/ANNOTATION_ADJUDICATION.md),
-[verification](docs/verification/PROMPT_013.md).
-Local A/B forms: `experiments/oss/blinded/prompt013-final-v1/reviewer-{a,b}/review-form.json`.
-Original corpus/sample and PROMPT 012 packets remain immutable. No human annotation is claimed
-complete. The next required action belongs to two real independent human reviewers.
+[Final human execution commands](docs/research/HUMAN_ANNOTATION_EXECUTION.md),
+[common context freeze](docs/research/SUPPLEMENTAL_CONTEXT_FREEZE.md),
+[assistance and private drafts](docs/annotation-assistance.md),
+[adjudication and annotation freeze](docs/research/ANNOTATION_ADJUDICATION.md).
+Local A/B forms: `experiments/oss/blinded/prompt013-final-context-v1/reviewer-{a,b}/review-form.json`.
+Historical artifacts remain immutable. No human annotation is claimed complete. Two real humans
+must independently review, resolve conflicts and freeze annotations before real AI evaluation.
+Full Hybrid remains NOT_READY; V2/Hybrid evaluation and live AI calls remain zero.
 
 ## Graph structural calibration machinery
 

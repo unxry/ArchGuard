@@ -4,11 +4,17 @@ Automated evidence summarization reduces annotation burden, but final semantic g
 remains human judgment. PROMPT 013.A supplies deterministic source navigation, not ground truth
 or an independent human submission. Extraction uses pinned source only, with no detector,
 model, previous answer or network call. Generated excerpts and private drafts stay local in the
-ignored `experiments/oss/annotation-assistance/` directory.
+ignored `experiments/oss/annotation-assistance/` and `experiments/oss/blinded/` directories.
 
-Both reviewers use the same pinned original packets with independently generated assistance,
-without seeing each other's answers. Original bundles, sample identity, packet catalog and
+Both reviewers use the same frozen final packets with independently generated assistance,
+without seeing each other's answers. Historical bundles, sample identity, original packet catalog and
 review store are preserved.
+
+PROMPT 013.C status: **READY_FOR_HUMAN_REVIEW**, 40 packets, zero human reviews/IDs/labels.
+The frozen final catalog is `experiments/oss/annotation/review-packet-revisions-final-v1.json`.
+Final assistance lives beside the new bundles in `experiments/oss/blinded/prompt013-final-context-v1/`
+as `assistance-a/` and `assistance-b/`. These contain third-party excerpts and stay local.
+Old drafts/forms are incompatible with updated revisions; nothing migrates automatically.
 
 ## Reviewer A assistance
 
@@ -16,8 +22,8 @@ Generate the immutable package:
 
 ```sh
 .venv/bin/archguard benchmark oss review assist \
-  --catalog experiments/oss/annotation/review-packet-revisions-v1.json \
-  --output experiments/oss/annotation-assistance/prompt013-aid-v1
+  --catalog experiments/oss/annotation/review-packet-revisions-final-v1.json \
+  --output /tmp/archguard-a-final-context
 ```
 
 Open its `index.md` and `ANNOTATION_CHEATSHEET.md`. Each case contains pinned identity, question,
@@ -43,13 +49,13 @@ Start the Reviewer A wizard:
 
 ```sh
 .venv/bin/archguard benchmark oss review wizard \
-  --catalog experiments/oss/annotation/review-packet-revisions-v1.json \
-  --assistance experiments/oss/annotation-assistance/prompt013-aid-v1/assistance.json \
-  --bundle experiments/oss/blinded/prompt013-final-v1/reviewer-a \
-  --draft experiments/oss/annotation-assistance/drafts/reviewer-a.json
+  --catalog experiments/oss/annotation/review-packet-revisions-final-v1.json \
+  --assistance experiments/oss/blinded/prompt013-final-context-v1/assistance-a/assistance.json \
+  --bundle experiments/oss/blinded/prompt013-final-context-v1/reviewer-a \
+  --draft experiments/oss/annotation-assistance/drafts/final-context-reviewer-a.json
 ```
 
-Open each displayed card with the original packet. Manually choose a decision, enter your
+Open each displayed card with the final packet. Manually choose a decision, enter your
 stable pseudonymous reviewer ID, rationale and uncertainty, select supporting evidence numbers,
 and explicitly attest your personal review. No choice, identity, evidence or attestation has a
 default. Binary decisions require rationale and evidence; every decision needs a rationale and
@@ -66,22 +72,22 @@ Explicitly export confirmed rows into a new file:
 
 ```sh
 .venv/bin/archguard benchmark oss review draft-export \
-  --catalog experiments/oss/annotation/review-packet-revisions-v1.json \
-  --assistance experiments/oss/annotation-assistance/prompt013-aid-v1/assistance.json \
-  --bundle experiments/oss/blinded/prompt013-final-v1/reviewer-a \
-  --draft experiments/oss/annotation-assistance/drafts/reviewer-a.json \
-  --output experiments/oss/annotation-assistance/submissions/reviewer-a.json
+  --catalog experiments/oss/annotation/review-packet-revisions-final-v1.json \
+  --assistance experiments/oss/blinded/prompt013-final-context-v1/assistance-a/assistance.json \
+  --bundle experiments/oss/blinded/prompt013-final-context-v1/reviewer-a \
+  --draft experiments/oss/annotation-assistance/drafts/final-context-reviewer-a.json \
+  --output experiments/oss/annotation-assistance/submissions/final-context-reviewer-a.json
 ```
 
 Export neither imports reviews nor computes agreement. The human subsequently runs:
 
 ```sh
 .venv/bin/archguard benchmark oss review validate \
-  --catalog experiments/oss/annotation/review-packet-revisions-v1.json \
-  --annotations experiments/oss/annotation-assistance/submissions/reviewer-a.json
+  --catalog experiments/oss/annotation/review-packet-revisions-final-v1.json \
+  --annotations experiments/oss/annotation-assistance/submissions/final-context-reviewer-a.json
 .venv/bin/archguard benchmark oss review import \
-  --catalog experiments/oss/annotation/review-packet-revisions-v1.json \
-  --annotations experiments/oss/annotation-assistance/submissions/reviewer-a.json \
+  --catalog experiments/oss/annotation/review-packet-revisions-final-v1.json \
+  --annotations experiments/oss/annotation-assistance/submissions/final-context-reviewer-a.json \
   --output experiments/oss/annotation-assistance/imports/first-human
 ```
 
@@ -91,7 +97,7 @@ reviews. Wizard tests use synthetic source fixtures in temporary directories exc
 
 ## Reviewer B assistance
 
-PROMPT 013.B runs a second source pass using only the original frozen corpus/sample/catalog,
+PROMPT 013.B introduced a second source pass. The final pass uses frozen corpus/sample/final catalog,
 pinned source cache, original questions and allowed documentation/dependency references. The
 shared extraction code rereads those inputs; it does not open generated A assistance, A drafts,
 A submissions or human A answers. The fixed `reviewer-b-assistance-v1` strategy displays behavior
@@ -101,8 +107,8 @@ is used. This is automated source navigation, not an independent human review.
 
 ```sh
 .venv/bin/archguard benchmark oss review assist-b \
-  --catalog experiments/oss/annotation/review-packet-revisions-v1.json \
-  --output experiments/oss/annotation-assistance/prompt013-b-aid-v1
+  --catalog experiments/oss/annotation/review-packet-revisions-final-v1.json \
+  --output /tmp/archguard-b-final-context
 ```
 
 The B generator has no A assistance input argument. Its sealed artifact contains 40 original
@@ -129,11 +135,12 @@ context flags is not independent human semantic agreement.
 Original A assistance is retained. A drafts bind A assistance and the A bundle; B drafts bind B
 assistance and the B bundle. The sample, catalog, packet revisions and assistance fingerprints
 remain part of the draft checks. Mismatched bundle/assistance slots are rejected before any form
-contents are read. The existing Reviewer A workflow continues to use its original package.
+contents are read. New human decisions use only the final-context packages. Historical packages
+remain provenance.
 
 ## Context-sufficiency comparison
 
-Only after B freeze, run this separate nonsemantic step:
+Historical 013.B comparison (already frozen; do not overwrite):
 
 ```sh
 .venv/bin/archguard benchmark oss review context-compare \
@@ -148,36 +155,35 @@ It does not use summaries, ambiguity text, request explanations, human answers o
 conclusions. Output lists both needing context, A only, B only, neither and their union. No human
 agreement metric is calculated. Both packages remain untouched by comparison.
 
-A large union is a reason to propose PROMPT 013.C, Common Supplemental Context Freeze. Any future
-supplements should be common, pinned, revisioned and identically distributed to both humans before
-their decisions. PROMPT 013.B only recommends ranges: it does not materialize supplements, change
-revisions, start human review or run model/V2/Hybrid evaluation.
+013.C materialized the 31 unique requests into 29 common revisions; 11 revisions stayed unchanged.
+The final audit records 0 SUFFICIENT, 37 LIMITED and 3 UNRESOLVED. No remaining context flags is not
+proof of sufficient architecture evidence. See [common freeze](research/SUPPLEMENTAL_CONTEXT_FREEZE.md).
 
 ## Human workflow
 
-Reviewer B uses their own original bundle and private draft:
+Reviewer B uses their own final-context bundle and private draft:
 
 ```sh
 .venv/bin/archguard benchmark oss review wizard \
-  --catalog experiments/oss/annotation/review-packet-revisions-v1.json \
-  --assistance experiments/oss/annotation-assistance/prompt013-b-aid-v1/assistance.json \
-  --bundle experiments/oss/blinded/prompt013-final-v1/reviewer-b \
-  --draft experiments/oss/annotation-assistance/drafts/reviewer-b.json
+  --catalog experiments/oss/annotation/review-packet-revisions-final-v1.json \
+  --assistance experiments/oss/blinded/prompt013-final-context-v1/assistance-b/assistance.json \
+  --bundle experiments/oss/blinded/prompt013-final-context-v1/reviewer-b \
+  --draft experiments/oss/annotation-assistance/drafts/final-context-reviewer-b.json
 ```
 
-The human opens each card with its original packet, enters their own label/rationale/uncertainty,
+The human opens each card with its final packet, enters their own label/rationale/uncertainty,
 selects supporting evidence and explicitly attests their personal review. No default is supplied.
 Confirmed rows autosave; repeating the command resumes unfinished cases. Explicit export:
 
 ```sh
 .venv/bin/archguard benchmark oss review draft-export \
-  --catalog experiments/oss/annotation/review-packet-revisions-v1.json \
-  --assistance experiments/oss/annotation-assistance/prompt013-b-aid-v1/assistance.json \
-  --bundle experiments/oss/blinded/prompt013-final-v1/reviewer-b \
-  --draft experiments/oss/annotation-assistance/drafts/reviewer-b.json \
-  --output experiments/oss/annotation-assistance/submissions/reviewer-b.json
+  --catalog experiments/oss/annotation/review-packet-revisions-final-v1.json \
+  --assistance experiments/oss/blinded/prompt013-final-context-v1/assistance-b/assistance.json \
+  --bundle experiments/oss/blinded/prompt013-final-context-v1/reviewer-b \
+  --draft experiments/oss/annotation-assistance/drafts/final-context-reviewer-b.json \
+  --output experiments/oss/annotation-assistance/submissions/final-context-reviewer-b.json
 ```
 
 Subsequent validate/import stays separate and uses the previously published review store with
 `--store` when needed. Real A/B responses remain private and independent. This stage completes no
-human reviews; the next stage is decided after the context coverage report.
+human reviews; two actual humans now independently complete the final-context packets.

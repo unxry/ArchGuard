@@ -142,7 +142,11 @@ def verify_evidence(bound: FrozenOSSCorpus, cache: Path, evidence: PinnedEvidenc
         raise ValueError("evidence repository/commit mismatch")
     root = source_path(cache, repo)
     path = root / evidence.path
-    if path.is_symlink() or not path.resolve().is_relative_to(root.resolve()):
+    if (
+        any(p.is_symlink() for p in (path, *path.parents) if p != root)
+        or not path.resolve().is_relative_to(root.resolve())
+        or not path.is_file()
+    ):
         raise ValueError("evidence source path escape")
     data = path.read_bytes()
     if (
@@ -409,7 +413,14 @@ def import_review_batch(
         raise ValueError("review form requires arrays")
     reviews = tuple(ReviewInput.model_validate(r) for r in raw["reviews"])
     adjudications = tuple(AdjudicationInput.model_validate(a) for a in raw["adjudications"])
+    latest = {p.annotation_case_id: p for p in catalog.packets}
     for decision in (*reviews, *adjudications):
+        active = latest.get(decision.annotation_case_id)
+        if active is None or (
+            decision.packet_revision != active.revision
+            or decision.packet_fingerprint != active.fingerprint
+        ):
+            raise ValueError("new human forms require the active packet revision; no migration")
         for evidence in decision.evidence:
             verify_evidence(bound, cache, evidence)
     return append_reviews(sample, catalog, reviews, adjudications, previous)

@@ -43,6 +43,7 @@ def review_arguments(parser: argparse.ArgumentParser) -> None:
         "context-compare",
         "wizard",
         "draft-export",
+        "final-context-prepare",
     ):
         child = commands.add_parser(name)
         child.add_argument(
@@ -79,6 +80,9 @@ def review_arguments(parser: argparse.ArgumentParser) -> None:
             child.add_argument("--dry-run", action="store_true")
         if name == "status":
             child.add_argument("--freeze-receipt", type=Path)
+            child.add_argument("--ready-directory", type=Path)
+        if name == "final-context-prepare":
+            child.add_argument("--consensus", type=Path, required=True)
         if name == "request-extra-context":
             child.add_argument("--case", required=True)
             child.add_argument(
@@ -121,6 +125,17 @@ def execute_review(args: argparse.Namespace) -> int:
         else initial_catalog(bound, sample)
     )
     name = args.review_command
+    if name == "final-context-prepare":
+        from archguard.infrastructure.oss_context_comparison import ContextConsensus
+        from archguard.infrastructure.oss_final_context import prepare_final_context
+
+        if args.output is None:
+            raise ValueError("final context requires a new --output directory")
+        consensus = ContextConsensus.model_validate(_read(args.consensus, 2097152))
+        print(
+            canonical(prepare_final_context(bound, sample, cache, catalog, consensus, args.output))
+        )
+        return 0
     if name in {"assist", "assist-b", "wizard", "draft-export"}:
         from archguard.infrastructure.oss_assistance import (
             AssistancePackage,
@@ -206,7 +221,16 @@ def execute_review(args: argparse.Namespace) -> int:
             if receipt != freeze_reviews(sample, catalog, store):
                 raise ValueError("freeze does not match current human review history")
             frozen = True
-        print(canonical(review_report(sample, store, frozen=frozen)))
+        report = review_report(sample, store, frozen=frozen).model_dump(mode="json")
+        if args.ready_directory:
+            from archguard.infrastructure.oss_final_context import verify_ready
+
+            ready = verify_ready(args.ready_directory, sample, catalog)
+            report["context_readiness"] = ready.status
+            report["ready_packets"] = ready.ready_packets
+            if not store.reviews and not store.adjudications:
+                report["readiness"] = ready.status
+        print(canonical(report))
         return 0
     if name in {"validate", "import"}:
         raw = _read(args.annotations, 8388608)
