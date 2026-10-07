@@ -88,8 +88,9 @@ used for selection, sampling or evaluation. Live AI=0; **FULL_HYBRID_NOT_READY**
 [OSS benchmark](docs/research/OSS_BENCHMARK.md), [selection](docs/research/OSS_SELECTION_PROTOCOL.md),
 [annotation](docs/research/ANNOTATION_PROTOCOL.md), [external validity](docs/research/EXTERNAL_VALIDITY.md)
 and [verification](docs/verification/PROMPT_012.md) describe evidence and remaining work.
-Completed independent human annotation, fresh V2 evaluation, real LLM cohort and final thesis experiments
-remain pending. Human packets/private analysis stay local; canonical manifests/receipts contain no source.
+Independent human annotation is frozen and the real P014 LLM context experiment is complete.
+Fresh V2 evaluation and final thesis experiments remain pending. Human packets/private analysis
+stay local; canonical manifests/receipts contain no source.
 
 ## Human annotation workflow
 
@@ -116,8 +117,14 @@ uv run archguard benchmark oss review status \
 [human execution history](docs/research/HUMAN_ANNOTATION_EXECUTION.md),
 [adjudication protocol](docs/research/ANNOTATION_ADJUDICATION.md).
 Frozen packets, context and original human answers remain immutable. Private submissions/stores
-stay local; the versioned freeze binds their fingerprints. No real AI, V2 or Hybrid evaluation
-has run; Full Hybrid remains NOT_READY. PROMPT 014 does not start automatically.
+stay local; the versioned freeze binds their fingerprints. PROMPT 014 completed 120/120 real
+OpenAI `gpt-6-luna` assessments, with no retries or failed responses. The AI freeze preceded
+the human-truth join; P013 remained unchanged. GRAPH_GUIDED used 48.9% fewer input tokens than
+EXPANDED_BASELINE. High negative abstention (81.25–90.625%) and zero human positives limit
+quality conclusions; Recall/F1/FNR remain null. V2/Hybrid evaluation has not run; Full Hybrid
+remains NOT_READY. [Full verification](docs/verification/PROMPT_014.md),
+[semantic protocol](docs/research/REAL_AI_SEMANTIC_EXPERIMENT.md),
+[context comparison](docs/research/CONTEXT_EFFICIENCY_EXPERIMENT.md).
 
 ## Graph structural calibration machinery
 
@@ -416,7 +423,7 @@ AnalysisId, repository revision и versioned analysis config, сохраняет
   [воспроизводимость](docs/experiments/REPRODUCIBILITY.md).
 - [UI reference](docs/design/UI_REFERENCE.md): исходный HTML сохранён без изменений.
 
-PROMPT 013 подготовил workflow; сейчас нужны две независимые реальные human reviews и, при
-конфликтах, adjudication. После явного annotation freeze следующий этап выбирается отдельно.
-Он самостоятельно не начинается. Далее — benchmark, calibration и ablation. После CORE THESIS COMPLETE — отдельный Security
+PROMPT 013 завершил независимую human annotation; PROMPT 014 завершил real AI context experiment
+на замороженных 32 NEGATIVE / 8 OUT_OF_SCOPE cases. Следующий этап выбирается отдельно;
+PROMPT 015 самостоятельно не начинается. Далее — benchmark, calibration и ablation. После CORE THESIS COMPLETE — отдельный Security
 Engine. Frontend реализуется отдельными этапами по реальным backend contracts.
