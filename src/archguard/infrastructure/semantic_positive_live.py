@@ -5,6 +5,7 @@ import re
 import ssl
 import time
 from collections import Counter
+from collections.abc import Callable
 from decimal import Decimal
 from pathlib import Path
 from statistics import mean, median
@@ -79,7 +80,11 @@ class OpenAIPositiveTransport:
             raise ValueError("credential echo blocked before persistence")
 
     def __call__(
-        self, request: StructuredLLMRequest, protocol: PositiveProtocol
+        self,
+        request: StructuredLLMRequest,
+        protocol: PositiveProtocol,
+        *,
+        capture_response: Callable[[bytes, dict[str, Any]], None] | None = None,
     ) -> TransportOutcome:
         if protocol.provider != "openai" or protocol.model != "gpt-6-luna":
             raise PermissionError("frozen provider/model required")
@@ -114,9 +119,30 @@ class OpenAIPositiveTransport:
             "http_status": code,
             "http_request_id": self.sanitized(request_id) if request_id else None,
         }
+        try:
+            self.assert_secret_free(raw)
+        except ValueError:
+            if code == 200:
+                raise
+            raw = self.sanitized(raw.decode("utf-8", errors="replace")).encode()
+            self.assert_secret_free(raw)
+            metadata["raw_error_redacted_for_credential_safety"] = True
+        if capture_response is not None:
+            capture_response(raw, metadata | {"latency_seconds": time.monotonic() - started})
+        return self.decode_response(raw, metadata, protocol, time.monotonic() - started)
+
+    def decode_response(
+        self,
+        raw: bytes,
+        metadata: dict[str, Any],
+        protocol: PositiveProtocol,
+        latency: float,
+    ) -> TransportOutcome:
+        """Deterministic decoding of a captured response; never issues a provider call."""
+        code = metadata["http_status"]
         result: dict[str, Any] = {
             "raw_response": raw,
-            "latency_seconds": time.monotonic() - started,
+            "latency_seconds": latency,
             "provider_metadata": metadata,
             "status": "TERMINAL_ERROR",
         }
