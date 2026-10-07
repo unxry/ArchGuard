@@ -217,6 +217,9 @@ def test_only_two_technical_retries_and_failure_is_recorded(execution):
     assert result["status"] == "TERMINAL_FAILURE" and result["assessment"] is None
     assert result["attempts"] == 3 and result["input_tokens"] is None
     assert result["cost_usd"] is None
+    with pytest.raises(ValueError, match="300 valid accepted"):
+        freeze_assessments(execution[0], execution[1], execution[2])
+    assert not (execution[1] / "assessment-freeze.json").exists()
 
 
 def test_invalid_response_is_terminal_without_semantic_retry(execution):
@@ -241,6 +244,8 @@ def test_invalid_response_is_terminal_without_semantic_retry(execution):
     assert count == 1
     result = json.loads((execution[1] / "results" / (first + ".json")).read_bytes())
     assert result["status"] == "TERMINAL_FAILURE" and result["attempts"] == 1
+    with pytest.raises(ValueError, match="300 valid accepted"):
+        freeze_assessments(execution[0], execution[1], execution[2])
 
 
 def test_configuration_failure_is_not_retried(execution):
@@ -270,6 +275,9 @@ def test_transport_interruption_never_logs_error_or_automatically_repeats(execut
         run(execution, transport)
     assert "SYNTHETIC_CREDENTIAL_CANARY" not in str(caught.value)
     assert "SYNTHETIC_CREDENTIAL_CANARY" not in capsys.readouterr().out
+    diagnostic = json.loads(next((execution[1] / "transport-errors").glob("*.json")).read_bytes())
+    assert diagnostic["exception_type"] == "RuntimeError"
+    assert "SYNTHETIC_CREDENTIAL_CANARY" not in canonical(diagnostic)
     with pytest.raises(PermissionError, match="unresolved"):
         run(execution, lambda *a: pytest.fail("ambiguous completed call repeated"))
 

@@ -1,4 +1,4 @@
-"""Future injected transport, blind scoped IO and resumable exactly-once ledger. No API factory."""
+"""Injected transport, blind scoped IO and resumable exactly-once assessment ledger."""
 
 import contextvars
 import fcntl
@@ -8,6 +8,7 @@ import re
 import sys
 from collections.abc import Callable, Iterator
 from contextlib import contextmanager
+from datetime import UTC, datetime
 from decimal import Decimal
 from pathlib import Path
 from typing import Any, Literal, cast
@@ -62,6 +63,10 @@ class TransportOutcome(DomainModel):
     assessment_json: str | None = Field(default=None, repr=False)
     input_tokens: int | None = Field(default=None, ge=0)
     output_tokens: int | None = Field(default=None, ge=0)
+    total_tokens: int | None = Field(default=None, ge=0)
+    provider_usage: dict[str, Any] | None = None
+    provider_metadata: dict[str, Any] = Field(default_factory=dict)
+    error_metadata: dict[str, Any] = Field(default_factory=dict)
     latency_seconds: float = Field(ge=0, allow_inf_nan=False)
 
 
@@ -80,7 +85,7 @@ def _io_audit(event: str, args: tuple[Any, ...]) -> None:
         return
     # Runtime imports/certificates are allowed; external experiment data is not.
     if path.suffix in {".py", ".pyc", ".so", ".pem", ".crt"} and not any(
-        part == "private" or part.startswith(".env") for part in path.parts
+        part in {"private", "experiments"} or part.startswith(".env") for part in path.parts
     ):
         return
     raise PermissionError("blind executor denied data outside execution capabilities")
@@ -195,6 +200,7 @@ def execute_future(
     credential_available: bool,
     transport: Callable[[StructuredLLMRequest, PositiveProtocol], TransportOutcome],
     pricing: PricingAssumption,
+    checkpoint: Callable[[dict[str, Any]], None] | None = None,
 ) -> dict[str, Any]:
     if not approval.paid_execution_approved:
         raise PermissionError("WAITING_FOR_PAID_AI_EXECUTION_APPROVAL")
@@ -220,6 +226,24 @@ def execute_future(
     protocol, rows = load_execution(root, bindings)
     if (ledger / "assessment-freeze.json").exists():
         raise ValueError("assessment ledger already immutable")
+    if ledger.exists() and (
+        any(p.is_symlink() for p in ledger.rglob("*"))
+        or not {p.name for p in ledger.iterdir()}
+        <= {
+            ".execution.lock",
+            "run-metadata.json",
+            "attempts",
+            "results",
+            "pending",
+            "raw",
+            "normalized-assessments.json",
+            "attempt-usage-ledger.json",
+            "raw-ledger.json",
+            "execution-lineage.json",
+            "transport-errors",
+        }
+    ):
+        raise ValueError("unexpected data inside blind ledger capability")
     ledger.mkdir(parents=True, exist_ok=True, mode=0o700)
     metadata = {
         "schema_version": "p016-live-run-v1",
@@ -228,6 +252,7 @@ def execute_future(
         "model": protocol.model,
         "pricing_assumption_fingerprint": pricing.fingerprint,
         "approval_fingerprint": digest(approval),
+        "hard_spend_cap_usd": approval.spend_cap_usd,
     }
     with blind_io(root, ledger), (ledger / ".execution.lock").open("a") as lock:
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
@@ -256,7 +281,11 @@ def execute_future(
                 raise ValueError("completed pending attempt raw response changed")
             pending.unlink()
         attempts = [json.loads(path.read_bytes()) for path in sorted(attempts_dir.glob("*.json"))]
-        if any(a["status"] == "CONFIGURATION_ERROR" for a in attempts):
+        if {p.name for p in attempts_dir.iterdir()} != {
+            f"{a['request_id']}-{a['attempt']}.json" for a in attempts
+        }:
+            raise ValueError("resume attempt inventory drift")
+        if any(a["status"] in {"CONFIGURATION_ERROR", "TOKEN_LIMIT_DEVIATION"} for a in attempts):
             raise PermissionError(
                 "previous configuration failure requires explicit new run authorization"
             )
@@ -265,6 +294,57 @@ def execute_future(
             p.stem not in known_ids for p in results_dir.iterdir()
         ):
             raise ValueError("resume ledger contains unknown requests")
+        for row in rows:
+            previous = sorted(
+                (a for a in attempts if a["request_id"] == row.request_id),
+                key=lambda a: a["attempt"],
+            )
+            for n, event in enumerate(previous, 1):
+                if (
+                    event["attempt"] != n
+                    or n > 3
+                    or event["request_fingerprint"] != row.request_fingerprint
+                    or event["context_fingerprint"] != row.context_fingerprint
+                    or event["provider"] != protocol.provider
+                    or event["model"] != protocol.model
+                    or hashlib.sha256(
+                        capability_path(ledger, event["raw_response_path"]).read_bytes()
+                    ).hexdigest()
+                    != event["raw_response_sha256"]
+                ):
+                    raise ValueError("resume immutable attempt binding drift")
+                prior_cost = (
+                    pricing.charge(event["input_tokens"], event["output_tokens"])
+                    if event["input_tokens"] is not None and event["output_tokens"] is not None
+                    else pricing.charge(protocol.max_input_tokens, protocol.max_output_tokens)
+                )
+                if Decimal(event["reserved_cost_usd"]) != prior_cost or (
+                    n > 1
+                    and previous[n - 2]["status"]
+                    not in {"TIMEOUT", "CONNECTION", "RATE_LIMIT", "TRANSIENT"}
+                ):
+                    raise ValueError("resume accounting/retry drift")
+            result_path = results_dir / (row.request_id + ".json")
+            if result_path.exists():
+                result = json.loads(result_path.read_bytes())
+                if (
+                    not previous
+                    or result["request_id"] != row.request_id
+                    or result["execution_case_id"] != row.execution_case_id
+                    or result["strategy"] != row.strategy
+                    or result["attempts"] != len(previous)
+                    or result["assessment"] != previous[-1]["assessment"]
+                    or result["status"]
+                    != (
+                        "ACCEPTED" if previous[-1]["assessment"] is not None else "TERMINAL_FAILURE"
+                    )
+                ):
+                    raise ValueError("resume logical result drift")
+                if result["status"] == "ACCEPTED":
+                    _grounded(
+                        PositiveAssessment.model_validate_json(canonical(result["assessment"])),
+                        _artifact(root, row, protocol),
+                    )
         reserved_spend = sum((Decimal(a["reserved_cost_usd"]) for a in attempts), Decimal(0))
         for row in rows:
             result_path = results_dir / (row.request_id + ".json")
@@ -291,10 +371,32 @@ def execute_future(
                         "reserved_spend_usd": str(reserved_spend),
                     }
                 pending = pending_dir / f"{row.request_id}-{len(previous) + 1}.json"
-                write_new(pending, {"request_id": row.request_id, "attempt": len(previous) + 1})
+                started_at = datetime.now(UTC).isoformat()
+                write_new(
+                    pending,
+                    {
+                        "request_id": row.request_id,
+                        "attempt": len(previous) + 1,
+                        "request_fingerprint": row.request_fingerprint,
+                        "started_at_utc": started_at,
+                        "reserved_cost_usd": str(bound),
+                    },
+                )
                 try:
                     outcome = transport(request, protocol)
-                except Exception:
+                except Exception as error:
+                    errors_dir = ledger / "transport-errors"
+                    errors_dir.mkdir(exist_ok=True, mode=0o700)
+                    write_new(
+                        errors_dir / pending.name,
+                        {
+                            "request_id": row.request_id,
+                            "attempt": len(previous) + 1,
+                            "status": "PENDING_UNRESOLVED",
+                            "exception_type": type(error).__name__,
+                            "ended_at_utc": datetime.now(UTC).isoformat(),
+                        },
+                    )
                     raise RuntimeError(
                         "transport interrupted; unresolved attempt preserved"
                     ) from None
@@ -305,6 +407,13 @@ def execute_future(
                     outcome.raw_response,
                 ):
                     raise ValueError("credential-bearing raw response rejected before persistence")
+                ordinal = len(previous) + 1
+                raw_name = f"raw/{row.request_id}-{ordinal}.bin"
+                raw_path = ledger / raw_name
+                raw_path.parent.mkdir(exist_ok=True, mode=0o700)
+                with raw_path.open("xb") as raw_file:
+                    raw_file.write(outcome.raw_response)
+                raw_path.chmod(0o600)
                 cost = None
                 if outcome.input_tokens is not None and outcome.output_tokens is not None:
                     cost = pricing.charge(outcome.input_tokens, outcome.output_tokens)
@@ -327,22 +436,26 @@ def execute_future(
                         )
                     except ValueError:
                         status = "TERMINAL_INVALID"
-                ordinal = len(previous) + 1
-                raw_name = f"raw/{row.request_id}-{ordinal}.bin"
-                raw_path = ledger / raw_name
-                raw_path.parent.mkdir(exist_ok=True, mode=0o700)
-                with raw_path.open("xb") as raw_file:
-                    raw_file.write(outcome.raw_response)
-                raw_path.chmod(0o600)
                 event = {
                     "request_id": row.request_id,
                     "attempt": ordinal,
+                    "request_fingerprint": row.request_fingerprint,
+                    "context_fingerprint": row.context_fingerprint,
+                    "provider": protocol.provider,
+                    "model": protocol.model,
+                    "started_at_utc": started_at,
+                    "ended_at_utc": datetime.now(UTC).isoformat(),
                     "status": status,
                     "assessment": assessment,
                     "raw_response_path": raw_name,
                     "raw_response_sha256": hashlib.sha256(outcome.raw_response).hexdigest(),
                     "input_tokens": outcome.input_tokens,
                     "output_tokens": outcome.output_tokens,
+                    "total_tokens": outcome.total_tokens,
+                    "provider_usage": outcome.provider_usage,
+                    "provider_metadata": outcome.provider_metadata,
+                    "error_metadata": outcome.error_metadata,
+                    "retry_classification": status if status in technical else "NOT_RETRYABLE",
                     "latency_seconds": outcome.latency_seconds,
                     "cost_usd": str(cost) if cost is not None else None,
                     "reserved_cost_usd": str(reserved),
@@ -379,6 +492,13 @@ def execute_future(
                 else None,
             }
             write_new(result_path, result)
+            if checkpoint is not None:
+                checkpoint(
+                    {
+                        "completed_logical": len(list(results_dir.glob("*.json"))),
+                        "reserved_spend_usd": str(reserved_spend),
+                    }
+                )
         return {
             "status": "EXECUTION_COMPLETE_UNFROZEN",
             "logical_results": 300,
@@ -420,8 +540,8 @@ def freeze_assessments(root: Path, ledger: Path, bindings: ExecutionBindings) ->
                     PositiveProtocol.model_validate_json((root / "protocol.json").read_bytes()),
                 ),
             )
-        elif data["status"] != "TERMINAL_FAILURE" or data["assessment"] is not None:
-            raise ValueError("terminal assessment status invalid")
+        else:
+            raise ValueError("complete freeze requires 300 valid accepted assessments")
         events = [
             json.loads((ledger / "attempts" / f"{row.request_id}-{n}.json").read_bytes())
             for n in range(1, data["attempts"] + 1)
