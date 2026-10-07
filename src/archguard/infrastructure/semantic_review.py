@@ -6,12 +6,14 @@ import re
 from collections import Counter
 from html import escape
 from pathlib import Path
-from typing import Any
+from typing import Any, Literal
 
 from archguard.benchmark.oss.models import digest
 from archguard.benchmark.semantic_review import (
     ReviewerABundle,
     ReviewerASubmission,
+    ReviewerBBundle,
+    ReviewerBSubmission,
     validate_submission,
 )
 from archguard.infrastructure.oss_benchmark import write_new
@@ -45,7 +47,7 @@ No upload, provider call, automatic answer or evaluation is performed here.
 """
 
 
-def audit_bundle(bundle: ReviewerABundle) -> None:
+def audit_bundle(bundle: ReviewerABundle | ReviewerBBundle) -> None:
     forbidden = {
         "pair_id",
         "matched_pair_id",
@@ -66,6 +68,16 @@ def audit_bundle(bundle: ReviewerABundle) -> None:
         "reviewer_identity",
         "reviewer_b_answers",
         "reviewer_b_order",
+        "reviewer_a_answers",
+        "reviewer_a_decisions",
+        "reviewer_a_rationales",
+        "reviewer_a_notes",
+        "reviewer_a_evidence",
+        "reviewer_a_identity",
+        "reviewer_a_decision_counts",
+        "reviewer_a_ambiguous_cases",
+        "submission_fingerprint",
+        "acceptance_receipt_fingerprint",
         "ai_results",
         "detector_results",
         "static_predictions",
@@ -102,10 +114,10 @@ def load_bundle(path: Path, expected_fingerprint: str) -> ReviewerABundle:
     return bundle
 
 
-def blank_template(bundle: ReviewerABundle) -> dict[str, Any]:
+def blank_template(bundle: ReviewerABundle | ReviewerBBundle) -> dict[str, Any]:
     return {
         "schema_version": "semantic-holdout-human-submission-v1",
-        "reviewer_slot": "A",
+        "reviewer_slot": bundle.reviewer_slot,
         "bundle_fingerprint": bundle.fingerprint,
         "reviewer_identity": "",
         "attestation": None,
@@ -122,7 +134,10 @@ def blank_template(bundle: ReviewerABundle) -> dict[str, Any]:
     }
 
 
-def render_handoff(bundle: ReviewerABundle) -> str:
+def render_handoff(
+    bundle: ReviewerABundle | ReviewerBBundle, *, instructions: str = INSTRUCTIONS
+) -> str:
+    slot = bundle.reviewer_slot
     sections = []
     navigation = []
     guidance = bundle.guidance
@@ -153,16 +168,16 @@ def render_handoff(bundle: ReviewerABundle) -> str:
         '<!doctype html><html lang="en"><meta charset="utf-8">'
         '<meta http-equiv="Content-Security-Policy" content="default-src \'none\'; '
         "style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'\">"
-        "<title>Independent human review — Reviewer A</title>"
+        f"<title>Independent human review — Reviewer {slot}</title>"
         "<style>body{font:16px system-ui;max-width:1050px;margin:2rem auto;padding:1rem}"
         "pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px}"
         "section{border-top:1px solid #aaa;margin-top:2rem}li{margin:.25rem 0}"
         "summary{cursor:pointer}details{margin:1rem 0}</style><body>"
-        "<h1>Reviewer A — 100 frozen cases</h1>"
+        f"<h1>Reviewer {slot} — 100 frozen cases</h1>"
         f"<p>Bundle fingerprint: <code>{bundle.fingerprint}</code></p>"
-        f"<pre>{escape(INSTRUCTIONS)}</pre><h2>Frozen general guidance</h2>"
+        f"<pre>{escape(instructions)}</pre><h2>Frozen general guidance</h2>"
         f"<p>{escape(guidance['general'])}</p><p>{escape(guidance['arch201_vs_arch205'])}</p>"
-        '<h2 id="contents">Cases in frozen Reviewer A order</h2><ol>'
+        f'<h2 id="contents">Cases in frozen Reviewer {slot} order</h2><ol>'
         + "".join(navigation)
         + "</ol>"
         + "".join(sections)
@@ -256,7 +271,7 @@ def verify_submission_contract(destination: Path, expected_fingerprint: str) -> 
     return str(receipt["fingerprint"])
 
 
-def audit_submission(submission: ReviewerASubmission) -> None:
+def audit_submission(submission: ReviewerASubmission | ReviewerBSubmission) -> None:
     """Check private metadata markers only; never evaluate a human judgment."""
     marker = re.compile(
         r"MUTATION_CANDIDATE|MATCHED_CONTROL|hp-[a-f0-9]{32}|"
@@ -278,6 +293,7 @@ def freeze_submission(
     expected_sha256: str | None = None,
     expected_counts: dict[str, int] | None = None,
     lineage: dict[str, str] | None = None,
+    reviewer_slot: Literal["A", "B"] = "A",
 ) -> str:
     raw_source = response_path.read_bytes()
     source_sha256 = hashlib.sha256(raw_source).hexdigest()
@@ -292,22 +308,32 @@ def freeze_submission(
             result[key] = value
         return result
 
-    submission = ReviewerASubmission.model_validate(
-        json.loads(raw_source, object_pairs_hook=unique_object)
+    data = json.loads(raw_source, object_pairs_hook=unique_object)
+    submission = (
+        ReviewerBSubmission.model_validate(data)
+        if reviewer_slot == "B"
+        else ReviewerASubmission.model_validate(data)
     )
     counts = dict(Counter(r.decision for r in submission.responses))
     if expected_counts is not None and counts != expected_counts:
         raise ValueError("human decision counts mismatch: " + json.dumps(counts, sort_keys=True))
-    bundle = load_bundle(bundle_path, expected_fingerprint)
+    bundle: ReviewerABundle | ReviewerBBundle
+    if reviewer_slot == "B":
+        bundle = ReviewerBBundle.model_validate_json(bundle_path.read_bytes())
+        if bundle.fingerprint != expected_fingerprint:
+            raise ValueError("Reviewer B frozen bundle fingerprint mismatch")
+        audit_bundle(bundle)
+    else:
+        bundle = load_bundle(bundle_path, expected_fingerprint)
     validate_submission(bundle, submission)
     audit_submission(submission)
     fingerprint = digest(submission)
     receipt = {
-        "schema_version": "independent-reviewer-a-submission-freeze-v1",
+        "schema_version": f"independent-reviewer-{reviewer_slot.lower()}-submission-freeze-v1",
         "submission_fingerprint": fingerprint,
         "submission_sha256": source_sha256,
         "bundle_fingerprint": bundle.fingerprint,
-        "reviewer_slot": "A",
+        "reviewer_slot": reviewer_slot,
         "responses": 100,
         "decision_counts": counts,
         "schema_validation": "PASS",
@@ -319,7 +345,7 @@ def freeze_submission(
         "extra_cases": 0,
         "duplicate_ids": 0,
         "human_answers_modified": False,
-        "review_stream": "INDEPENDENT_REVIEWER_A_ONLY",
+        "review_stream": f"INDEPENDENT_REVIEWER_{reviewer_slot}_ONLY",
         "final_ground_truth": False,
         "adjudicated_truth": False,
         "lineage": lineage or {},

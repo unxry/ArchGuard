@@ -12,9 +12,9 @@ from archguard.core.model.base import DomainModel
 Outcome = Literal["POSITIVE", "NEGATIVE", "UNCERTAIN", "OUT_OF_SCOPE"]
 
 
-class ReviewerABundle(Sealed):
+class _ReviewBundle(Sealed):
     schema_version: Literal["blank-independent-human-bundle-v1"]
-    reviewer_slot: Literal["A"]
+    reviewer_slot: Literal["A", "B"]
     status: Literal["WAITING_FOR_REAL_INDEPENDENT_HUMAN"]
     packets: tuple[BlindedPacket, ...] = Field(min_length=100, max_length=100)
     protocol: dict[str, Any]
@@ -33,6 +33,14 @@ class ReviewerABundle(Sealed):
             if len({e.evidence_id for e in packet.evidence}) != len(packet.evidence):
                 raise ValueError("duplicate source evidence IDs")
         return self
+
+
+class ReviewerABundle(_ReviewBundle):
+    reviewer_slot: Literal["A"]
+
+
+class ReviewerBBundle(_ReviewBundle):
+    reviewer_slot: Literal["B"]
 
 
 class EvidenceReference(DomainModel):
@@ -63,9 +71,9 @@ class HumanResponse(DomainModel):
         return self
 
 
-class ReviewerASubmission(DomainModel):
+class _HumanSubmission(DomainModel):
     schema_version: Literal["semantic-holdout-human-submission-v1"]
-    reviewer_slot: Literal["A"]
+    reviewer_slot: Literal["A", "B"]
     bundle_fingerprint: Digest
     reviewer_identity: str = Field(min_length=1, max_length=200)
     attestation: Literal["REAL_HUMAN_INDEPENDENT_REVIEW"]
@@ -80,9 +88,23 @@ class ReviewerASubmission(DomainModel):
         return self
 
 
-def validate_submission(bundle: ReviewerABundle, submission: ReviewerASubmission) -> None:
-    if submission.bundle_fingerprint != bundle.fingerprint:
-        raise ValueError("submission must reference the frozen Reviewer A bundle")
+class ReviewerASubmission(_HumanSubmission):
+    reviewer_slot: Literal["A"]
+
+
+class ReviewerBSubmission(_HumanSubmission):
+    reviewer_slot: Literal["B"]
+
+
+def validate_submission(
+    bundle: ReviewerABundle | ReviewerBBundle,
+    submission: ReviewerASubmission | ReviewerBSubmission,
+) -> None:
+    if (
+        submission.bundle_fingerprint != bundle.fingerprint
+        or submission.reviewer_slot != bundle.reviewer_slot
+    ):
+        raise ValueError("submission must reference its frozen reviewer slot and bundle")
     packets = {p.blinded_id: p for p in bundle.packets}
     if {r.blinded_id for r in submission.responses} != set(packets):
         raise ValueError("responses must cover exactly the frozen blinded IDs")
