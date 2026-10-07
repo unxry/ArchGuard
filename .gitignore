@@ -50,3 +50,4 @@ experiments/oss/evaluation-private/
 experiments/oss/cache/
 experiments/oss/annotation-assistance/
 experiments/ai/private/
+experiments/semantic-holdout/private/

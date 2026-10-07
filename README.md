@@ -126,6 +126,14 @@ remains NOT_READY. [Full verification](docs/verification/PROMPT_014.md),
 [semantic protocol](docs/research/REAL_AI_SEMANTIC_EXPERIMENT.md),
 [context comparison](docs/research/CONTEXT_EFFICIENCY_EXPERIMENT.md).
 
+PROMPT 015: **WAITING_FOR_HUMAN_REVIEW** — a separate prospective controlled
+`semantic-positive-holdout-v1` freezes 100 cases / 50 matched pairs, balanced across
+ARCH201–205 and Java/TypeScript. The 50 mutation candidates and 50 controls are
+construction intent only; human labels are NONE. All 100 cases have VALID technical
+receipts. No AI/V2/Hybrid execution was performed for this cohort.
+[Holdout protocol](docs/research/PROSPECTIVE_SEMANTIC_HOLDOUT.md),
+[P015 verification](docs/verification/PROMPT_015.md).
+
 ## Graph structural calibration machinery
 
 **CALIBRATION_MACHINERY_READY / STRUCTURAL_V2_AWAITING_FRESH_HOLDOUT / FULL_HYBRID_NOT_READY.**
