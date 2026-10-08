@@ -190,7 +190,9 @@ Additional protocol commits preceded construction: `cf2c0961ea3e080d9b14c892dbdf
 
 M1 holdout commit: `d492b07d00427f76e674ccb420ff28ab89eb1f7f`, before all detector execution.
 
-M2 baseline evaluation commit: `a7baef3632ed2e477a18ead76f34b8a8033dd333`. M3 evidence/report commit: the commit containing this report (`git log -1 --format=%H -- docs/verification/PROMPT_019.md`). Normal origin/main push and clean working-tree closure are verified after the final commit and reported with its exact SHA in the final response. No force push, amend, squash, rebase or reset.
+M2 baseline evaluation commit: `a7baef3632ed2e477a18ead76f34b8a8033dd333`. M3 scientific evidence/report commit: `813634df9f7f9e8a09a0decabe1b71b2a4bc148a`. M4 normal origin/main push: PASS, remote head independently verified at that scientific commit; the subsequent documentation-only closure is also pushed normally and its final SHA is reported in the final response. No force push, amend, squash, rebase or reset.
+
+M5 working tree: no pending P019 changes. An unrelated local deletion of `index(визуал).html` appeared during closure; the user explicitly requested that it be preserved. It remains an expected uncommitted deletion and is excluded from every P019 commit. The working tree is therefore not globally clean; this does not change frozen scientific inputs or results.
 
 ## Final status
 
