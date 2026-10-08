@@ -1306,7 +1306,11 @@ def verify() -> dict[str, Any]:
     if any(sha(Path(p)) != h for p, h in old.items()):
         raise ValueError("immutable historical bytes drift")
     plan = read(BASE / "p020-plan-v1.json")
-    if any(sha(Path(p)) != h for p, h in plan["implementation"].items()):
+    training_path = BASE / "p020-training-placement-freeze-v1.json"
+    training = read(training_path) if training_path.exists() else plan
+    if training.get("plan_fingerprint", plan["fingerprint"]) != plan["fingerprint"]:
+        raise ValueError("training placement lineage drift")
+    if any(sha(Path(p)) != h for p, h in training["implementation"].items()):
         raise ValueError("P020 implementation drift")
     frozen = read(BASE / "p020-final-holdout-freeze-v1.json")
     paths = {
@@ -1418,7 +1422,9 @@ def verify() -> dict[str, Any]:
         raise ValueError("review material inventory drift")
     if review_receipt["fingerprint"] != registry["review_material_fingerprint"]:
         raise ValueError("review registry drift")
-    implementation_path = BASE / "p020-implementation-freeze-v2.json"
+    implementation_path = BASE / "p020-implementation-freeze-v3.json"
+    if not implementation_path.exists():
+        implementation_path = BASE / "p020-implementation-freeze-v2.json"
     if not implementation_path.exists():
         implementation_path = BASE / "p020-implementation-freeze-v1.json"
     implementation = read(implementation_path) if implementation_path.exists() else registry

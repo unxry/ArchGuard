@@ -12,6 +12,7 @@ from archguard.benchmark import component_holdout as structural
 from archguard.benchmark import unified_hybrid as domain
 from archguard.benchmark.oss.models import digest
 from archguard.benchmark.semantic_preflight import PricingAssumption
+from archguard.calibration.unified import fit_candidate
 from archguard.infrastructure import unified_hybrid as infra
 from archguard.infrastructure.component_holdout import build, normalized, offline
 from archguard.infrastructure.repository.factory import create_discovery
@@ -191,8 +192,8 @@ def training_rows():
 @pytest.mark.parametrize("components", domain.ABLATIONS[3:])
 def test_learned_synthetic_ablations_refit_and_precedence(method, components):
     rows = training_rows()
-    artifact = domain.fit_candidate(rows, method, components)
-    assert artifact == domain.fit_candidate(rows, method, components)
+    artifact = fit_candidate(rows, method, components)
+    assert artifact == fit_candidate(rows, method, components)
     assert len(artifact["coefficients"]) == 2 * sum(len(domain.FEATURES[c]) for c in components)
     assert all(
         c["name"] in {n for c in components for n in domain.FEATURES[c]}
@@ -219,18 +220,18 @@ def test_no_validation_or_test_fit(partition):
     rows = training_rows()
     rows[0]["split"] = partition
     with pytest.raises(ValueError, match="TRAIN"):
-        domain.fit_candidate(rows, "H2", domain.COMPONENTS)
+        fit_candidate(rows, "H2", domain.COMPONENTS)
 
 
 def test_no_missing_llm_placeholder_fit():
     rows = training_rows()
     rows[0]["llm_bound"] = False
     with pytest.raises(ValueError, match="missing"):
-        domain.fit_candidate(rows, "H1", domain.COMPONENTS)
+        fit_candidate(rows, "H1", domain.COMPONENTS)
     rows = training_rows()
     rows[0]["cohort"] = "FINAL"
     with pytest.raises(ValueError):
-        domain.fit_candidate(rows, "H1", domain.COMPONENTS)
+        fit_candidate(rows, "H1", domain.COMPONENTS)
 
 
 def test_selection_nulls_ties_and_metric_denominators():
