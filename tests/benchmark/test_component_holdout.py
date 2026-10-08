@@ -269,3 +269,18 @@ def test_completed_local_freezes_and_exact100_evidence():
     assert len(artifact["records"]) == 100
     assert not artifact["human_truth_accessed"] and not artifact["p017_correctness_accessed"]
     assert not artifact["p018_intent_accessed"] and not artifact["semantic_decisions_created"]
+
+
+def test_plan_freezes_existing_engine_paths_and_rejects_repeat(tmp_path, monkeypatch):
+    monkeypatch.setattr(infra, "PRIVATE", tmp_path / "private")
+    monkeypatch.setattr(infra, "PLAN", tmp_path / "plan.json")
+    monkeypatch.setattr(infra, "AUDIT", tmp_path / "audit.jsonl")
+    monkeypatch.setattr(infra.subprocess, "check_output", lambda *args, **kwargs: "")
+    monkeypatch.setattr(infra, "old_guards", lambda: {})
+    monkeypatch.setattr(infra, "lineage", lambda: ["verified"])
+    monkeypatch.setattr(infra, "capability", lambda: dict(v2_allowed=False, train_families=[]))
+    result = infra.prepare_plan()
+    assert infra.read(infra.PLAN)["fingerprint"] == result["plan"]
+    assert len(infra.read(infra.PLAN)["capability"]["engine_source_hashes"]) == 10
+    with pytest.raises(ValueError, match="already frozen"):
+        infra.prepare_plan()

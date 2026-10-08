@@ -293,17 +293,24 @@ def prepare_plan() -> dict[str, Any]:
     if subprocess.check_output(["git", "status", "--porcelain"], text=True).strip():
         # Implementation files may already be committed; plan always starts from clean Git.
         raise ValueError("P019 plan preparation requires clean working tree")
-    seed = os.urandom(32).hex()
-    inputs = append_sealed(
-        PRIVATE / "plan-inputs-v1.json", dict(seed=seed, old_hashes=old_guards())
-    )
+    if PLAN.exists():
+        raise ValueError("P019 prospective plan already frozen")
+    input_path = PRIVATE / "plan-inputs-v1.json"
+    if input_path.exists():
+        inputs = read(input_path)
+        if inputs["old_hashes"] != old_guards():
+            raise ValueError("P019 prior scientific inputs changed during plan preparation")
+        seed = inputs["seed"]
+    else:
+        seed = os.urandom(32).hex()
+        inputs = append_sealed(input_path, dict(seed=seed, old_hashes=old_guards()))
     cap = capability()
     cap["lineage"] = lineage()
     cap["engine_source_hashes"] = {
         str(p): sha(p)
         for p in (
             Path("src/archguard/architecture/conformance/analyzer.py"),
-            Path("src/archguard/architecture/conformance/registry.py"),
+            Path("src/archguard/architecture/rules/registry.py"),
             Path("src/archguard/architecture/graph/analyzer.py"),
             Path("src/archguard/architecture/graph/builder.py"),
             Path("src/archguard/architecture/graph/config.py"),
