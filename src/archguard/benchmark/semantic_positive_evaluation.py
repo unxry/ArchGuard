@@ -46,16 +46,42 @@ def semantic_metrics(rows: list[dict[str, Any]]) -> dict[str, Any]:
         }
         for category, values in cross.items()
     }
+    abstain_positive = cross["POSITIVE"]["INSUFFICIENT_CONTEXT"]
+    abstain_negative = cross["NEGATIVE"]["INSUFFICIENT_CONTEXT"]
+    scope_positive = cross["POSITIVE"]["NOT_APPLICABLE"]
+    scope_negative = cross["NEGATIVE"]["NOT_APPLICABLE"]
+    definitive = tp + fp + tn + fn
+    failures = sum(r["decision"] is None for r in binary)
+    if definitive + abstain + scope + failures != len(binary):
+        raise ValueError("binary confusion reconciliation failed")
     return {
         "N": len(rows),
         "binary_eligible": len(binary),
         "binary_excluded": len(rows) - len(binary),
         "human_positive": positive,
         "human_negative": negative,
+        "human_uncertain": sum(r["human"] == "UNCERTAIN" for r in rows),
+        "human_out_of_scope": len(oos),
         "TP": tp,
         "FP": fp,
         "TN": tn,
         "FN": fn,
+        "ABSTAIN_POSITIVE": abstain_positive,
+        "ABSTAIN_NEGATIVE": abstain_negative,
+        "NOT_APPLICABLE_ON_POSITIVE": scope_positive,
+        "NOT_APPLICABLE_ON_NEGATIVE": scope_negative,
+        "definitive_count": definitive,
+        "denominators": {
+            "precision": tp + fp,
+            "recall_definitive": tp + fn,
+            "F1_definitive": 2 * tp + fp + fn,
+            "specificity_definitive": tn + fp,
+            "FPR_definitive": tn + fp,
+            "FNR_definitive": tp + fn,
+            "coverage_abstention_applicability_effective_correctness": len(binary),
+            "effective_recall": positive,
+            "effective_negative_correctness": negative,
+        },
         "precision": ratio(tp, tp + fp),
         "recall_definitive": ratio(tp, tp + fn),
         "F1_definitive": ratio(2 * tp, 2 * tp + fp + fn),
@@ -114,10 +140,11 @@ def paired_comparison(first: list[dict[str, Any]], second: list[dict[str, Any]])
             "correctness": correct,
             "coverage": definitive,
             "abstention": row["decision"] == "INSUFFICIENT_CONTEXT",
+            "applicability": row["decision"] == "NOT_APPLICABLE",
         }
 
     comparisons: dict[str, Any] = {}
-    for name in ("correctness", "coverage", "abstention"):
+    for name in ("correctness", "coverage", "abstention", "applicability"):
         pairs = [(flags(a[c])[name], flags(b[c])[name]) for c in binary]
         comparisons[name] = {
             "N": len(pairs),
@@ -126,6 +153,32 @@ def paired_comparison(first: list[dict[str, Any]], second: list[dict[str, Any]])
             "second_only": sum(y and not x for x, y in pairs),
             "neither": sum(not x and not y for x, y in pairs),
         }
+    decisions = ("SUPPORTED", "NOT_SUPPORTED", "INSUFFICIENT_CONTEXT", "NOT_APPLICABLE")
+    comparisons["decision_cross_tab_binary"] = {
+        x: {
+            y: sum(a[c]["decision"] == x and b[c]["decision"] == y for c in binary)
+            for y in decisions
+        }
+        for x in decisions
+    }
+    comparisons["nondefinitive_transitions"] = {
+        "first_abstains_second_definitive": sum(
+            flags(a[c])["abstention"] and flags(b[c])["coverage"] for c in binary
+        ),
+        "second_abstains_first_definitive": sum(
+            flags(b[c])["abstention"] and flags(a[c])["coverage"] for c in binary
+        ),
+        "both_abstain": sum(
+            flags(a[c])["abstention"] and flags(b[c])["abstention"] for c in binary
+        ),
+        "both_incorrect_definitive": sum(
+            flags(a[c])["coverage"]
+            and flags(b[c])["coverage"]
+            and not flags(a[c])["correctness"]
+            and not flags(b[c])["correctness"]
+            for c in binary
+        ),
+    }
     for key in ("input_tokens", "latency_seconds", "cost_usd", "context_chars"):
         numeric_pairs = [
             (Decimal(str(a[c][key])), Decimal(str(b[c][key])))
@@ -144,6 +197,17 @@ def paired_comparison(first: list[dict[str, Any]], second: list[dict[str, Any]])
     ma, mb = semantic_metrics(first), semantic_metrics(second)
     comparisons["effectiveness_difference"] = {
         key: ma[key] - mb[key] if ma[key] is not None and mb[key] is not None else None
-        for key in ("precision", "recall_definitive", "F1_definitive", "definitive_coverage")
+        for key in (
+            "precision",
+            "recall_definitive",
+            "F1_definitive",
+            "definitive_coverage",
+            "effective_correctness",
+            "effective_recall",
+            "effective_negative_correctness",
+            "specificity_definitive",
+            "FPR_definitive",
+            "FNR_definitive",
+        )
     }
     return {"descriptive_only": True, "significance_test_run": False, "comparisons": comparisons}
