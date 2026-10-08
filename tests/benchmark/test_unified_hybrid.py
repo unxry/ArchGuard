@@ -316,3 +316,64 @@ def test_all_routes_build_deterministic_truth_blind_payloads(tmp_path, rule, lan
     assert first[1]["context_chars"] <= 20000 and first[1]["input_upper"] <= 32768
     with pytest.raises(ValueError):
         infra.audit_request({"input": json.dumps({"human_rationale": "forbidden"})})
+
+
+def test_total_budget_reserves_supplemental_structural_context(tmp_path):
+    case = "e" * 32
+    facts = structural.topology("ARCH101", 9, True)
+    files = structural.sources(case, "JAVA", facts)
+    for relative, text in files.items():
+        text = text.replace(" {\n", " {\n// " + "x" * 2400 + "\n")
+        path = tmp_path / relative
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(text)
+    iam, _ = build(tmp_path, "large-context-synthetic")
+    graph = GraphAnalyzer().analyze(iam, GraphAnalysisConfig())
+    spec = structural.specification("ARCH101")["spec"]
+    row = dict(
+        execution_id=case,
+        target_rule_id="ARCH101",
+        language="JAVA",
+        architecture_contract=json.dumps(spec),
+        spec=spec,
+        subjects=dict(locators=[infra.locator(iam, "Unit" + case[:12] + "N0")], directed=False),
+    )
+    with create_discovery().open(
+        RepositoryInput(source_type=RepositorySourceType.LOCAL, location=str(tmp_path))
+    ) as repo:
+        material, metadata = infra.request_material(row, iam, graph, repo.workspace)
+    assert metadata["context_chars"] <= 20000 and metadata["input_upper"] <= 32768
+    assert material["context_manifest"]["configuration"]["max_total_chars"] < 20000
+
+
+@pytest.mark.parametrize(
+    "decision", ["SUPPORTED", "NOT_SUPPORTED", "INSUFFICIENT_CONTEXT", "NOT_APPLICABLE"]
+)
+def test_future_vector_binding_uses_only_legitimate_component_values(decision):
+    record = dict(
+        STATIC="NOT_APPLICABLE",
+        GRAPH="NOT_SUPPORTED",
+        v2_score=0.2,
+        existing_contract={"static": []},
+        existing_features={"graph.cyclic": False, "quality.unresolved": 2},
+        case_id="not-predictive",
+        truth="not-predictive",
+        severity=999,
+    )
+    assessment = domain.UnifiedAssessment(
+        request_id="a" * 64,
+        target_rule_id="ARCH201",
+        decision=decision,
+        subject_node_ids=("subject",),
+        short_reason="Synthetic response",
+        evidence_refs=(),
+        limitations=(),
+    )
+    values = infra.candidate_values(record, assessment, truncated=True)
+    assert values["llm.supported"] == float(decision == "SUPPORTED")
+    assert values["llm.abstention"] == float(decision == "INSUFFICIENT_CONTEXT")
+    assert values["llm.not_applicable"] == float(decision == "NOT_APPLICABLE")
+    assert values["static.applicable"] == 0 and values["graph.is_cyclic"] == 0
+    assert not {"case_id", "truth", "severity"} & set(values)
+    missing = infra.candidate_values(record, None, truncated=False)
+    assert all(missing[n] is None for n in domain.FEATURES["LLM"])

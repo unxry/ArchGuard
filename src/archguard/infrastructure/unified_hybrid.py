@@ -19,7 +19,6 @@ from archguard.architecture.graph.config import GraphAnalysisConfig
 from archguard.architecture.hybrid.calibration import numeric_values
 from archguard.architecture.hybrid.features import extract_features
 from archguard.architecture.hybrid.prospective_alignment import VERSION as ALIGNMENT
-from archguard.architecture.hybrid.prospective_alignment import ProspectiveMaterializeEvaluationCase
 from archguard.architecture.intelligence.context import GraphGuidedContextBuilder
 from archguard.architecture.intelligence.models import ContextSelectionConfig, StructuredLLMRequest
 from archguard.architecture.specification.models import ArchitectureSpecification
@@ -29,6 +28,7 @@ from archguard.benchmark import unified_hybrid as domain
 from archguard.benchmark.materialization import EvaluationAnchor
 from archguard.benchmark.models import Locator, Subjects
 from archguard.benchmark.oss.models import canonical, digest, seal
+from archguard.benchmark.prospective_materialization import ProspectiveMaterializeEvaluationCase
 from archguard.benchmark.semantic_positive_experiment import SYSTEM_PROMPT, token_estimate
 from archguard.benchmark.semantic_preflight import QUESTIONS, PricingAssumption
 from archguard.benchmark.semantic_review import (
@@ -102,11 +102,24 @@ def git_head() -> str:
 
 def alignment_gate() -> dict[str, Any]:
     frozen = read(ALIGNMENT_FREEZE)
-    for name, field in (
-        ("src/archguard/architecture/hybrid/prospective_alignment.py", "implementation_sha256"),
-        ("tests/hybrid/test_prospective_alignment.py", "tests_sha256"),
-    ):
-        if sha(Path(name)) != frozen[field]:
+    placement_path = BASE / "p020-alignment-placement-freeze-v1.json"
+    placement = read(placement_path) if placement_path.exists() else None
+    expected = (
+        placement["files"]
+        if placement
+        else {
+            name: frozen[field]
+            for name, field in (
+                (
+                    "src/archguard/architecture/hybrid/prospective_alignment.py",
+                    "implementation_sha256",
+                ),
+                ("tests/hybrid/test_prospective_alignment.py", "tests_sha256"),
+            )
+        }
+    )
+    for name, value in expected.items():
+        if sha(Path(name)) != value:
             raise ValueError("alignment implementation/test drift")
     commit = subprocess.check_output(
         ["git", "log", "-1", "--format=%H", "--", str(ALIGNMENT_FREEZE)], text=True
@@ -114,10 +127,21 @@ def alignment_gate() -> dict[str, Any]:
     committed = subprocess.check_output(["git", "show", commit + ":" + str(ALIGNMENT_FREEZE)])
     if committed != ALIGNMENT_FREEZE.read_bytes():
         raise ValueError("alignment freeze must be committed before science")
+    if placement:
+        if placement["generation_alignment_fingerprint"] != frozen["fingerprint"]:
+            raise ValueError("alignment placement lineage drift")
+        bound = subprocess.check_output(["git", "show", "HEAD:" + str(placement_path)])
+        if bound != placement_path.read_bytes():
+            raise ValueError("alignment placement must be committed")
     return frozen | {"commit": commit}
 
 
 def freeze_public(name: str, value: dict[str, Any]) -> dict[str, Any]:
+    if (BASE / name).exists():
+        old = read(BASE / name)
+        if canonical({k: v for k, v in old.items() if k != "fingerprint"}) != canonical(value):
+            raise ValueError("completed public freeze cannot be rewritten")
+        return old
     result = append_sealed(BASE / name, value)
     event(name, result["fingerprint"])
     return result
@@ -845,6 +869,40 @@ def evidence_worker(stream: str) -> dict[str, Any]:
         )
 
 
+def candidate_values(
+    record: dict[str, Any], assessment: domain.UnifiedAssessment | None, *, truncated: bool
+) -> dict[str, float | None]:
+    """Whitelist only actual component signals; no labels or identities enter predictors."""
+    raw = record["existing_features"]
+    values: dict[str, float | None] = {
+        "static.positive": float(record["STATIC"] == "SUPPORTED"),
+        "static.applicable": float(record["STATIC"] != "NOT_APPLICABLE"),
+        "static.evidence_count": float(len(record["existing_contract"]["static"])),
+        "static.unresolved": raw.get("quality.unresolved"),
+        "graph.positive": float(record["GRAPH"] == "SUPPORTED"),
+        "graph.applicable": float(record["GRAPH"] != "NOT_APPLICABLE"),
+        "graph.v2_score": record["v2_score"],
+    }
+    for name in domain.GRAPH_FEATURES:
+        value = raw.get("graph.cyclic" if name == "is_cyclic" else "graph." + name)
+        values["graph." + name] = float(value) if value is not None else None
+    decisions = {
+        "llm.supported": "SUPPORTED",
+        "llm.not_supported": "NOT_SUPPORTED",
+        "llm.abstention": "INSUFFICIENT_CONTEXT",
+        "llm.not_applicable": "NOT_APPLICABLE",
+    }
+    for name, state in decisions.items():
+        values[name] = float(assessment.decision == state) if assessment is not None else None
+    values["llm.evidence_available"] = (
+        float(bool(assessment.evidence_refs)) if assessment is not None else None
+    )
+    values["llm.truncated"] = float(truncated) if assessment is not None else None
+    if set(values) != {n for names in domain.FEATURES.values() for n in names}:
+        raise ValueError("Hybrid whitelist mismatch")
+    return values
+
+
 def request_material(
     row: dict[str, Any], iam: ArchitectureModel, graph: Any, workspace: Any
 ) -> tuple[dict[str, Any], dict[str, Any]]:
@@ -858,60 +916,71 @@ def request_material(
         include_spec=False, include_discovery=False, include_metrics=False
     )
     target = LocatorResolver(iam).normalize(target_ids[0], NodeKind.CLASS).id
-    pack = GraphGuidedContextBuilder().build(target, iam, graph, workspace, config)
-    context = pack.untrusted_data() | {
-        "architecture_contract": row["architecture_contract"],
-        "target_subject_ids": [str(s) for s in target_ids],
-        "context_status": {
-            "truncated": pack.manifest.truncated,
-            "diagnostics": [d.code for d in pack.manifest.diagnostics],
-        },
-    }
-    rule = row["target_rule_id"]
-    if not rule.startswith("ARCH2"):
-        # Raw topology/metrics for selected subjects, never oracle truth or component opinions.
-        selected = {s.node_id for s in pack.manifest.selected_nodes}
-        context["graph_measurements"] = [
-            m.model_dump(mode="json") for m in graph.metrics if m.node_id in selected
-        ]
-        context["target_constraint"] = row["spec"]
-    audit_metadata(context)
-    request_id = digest(
-        dict(
-            execution_id=row["execution_id"],
-            context_fingerprint=digest(context),
-            protocol_fingerprint=digest(domain.protocol()),
+    for _budget_pass in range(4):
+        pack = GraphGuidedContextBuilder().build(target, iam, graph, workspace, config)
+        context = pack.untrusted_data() | {
+            "architecture_contract": row["architecture_contract"],
+            "target_subject_ids": [str(s) for s in target_ids],
+            "context_status": {
+                "truncated": pack.manifest.truncated,
+                "diagnostics": [d.code for d in pack.manifest.diagnostics],
+            },
+        }
+        rule = row["target_rule_id"]
+        if not rule.startswith("ARCH2"):
+            # Raw topology/metrics for selected subjects, never oracle truth or component opinions.
+            selected = {s.node_id for s in pack.manifest.selected_nodes}
+            context["graph_measurements"] = [
+                m.model_dump(mode="json") for m in graph.metrics if m.node_id in selected
+            ]
+            context["target_constraint"] = row["spec"]
+        audit_metadata(context)
+        request_id = digest(
+            dict(
+                execution_id=row["execution_id"],
+                context_fingerprint=digest(context),
+                protocol_fingerprint=digest(domain.protocol()),
+            )
         )
-    )
-    request = StructuredLLMRequest(
-        prompt_version="unified-structural-020-v1"
-        if not rule.startswith("ARCH2")
-        else "positive-semantic-assessment-016-v1-envelope020",
-        schema_version="unified-assessment-020-v1",
-        system_instructions=SYSTEM_PROMPT if rule.startswith("ARCH2") else domain.STRUCTURAL_SYSTEM,
-        task=dict(
-            request_id=request_id,
-            target_rule_id=rule,
-            target_question=QUESTIONS[rule]
+        request = StructuredLLMRequest(
+            prompt_version="unified-structural-020-v1"
+            if not rule.startswith("ARCH2")
+            else "positive-semantic-assessment-016-v1-envelope020",
+            schema_version="unified-assessment-020-v1",
+            system_instructions=SYSTEM_PROMPT
             if rule.startswith("ARCH2")
-            else domain.STRUCTURAL_QUESTIONS[rule],
-            language=row["language"],
-            subject_node_id=str(target),
-        ),
-        untrusted_context=context,
-        response_schema=domain.UnifiedAssessment.model_json_schema(),
-        timeout_seconds=90,
-        max_output_tokens=2000,
-    )
-    visible = (
-        request.system_instructions
-        + canonical(dict(task=request.task, untrusted_context=context))
-        + canonical(request.response_schema)
-    )
-    estimate, upper = token_estimate(visible)
-    chars = len(canonical(context))
-    if chars > 20000 or upper > 32768 or not pack.fragments:
-        raise ValueError("context/input budget or usable source violated")
+            else domain.STRUCTURAL_SYSTEM,
+            task=dict(
+                request_id=request_id,
+                target_rule_id=rule,
+                target_question=QUESTIONS[rule]
+                if rule.startswith("ARCH2")
+                else domain.STRUCTURAL_QUESTIONS[rule],
+                language=row["language"],
+                subject_node_id=str(target),
+            ),
+            untrusted_context=context,
+            response_schema=domain.UnifiedAssessment.model_json_schema(),
+            timeout_seconds=90,
+            max_output_tokens=2000,
+        )
+        visible = (
+            request.system_instructions
+            + canonical(dict(task=request.task, untrusted_context=context))
+            + canonical(request.response_schema)
+        )
+        estimate, upper = token_estimate(visible)
+        chars = len(canonical(context))
+        if chars <= 20000 and upper <= 32768:
+            break
+        reduced = config.max_total_chars - max(chars - 20000, upper - 32768) - 256
+        if reduced < 512:
+            raise ValueError("supplemental context cannot fit frozen total budget")
+        config = config.model_copy(update={"max_total_chars": reduced})
+    else:
+        raise ValueError("context budget did not converge within four offline passes")
+    if not pack.fragments:
+        raise ValueError("usable target source context required")
     material = dict(
         request_id=request_id,
         execution_id=row["execution_id"],
@@ -961,7 +1030,12 @@ def requests_worker(stream: str) -> dict[str, Any]:
             ) as repo:
                 material, meta = request_material(row, iam, graph, repo.workspace)
             audit_request(material)
-            append_sealed(output / "payloads" / (meta["request_id"] + ".json"), material)
+            path = output / "payloads" / (meta["request_id"] + ".json")
+            if path.exists():
+                if read(path)["fingerprint"] != digest(material):
+                    raise ValueError("prepared payload cannot be changed")
+            else:
+                append_sealed(path, material)
             metadata.append(meta)
         metadata.sort(key=lambda r: digest(r["execution_id"]))
         expected = 180 if stream == "DEVELOPMENT" else 300
@@ -1043,18 +1117,19 @@ def run_workers(script: Path) -> dict[str, Any]:
     results = {}
     for stream in ("DEVELOPMENT", "FINAL"):
         for action in ("evidence", "requests"):
-            subprocess.run(
-                [sys.executable, str(script), "--worker", action, "--stream", stream],
-                check=True,
-                env={
-                    "PATH": os.environ.get("PATH", ""),
-                    "PYTHONPATH": "src",
-                    "PYTHONDONTWRITEBYTECODE": "1",
-                },
-                stdout=subprocess.DEVNULL,
-            )
             root = DEV if stream == "DEVELOPMENT" else FINAL
             filename = "evidence.json" if action == "evidence" else "manifest.json"
+            if not (root / action / filename).exists():
+                subprocess.run(
+                    [sys.executable, str(script), "--worker", action, "--stream", stream],
+                    check=True,
+                    env={
+                        "PATH": os.environ.get("PATH", ""),
+                        "PYTHONPATH": "src",
+                        "PYTHONDONTWRITEBYTECODE": "1",
+                    },
+                    stdout=subprocess.DEVNULL,
+                )
             result = read(root / action / filename)
             results[stream + "_" + action] = result["fingerprint"]
             freeze_public(
@@ -1099,9 +1174,9 @@ def verify_worker(stream: str) -> dict[str, Any]:
                 read(root / "inputs/iam" / row["iam_file"])["iam"]
             )
             replay = evidence_record(row, iam, policy)
-            if {k: v for k, v in replay.items() if k != "seconds"} != {
-                k: v for k, v in frozen.items() if k != "seconds"
-            }:
+            if canonical({k: v for k, v in replay.items() if k != "seconds"}) != canonical(
+                {k: v for k, v in frozen.items() if k != "seconds"}
+            ):
                 raise ValueError("deterministic prospective evidence replay drift")
         req = read(root / "requests/manifest.json")
         for r in req["rows"]:
@@ -1140,6 +1215,19 @@ def finish() -> dict[str, Any]:
     pricing = PricingAssumption.model_validate_json(PRICING.read_bytes())
     dev = read(DEV / "requests/manifest.json")
     final = read(FINAL / "requests/manifest.json")
+    review_inventory = append_sealed(
+        COORDINATOR / "review-inventory.json", dict(files=source_inventory(FINAL / "review"))
+    )
+    review_receipt = freeze_public(
+        "p020-review-material-freeze-v1.json",
+        dict(
+            inventory_fingerprint=review_inventory["fingerprint"],
+            packets=100,
+            independent_slots=["A", "B"],
+            human_labels_created=False,
+            third_human="CATEGORICAL_CONFLICTS_ONLY",
+        ),
+    )
     cost = freeze_public(
         "p020-cost-preflight-v1.json",
         dict(
@@ -1170,6 +1258,10 @@ def finish() -> dict[str, Any]:
         "p020-registry-v1.json",
         dict(
             plan_fingerprint=plan["fingerprint"],
+            review_material_fingerprint=review_receipt["fingerprint"],
+            context_budget_amendment=read(BASE / "p020-context-budget-amendment-v1.json")[
+                "fingerprint"
+            ],
             alignment_fingerprint=plan["alignment_fingerprint"],
             alignment_commit=plan["alignment_commit"],
             development=read(BASE / "p020-development-freeze-v1.json")["fingerprint"],
@@ -1317,7 +1409,25 @@ def verify() -> dict[str, Any]:
             ):
                 raise ValueError("payload fingerprint drift")
     registry = read(BASE / "p020-registry-v1.json")
-    if any(sha(Path(n)) != h for n, h in registry["implementation"].items()):
+    review_receipt = read(BASE / "p020-review-material-freeze-v1.json")
+    review_inventory = read(COORDINATOR / "review-inventory.json")
+    if (
+        review_inventory["fingerprint"] != review_receipt["inventory_fingerprint"]
+        or source_inventory(FINAL / "review") != review_inventory["files"]
+    ):
+        raise ValueError("review material inventory drift")
+    if review_receipt["fingerprint"] != registry["review_material_fingerprint"]:
+        raise ValueError("review registry drift")
+    implementation_path = BASE / "p020-implementation-freeze-v2.json"
+    if not implementation_path.exists():
+        implementation_path = BASE / "p020-implementation-freeze-v1.json"
+    implementation = read(implementation_path) if implementation_path.exists() else registry
+    if (
+        implementation.get("generation_registry_fingerprint", registry["fingerprint"])
+        != registry["fingerprint"]
+    ):
+        raise ValueError("implementation registry binding drift")
+    if any(sha(Path(n)) != h for n, h in implementation["implementation"].items()):
         raise ValueError("implementation freeze drift")
     for stream in ("DEVELOPMENT", "FINAL"):
         subprocess.run(
@@ -1345,6 +1455,24 @@ def verify() -> dict[str, Any]:
             raise ValueError("private directory permissions")
         if p.is_file() and p.stat().st_mode & 0o077:
             raise ValueError("private file permissions")
+        if p.is_symlink():
+            raise ValueError("scientific symlinks prohibited")
+        if p.is_file() and (
+            p.name.startswith(".env")
+            or re.search(
+                rb"(?:\bsk-[A-Za-z0-9_-]{10,}|\bBearer\s+\S+|\"(?:api_key|authorization|access_token|session_token)\"\s*:)",
+                p.read_bytes(),
+            )
+        ):
+            raise ValueError("secret-bearing scientific material prohibited")
+    previous = "0" * 64
+    for line in AUDIT.read_text().splitlines():
+        item = json.loads(line)
+        if item["previous"] != previous or item["fingerprint"] != digest(
+            {k: v for k, v in item.items() if k != "fingerprint"}
+        ):
+            raise ValueError("chronology chain drift")
+        previous = item["fingerprint"]
     return {
         "status": "P020_OFFLINE_PREPARED",
         "prior_bytes_unchanged": True,

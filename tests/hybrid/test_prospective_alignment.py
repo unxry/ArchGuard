@@ -10,10 +10,8 @@ from archguard.architecture.graph.config import GraphAnalysisConfig
 from archguard.architecture.graph.models import GraphNodeId
 from archguard.architecture.hybrid.alignment import HybridEvidenceAligner
 from archguard.architecture.hybrid.assembler import HybridInputError
-from archguard.architecture.hybrid.prospective_alignment import (
-    ProspectiveMaterializeEvaluationCase,
-    architectural_owner,
-)
+from archguard.architecture.hybrid.prospective_alignment import architectural_owner
+from archguard.benchmark.prospective_materialization import ProspectiveMaterializeEvaluationCase
 from archguard.core.model.enums import NodeKind
 from archguard.infrastructure.component_holdout import build
 
