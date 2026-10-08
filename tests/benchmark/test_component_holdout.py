@@ -153,6 +153,8 @@ def test_frozen_input_writes_and_network_denied(tmp_path):
 
 
 def test_v2_exact_artifact_fixed_transform_no_leakage():
+    if not infra.POLICY.exists():
+        pytest.skip("local frozen V2 artifact not present")
     artifact = load_policy(infra.POLICY)
     assert artifact.fingerprint == domain.V2
     assert artifact.threshold == 0.398762395289
