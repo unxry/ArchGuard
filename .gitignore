@@ -53,3 +53,6 @@ experiments/ai/private/
 experiments/semantic-holdout/private/
 experiments/component-holdout/private/
 experiments/unified-hybrid/private/
+
+# Prospective Security benchmark: case evidence, construction intent and future human truth.
+experiments/security/security-benchmark-v1/private/
