@@ -150,3 +150,10 @@ The P027 contract above is historical and unchanged. The separate
 partial API/dataflow coverage and diagnostics. P028 receipts are versioned under
 `experiments/security/security-static-dataflow-v1/`; historical P027 artifacts remain frozen.
 No Architecture/Hybrid behavior, effectiveness claims, HTTP API or persistence is changed.
+
+## P029 V2 scope
+
+The separately versioned [Security analysis V2](SECURITY_ANALYSIS_V2.md) adds bounded
+call summaries, field aliases and tested framework/proof subsets. P027 meanings and
+P028 JSON/source/fixture history remain frozen. P029 does not change Architecture/Hybrid,
+create a Security effectiveness benchmark, call a provider or start P030/UI.
