@@ -200,7 +200,7 @@ def test_source_input_repr_hides_contents():
 def test_api_pack_typed_and_unique():
     pack = entries()
     assert len({e.id for e in pack}) == len(pack)
-    assert all(e.engineering_test_binding == __file__.split("ArchGuard/")[-1] for e in pack)
+    assert all(Path(e.engineering_test_binding).resolve() == Path(__file__).resolve() for e in pack)
     assert all(e.conditions and e.limitations and e.rule_ids for e in pack)
 
 
