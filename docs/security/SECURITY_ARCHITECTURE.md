@@ -57,3 +57,11 @@ matrix and boundary receipt bind implementation/schema hashes and unchanged P025
 
 P028 may implement tested applicable static/dataflow evidence with its own scope and gates. P027
 stops at READY_FOR_P028_SECURITY_STATIC_AND_DATAFLOW_ANALYSIS and does not start P028.
+
+## P028 executable scope
+
+The P027 contract above is historical and unchanged. The separate
+[Security analysis V1](SECURITY_ANALYSIS_V1.md) documents executable detectors,
+partial API/dataflow coverage and diagnostics. P028 receipts are versioned under
+`experiments/security/security-static-dataflow-v1/`; historical P027 artifacts remain frozen.
+No Architecture/Hybrid behavior, effectiveness claims, HTTP API or persistence is changed.

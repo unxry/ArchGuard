@@ -1,0 +1,726 @@
+{
+  "purpose": "SYNTHETIC_ENGINEERING_FIXTURES_NOT_A_BENCHMARK",
+  "version": "security-static-dataflow-v1",
+  "cases": [
+    {
+      "id": "typescript-secret",
+      "language": "TYPESCRIPT",
+      "rule": "SEC001",
+      "source": "import type {Request} from \"express\"; \nfunction check(req: Request) {\nconst apiToken = \"TEST_ONLY_SYNTHETIC_SECRET_Ab4Cd5Ef6Gh7\";\n}",
+      "expected_count": 1,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "typescript-secret-negative-label",
+      "language": "TYPESCRIPT",
+      "rule": "SEC001",
+      "source": "import type {Request} from \"express\"; \nfunction check(req: Request) {\nconst apiToken = \"Password\";\n}",
+      "expected_count": 0,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "typescript-secret-negative-uuid",
+      "language": "TYPESCRIPT",
+      "rule": "SEC001",
+      "source": "import type {Request} from \"express\"; \nfunction check(req: Request) {\nconst apiToken = \"550e8400-e29b-41d4-a716-446655440000\";\n}",
+      "expected_count": 0,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "typescript-secret-negative-hash",
+      "language": "TYPESCRIPT",
+      "rule": "SEC001",
+      "source": "import type {Request} from \"express\"; \nfunction check(req: Request) {\nconst apiToken = \"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff\";\n}",
+      "expected_count": 0,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "typescript-secret-negative-placeholder",
+      "language": "TYPESCRIPT",
+      "rule": "SEC001",
+      "source": "import type {Request} from \"express\"; \nfunction check(req: Request) {\nconst apiToken = \"YOUR_API_KEY_PLACEHOLDER\";\n}",
+      "expected_count": 0,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "java-secret",
+      "language": "JAVA",
+      "rule": "SEC001",
+      "source": "import javax.servlet.http.HttpServletRequest; \nclass Check { void check(HttpServletRequest req) throws Exception {\nString apiToken = \"TEST_ONLY_SYNTHETIC_SECRET_Ab4Cd5Ef6Gh7\";\n} }",
+      "expected_count": 1,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "java-secret-negative-label",
+      "language": "JAVA",
+      "rule": "SEC001",
+      "source": "import javax.servlet.http.HttpServletRequest; \nclass Check { void check(HttpServletRequest req) throws Exception {\nString apiToken = \"Password\";\n} }",
+      "expected_count": 0,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "java-secret-negative-uuid",
+      "language": "JAVA",
+      "rule": "SEC001",
+      "source": "import javax.servlet.http.HttpServletRequest; \nclass Check { void check(HttpServletRequest req) throws Exception {\nString apiToken = \"550e8400-e29b-41d4-a716-446655440000\";\n} }",
+      "expected_count": 0,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "java-secret-negative-hash",
+      "language": "JAVA",
+      "rule": "SEC001",
+      "source": "import javax.servlet.http.HttpServletRequest; \nclass Check { void check(HttpServletRequest req) throws Exception {\nString apiToken = \"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff\";\n} }",
+      "expected_count": 0,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "java-secret-negative-placeholder",
+      "language": "JAVA",
+      "rule": "SEC001",
+      "source": "import javax.servlet.http.HttpServletRequest; \nclass Check { void check(HttpServletRequest req) throws Exception {\nString apiToken = \"YOUR_API_KEY_PLACEHOLDER\";\n} }",
+      "expected_count": 0,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "java-sql",
+      "language": "JAVA",
+      "rule": "SEC002",
+      "source": "import javax.servlet.http.HttpServletRequest; import java.sql.Statement;\nclass Check { void check(HttpServletRequest req, Statement stmt) throws Exception {\nString x=req.getParameter(\"q\"); String alias=x; String sql=\"SELECT * FROM items WHERE id=\"+alias; stmt.executeQuery(sql);\n} }",
+      "expected_count": 1,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "java-sql-constant",
+      "language": "JAVA",
+      "rule": "SEC002",
+      "source": "import javax.servlet.http.HttpServletRequest; import java.sql.Statement;\nclass Check { void check(HttpServletRequest req, Statement stmt) throws Exception {\nstmt.executeQuery(\"SELECT * FROM items\");\n} }",
+      "expected_count": 0,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "java-sql-parameterized",
+      "language": "JAVA",
+      "rule": "SEC002",
+      "source": "import javax.servlet.http.HttpServletRequest; import java.sql.PreparedStatement;\nclass Check { void check(HttpServletRequest req, PreparedStatement stmt) throws Exception {\nstmt.setString(1, req.getParameter(\"q\")); stmt.executeQuery();\n} }",
+      "expected_count": 0,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "ts-sql",
+      "language": "TYPESCRIPT",
+      "rule": "SEC002",
+      "source": "import type {Request} from \"express\"; import {Client} from \"pg\";\nfunction check(req: Request, db: Client) {\nconst q=`SELECT * FROM items WHERE id=${req.query.id}`; db.query(q);\n}",
+      "expected_count": 1,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "ts-sql-parameterized",
+      "language": "TYPESCRIPT",
+      "rule": "SEC002",
+      "source": "import type {Request} from \"express\"; import {Client} from \"pg\";\nfunction check(req: Request, db: Client) {\ndb.query(\"SELECT * FROM items WHERE id=$1\", [req.query.id]);\n}",
+      "expected_count": 0,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "java-command",
+      "language": "JAVA",
+      "rule": "SEC003",
+      "source": "import javax.servlet.http.HttpServletRequest; \nclass Check { void check(HttpServletRequest req) throws Exception {\nRuntime.getRuntime().exec(\"inert-command \" + req.getParameter(\"q\"));\n} }",
+      "expected_count": 1,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "java-command-constant",
+      "language": "JAVA",
+      "rule": "SEC003",
+      "source": "import javax.servlet.http.HttpServletRequest; \nclass Check { void check(HttpServletRequest req) throws Exception {\nRuntime.getRuntime().exec(\"inert-command\");\n} }",
+      "expected_count": 0,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "java-processbuilder",
+      "language": "JAVA",
+      "rule": "SEC003",
+      "source": "import javax.servlet.http.HttpServletRequest; \nclass Check { void check(HttpServletRequest req) throws Exception {\nnew ProcessBuilder(req.getParameter(\"command\")).start();\n} }",
+      "expected_count": 1,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "java-processbuilder-safe-argv",
+      "language": "JAVA",
+      "rule": "SEC003",
+      "source": "import javax.servlet.http.HttpServletRequest; \nclass Check { void check(HttpServletRequest req) throws Exception {\nnew ProcessBuilder(\"inert-command\", req.getParameter(\"arg\")).start();\n} }",
+      "expected_count": 0,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "ts-command",
+      "language": "TYPESCRIPT",
+      "rule": "SEC003",
+      "source": "import type {Request} from \"express\"; import {exec} from \"node:child_process\";\nfunction check(req: Request) {\nexec(`inert-command ${req.query.q}`);\n}",
+      "expected_count": 1,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "ts-command-constant",
+      "language": "TYPESCRIPT",
+      "rule": "SEC003",
+      "source": "import type {Request} from \"express\"; import {exec} from \"node:child_process\";\nfunction check(req: Request) {\nexec(\"inert-command\");\n}",
+      "expected_count": 0,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "ts-spawn-safe",
+      "language": "TYPESCRIPT",
+      "rule": "SEC003",
+      "source": "import type {Request} from \"express\"; import {spawn} from \"node:child_process\";\nfunction check(req: Request) {\nspawn(\"inert-command\", [req.query.q], {shell:false});\n}",
+      "expected_count": 0,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "ts-spawn-shell",
+      "language": "TYPESCRIPT",
+      "rule": "SEC003",
+      "source": "import type {Request} from \"express\"; import {spawn} from \"node:child_process\";\nfunction check(req: Request) {\nspawn(\"inert-command\", [req.query.q], {shell:true});\n}",
+      "expected_count": 1,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "ts-spawn-executable",
+      "language": "TYPESCRIPT",
+      "rule": "SEC003",
+      "source": "import type {Request} from \"express\"; import {spawn} from \"node:child_process\";\nfunction check(req: Request) {\nspawn(req.query.q, []);\n}",
+      "expected_count": 1,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "java-path",
+      "language": "JAVA",
+      "rule": "SEC004",
+      "source": "import javax.servlet.http.HttpServletRequest; import java.nio.file.Files; import java.nio.file.Paths;\nclass Check { void check(HttpServletRequest req) throws Exception {\nFiles.readAllBytes(Paths.get(req.getParameter(\"path\")));\n} }",
+      "expected_count": 1,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "java-path-normalize",
+      "language": "JAVA",
+      "rule": "SEC004",
+      "source": "import javax.servlet.http.HttpServletRequest; import java.nio.file.Files; import java.nio.file.Paths;\nclass Check { void check(HttpServletRequest req) throws Exception {\nFiles.readAllBytes(Paths.get(req.getParameter(\"path\")).normalize());\n} }",
+      "expected_count": 1,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "java-path-constant",
+      "language": "JAVA",
+      "rule": "SEC004",
+      "source": "import javax.servlet.http.HttpServletRequest; import java.nio.file.Files; import java.nio.file.Paths;\nclass Check { void check(HttpServletRequest req) throws Exception {\nFiles.readAllBytes(Paths.get(\"/fixed/inert.txt\"));\n} }",
+      "expected_count": 0,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "ts-path",
+      "language": "TYPESCRIPT",
+      "rule": "SEC004",
+      "source": "import type {Request} from \"express\"; import {readFileSync} from \"node:fs\";\nfunction check(req: Request) {\nreadFileSync(req.params.path);\n}",
+      "expected_count": 1,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "ts-path-normalize",
+      "language": "TYPESCRIPT",
+      "rule": "SEC004",
+      "source": "import type {Request} from \"express\"; import {readFileSync} from \"node:fs\"; import {normalize} from \"node:path\";\nfunction check(req: Request) {\nreadFileSync(normalize(req.params.path));\n}",
+      "expected_count": 1,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "ts-path-constant",
+      "language": "TYPESCRIPT",
+      "rule": "SEC004",
+      "source": "import type {Request} from \"express\"; import {readFileSync} from \"node:fs\";\nfunction check(req: Request) {\nreadFileSync(\"/fixed/inert.txt\");\n}",
+      "expected_count": 0,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "java-deserialization",
+      "language": "JAVA",
+      "rule": "SEC005",
+      "source": "import javax.servlet.http.HttpServletRequest; import java.io.ObjectInputStream; import java.io.InputStream;\nclass Check { void check(HttpServletRequest req, InputStream input) throws Exception {\nObjectInputStream stream=new ObjectInputStream(input); stream.readObject();\n} }",
+      "expected_count": 1,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "java-deserialization-filter",
+      "language": "JAVA",
+      "rule": "SEC005",
+      "source": "import javax.servlet.http.HttpServletRequest; import java.io.ObjectInputStream; import java.io.InputStream; import java.io.ObjectInputFilter;\nclass Check { void check(HttpServletRequest req, InputStream input, ObjectInputFilter filter) throws Exception {\nObjectInputStream stream=new ObjectInputStream(input); stream.setObjectInputFilter(filter); stream.readObject();\n} }",
+      "expected_count": 0,
+      "expected_diagnostic": "DESERIALIZATION_FILTER_UNKNOWN",
+      "expected_status": null
+    },
+    {
+      "id": "java-json",
+      "language": "JAVA",
+      "rule": "SEC005",
+      "source": "import javax.servlet.http.HttpServletRequest; \nclass Check { void check(HttpServletRequest req, Object mapper) throws Exception {\nmapper.readValue(req.getParameter(\"json\"), String.class);\n} }",
+      "expected_count": 0,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "ts-json",
+      "language": "TYPESCRIPT",
+      "rule": "SEC005",
+      "source": "import type {Request} from \"express\"; \nfunction check(req: Request) {\nJSON.parse(req.body.json);\n}",
+      "expected_count": 0,
+      "expected_diagnostic": "UNSUPPORTED_RULE",
+      "expected_status": null
+    },
+    {
+      "id": "java-ssrf",
+      "language": "JAVA",
+      "rule": "SEC006",
+      "source": "import javax.servlet.http.HttpServletRequest; import java.net.URL;\nclass Check { void check(HttpServletRequest req) throws Exception {\nnew URL(req.getParameter(\"url\")).openConnection();\n} }",
+      "expected_count": 1,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "java-ssrf-constant",
+      "language": "JAVA",
+      "rule": "SEC006",
+      "source": "import javax.servlet.http.HttpServletRequest; import java.net.URL;\nclass Check { void check(HttpServletRequest req) throws Exception {\nnew URL(\"https://example.invalid/fixed\").openConnection();\n} }",
+      "expected_count": 0,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "ts-ssrf",
+      "language": "TYPESCRIPT",
+      "rule": "SEC006",
+      "source": "import type {Request} from \"express\"; import * as http from \"node:http\";\nfunction check(req: Request) {\nhttp.get(req.query.url);\n}",
+      "expected_count": 1,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "ts-ssrf-constant",
+      "language": "TYPESCRIPT",
+      "rule": "SEC006",
+      "source": "import type {Request} from \"express\"; import * as http from \"node:http\";\nfunction check(req: Request) {\nhttp.get(\"https://example.invalid/fixed\");\n}",
+      "expected_count": 0,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "java-xss",
+      "language": "JAVA",
+      "rule": "SEC007",
+      "source": "import javax.servlet.http.HttpServletRequest; import javax.servlet.jsp.JspWriter;\nclass Check { void check(HttpServletRequest req, JspWriter out) throws Exception {\nout.write(req.getParameter(\"html\"));\n} }",
+      "expected_count": 1,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "java-xss-log",
+      "language": "JAVA",
+      "rule": "SEC007",
+      "source": "import javax.servlet.http.HttpServletRequest; \nclass Check { void check(HttpServletRequest req) throws Exception {\nSystem.out.println(req.getParameter(\"html\"));\n} }",
+      "expected_count": 0,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "ts-xss",
+      "language": "TYPESCRIPT",
+      "rule": "SEC007",
+      "source": "import type {Request} from \"express\"; \nfunction check(req: Request, el: HTMLElement) {\nel.innerHTML=req.query.html;\n}",
+      "expected_count": 1,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "ts-xss-dom",
+      "language": "TYPESCRIPT",
+      "rule": "SEC007",
+      "source": "import type {Request} from \"express\"; \nfunction check(req: Request) {\nconst el=document.getElementById(\"target\"); el.innerHTML=req.query.html;\n}",
+      "expected_count": 1,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "ts-xss-text",
+      "language": "TYPESCRIPT",
+      "rule": "SEC007",
+      "source": "import type {Request} from \"express\"; \nfunction check(req: Request, el: HTMLElement) {\nel.textContent=req.query.html;\n}",
+      "expected_count": 0,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "ts-xss-sanitize",
+      "language": "TYPESCRIPT",
+      "rule": "SEC007",
+      "source": "import type {Request} from \"express\"; import DOMPurify from \"dompurify\";\nfunction check(req: Request, el: HTMLElement) {\nconst safe=DOMPurify.sanitize(req.query.html); const alias=safe; el.innerHTML=alias;\n}",
+      "expected_count": 0,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "ts-xss-recontamination-0",
+      "language": "TYPESCRIPT",
+      "rule": "SEC007",
+      "source": "import type {Request} from \"express\"; import DOMPurify from \"dompurify\";\nfunction check(req: Request, el: HTMLElement) {\nconst safe=DOMPurify.sanitize(req.query.html); el.innerHTML=safe + req.query.more;\n}",
+      "expected_count": 2,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "ts-xss-recontamination-1",
+      "language": "TYPESCRIPT",
+      "rule": "SEC007",
+      "source": "import type {Request} from \"express\"; import DOMPurify from \"dompurify\";\nfunction check(req: Request, el: HTMLElement) {\nconst safe=DOMPurify.sanitize(req.query.html); el.innerHTML=req.query.more + safe;\n}",
+      "expected_count": 2,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "ts-escape-not-sql",
+      "language": "TYPESCRIPT",
+      "rule": "SEC002",
+      "source": "import type {Request} from \"express\"; import DOMPurify from \"dompurify\"; import {Client} from \"pg\";\nfunction check(req: Request, db: Client) {\ndb.query(DOMPurify.sanitize(req.query.q));\n}",
+      "expected_count": 1,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "java-weak-crypto",
+      "language": "JAVA",
+      "rule": "SEC008",
+      "source": "import javax.servlet.http.HttpServletRequest; import java.security.MessageDigest;\nclass Check { void check(HttpServletRequest req) throws Exception {\nObject passwordHash=MessageDigest.getInstance(\"MD5\");\n} }",
+      "expected_count": 1,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "java-strong-crypto",
+      "language": "JAVA",
+      "rule": "SEC008",
+      "source": "import javax.servlet.http.HttpServletRequest; import java.security.MessageDigest;\nclass Check { void check(HttpServletRequest req) throws Exception {\nObject passwordHash=MessageDigest.getInstance(\"SHA-256\");\n} }",
+      "expected_count": 0,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "java-checksum",
+      "language": "JAVA",
+      "rule": "SEC008",
+      "source": "import javax.servlet.http.HttpServletRequest; import java.security.MessageDigest;\nclass Check { void check(HttpServletRequest req) throws Exception {\nObject checksum=MessageDigest.getInstance(\"MD5\");\n} }",
+      "expected_count": 0,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "java-crypto-unclear",
+      "language": "JAVA",
+      "rule": "SEC008",
+      "source": "import javax.servlet.http.HttpServletRequest; import java.security.MessageDigest;\nclass Check { void check(HttpServletRequest req) throws Exception {\nObject value=MessageDigest.getInstance(\"MD5\");\n} }",
+      "expected_count": 1,
+      "expected_diagnostic": null,
+      "expected_status": "POTENTIAL"
+    },
+    {
+      "id": "ts-weak-crypto",
+      "language": "TYPESCRIPT",
+      "rule": "SEC008",
+      "source": "import type {Request} from \"express\"; import {createHash} from \"node:crypto\";\nfunction check(req: Request) {\nconst passwordHash=createHash(\"md5\");\n}",
+      "expected_count": 1,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "ts-strong-crypto",
+      "language": "TYPESCRIPT",
+      "rule": "SEC008",
+      "source": "import type {Request} from \"express\"; import {createHash} from \"node:crypto\";\nfunction check(req: Request) {\nconst passwordHash=createHash(\"sha256\");\n}",
+      "expected_count": 0,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "ts-checksum",
+      "language": "TYPESCRIPT",
+      "rule": "SEC008",
+      "source": "import type {Request} from \"express\"; import {createHash} from \"node:crypto\";\nfunction check(req: Request) {\nconst checksum=createHash(\"md5\");\n}",
+      "expected_count": 0,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "java-random",
+      "language": "JAVA",
+      "rule": "SEC009",
+      "source": "import javax.servlet.http.HttpServletRequest; \nclass Check { void check(HttpServletRequest req) throws Exception {\ndouble sessionToken=Math.random();\n} }",
+      "expected_count": 1,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "java-random-object",
+      "language": "JAVA",
+      "rule": "SEC009",
+      "source": "import javax.servlet.http.HttpServletRequest; import java.util.Random;\nclass Check { void check(HttpServletRequest req) throws Exception {\nRandom rng=new Random(); int resetToken=rng.nextInt();\n} }",
+      "expected_count": 1,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "java-secure-random",
+      "language": "JAVA",
+      "rule": "SEC009",
+      "source": "import javax.servlet.http.HttpServletRequest; import java.security.SecureRandom;\nclass Check { void check(HttpServletRequest req) throws Exception {\nSecureRandom rng=new SecureRandom(); int resetToken=rng.nextInt();\n} }",
+      "expected_count": 0,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "java-random-game",
+      "language": "JAVA",
+      "rule": "SEC009",
+      "source": "import javax.servlet.http.HttpServletRequest; \nclass Check { void check(HttpServletRequest req) throws Exception {\ndouble gameSample=Math.random();\n} }",
+      "expected_count": 0,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "ts-random",
+      "language": "TYPESCRIPT",
+      "rule": "SEC009",
+      "source": "import type {Request} from \"express\"; \nfunction check(req: Request) {\nconst sessionToken=Math.random();\n}",
+      "expected_count": 1,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "ts-random-game",
+      "language": "TYPESCRIPT",
+      "rule": "SEC009",
+      "source": "import type {Request} from \"express\"; \nfunction check(req: Request) {\nconst gameSample=Math.random();\n}",
+      "expected_count": 0,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "ts-secure-random",
+      "language": "TYPESCRIPT",
+      "rule": "SEC009",
+      "source": "import type {Request} from \"express\"; import {randomBytes} from \"node:crypto\";\nfunction check(req: Request) {\nconst sessionToken=randomBytes(32);\n}",
+      "expected_count": 0,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "java-eval",
+      "language": "JAVA",
+      "rule": "SEC010",
+      "source": "import javax.servlet.http.HttpServletRequest; import javax.script.ScriptEngine;\nclass Check { void check(HttpServletRequest req, ScriptEngine engine) throws Exception {\nengine.eval(req.getParameter(\"code\"));\n} }",
+      "expected_count": 1,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "java-eval-constant",
+      "language": "JAVA",
+      "rule": "SEC010",
+      "source": "import javax.servlet.http.HttpServletRequest; import javax.script.ScriptEngine;\nclass Check { void check(HttpServletRequest req, ScriptEngine engine) throws Exception {\nengine.eval(\"1+1\");\n} }",
+      "expected_count": 0,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "java-reflection",
+      "language": "JAVA",
+      "rule": "SEC010",
+      "source": "import javax.servlet.http.HttpServletRequest; \nclass Check { void check(HttpServletRequest req) throws Exception {\nClass.forName(req.getParameter(\"type\"));\n} }",
+      "expected_count": 0,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "ts-eval",
+      "language": "TYPESCRIPT",
+      "rule": "SEC010",
+      "source": "import type {Request} from \"express\"; \nfunction check(req: Request) {\neval(req.query.code);\n}",
+      "expected_count": 1,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "ts-eval-constant",
+      "language": "TYPESCRIPT",
+      "rule": "SEC010",
+      "source": "import type {Request} from \"express\"; \nfunction check(req: Request) {\neval(\"1+1\");\n}",
+      "expected_count": 0,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "ts-function",
+      "language": "TYPESCRIPT",
+      "rule": "SEC010",
+      "source": "import type {Request} from \"express\"; \nfunction check(req: Request) {\nnew Function(req.body.code);\n}",
+      "expected_count": 1,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "ts-vm",
+      "language": "TYPESCRIPT",
+      "rule": "SEC010",
+      "source": "import type {Request} from \"express\"; import * as vm from \"node:vm\";\nfunction check(req: Request) {\nvm.runInNewContext(req.body.code);\n}",
+      "expected_count": 1,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "ts-timer-callback",
+      "language": "TYPESCRIPT",
+      "rule": "SEC010",
+      "source": "import type {Request} from \"express\"; \nfunction check(req: Request) {\nsetTimeout(() => req.query.code, 10);\n}",
+      "expected_count": 0,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "ts-alias",
+      "language": "TYPESCRIPT",
+      "rule": "SEC003",
+      "source": "import type {Request} from \"express\"; import {exec} from \"node:child_process\";\nfunction check(req: Request, flag: boolean, other: object) {\nconst a=req.query.q; const b=a; const c=b; exec(c);\n}",
+      "expected_count": 1,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "ts-object",
+      "language": "TYPESCRIPT",
+      "rule": "SEC003",
+      "source": "import type {Request} from \"express\"; import {exec} from \"node:child_process\";\nfunction check(req: Request, flag: boolean, other: object) {\nconst box={item:req.query.q}; exec(box.item);\n}",
+      "expected_count": 1,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "ts-branch",
+      "language": "TYPESCRIPT",
+      "rule": "SEC003",
+      "source": "import type {Request} from \"express\"; import {exec} from \"node:child_process\";\nfunction check(req: Request, flag: boolean, other: object) {\nlet x=\"safe\"; if(flag) {x=req.query.q;} exec(x);\n}",
+      "expected_count": 1,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "ts-reassigned",
+      "language": "TYPESCRIPT",
+      "rule": "SEC003",
+      "source": "import type {Request} from \"express\"; import {exec} from \"node:child_process\";\nfunction check(req: Request, flag: boolean, other: object) {\nlet x=req.query.q; x=\"safe\"; exec(x);\n}",
+      "expected_count": 0,
+      "expected_diagnostic": null,
+      "expected_status": null
+    },
+    {
+      "id": "ts-unresolved-wrapper",
+      "language": "TYPESCRIPT",
+      "rule": "SEC003",
+      "source": "import type {Request} from \"express\"; import {exec} from \"node:child_process\";\nfunction check(req: Request, flag: boolean, other: object) {\nexec(customWrapper(req.query.q));\n}",
+      "expected_count": 1,
+      "expected_diagnostic": "INTERPROCEDURAL_BOUNDARY",
+      "expected_status": "POTENTIAL"
+    },
+    {
+      "id": "ts-unknown-only",
+      "language": "TYPESCRIPT",
+      "rule": "SEC003",
+      "source": "import type {Request} from \"express\"; import {exec} from \"node:child_process\";\nfunction check(req: Request, flag: boolean, other: object) {\nexec(customWrapper(\"safe\"));\n}",
+      "expected_count": 0,
+      "expected_diagnostic": "UNKNOWN_FLOW",
+      "expected_status": null
+    },
+    {
+      "id": "ts-untyped-request",
+      "language": "TYPESCRIPT",
+      "rule": "SEC003",
+      "source": "import type {Request} from \"express\"; import {exec} from \"node:child_process\";\nfunction check(req: object) {\nexec(req.query.q);\n}",
+      "expected_count": 0,
+      "expected_diagnostic": "UNKNOWN_FLOW",
+      "expected_status": null
+    },
+    {
+      "id": "ts-loop",
+      "language": "TYPESCRIPT",
+      "rule": "SEC003",
+      "source": "import type {Request} from \"express\"; import {exec} from \"node:child_process\";\nfunction check(req: Request, flag: boolean, other: object) {\nlet x=\"safe\"; while(flag) { x=req.query.q; } exec(x);\n}",
+      "expected_count": 0,
+      "expected_diagnostic": "UNSUPPORTED_CONTROL_FLOW",
+      "expected_status": null
+    },
+    {
+      "id": "ts-custom-execute",
+      "language": "TYPESCRIPT",
+      "rule": "SEC003",
+      "source": "import type {Request} from \"express\"; import {exec} from \"node:child_process\";\nfunction check(req: Request, flag: boolean, other: object) {\nother.execute(req.query.q);\n}",
+      "expected_count": 0,
+      "expected_diagnostic": "INTERPROCEDURAL_BOUNDARY",
+      "expected_status": null
+    },
+    {
+      "id": "ts-eval-shadow",
+      "language": "TYPESCRIPT",
+      "rule": "SEC010",
+      "source": "import type {Request} from \"express\"; import {exec} from \"node:child_process\";\nfunction check(req: Request, flag: boolean, other: object) {\nconst eval=(x) => x; eval(req.query.q);\n}",
+      "expected_count": 0,
+      "expected_diagnostic": "INTERPROCEDURAL_BOUNDARY",
+      "expected_status": null
+    },
+    {
+      "id": "ts-comments",
+      "language": "TYPESCRIPT",
+      "rule": "SEC003",
+      "source": "import type {Request} from \"express\"; import {exec} from \"node:child_process\";\nfunction check(req: Request, flag: boolean, other: object) {\n// eval(req.query.q); MD5 password\nconst label=\"password token execute eval(req.query.q)\";\n}",
+      "expected_count": 0,
+      "expected_diagnostic": null,
+      "expected_status": null
+    }
+  ]
+}

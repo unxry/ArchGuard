@@ -142,3 +142,11 @@ Generic remediation guidance: Avoid unnecessary dynamic evaluation and strictly 
 Regex or AST patterns alone do not solve SQL/command injection, traversal, SSRF, XSS or unsafe dynamic execution in general. Source-to-sink, context, safety boundaries, framework semantics and conservative uncertainty are required. JSON parsing, SQL text, constant commands/HTTP calls, file calls, ordinary randomness and non-security checksums alone are insufficient.
 
 No complete Java/Spring/Node/Express API model, Security ground truth, Security benchmark or Security Precision/Recall/F1 exists. Engineering fixture tests verify contracts only. No CVSS compliance, exploitable-vulnerability guarantee or numeric probability is claimed.
+
+## P028 executable scope
+
+The P027 contract above is historical and unchanged. The separate
+[Security analysis V1](SECURITY_ANALYSIS_V1.md) documents executable detectors,
+partial API/dataflow coverage and diagnostics. P028 receipts are versioned under
+`experiments/security/security-static-dataflow-v1/`; historical P027 artifacts remain frozen.
+No Architecture/Hybrid behavior, effectiveness claims, HTTP API or persistence is changed.
