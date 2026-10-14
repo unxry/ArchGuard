@@ -56,3 +56,6 @@ experiments/unified-hybrid/private/
 
 # Prospective Security benchmark: case evidence, construction intent and future human truth.
 experiments/security/security-benchmark-v1/private/
+
+# Human Security review: missing inventories and real responses remain private.
+experiments/security/security-human-review-v1/private/
