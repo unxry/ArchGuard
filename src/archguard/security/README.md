@@ -1,26 +1,14 @@
 # Security extension boundary
 
-**planned security extension; not implemented in foundation.**
+Security: **FOUNDATION_READY**. SEC001–SEC010: **CONTRACT_FROZEN**. Concrete detector set: empty.
+Architecture: SCIENTIFIC_CORE_COMPLETE (frozen P026). UI: NOT_STARTED.
 
-**Security implementation starts only after CORE THESIS COMPLETE.**
+See [Security rules](../../../docs/security/SECURITY_RULES.md) and
+[Security architecture](../../../docs/security/SECURITY_ARCHITECTURE.md).
 
-Future structure:
+Typed domain/evidence/flow contracts and local analyzer orchestration reuse generic IAM without
+changing it. Default production analysis emits **0 findings**, with explicit unsupported coverage.
+There is no static scanner, taint solver, advisory query, Security LLM or Security benchmark yet.
+Security findings never feed Architecture Hybrid features, severity, confidence or thesis metrics.
 
-```text
-security/
-├── secrets/
-├── rules/
-├── dependency/
-├── configuration/
-├── dataflow/
-├── taint/
-├── graph/
-├── intelligence/
-└── pipeline/
-```
-
-Reuse IAM identifiers, SourceLocation and Finding / Evidence / Trace infrastructure. A dedicated
-pipeline emits SEC findings, never inputs to Hybrid Architecture Decision. Its rules, detectors,
-calibration, benchmark, run status and metrics are independent. Common UI reporting may combine
-the queues but must preserve namespace and provenance. Reserved edge/evidence types are schema
-support, not scanners. There is no secret scan, advisory query, data-flow, taint or AI security call.
+No persistence or HTTP API change is required. Stop before P028 and UI.
