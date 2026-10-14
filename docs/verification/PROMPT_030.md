@@ -1,6 +1,6 @@
 # PROMPT 030 — prospective Security benchmark foundation
 
-The controlled Security cohort and reviewer/protocol infrastructure are implemented. Final quality and immutable artifact/publication closure are pending. No authoritative Security truth, predictions or effectiveness results exist.
+`P030_SECURITY_BENCHMARK_FOUNDATION_COMPLETE`. The controlled Security cohort, packets and protocols are frozen prospectively. Final quality passes; immutable artifact/publication closure is recorded below. Runtime post-push verification must confirm publication before success is declared to the coordinator. No authoritative Security truth, predictions or effectiveness results exist.
 
 ## A — lineage and immutable boundaries
 
@@ -39,7 +39,7 @@ Strict confusion metrics use definitive binary outcomes; abstentions are not mad
 
 DEV/FINAL project, exact case, source-file, source-bundle and template fingerprint overlap=0. Normalized source overlap=0 after stripping generated IDs and literals. No detector dependency/filtering is used. All valid constructed cases are retained. The generator's static dependency audit permits canonical rule contracts but rejects detector execution imports/calls. Reviewer leakage audit=PASS.
 
-Cross-split token 5-gram Jaccard similarity is reported separately for 1,000 same-rule/language pairs. Shared framework APIs, rule concepts and boilerplate remain an explicit limitation, not a claim of independent naturally sampled projects. Exact template separation is measured before opaque identifiers are substituted. No source is executed and no detector prediction is used for construction validation.
+Cross-split token 5-gram Jaccard similarity is reported separately for 1,000 same-rule/language pairs. Maximum Jaccard=0.85; 7 pairs have similarity >=0.8. These are lexical diagnostics across distinct flow structures, not exact/normalized duplicates; no detector-driven filtering is applied. Shared framework APIs, rule concepts and boilerplate remain an explicit limitation, not a claim of independent naturally sampled projects. Exact template separation is measured before opaque identifiers are substituted. No source is executed and no detector prediction is used for construction validation.
 
 ## H/I — unavailable results and activity
 
@@ -51,16 +51,31 @@ Provider calls=0, connectivity=0, credential reads=0, paid spend=0, Architecture
 
 P030 targeted tests: 377 passed. Parser/IAM/Security regression command: 928 passed, covering 720 Security tests (343 preserved engineering regressions + 377 foundation tests) and 208 parser/IAM tests. All 300 cases pass normal parser intake and BuildIAM with valid source locations. Double generation, rule/language/intent balances, unique identities, exact/normalized separation, 600 packet validations, schema/response intake, synthetic agreement/adjudication/metrics, prediction-source allowlist/symlink/truth-join guards and leakage/dependency tests pass.
 
-Historical freeze and public secret/privacy audit pass. Initial full make check: 3034 passed, one P026 worktree-guard failure before its expected quality rejection; coverage 85%. The frozen P026 guard checks only working-tree paths, so the authorized implementation commit provides the expected state without changing frozen code. Full make check will run again on that commit before artifact closure; final counts, coverage and fingerprints are recorded in the closure. Only commands actually run are recorded.
+Historical freeze and public secret/privacy audit pass. Full `make check`: **3035 passed**, coverage **85%**, 1500.36 seconds. Ruff PASS; format PASS (551 files); strict mypy PASS (266 source files). `git diff --check` PASS. The preliminary QA run was interrupted to add explicit actual-P029 receipt mapping. An initial complete run then passed 3034 tests with one P026 worktree-guard failure; committing the intended implementation restored its expected state without modifying frozen sources. This subsequent complete implementation-commit run is credited as the final make check. Only commands actually run are recorded.
 
 ## K — freezes
 
-The immutable closure will bind the benchmark protocol, private case inventory, DEV and FINAL cohorts, split separation, human review and metric protocols, packet/response schemas, reviewer A/B packet sets and benchmark manifest. Additional private construction-ledger/bundle fingerprints and exact byte inventories support reproducibility. Private source/intent/packets remain ignored; public artifacts expose only aggregate metadata, schemas, protocols and opaque fingerprints.
+- SECURITY_BENCHMARK_CASE_INVENTORY_FINGERPRINT: `db3f1e60dfeb644a12403b59a1205fe9f89973187699b5babc75901611e4d232`
+- SECURITY_DEV_COHORT_FINGERPRINT: `75201588fa3ee94cf6226a5cbd0512f28995569ab4cb2c5f0c7371d60d1f19f3`
+- SECURITY_FINAL_COHORT_FINGERPRINT: `57bb9c3a349c2cf85fe69546aafa1f10be8f05d56e5211fecb7c992e9febe307`
+- SECURITY_REVIEWER_A_PACKET_SET_FINGERPRINT: `fb4955544a76e6b8284bd7499f691bd5086639d078a5297b5187bc33d6b55f18`
+- SECURITY_REVIEWER_B_PACKET_SET_FINGERPRINT: `1c69e33686a71db1d3b15636401cdd8dbb2417231d51c232668f7bc58efcf47d`
+- SECURITY_BENCHMARK_PROTOCOL_FINGERPRINT: `96a226fd76b97ecb752f308200f33e65dae1688df7ef85b00d74994d284fe6c6`
+- SECURITY_DEV_FINAL_SEPARATION_FINGERPRINT: `7b240db07b992893f65474c412f7cdd41c603546d0d9618f932a46e394f0d6b5`
+- SECURITY_HUMAN_REVIEW_PROTOCOL_FINGERPRINT: `8ac81d1526f2c6077f90d6bb35c90e5a0030f194f110cf48e04f89e4fd965189`
+- SECURITY_METRIC_PROTOCOL_FINGERPRINT: `389f190ee490c1eba54d7f80ebaee6c37fdaf7fbf4b6140edc0e3fd2e9435d92`
+- SECURITY_REVIEW_PACKET_SCHEMA_FINGERPRINT: `f5bd067f34ce7229c7a7677e6ca511423e4820f957cefed527de15a2164841f7`
+- SECURITY_REVIEW_RESPONSE_SCHEMA_FINGERPRINT: `269acd35d9313773d67b6daad3b21604384ccd11bb1ccc0453c44e54ab0f5713`
+- SECURITY_BENCHMARK_MANIFEST_FINGERPRINT: `4493c00d125240cd64ce53dfb84820bbda0eaa9c5ef19c3fc6240f0c70df51c5`
+
+Additional private construction-ledger/bundle fingerprints and exact byte inventories support reproducibility. Private source/intent/packets are ignored; public artifacts expose aggregate metadata, schemas, protocols and opaque fingerprints only.
 
 ## L — Git publication
 
-Implementation commit and separate immutable verification/artifact closure commit are required and will both use ordinary `git push origin main`. No reset/amend/rebase/squash/force is used. Completion requires HEAD=origin/main and the exact single authorized unstaged HTML deletion; no public P030 files may remain modified/untracked. Closure commit identity is reported after publication because a document cannot embed the SHA of its own commit.
+Implementation commit: `624eb05609e4e24f0cedcc50ce7a3587de0dcf60`. The separate closure is the commit containing this frozen report and public freeze-index; its exact SHA is reported in the final post-push response. Both commits are published by ordinary `git push origin main` and checked against the actual remote ref. No reset/amend/rebase/squash/force is used. Completion requires HEAD=origin/main and the exact single authorized unstaged HTML deletion; no public P030 files may remain modified/untracked. Closure commit identity is reported after publication because a document cannot embed the SHA of its own commit.
 
 ## Handoff and limitations
 
 Controlled synthetic N=300, DEV100/FINAL200, ten rules, Java/TypeScript, small rule strata, selected P029 framework semantics, TS SEC005 unsupported, possible construction artifacts and shared conceptual patterns limit generalization. No natural prevalence, real OSS effectiveness, exploitability or universal SAST accuracy is established. P031 must collect independent real human responses. FINAL prediction must freeze the detector first, mount only split-specific source/roster capabilities, exclude coordinator/response/truth/intent roots, freeze predictions and only then use an explicitly authorized later truth join. Application allowlists do not replace future OS/process custody isolation. No P031 execution or UI is started.
+
+Final statuses: SECURITY_BENCHMARK_PROTOCOL_FROZEN; SEC001_SEC010_PROSPECTIVE_COHORT_FROZEN; SECURITY_DEV_FINAL_SPLIT_FROZEN; SECURITY_REVIEW_PACKETS_FROZEN; SECURITY_HUMAN_TRUTH_PROTOCOL_FROZEN; SECURITY_METRIC_PROTOCOL_FROZEN; SECURITY_TRUTH_NOT_YET_AVAILABLE; SECURITY_EFFECTIVENESS_NOT_YET_EVALUATED; ARCHITECTURE_SCIENCE_UNCHANGED; P029_SECURITY_DETECTORS_UNCHANGED; UI_NOT_STARTED; READY_FOR_P031_SECURITY_HUMAN_REVIEW. P031 is not started.
