@@ -1,16 +1,7 @@
 # PROMPT 034 — blind FINAL prediction acquisition
 
 P034_SECURITY_FINAL_BLIND_PREDICTION_COMPLETE (prediction acquisition).
-Quality/publication acceptance: **PENDING_FULL_| Binding | Value |
-|---|---|
-| Ruff | `PASS` |
-| diff_check | `PASS` |
-| format | `PASS` |
-| make_check | `PENDING` |
-| privacy | `PENDING` |
-| status | `PENDING_FULL_QUALITY_GATE` |
-| strict_mypy | `PASS` |
-| targeted | `112 passed, 1 protected-data skip` |_GATE**.
+Quality/publication acceptance: **PASS**.
 
 NO FINAL TRUTH WAS READ.
 
@@ -55,6 +46,18 @@ Architecture pins:
 | P025_primary | `f98709ce55c6ed64200052a69612480cb3593e1ea6f82592b2f6ca69278f959e` |
 | P025_receipt | `fe510b5bca86b48197c53cc37d219543fe427c0e0379116d5d4ebb5e3ee502f6` |
 | P026_scientific_registry | `53420d0aa167ebb99814adb498f3b84597b096f73fe1f77c5c467dc7882a8db1` |
+
+P030 prospective frozen pins:
+
+| Binding | Value |
+|---|---|
+| SECURITY_BENCHMARK_CASE_INVENTORY_FINGERPRINT | `db3f1e60dfeb644a12403b59a1205fe9f89973187699b5babc75901611e4d232` |
+| SECURITY_DEV_COHORT_FINGERPRINT | `75201588fa3ee94cf6226a5cbd0512f28995569ab4cb2c5f0c7371d60d1f19f3` |
+| SECURITY_FINAL_COHORT_FINGERPRINT | `57bb9c3a349c2cf85fe69546aafa1f10be8f05d56e5211fecb7c992e9febe307` |
+| SECURITY_BENCHMARK_PROTOCOL_FINGERPRINT | `96a226fd76b97ecb752f308200f33e65dae1688df7ef85b00d74994d284fe6c6` |
+| SECURITY_DEV_FINAL_SEPARATION_FINGERPRINT | `7b240db07b992893f65474c412f7cdd41c603546d0d9618f932a46e394f0d6b5` |
+| SECURITY_HUMAN_REVIEW_PROTOCOL_FINGERPRINT | `8ac81d1526f2c6077f90d6bb35c90e5a0030f194f110cf48e04f89e4fd965189` |
+| SECURITY_METRIC_PROTOCOL_FINGERPRINT | `389f190ee490c1eba54d7f80ebaee6c37fdaf7fbf4b6140edc0e3fd2e9435d92` |
 
 P031 public opaque truth/custody pins:
 
@@ -112,7 +115,9 @@ system libraries, entropy devices and the root directory entry. The root
 literal does not grant descendants. Metadata access does not grant file contents.
 Writes are restricted to dedicated output/temp roots. External process execution
 is denied except initial Python execution; unauthorized subprocess preflight
-was denied. The private policy and launch bootstrap are bound in custody.
+was denied. The private policy and launch bootstrap are bound in custody. The preflight policy digest
+binds its canonical JSON string; the custody inventory also binds the exact
+profile file bytes with SHA-256.
 Python starts with `-S` to exclude editable-install .pth files, then explicitly
 loads installed dependency paths and copied runtime code. No repository-wide
 source or home-directory content capability is granted.
@@ -280,7 +285,10 @@ SECURITY_FINAL_EFFECTIVENESS=NOT_EVALUATED.
 All exact P033 source/public registry bindings passed before and after the one
 worker launch. Copied runtime hashes were validated inside the worker before
 analysis. Production candidate, frozen adapter and completeness validator remain
-byte-identical. Post-freeze verification replays conversion and aggregation only.
+byte-identical. After writer closure, Ruff corrected indentation only in the
+P034 boundary module; the copied execution snapshot remains byte-identical and
+is still the authoritative runtime. No candidate/adapter/completeness code changed.
+Post-freeze verification replays conversion and aggregation only.
 
 ## S — anti-memorization
 
@@ -313,14 +321,31 @@ No FINAL truth-join, metric or effectiveness fingerprint exists.
 
 | Binding | Value |
 |---|---|
+| FINAL_truth_reads | `0` |
 | Ruff | `PASS` |
+| anti_memorization | `PASS` |
+| authoritative_FINAL_invocations | `1` |
+| candidate_changes | `0` |
+| coverage | `81%` |
+| custody_guard | `security_final_test_guard: skip before protected open` |
 | diff_check | `PASS` |
+| final_verification | `{'analyzer_reexecutions': 0, 'registry_fingerprint': 'f91cc15fe26ddfae51c4f1887cce80004c1ba02aeaa155b506b66eb52f8bb9f0', 'rows': 200, 'status': 'PASS'}` |
 | format | `PASS` |
-| make_check | `PENDING` |
-| privacy | `PENDING` |
-| status | `PENDING_FULL_QUALITY_GATE` |
+| full_gate_seconds | `2838.1814770000055` |
+| full_log_sha256 | `a1f110acf5acc4378e6621e84af3f17fd36048f0e6b4e837abb11ac620020d23` |
+| historical_verification_fingerprint | `de505016fc44d8438ee75d8e08090cacc6855a2157f6d91df73fe55c58c4e212` |
+| implementation_commit | `ef2cf4927565606e8d88031c20abc43e5a477637` |
+| interrupted_full_run | `{'completed': False, 'failures_reported': 0, 'log_sha256': '67151df0e88ff094146df97f858375bcd171c23f39321fa803fbefa676a2fa3b', 'progress_percent': 48, 'reason': 'user interruption'}` |
+| make_check | `PASS` |
+| passed | `3234` |
+| privacy | `PASS` |
+| protected_skips | `['SKIPPED [1] src/archguard/infrastructure/security_final_test_guard.py:24: P034 offline suite: real network connections denied', 'SKIPPED [23] src/archguard/infrastructure/security_final_test_guard.py:31: P034 custody: protected truth/review/intent/DEV or credentials not mounted']` |
+| publication | `Normal push origin main; final closure HEAD/origin equality is verified after push` |
+| pytest_seconds | `2836.23` |
+| skipped | `24` |
+| status | `PASS` |
 | strict_mypy | `PASS` |
-| targeted | `112 passed, 1 protected-data skip` |
+| targeted | `{'passed': 112, 'seconds': 18.04, 'skipped': 1}` |
 
 Targeted scope includes exact candidate load/immutability, 200-row input and
 registry schema, field/path rejection, real OS read/network/process/write denial,
@@ -332,8 +357,14 @@ these checks without rerunning real DEV/FINAL data.
 Earlier synthetic test attempts are not hidden: first 24 passed / 1 preflight
 setup error (policy root permission); next 41 passed / 1 synthetic mapping test
 failure (fixture omitted the frozen requested-rule/coverage receipt). Both were
-corrected before FINAL execution. No production detector/adapter was changed.
-Full quality uses the established skip-before-open custody mechanism extended
+corrected before FINAL execution. Initial Ruff formatting/line-length findings
+and three mypy errors from an untyped local formatting lambda were also fixed
+before execution. A remaining indentation format finding after writer closure
+was fixed before the implementation commit/full gate, without changing behavior
+or the frozen execution snapshot. No production detector/adapter was changed.
+The first full quality run was interrupted by the user at 48% before completion;
+no failure was reported before interruption. Its log is retained separately.
+A fresh full quality gate uses the established skip-before-open custody mechanism extended
 to protected DEV stores, with an explicit credential-free/offline environment.
 Synthetic Architecture tests can exercise fake providers; no real provider call
 is permitted. Protected integration skips and actual final counts are reported
@@ -341,10 +372,10 @@ in the quality receipt. Historical tests are unmodified.
 
 ## V — Git publication
 
-P034 implementation: pending implementation commit.
+P034 implementation: ef2cf4927565606e8d88031c20abc43e5a477637.
 Closure commit: `chore: close security final prediction acquisition` (the commit
 containing this finalized verification document and freeze index).
-Publication state: pending quality gate and normal push.
+Publication state: Normal push origin main; final closure HEAD/origin equality is verified after push.
 
 Every public-safe P034 artifact is tracked. Private case-level predictions,
 source bundles, host-mapped sandbox policy and quality logs are ignored.
