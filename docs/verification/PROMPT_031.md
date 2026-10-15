@@ -173,3 +173,57 @@ Quality fingerprint: `4a769f5dde8c19d7810e5fe3096ffd2054aaa4c0dce62e4f4f46b91873
 This quality/docs closure is published by a separate ordinary commit/push; no amend, rebase, reset, squash or force push is used. Its actual commit SHA and verified HEAD=origin/main are returned by the final publication check; the index/report avoid a self-referential closure SHA. Final visible worktree is required to contain only the authorized pre-existing HTML deletion.
 
 **P031_HUMAN_ADJUDICATION_REQUIRED. WAITING_FOR_REAL_HUMAN_ADJUDICATION. STOP. Truth 300/DEV/FINAL remains NOT_FROZEN; provider calls, real credential reads, AI adjudications and DEV/FINAL detector predictions remain 0. P032 is NOT_STARTED.**
+
+
+## P031.A.2 — exact authoritative human-provenance binding
+
+Status: **P031_HUMAN_ADJUDICATION_REQUIRED**. The coordinator now explicitly attests human origin and intended independent review for the exact already-frozen authoritative A/B per-case response sets, including their existing labels, rationales and evidence notes. This corrects provenance scope only. It does not create, reconstruct, normalize, rewrite or replace any response, agreement output or adjudication packet.
+
+Reviewer A's retained aggregate master differs from the authoritative per-case set in 288 rationale strings and 300 evidence-note strings. That discrepancy remains documented; the original aggregate master remains byte-identical and historical/non-authoritative. Reviewer B's aggregate remains historical transport even where it matches. Both authoritative scientific inputs are the frozen per-case response sets. No aggregate is rewritten to match, and no per-case prose is rewritten from an aggregate.
+
+### A/B/C — exact binding and provenance roles
+
+| Reviewer | Authoritative response-set fingerprint | Responses | Human origin bound | Independence bound | Authoritative source | Aggregate authoritative |
+|---|---|---:|---|---|---|---|
+| A | `e935ff30c565e3f6597fc7d4ef38928593666f607079e815dd56b27ee1beb20a` | 300 | COORDINATOR_ATTESTED / YES | COORDINATOR_ATTESTED / YES | FROZEN_PER_CASE_RESPONSE_SET | NO; HISTORICAL_TRANSPORT_ONLY |
+| B | `01e5b7e8f15be7dd0a2f0a055fed52e82307ebf69a273f9ba79490340f5e5b47` | 300 | COORDINATOR_ATTESTED / YES | COORDINATOR_ATTESTED / YES | FROZEN_PER_CASE_RESPONSE_SET | NO; HISTORICAL_TRANSPORT_ONLY |
+
+Two anonymous private attestation receipts bind reviewer slot, frozen benchmark version and P030 packet-set fingerprint, exact authoritative response-set fingerprint, count=300, human-origin/independence coordinator attestation, AI_GENERATED_BY_P031=NO, AI_REWRITTEN_BY_P031=NO and semantic_edits_by_recovery=0. Their role is AUTHORITATIVE_PER_CASE_RESPONSE_SET; aggregate-master role is NON_AUTHORITATIVE_HISTORICAL_PROVENANCE. They are Git-ignored, contain no human names or case-level responses, and their opaque fingerprints are bound in the public-safe receipt.
+
+The attestation source is the coordinator's explicit P031.A.2 statement about these exact fingerprints. This is procedural coordinator attestation, not cryptographic proof of human authorship or noncommunication. Existing aggregate attestations are retained without being substituted for this exact per-case scope.
+
+### D/E — immutable responses, agreement and handoff
+
+Before/after verification recomputed the canonical fingerprints in memory and compared them with both existing frozen sets and canonical per-case files. No set was regenerated or rewritten. The prior private byte inventory remains exact, including both aggregate masters, all 600 canonical responses, frozen response-set files and the existing adjudication handoff.
+
+| Field changed | Reviewer A | Reviewer B |
+|---|---:|---:|
+| Labels | 0 | 0 |
+| Rationales | 0 | 0 |
+| Evidence notes | 0 | 0 |
+| Case IDs | 0 | 0 |
+| Response counts | 0 | 0 |
+
+N=300; exact agreements=290; disagreements=10; raw agreement=0.9666666666666667; Cohen kappa=0.9408913583165859. Completeness, agreement, disagreement-inventory and adjudication-packet-set fingerprints remain the exact previously frozen values listed in the preceding recovery section. No authoritative agreement output is rewritten.
+
+The private adjudication index remains byte-identical with exactly 10 entries, all completed=false, with unchanged packet paths and final response destinations. Packet count=10; completed human adjudications=0; remaining=10. Adjudication packet contents, schema and workflow are unchanged. No adjudication label, rationale or response was created. The next semantic action remains real human adjudication, preferably by a third human who was neither Reviewer A nor Reviewer B, receiving only frozen packets, allowed response schema and instructions. Construction intent, detector predictions and AI recommendations remain excluded.
+
+### F/G/H — custody, boundaries and new binding fingerprint
+
+Truth 300=NOT_FROZEN; DEV truth=NOT_FROZEN; FINAL truth=NOT_FROZEN; Security effectiveness=NOT_EVALUATED; P032=NOT_STARTED. No truth fingerprint is created. AI-generated labels, AI rewrites, AI adjudications, DEV/FINAL detector predictions, SecurityAnalyzer benchmark executions, provider/connectivity calls, credential reads and spend=0. No response semantics, construction intent or detector output is used to decide a label.
+
+P030 strict expected-file inventory=927; missing=0; byte mismatches=0; unexpected entries=0. P030 fingerprints, P029 detector fingerprints and P025/P026 Architecture scientific freezes pass unchanged before and after the binding write. No production source, detector, benchmark, frozen schema or existing scientific receipt changes.
+
+Public artifact: `experiments/security/security-human-review-v1/public/security-human-provenance-receipt.json`. It contains only aggregate statuses/counts, opaque fingerprints and anonymous reviewer slots; no private paths, reviewer names, case IDs, human prose or source snippets.
+
+SECURITY_HUMAN_PROVENANCE_BINDING_FINGERPRINT: `ccade82d8ea78888ae7b38e231d7927e9736dafb09a721c9fd2b384214372c3c`.
+
+### Quality and Git publication
+
+Targeted provenance/intake/recovery tests: **59 passed**, including exact A/B response/packet fingerprint binding, anonymous private receipt schema and rejection guards, public privacy, aggregate non-authority, before/after response/master/agreement/packet immutability, no truth creation and no network/adjudication execution. Ruff check/format: PASS. Strict mypy: PASS across production source and the typed new tests (269 files). Public privacy/PII/secret audit and git diff --check: PASS. Deterministic seals contain no operational timestamps.
+
+Only receipts, verification documentation and tests change in P031.A.2; no production code changes, so full make check is not rerun under this stage's policy. The preceding 3077-test/84%-coverage run remains a historical P031.RESUME.A.1 result. Commands actually run for this stage include targeted pytest, Ruff check/format, `MYPYPATH=src .venv/bin/python -m mypy src tests/security/test_review_provenance_binding.py`, git diff --check and read-only historical freeze/inventory checks.
+
+The public-safe receipt/tests/append-only report are published with the commit `chore: bind human review provenance to frozen response sets` and ordinary `git push origin main`. The final publication check returns its actual SHA, verifies HEAD=origin/main and requires only the pre-existing unrelated unstaged HTML deletion. No private receipts, human responses, aggregate masters or adjudication packets are staged.
+
+**HUMAN_PROVENANCE_A_BOUND_TO_FROZEN_RESPONSE_SET=YES; HUMAN_PROVENANCE_B_BOUND_TO_FROZEN_RESPONSE_SET=YES; AUTHORITATIVE_RESPONSE_SET_A_UNCHANGED=YES; AUTHORITATIVE_RESPONSE_SET_B_UNCHANGED=YES; ADJUDICATION_PACKETS_UNCHANGED=YES; SECURITY_TRUTH_NOT_FROZEN; READY_FOR_REAL_HUMAN_ADJUDICATION=YES. WAITING_FOR_REAL_HUMAN_ADJUDICATION. STOP.**
