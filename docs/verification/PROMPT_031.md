@@ -297,3 +297,16 @@ Executed targeted checks: `.venv/bin/python -m pytest tests/security/test_human_
 Only public helper implementation, tests, verification documentation, aggregate receipts and opaque closure indices are publishable. No private responses, rationales, truth, identity, attestation originals or case mappings are staged. The unrelated existing HTML deletion remains unstaged. Publication uses ordinary commits and `git push origin main`; no reset, amend, rebase, squash or force. Actual implementation/closure commits and verified remote equality are reported at publication, avoiding a self-referential closure SHA.
 
 **READY_FOR_P032_SECURITY_DEV_EVALUATION. P032_NOT_STARTED. STOP.**
+
+
+## P031.A.3 — final quality and publication checkpoint
+
+Full `make check`: **PASS — 3113 passed, coverage 83%** (Ruff check PASS; format PASS, 563 files; strict mypy PASS, 269 source files). The complete suite finished in 1695.97 seconds. Supplemental strict mypy for the new CLI and both affected test modules passed. Its initial implicit-reexport errors in the new test were resolved with direct imports only in commit `3cdfef62f683c9eb5000f39d84b0bb226b56af8d`; the final test files then passed scoped Ruff/format, strict mypy and all 78 targeted tests again. Production sources and scientific artifact bytes remain identical to implementation commit `e4d5fc7427aae9acb1cdbef452d419f188edbfd7`.
+
+Post-suite read-only verification rechecked every required ancestor, original A/B/provenance/agreement/adjudication packet pin, P030 inventory (927 expected, zero missing/mismatched/unexpected), P029 and Architecture freezes. Accepted human values still match the private source manifest exactly; all new immutable private custody bytes match their inventory. Two further builds reproduced all six scientific fingerprints and aggregate counts exactly. Public privacy/secret audit and private Git exclusion passed; no credential file was read. `git diff --check` passed.
+
+Quality receipt fingerprint: `5f155480dcd6e62db1e5d6bfde1730d0f651fce9b118d5d3e2fe4d69e6e91022`. An opaque private truth custody inventory binds the exact ten canonical responses, original transport, human-value preservation receipts, adjudication set and 300/DEV/FINAL truth/policy. The public truth freeze index binds public receipt bytes, implementation/tests, this report and that opaque private inventory fingerprint, without private paths or case identities. No operational timestamp is added to any scientific fingerprint input.
+
+Publication uses a separate ordinary `chore: close security human review` commit and `git push origin main`. Its actual SHA, local/remote equality and final visible worktree are verified and returned after push; the committed receipt avoids a self-referential closure hash. Private scientific custody is never staged. The only permitted visible worktree difference is the pre-existing unstaged HTML deletion.
+
+**P031_SECURITY_HUMAN_TRUTH_COMPLETE. SECURITY_HUMAN_TRUTH_300=FROZEN. SECURITY_DEV_TRUTH=FROZEN. SECURITY_FINAL_TRUTH=FROZEN. SECURITY_EFFECTIVENESS=NOT_EVALUATED. READY_FOR_P032_SECURITY_DEV_EVALUATION. P032_NOT_STARTED. STOP.**
