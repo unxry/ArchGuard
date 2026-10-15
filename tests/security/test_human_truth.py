@@ -10,6 +10,8 @@ import pytest
 from pydantic import ValidationError
 
 from archguard.infrastructure import security_human_truth as t
+from archguard.infrastructure import security_review_recovery as recovery
+from archguard.infrastructure import unified_human_review as io
 from archguard.security_benchmark.foundation import PredictionInputs, truth_join_gate
 
 CASE = "sc-" + "0" * 24
@@ -149,10 +151,10 @@ def test_actual_private_truth_is_deterministic_complete_and_partitioned() -> Non
     if not (t.TRUTH / "human-truth-300.json").exists():
         pytest.skip("Private human truth is not mounted or has not been accepted yet")
     a = {
-        s: t.io.read_seal(t.PRIVATE / "frozen" / f"reviewer-{s}.json")["responses"]
+        s: io.read_seal(t.PRIVATE / "frozen" / f"reviewer-{s}.json")["responses"]
         for s in ("A", "B")
     }
-    decisions = t.io.read_seal(t.ADJ / "accepted/response-set.json")["responses"]
+    decisions = io.read_seal(t.ADJ / "accepted/response-set.json")["responses"]
     public, private = t.build(a, decisions)
     public_again, private_again = t.build(a, decisions)
     if public != public_again or private != private_again:
@@ -172,9 +174,9 @@ def test_actual_private_truth_is_deterministic_complete_and_partitioned() -> Non
         ("security-human-truth-closure.json", public["closure"]),
         ("security-final-truth-custody.json", public["custody"]),
     ):
-        if t.io.read_seal(t.PUBLIC / name) != expected:
+        if io.read_seal(t.PUBLIC / name) != expected:
             pytest.fail("Frozen public closure drift")
-    t.recovery.privacy(tuple(t.PUBLIC / n for n in t.PUBLIC_NAMES[:2]))
+    recovery.privacy(tuple(t.PUBLIC / n for n in t.PUBLIC_NAMES[:2]))
 
 
 def test_truth_path_schema_and_execution_boundaries() -> None:
