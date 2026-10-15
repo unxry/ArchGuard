@@ -160,3 +160,16 @@ No truth fingerprints or adjudication-response fingerprint exist. Identical cano
 Initial implementation checks: 42 targeted tests passed; Ruff check/format and strict mypy passed; actual A/B authoritative intake=300/300 each; double build and historical/P030 strict freeze checks passed. Full `make check` and final closure audit follow in a separate publication checkpoint. Private human data remains ignored and unstaged. Public artifacts contain aggregates and opaque fingerprints only; original P031 readiness receipts stay unchanged.
 
 **WAITING_FOR_REAL_HUMAN_ADJUDICATION. STOP. DO NOT START P032. DO NOT CREATE ADJUDICATION LABELS. DO NOT FREEZE TRUTH.**
+
+
+## Final P031.RESUME.A.1 quality and publication checkpoint
+
+Implementation/public receipt commit: `6b26a8ba876106efe44d4067c710ea3cea4047a4` (`fix: repair security human review intake layout`). Full `make check`: **PASS — 3077 tests passed, coverage 84%**. Ruff check: PASS; format: PASS (559 files); strict mypy: PASS (268 source files). Targeted P031 intake/recovery tests: 42 passed. No source or test changed after the implementation commit or full-suite run.
+
+Final actual-input checks: A/B authoritative intake=300/300 each, every error count=0; source semantic hashes preserved=600/600; B strips exactly four technical field kinds (1200 field instances); aggregate masters retained byte-identically; nested competing copies absent; adjudication packets=10; completed adjudication responses=0. Identical replay output confirms deterministic response/receipt/disagreement/packet fingerprints. Independent cross-tab/partition arithmetic confirms kappa exactly 7959/8459. Frozen P030 strict verification (927 files) and all historical P029/Architecture freezes pass after the full suite. Private custody byte inventory, public privacy/PII/secret audit and git diff --check: PASS.
+
+Quality fingerprint: `4a769f5dde8c19d7810e5fe3096ffd2054aaa4c0dce62e4f4f46b91873b30b1b`. The closure index binds the original readiness artifacts, all recovery/agreement/completeness/quality receipts, implementation/test sources, updated documents and the opaque private custody fingerprint. Neither private data nor the unrelated HTML deletion is staged. No truth/adjudication-response fingerprint is created.
+
+This quality/docs closure is published by a separate ordinary commit/push; no amend, rebase, reset, squash or force push is used. Its actual commit SHA and verified HEAD=origin/main are returned by the final publication check; the index/report avoid a self-referential closure SHA. Final visible worktree is required to contain only the authorized pre-existing HTML deletion.
+
+**P031_HUMAN_ADJUDICATION_REQUIRED. WAITING_FOR_REAL_HUMAN_ADJUDICATION. STOP. Truth 300/DEV/FINAL remains NOT_FROZEN; provider calls, real credential reads, AI adjudications and DEV/FINAL detector predictions remain 0. P032 is NOT_STARTED.**
