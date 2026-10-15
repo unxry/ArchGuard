@@ -155,3 +155,26 @@ Public-safe code, tests, this report and aggregate receipts are committed and pu
 This measures a frozen baseline on the frozen controlled DEV cohort. Conditional P030 Precision/Recall/F1=1 reflects seven definitive binary positives; it is not comprehensive effectiveness. Effective positive recovery=18.92%, binary definitive coverage=7.87%, and no definitive negatives are available. Sparse/undefined strata and capability limits remain visible. No claim about natural prevalence, universal security accuracy, causal feature effects, scalability or FINAL performance is made. P033 remediation/refinement is not started.
 
 **P032_SECURITY_DEV_EVALUATION_COMPLETE. READY_FOR_P033_SECURITY_DEV_REFINEMENT_DECISION. P033_NOT_STARTED. STOP.**
+
+
+## Final P032 quality and publication checkpoint
+
+Implementation commit: `a2f8181a9d5cea11b29dab8ee406f37fb2eaa298` (`feat: evaluate frozen security analyzer on dev cohort`). All five new Python files remain byte-identical to that commit after testing. No detector source/configuration or benchmark/truth material changes.
+
+Executed full command:
+
+`env -i PATH=.venv/bin:/usr/bin:/bin:/usr/sbin:/sbin PYTEST_PLUGINS=archguard.infrastructure.security_dev_test_guard PYTHONDONTWRITEBYTECODE=1 PYTHONHASHSEED=0 make check`
+
+**PASS: 3127 passed, 18 skipped, 3145 collected; coverage 82%.** Full test-suite time=2536.52 seconds (42:16), not detector runtime. Ruff check PASS; format PASS (569 files); strict mypy PASS (272 src files). Supplemental scoped mypy includes the new CLI/tests/guard, five Python files total. The guard caused 17 skips before protected private/credential file opens and one skip before real network connect. These are application-level exclusions, not an OS mount/sandbox claim; all tests were collected, without changing frozen P031 tests. The earlier guarded targeted suite passed 94 with 16 protected-data skips; the post-freeze P030/P032 subset before seven extra checks passed 402. No failed test is hidden or converted into an outcome. A pytest-cov notice records plugin bootstrap importing the package before coverage; 82% is the actual full-run reported coverage, with no threshold or coverage-rule change.
+
+Post-suite audit: all P029 detector/source/protocol, P030 exact 927-file and P031 public truth/custody/source/document seals and Architecture freezes PASS. P031 private review/adjudication/300/FINAL truth stores remain unopened. Every private P032 file matches its immutable custody inventory. Full actual P029 per-case metadata confirms provider/connectivity/credential reads=0. Frozen raw/registry rows still number 100 and remain read-only. Two read-only replays from the same frozen predictions and already joined DEV labels reproduce adapter validation, join, metrics, strata, errors and evaluation receipts exactly, without another benchmark analyzer execution or reopening original truth. Public privacy/secret audit and private Git exclusion PASS; git diff --check PASS.
+
+Recorded private diagnostic causes: {'CAPABILITY_GAP': 5, 'UNKNOWN_REASON': 79}; these are descriptive recorded capability/unknown states, not inferred causal diagnoses. No refinement is executed.
+
+Resource timing clarification: case latency includes fresh analyzer construction, analyze and result model_dump serialization. Source intake is excluded. The adapter/materialization subtotal sums per-case outcome/row conversion and raw/registry writes; final seal hashing is part of worker wall time, not that subtotal. Whole-process peak RSS is observed in the prediction child after its 100-case execution. Orchestration timing stops after post-run historical verification, before the final privacy/resource-file audit. Recorded resource artifact bytes/fingerprint remain unchanged. Timing is not rerun to seek a preferred measurement.
+
+Quality fingerprint: `7c9fa160fb34e1aa89a11aefcfeb12506a2cfab8e930ffcda4ae25d53fafb5dc`. The final public freeze index binds all public artifact bytes, this report, exact implementation/test/guard/ignore hashes, all twelve P032 fingerprints and an opaque private custody inventory fingerprint. No private case path, case identity, label row, source snippet or human rationale enters that public index.
+
+A separate ordinary `chore: freeze security dev evaluation` commit publishes this checkpoint and index, followed by `git push origin main`. Its actual SHA, remote equality and final worktree are returned after push, avoiding self-reference. Expected visible worktree: only the authorized pre-existing unstaged HTML deletion; ignored private custody remains in place.
+
+**P032_SECURITY_DEV_EVALUATION_COMPLETE. DEV_PREDICTIONS=100/100. SECURITY_DEV_EFFECTIVENESS=EVALUATED. SECURITY_FINAL_EFFECTIVENESS=NOT_EVALUATED. FINAL_TRUTH_READS=0. READY_FOR_P033_SECURITY_DEV_REFINEMENT_DECISION. P033_NOT_STARTED. STOP.**
