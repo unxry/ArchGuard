@@ -197,7 +197,15 @@ def test_private_byte_inventory_responses_masters_and_packets_are_unchanged(
     assert len(index["entries"]) == 10
     assert all(e["completed"] is False for e in index["entries"])
     assert all("packet_path" in e and "response_destination" in e for e in index["entries"])
-    assert not any((r.PRIVATE / "adjudication/responses").iterdir())
+    closure = r.PUBLIC / "security-human-truth-closure.json"
+    if closure.exists():
+        # The A2 receipt is an immutable historical snapshot, before real human adjudication.
+        accepted = io.read_seal(closure)
+        assert accepted["adjudications_accepted"] == 10
+        assert accepted["adjudications_remaining"] == 0
+        assert len(list((r.PRIVATE / "adjudication/responses").glob("*.json"))) == 10
+    else:
+        assert not any((r.PRIVATE / "adjudication/responses").iterdir())
     assert public["human_adjudications_completed"] == 0
 
 

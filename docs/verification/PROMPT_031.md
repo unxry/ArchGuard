@@ -1,3 +1,9 @@
+Current status: **P031_SECURITY_HUMAN_TRUTH_COMPLETE**. Human truth 300 / DEV 100 / FINAL 200 is frozen; P032 is NOT_STARTED.
+
+The historical verification chronology below is retained verbatim.
+
+---
+
 # PROMPT 031 — INCOMPLETE HUMAN REVIEW
 
 Status: **P031_HUMAN_REVIEW_AWAITING_RESPONSES**. The coordinator explicitly confirms that real A/B submissions do not exist and has not provided human-origin attestation. No human labels, rationales, adjudications, provisional/DEV/FINAL truth, detector predictions or effectiveness statistics are created.
@@ -227,3 +233,67 @@ Only receipts, verification documentation and tests change in P031.A.2; no produ
 The public-safe receipt/tests/append-only report are published with the commit `chore: bind human review provenance to frozen response sets` and ordinary `git push origin main`. The final publication check returns its actual SHA, verifies HEAD=origin/main and requires only the pre-existing unrelated unstaged HTML deletion. No private receipts, human responses, aggregate masters or adjudication packets are staged.
 
 **HUMAN_PROVENANCE_A_BOUND_TO_FROZEN_RESPONSE_SET=YES; HUMAN_PROVENANCE_B_BOUND_TO_FROZEN_RESPONSE_SET=YES; AUTHORITATIVE_RESPONSE_SET_A_UNCHANGED=YES; AUTHORITATIVE_RESPONSE_SET_B_UNCHANGED=YES; ADJUDICATION_PACKETS_UNCHANGED=YES; SECURITY_TRUTH_NOT_FROZEN; READY_FOR_REAL_HUMAN_ADJUDICATION=YES. WAITING_FOR_REAL_HUMAN_ADJUDICATION. STOP.**
+
+
+## P031.A.3 — accepted human adjudication and final truth freeze
+
+Status: **P031_SECURITY_HUMAN_TRUTH_COMPLETE**. Reviewer A and B remain 300/300; exact frozen human provenance binding remains `ccade82d8ea78888ae7b38e231d7927e9736dafb09a721c9fd2b384214372c3c`. No earlier response, agreement, packet or provenance fingerprint is regenerated.
+
+### A — adjudication intake and exact preservation
+
+Expected=10; valid completed=10; missing=0; invalid=0; duplicates=0; unknown=0; wrong destination=0; wrong case binding=0. Case authority comes exclusively from the frozen ten-case adjudication index, never transport ordinal. Source decisions=10; canonical decisions=10; final labels/rationales/completed preserved=10/10 each; semantic changes=0; AI rewrites=0; Astra adjudications=0.
+
+Ten existing per-case decisions were mechanically relocated from a nested transport tree to their frozen destinations. The aggregate transport's reviewer_slot=B and total=300 were ignored; its single missing terminal JSON brace was supplied in memory solely to decode the existing records and provenance. The original aggregate bytes remain private and unchanged. Its ten decisions match the per-case decisions exactly. Aggregate and Finder transport metadata are excluded from the ten scientific responses. No label, rationale, punctuation or completed value was invented or corrected. A private preservation receipt binds the exact source values to the canonical set.
+
+HUMAN_ADJUDICATION_ORIGIN=COORDINATOR_ATTESTED_HUMAN_ONLY. The supplied set-level attestation and coordinator instruction assert no AI/LLM semantic help, personally independent decisions, no detector/construction-intent/answer-key tie-break. Visibility of locked A/B decisions is permitted. This is procedural human/coordinator provenance, not cryptographic proof; identities and originals remain private.
+
+### B/C/D — authoritative truth and aggregate distributions
+
+Truth is derived only by equality: 290 A/B-agreement rows plus 10 human-adjudication rows = 300. Truth rows contain only opaque case identity, final_label and truth_source. All four labels are preserved. Binary eligibility includes POSITIVE/NEGATIVE only. DEV and FINAL use only the prospectively frozen sanitized P030 rosters; DEV=100 and FINAL=200, disjoint, complete, no duplicates, unknown or missing cases. No construction metadata or detector result enters derivation.
+
+| Group | N | POSITIVE | NEGATIVE | UNCERTAIN | OUT_OF_SCOPE | Binary eligible |
+|---|---:|---:|---:|---:|---:|---:|
+| ALL | 300 | 122 | 158 | 20 | 0 | 280 |
+| DEV | 100 | 37 | 52 | 11 | 0 | 89 |
+| FINAL | 200 | 85 | 106 | 9 | 0 | 191 |
+| JAVA | 150 | 65 | 76 | 9 | 0 | 141 |
+| TYPESCRIPT | 150 | 57 | 82 | 11 | 0 | 139 |
+| SEC001 | 30 | 8 | 21 | 1 | 0 | 29 |
+| SEC002 | 30 | 14 | 15 | 1 | 0 | 29 |
+| SEC003 | 30 | 14 | 15 | 1 | 0 | 29 |
+| SEC004 | 30 | 15 | 15 | 0 | 0 | 30 |
+| SEC005 | 30 | 6 | 18 | 6 | 0 | 24 |
+| SEC006 | 30 | 14 | 15 | 1 | 0 | 29 |
+| SEC007 | 30 | 11 | 15 | 4 | 0 | 26 |
+| SEC008 | 30 | 14 | 14 | 2 | 0 | 28 |
+| SEC009 | 30 | 14 | 15 | 1 | 0 | 29 |
+| SEC010 | 30 | 12 | 15 | 3 | 0 | 27 |
+
+### E/I — new scientific fingerprints
+
+- SECURITY_HUMAN_ADJUDICATION_RESPONSE_SET_FINGERPRINT: `9682bbbbcaed4750faf2b240ac8ea6524ecebd5af44068e1ba6275829d431379`.
+- SECURITY_HUMAN_TRUTH_300_FINGERPRINT: `4c60a98e2c2b0c77c5b30ed1356228028b5626f4a6ed4f1a786a58159e4f2fad`.
+- SECURITY_DEV_HUMAN_TRUTH_FINGERPRINT: `bec967a2e197906cf3c7bd3e9b2cb74970ee0d0d20658b13d2c35ec5f1ce4319`.
+- SECURITY_FINAL_HUMAN_TRUTH_FINGERPRINT: `00fc038bff72a6ce0d5d7ccb72ff295938f02abf3ccd78c700397f3586150340`.
+- SECURITY_FINAL_TRUTH_CUSTODY_FINGERPRINT: `e04ac90be27e18a36058764df3d9e6bbeabd5f1a34ea015730e82d0f17f645d0`.
+- SECURITY_HUMAN_TRUTH_CLOSURE_FINGERPRINT: `c7481bcafa5adb540777d7b507e13f6fcae50d6368bddaaa307b8a8a5c3d7528`.
+
+Human adjudications expected=10; accepted=10; remaining=0. Descriptive A/B agreement remains N=300, agreements=290, disagreements=10, raw agreement=0.9666666666666667, Cohen kappa=0.9408913583165859. Kappa is not recomputed against final truth.
+
+### F — custody and execution boundaries
+
+All responses, attestations, preservation material and case-level 300/DEV/FINAL truth remain private and Git ignored. The public closure contains aggregates and opaque fingerprints only. FINAL source-only PredictionInputs rejects truth, reviewer responses, adjudication responses, construction-intent fields, absolute paths and traversal. The private custody policy freezes only the sanitized FINAL roster and source-file allowlist for a future prediction worker. This verifies the application capability boundary; no worker or OS mount exists in P031. A later worker launch must enforce OS-isolated mounts excluding all truth/review/intent material. Future DEV access requires its later protocol; FINAL predictions must freeze before an explicitly authorized truth join.
+
+AI_GENERATED_LABELS=0; AI_REWRITTEN_LABELS=0; AI_ADJUDICATION=0; DEV_DETECTOR_PREDICTIONS=0; FINAL_DETECTOR_PREDICTIONS=0. TP/FP/TN/FN=NOT_COMPUTED. Precision/Recall/F1=NOT_AVAILABLE. SECURITY_EFFECTIVENESS=NOT_EVALUATED. Provider calls=0; connectivity calls=0; credential reads=0; paid spend=0. No environment secret file is accessed. P032=NOT_STARTED.
+
+### G/H — historical freezes and verification
+
+P030 exact inventory: expected=927, missing=0, byte mismatches=0, unexpected=0; all benchmark fingerprints and 600 reviewer packets remain unchanged. P029 source/detector freezes and P025/P026 Architecture science remain unchanged. Earlier A/B byte inventories, agreement, conflicts, packet index and A.2 provenance receipts are reverified before and after truth creation. Two builds from the same accepted inputs produce identical adjudication, 300/DEV/FINAL truth, closure, custody fingerprints and aggregate counts. Immutable private file writes reject drift.
+
+Executed targeted checks: `.venv/bin/python -m pytest tests/security/test_human_truth.py tests/security/test_review_provenance_binding.py tests/security/test_review_recovery.py tests/security/test_review_readiness.py -q` — **78 passed**. These cover response schema/enums, human-only provenance, duplicates/unknowns, transport-only projection, exact 290+10 truth derivation, four-state binary exclusion, partition sizes/disjointness, custody/path denial, privacy, no detector/provider paths, deterministic double build and immutable historical inventories. Ruff check/format for the four Python files and `.venv/bin/python -m mypy src/archguard/infrastructure/security_human_truth.py` passed. Public privacy/secret audit passed. Full `make check` and final publication are recorded in the closure checkpoint below after execution.
+
+### J — publication and strict stop
+
+Only public helper implementation, tests, verification documentation, aggregate receipts and opaque closure indices are publishable. No private responses, rationales, truth, identity, attestation originals or case mappings are staged. The unrelated existing HTML deletion remains unstaged. Publication uses ordinary commits and `git push origin main`; no reset, amend, rebase, squash or force. Actual implementation/closure commits and verified remote equality are reported at publication, avoiding a self-referential closure SHA.
+
+**READY_FOR_P032_SECURITY_DEV_EVALUATION. P032_NOT_STARTED. STOP.**
