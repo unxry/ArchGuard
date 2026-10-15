@@ -1,6 +1,6 @@
 # PROMPT 033 — Security DEV refinement and frozen candidate
 
-**P033_SECURITY_CANDIDATE_FROZEN. DEV USED FOR REFINEMENT. FINAL REMAINS BLIND. Final quality closure pending.**
+**P033_SECURITY_DEV_REFINEMENT_COMPLETE. DEV USED FOR REFINEMENT. FINAL REMAINS BLIND.**
 
 Exactly one candidate is selected: `security-bounded-v3`, internal iteration `iteration-004`. Candidate DEV metrics are not blind final performance. No P034 action is authorized by this closure.
 
@@ -178,11 +178,11 @@ Two fresh child processes using the same frozen candidate and DEV source produce
 
 Initial full `make check`: **1 failed, 3184 passed, 18 skipped; coverage 82%**, elapsed 2009.12 seconds. The only failure was the frozen P026 quality-ordering test: its worktree gate saw uncommitted P033 files before the intended QUALITY_INCOMPLETE rejection. No detector assertion failed. Historical code/tests remain unchanged. The implementation is committed before a clean-worktree full rerun; the failed log is retained privately.
 
-QUALITY_RESULTS_PENDING
+Full `make check`: **3185 passed, 18 skipped; coverage 82%**. Ruff PASS; format PASS; strict mypy PASS. Targeted P033 tests: **58 passed**. Public privacy/secret audit, private Git exclusion, anti-memorization, deterministic replay and `git diff --check`: PASS. The full gate runs with a cleared environment and `PYTEST_PLUGINS=archguard.infrastructure.security_dev_test_guard`; protected historical private review/truth/construction and real network reads skip before access. Existing frozen tests and thresholds are unchanged. A preliminary make check stopped on one infrastructure mypy re-export error; this was fixed and the full gate rerun. Earlier generic engineering test failures were resolved before selection; both benchmark iterations remain recorded. The final full gate runs against the committed implementation with no public edits during the run; the unchanged P026 gate test is also rechecked separately after committing. Quality fingerprint: `8c09b07469c57192be88cbc3d6073915290e051a44f34d3a6ef351909bc21a04`.
 
 ## T — Git publication
 
-PUBLICATION_RESULTS_PENDING
+Implementation commit: `22fbcf6afacc96bd6e405e6ed89fea9512968f4e` (`feat: refine security analyzer on dev evidence`). A separate ordinary `chore: freeze security analyzer candidate` commit publishes this final report and the byte-bound public freeze index. Both commits are published with `git push origin main`; actual closure SHA, push result, HEAD/origin/main equality and final visible worktree are verified and returned after publication, avoiding a self-referential SHA. No reset, amend, rebase, squash or force push occurs. The authorized pre-existing HTML deletion remains unstaged. No private DEV labels, diagnostics, joined rows, reviewer data, construction data or FINAL material is staged.
 
 ## U — limitations and stopping point
 
