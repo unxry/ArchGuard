@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="STRATA — an offline, synthetic ArchGuard AI design study. Explore architecture, findings and evidence boundaries.">
+  <title>ArchGuard AI — STRATA / Evidence Atlas</title>
+  <link rel="icon" href="mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="fixtures.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to workspace</a>
+  <header class="topbar">
+    <a class="brand" href="#atlas" aria-label="ArchGuard AI, open Atlas"><img src="mark.svg" alt="" width="34" height="34"><span>archguard<span class="brand-ai">AI</span></span></a>
+    <nav aria-label="Workspace"><button class="nav-button active" data-view="atlas" aria-current="page">Atlas<span>01</span></button><button class="nav-button" data-view="findings">Findings<span>02</span></button><button class="nav-button" data-view="coverage">Coverage<span>03</span></button></nav>
+    <div class="top-actions"><span class="demo-label">DEMO DATA</span><button id="guideButton" class="icon-button" aria-label="Open exploration guide">?</button><button id="exportButton" class="export-button">Export brief <span aria-hidden="true">↗</span></button></div>
+  </header>
+  <main id="main" tabindex="-1">
+    <section class="intro" aria-labelledby="pageTitle">
+      <div><div class="eyebrow"><span class="lime-dot"></span> STRATA <span class="divider">/</span> EVIDENCE ATLAS <span class="divider">/</span> STUDY 001</div><h1 id="pageTitle">Commerce, <em>in context.</em></h1><p id="pageDescription">Understand the structure. Follow the evidence.</p></div>
+      <div class="project-meta"><span class="small-label">SYNTHETIC WORKSPACE</span><strong>commerce-platform <span class="branch-label">demo/main</span></strong><div class="meta-line"><span>TypeScript</span><span>Module projection</span><span id="sceneCount">12 modules</span></div></div>
+    </section>
+    <div class="workspace-toolbar">
+      <div class="view-caption"><span id="viewNumber">01</span><strong id="viewCaption">Architecture atlas</strong></div>
+      <label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Find a module, rule or evidence…" autocomplete="off" aria-label="Search workspace"><kbd>/</kbd></label>
+      <label class="scenario-control"><span class="sr-only">Demo scenario</span><select id="scenario"><option value="small">12 modules · guided study</option><option value="dense">40 modules · density study</option><option value="many">240 records · queue study</option></select></label>
+      <button id="inspectorToggle" class="quiet-button" aria-expanded="true" aria-controls="inspector">Inspector <span aria-hidden="true">▤</span></button>
+    </div>
+    <div class="workspace" id="workspace">
+      <div class="primary-panel">
+        <section id="atlasView" class="view" aria-label="Architecture atlas">
+          <div class="map-topline"><div><span class="small-label">DEPENDENCY LANDSCAPE</span><p><span class="attention-mark">↗</span> <strong id="mapHeadline">A boundary deserves a closer look.</strong></p></div><button id="overlayButton" class="chip active" aria-pressed="true"><span class="overlay-dot"></span> Issue overlay</button></div>
+          <div class="graph-frame" id="graphFrame"><svg id="graph" viewBox="0 0 1010 560" role="group" aria-label="Interactive directed module dependency graph. Tab to a module and press Enter to inspect. Use the zoom controls to change scale."><defs><pattern id="grid" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".7" fill="#52615d" opacity=".28"/></pattern><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 1 1 L 9 5 L 1 9" fill="none" stroke="#778c80" stroke-width="1.5"/></marker><marker id="arrowHot" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 1 1 L 9 5 L 1 9" fill="none" stroke="#efab91" stroke-width="1.8"/></marker><marker id="arrowActive" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 1 1 L 9 5 L 1 9" fill="none" stroke="#d5edaa" stroke-width="1.8"/></marker></defs><rect width="1010" height="560" fill="url(#grid)"/><g id="graphWorld"></g></svg><div id="graphEmpty" class="empty-state" hidden>No matching modules.<br><button class="text-button" data-action="clear-search">Clear search</button></div><div class="graph-controls"><button id="zoomOut" aria-label="Zoom out">−</button><output id="zoomValue" aria-label="Graph zoom">100%</output><button id="zoomIn" aria-label="Zoom in">+</button><span></span><button id="fitGraph" aria-label="Fit graph to view">Fit</button><button id="focusGraph" aria-pressed="false">Focus path</button></div><span class="map-coordinate" aria-hidden="true">AG / 001 · MODULE SPACE</span></div>
+          <div class="graph-legend"><span><i class="legend-edge"></i> A → B: A depends on B</span><span><i class="legend-edge hot"></i> Rule violation</span><span><i class="legend-node"></i> Module aggregate</span><span class="interaction-hint">Drag to pan · Ctrl + scroll to zoom</span></div>
+          <div class="signal-strip"><span class="signal-number" id="recordCount">06</span><div><strong>Evidence, before conclusions.</strong><span id="queueSummary">Findings and candidates remain distinct.</span></div><button id="reviewQueue" class="text-button">Explore the queue <span aria-hidden="true">→</span></button></div>
+        </section>
+        <section id="findingsView" class="view results-view" aria-labelledby="findingsHeading" hidden><div class="section-heading"><div><span class="small-label">INVESTIGATION QUEUE</span><h2 id="findingsHeading">Start with what is known.</h2></div><span id="resultCount" class="count-label"></span></div><div class="filters"><label><span>Namespace</span><select id="namespaceFilter"><option value="all">All namespaces</option><option value="ARCH">Architecture</option><option value="SEC">Security</option></select></label><label><span>Evidence state</span><select id="stateFilter"><option value="all">All states</option><option value="confirmed">Supported / confirmed</option><option value="candidate">Candidates / uncertain</option></select></label><label><span>Severity</span><select id="severityFilter"><option value="all">All severities</option><option value="HIGH">High</option><option value="MEDIUM">Medium</option><option value="LOW">Low</option><option value="unrated">Unrated candidates</option></select></label></div><div class="queue-columns" aria-hidden="true"><span>RULE / FINDING</span><span>SEVERITY · EVIDENCE</span></div><div id="findingsList" class="findings-list"></div><div class="pagination"><button id="previousPage" class="quiet-button">← Previous</button><span id="pageCount"></span><button id="nextPage" class="quiet-button">Next →</button></div></section>
+        <section id="coverageView" class="view coverage-view" aria-labelledby="coverageHeading" hidden><div class="section-heading"><div><span class="small-label">SECURITY / KNOWLEDGE BOUNDARIES</span><h2 id="coverageHeading">Unknown is a useful answer.</h2></div></div><p class="coverage-intro">A result belongs to its evaluated scope. No findings does not mean a secure repository.</p><div id="coverageSummary" class="coverage-summary"></div><div class="coverage-columns" aria-hidden="true"><span>RULE / EVALUATED SCOPE</span><span>OUTCOME</span></div><div id="coverageList" class="coverage-list"></div><p class="coverage-footnote">Synthetic outcomes illustrate public contracts. The narrow SEC008 negative certificate does not certify the project.</p></section>
+      </div>
+      <aside id="inspector" class="inspector" aria-label="Contextual evidence inspector"><div class="inspector-bar"><span>FIELD NOTES <span id="inspectorIndex">/ 01</span><small class="scroll-cue">EVIDENCE BELOW ↓</small></span><button id="closeInspector" aria-label="Close inspector">×</button></div><div id="inspectorContent"></div></aside>
+    </div>
+    <footer class="footer"><span><span class="lime-dot"></span> Local design prototype <span class="divider">/</span> No backend connection</span><span>Deterministic layout. Explicit uncertainty.<span class="footer-edition">STRATA — V.01</span></span></footer>
+  </main>
+  <div id="announcement" class="sr-only" aria-live="polite" aria-atomic="true"></div><div id="toast" class="toast" role="status" hidden></div>
+  <dialog id="guide"><div class="dialog-heading"><span class="eyebrow">EXPLORING STRATA</span><button id="closeGuide" aria-label="Close exploration guide">×</button></div><h2>Follow a relationship.<br><em>Keep its evidence.</em></h2><p>Every module, rule and source excerpt in this study is synthetic. No project has been scanned.</p><dl><dt>Atlas</dt><dd>Select a module or a dashed edge. Arrows point from a dependent to its dependency. Module shapes show assigned roles, not risk.</dd><dt>Findings</dt><dd>Severity is separate from evidence. Architecture candidates are uncalibrated and have no severity or confidence score.</dd><dt>Coverage</dt><dd>Positive, potential, insufficient, partial, unsupported and scoped negative outcomes remain separate.</dd><dt>Keyboard</dt><dd><kbd>/</kbd> search · <kbd>Tab</kbd> navigate · <kbd>Enter</kbd> select · <kbd>Esc</kbd> clear focus · arrow keys move between graph nodes. Zoom controls are keyboard accessible.</dd></dl><p class="dialog-note">Exports contain DEMO DATA only. Reduced-motion preferences are respected. This is a design foundation, not a production frontend.</p><button id="beginExploring" class="primary-button">Back to the atlas <span aria-hidden="true">→</span></button></dialog>
+</body>
+</html>
