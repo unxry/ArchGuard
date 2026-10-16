@@ -444,7 +444,19 @@ Public index: `3e19eb2b2fd3ba1500a452ec672e200a56d74ff88af80481f08659767976ac20`
 
 ### P036
 
-Quality-dependent closure fingerprints are pending; no completion declaration yet.
+| P036 pin | Fingerprint |
+|---|---|
+| SECURITY_P036_RULE_CATALOG_FINGERPRINT | `33bfd548683cb766731af6bd061b92ea44631369a8d79d1fdbdf1989ba0ae6e9` |
+| SECURITY_P036_SCIENTIFIC_REGISTRY_FINGERPRINT | `f3c81e7737c9f67313e78f2270c68895b6005866241ffee5afa6daa8af31485f` |
+| SECURITY_P036_CAPABILITY_MATRIX_FINGERPRINT | `194a5621282d5cde4ca34a7dd74b2e3c4c274663ff92f0ea4db1a14402c8f137` |
+| SECURITY_P036_EXPERIMENT_SUMMARY_FINGERPRINT | `2ac5c7a6ecdfb6ba8dac54e85789dcde3fcbe12bdd34d49c2420ba2ad5c9734b` |
+| SECURITY_P036_SCIENTIFIC_CLAIMS_FINGERPRINT | `b9fb5bc96daabae1ee64c41b026e5827ec93203de83997d3ad85a575afd15cf4` |
+| SECURITY_P036_LIMITATIONS_FINGERPRINT | `753bfd6d157c6dedc89ac9363a15404f6d0fc658ff1aff85bcb12421f37e7aec` |
+| SECURITY_P036_REPRODUCIBILITY_MANIFEST_FINGERPRINT | `8d5fa521c1d0dc549d63071648ddbe3eec285f06e4aee5e2784ef4d1dd7d703b` |
+| SECURITY_P036_PRIVACY_CUSTODY_RECEIPT_FINGERPRINT | `f61f3562a5eed3c1ebbe134032268d7bc41e6349a50c01eafc54aaf6fcf3907d` |
+| SECURITY_P036_QUALITY_RECEIPT_FINGERPRINT | `d241d0f2240f4a30db4b4c985235bad3a8021bd55d8fa23ce67e234cb2b5b41f` |
+| SECURITY_P036_EXTENSION_CLOSURE_FINGERPRINT | `8e3f2a34e44b2aa58ce2d50cdf7e228a1452ca61cec4baa7cb1126c5cb6fd831` |
+| SECURITY_EXTENSION_FINAL_FINGERPRINT | `851470ce48991e5a7b4116afae2ea798798d61d01723d0acb359050cb2f54e27` |
 
 ## V — Quality
 
@@ -452,12 +464,64 @@ Historical P035 successful make check: 3278 passed, 28 guarded skips, coverage 8
 
 P036 targeted tests: 60 passed. Ruff, format and strict mypy on new modules: PASS. Initial P036 preparation used an incorrect public Architecture result directory and failed with FileNotFoundError; corrected before final preparation. Initial local Ruff checks found formatting/unused-import issues, corrected before commit. No scientific input changed.
 
-Full make check pending. P036_QUALITY_INCOMPLETE; SECURITY_EXTENSION_COMPLETE not declared.
+P036 make check: 3337 passed, 29 guarded skips, 64% coverage, exit 0. Ruff, format, strict mypy, privacy, secret audit, determinism and diff check: PASS.
+
+Private receipt orchestration initially failed to parse the branch-coverage TOTAL columns; a following freeze attempt stopped before writing artifacts because the receipt was absent. Parsing/sequencing were corrected. The successful full make check was not rerun or replaced.
+
+P036 warnings (actual run):
+
+- CoverageWarning: Module archguard was previously imported, but not measured (module-not-measured); see https://coverage.readthedocs.io/en/7.16.2/messages.html#warning-module-not-measured
+
+Skipped tests were prevented from opening protected Security private material or credentials; complete reasons and summary are bound by the public quality receipt. No thresholds lowered. Private log SHA-256 binds the full output.
 
 ## W — Git publication
 
 Initial HEAD/origin/main/remote equality: `babcba6af3c04be30647820d0d11c03ac5535d96`. Only public-safe P036 code/tests/docs/artifacts are staged. The unrelated HTML deletion is preserved and never read, hashed, staged, restored or committed. Normal push only.
 
+Implementation/docs and successful quality run commit: `9d40c4fa6a50439c6910325d978de973ef2e5f3d`. Final closure SHA is the containing commit (self-reference excluded from scientific hashes). Finalization requires normal push, HEAD=origin/main=remote main and only the pre-existing HTML deletion visible; `verify-published` enforces remote equality. The final task response reports actual publication SHA.
+
 ## X — Final completion status
 
-P036 prepared; quality and publication required before completion. CORE_THESIS_COMPLETE=YES; SECURITY_EXTENSION_COMPLETE not yet declared.
+- status = P036_SECURITY_EXTENSION_CLOSURE_COMPLETE
+- SECURITY_EXTENSION_COMPLETE = YES
+- SECURITY_RESEARCH_PROTOTYPE_COMPLETE = YES
+- SECURITY_RULE_CATALOG_FROZEN = YES
+- SECURITY_BENCHMARK_COMPLETE = YES
+- SECURITY_HUMAN_TRUTH_COMPLETE = YES
+- SECURITY_DEV_BASELINE_COMPLETE = YES
+- SECURITY_DEV_REFINEMENT_COMPLETE = YES
+- SECURITY_FINAL_BLIND_PREDICTION_COMPLETE = YES
+- SECURITY_FINAL_EVALUATION_COMPLETE = YES
+- P033_SECURITY_CANDIDATE_FROZEN = YES
+- FINAL_PREDICTION_REGISTRY_FROZEN = YES
+- ARCHITECTURE_SCIENCE_UNCHANGED = YES
+- CORE_THESIS_COMPLETE = YES
+- READY_FOR_NON_UI_BACKEND_PRODUCT_CLOSURE_OR_THESIS_INTEGRATION = YES
+- FINAL_ANALYZER_EXECUTIONS_DURING_P036 = 0
+- DEV_ANALYZER_EXECUTIONS_DURING_P036 = 0
+- ORIGINAL_FINAL_TRUTH_READS_DURING_P036 = 0
+- HUMAN_TRUTH_300_READS = 0
+- DEV_TRUTH_READS = 0
+- CONSTRUCTION_INTENT_READS = 0
+- REVIEW_RATIONALE_READS = 0
+- ADJUDICATION_RATIONALE_READS = 0
+- PROVIDER_CALLS = 0
+- NETWORK_PROVIDER_CALLS = 0
+- OPENAI_CALLS = 0
+- LLM_CALLS = 0
+- CREDENTIAL_READS = 0
+- PAID_SPEND = 0
+- POST_FINAL_TUNING = 0
+- PRIVATE_HUMAN_DATA_COMMITTED = 0
+- PRIVATE_TRUTH_ROWS_COMMITTED = 0
+- PRIVATE_PREDICTION_ROWS_COMMITTED = 0
+- PRIVATE_ERROR_ROWS_COMMITTED = 0
+- CONSTRUCTION_INTENT_COMMITTED = 0
+- CREDENTIALS_COMMITTED = 0
+- SECURITY_FINAL_EFFECTIVENESS = EVALUATED
+- SECURITY_PRODUCTION_READINESS = NOT_CLAIMED
+- SECURITY_WHOLE_PROGRAM_SOUNDNESS = NOT_CLAIMED
+- SECURITY_NATURAL_PREVALENCE_GENERALIZATION = NOT_ESTABLISHED
+- UI_UX_STATUS = OUT_OF_SCOPE_FOR_P036
+
+SECURITY_EXTENSION_COMPLETE=YES is limited to the bounded research scope and frozen reproducible experiment defined above. SECURITY_PRODUCTION_READINESS=NOT_CLAIMED; no production-grade, general-negative or whole-program guarantee. UI/UX remains out of scope. Stop after final publication verification.
