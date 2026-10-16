@@ -1,6 +1,6 @@
 # PROMPT 035 — frozen V3 blind FINAL effectiveness
 
-P035_SECURITY_FINAL_EVALUATION_COMPLETE. Quality/publication status: **PENDING_FULL_QUALITY_GATE**.
+P035_SECURITY_FINAL_EVALUATION_COMPLETE. Quality/publication status: **PASS**.
 
 Effective positive recovery is **44.7059% (38/85)**; binary definitive coverage
 is **21.4660% (41/191)**; precision is **92.6829% (38/41)**. There are **3 false
@@ -489,12 +489,48 @@ not a privileged immutable filesystem lock. Public seals detect byte drift.
 
 | Binding | Value |
 |---|---|
+| ADJUDICATION_RATIONALE_READS | `0` |
+| CONSTRUCTION_INTENT_READS | `0` |
+| CREDENTIAL_READS | `0` |
+| DETECTOR_CODE_CHANGES | `0` |
+| DEV_TRUTH_READS | `0` |
+| FINAL_ANALYZER_EXECUTIONS_DURING_P035 | `0` |
+| HUMAN_TRUTH_300_READS | `0` |
+| NETWORK_CONNECTIONS | `0` |
+| P034_PREDICTION_MUTATIONS | `0` |
+| PAID_SPEND | `0` |
+| POST_FINAL_TUNING | `0` |
+| PROVIDER_CALLS | `0` |
+| REVIEW_RATIONALE_READS | `0` |
 | Ruff | `PASS` |
+| cleanup_cli_log_sha256 | `f894e2c8e64df05e1b0c97774e6a60548009b7dfda9303795c26e41bbed30354` |
+| cleanup_cli_verification | `{'analyzer_executions': 0, 'joined_rows': 200, 'original_truth_reopens': 0, 'primary_fingerprint': 'cb2e461eb89b3578ad6d59e1ec013e71dd732b627ae7785e8a2d5e101044b81e', 'status': 'PASS'}` |
+| corrective_commit | `dacf423ce69590e9a292b2d3a650cd62ef47ecd7` |
+| coverage | `81%` |
+| coverage_warnings | `['Module archguard was previously imported, but not measured (module-not-measured); see https://coverage.readthedocs.io/en/7.16.2/messages.html#warning-module-not-measured']` |
+| custody_guard | `security_evaluation_test_guard: exact chronology-gated FINAL access only` |
+| deterministic_evaluation_replay | `PASS` |
 | diff_check | `PASS` |
+| final_verification | `{'analyzer_executions': 0, 'joined_rows': 200, 'original_truth_reopens': 0, 'primary_fingerprint': 'cb2e461eb89b3578ad6d59e1ec013e71dd732b627ae7785e8a2d5e101044b81e', 'status': 'PASS'}` |
 | format | `PASS` |
-| make_check | `PENDING` |
+| full_gate_seconds | `1951.9074987079948` |
+| full_log_sha256 | `55521b7e03d38cb02f180041cabe02a312f728bc67940572f406724f6257351d` |
+| full_quality_attempts | `2` |
+| implementation_commit | `95f6a949abc4ba469ca18259069acbc2695c71ef` |
+| initial_cli_diagnostic | `{'log_sha256': '127469a97968194c746ea4802b64c5baabcd4518e41c50aab047585302b57df6', 'phase': 'interpreter shutdown after scientific freeze', 'resolved_by': 'Scope P035 profiler to workflow using try/finally; no scientific recomputation', 'returncode': 0}` |
+| initial_collection_failure | `{'collection_errors': 1, 'executed_tests': 0, 'log_sha256': 'e44c7f1503fcd8ff3f59f4aded7be3d9414026d546c311e5d1bbbd2106abc7ae', 'reason': 'New Security test basename collided with existing intelligence module', 'returncode': 2}` |
+| make_check | `PASS` |
+| original_FINAL_truth_reads | `1` |
+| original_FINAL_truth_reopens_for_verification | `0` |
+| passed | `3278` |
 | privacy | `PASS` |
-| status | `PENDING_FULL_QUALITY_GATE` |
+| protected_skips | `['SKIPPED [28] src/archguard/infrastructure/security_evaluation_test_guard.py:51: P035 custody: unrelated truth/review/intent/DEV or credentials denied']` |
+| publication | `Normal push origin main; closure equality and worktree verified after push` |
+| pytest_seconds | `1950.41` |
+| quality_run_commit | `dacf423ce69590e9a292b2d3a650cd62ef47ecd7` |
+| secret_audit | `PASS` |
+| skipped | `28` |
+| status | `PASS` |
 | strict_mypy | `PASS` |
 | targeted | `{'passed': 105, 'seconds': 29.44, 'skipped': 1}` |
 
@@ -512,16 +548,24 @@ hook (`_ACTIVE` already cleared during teardown). After truth freeze, only the
 P035 profiler lifecycle was corrected: the analyzer-entry guard is removed in
 finally after workflow completion. No detector, prediction, metric, join or
 scientific artifact changed. A subprocess cleanup regression and an actual
-no-analyzer CLI verification validate the cleanup. Historical tests and frozen production sources are unchanged.
-Full make check uses the established skip-before-open guard adapted for P035:
+no-analyzer CLI verification validate the cleanup. The first full make check stopped at collection (0 tests executed, 1 import-file
+mismatch): the new Security test initially reused the existing intelligence
+test module basename. Only the new test was renamed to a unique basename and
+a normal corrective commit preserved history. The collection log/result are
+retained; the complete gate was rerun. Historical tests and frozen production
+sources are unchanged.
+The successful full gate emitted a coverage `module-not-measured` warning for
+archguard; the original log is bound in quality, exit status was 0 and the
+reported aggregate coverage is 81%. No coverage warning was hidden or treated
+as an analyzer timing/result. Full make check uses the established skip-before-open guard adapted for P035:
 only exact FINAL truth/custody metadata through the verified open_truth gate is
 permitted; unrelated private stores and credentials remain protected.
 
 ## T — Git publication
 
-Implementation: pending implementation commit.
+Implementation: 95f6a949abc4ba469ca18259069acbc2695c71ef.
 Closure: `chore: freeze security final evaluation` (the commit containing this
-finalized document and freeze index). Publication state: pending full quality gate and normal push.
+finalized document and freeze index). Corrective collection fix: dacf423ce69590e9a292b2d3a650cd62ef47ecd7. Publication state: Normal push origin main; closure equality and worktree verified after push.
 All public-safe P035 artifacts are tracked; private truth/join/errors, custody
 and logs are ignored. Privacy/secret audit rejects case IDs, private source,
 human identities/prose, actual construction metadata, credentials and absolute
