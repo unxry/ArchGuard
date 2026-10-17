@@ -1,0 +1,564 @@
+{
+  "edges": [
+    {
+      "attributes": {
+        "occurrences": 1,
+        "provenance": [
+          {
+            "extractor_id": "typescript-syntax-extractor",
+            "reference_kind": "IMPORT",
+            "resolution_method": "EXACT_IMPORT",
+            "resolution_status": "RESOLVED",
+            "source_location": {
+              "end_column": 19,
+              "end_line": 1,
+              "file_path": "src/domain/service.ts",
+              "start_column": 10,
+              "start_line": 1
+            }
+          }
+        ],
+        "provenance_truncated": 0
+      },
+      "id": "3f3c8d3d-5edf-5a20-89a8-4776ffe00c58",
+      "kind": "IMPORTS",
+      "source_id": "d9b1d63f-d610-5139-9b92-04895984d7b3",
+      "source_location": {
+        "end_column": 19,
+        "end_line": 1,
+        "file_path": "src/domain/service.ts",
+        "start_column": 10,
+        "start_line": 1
+      },
+      "target_id": "8723fde6-1320-52f9-9cc8-f6377a4f9914",
+      "weight": 1.0
+    },
+    {
+      "attributes": {
+        "occurrences": 1,
+        "provenance": [
+          {
+            "extractor_id": "typescript-syntax-extractor",
+            "reference_kind": "IMPORT",
+            "resolution_method": "EXACT_IMPORT",
+            "resolution_status": "RESOLVED",
+            "source_location": {
+              "end_column": 19,
+              "end_line": 2,
+              "file_path": "src/ui/controller.ts",
+              "start_column": 10,
+              "start_line": 2
+            }
+          }
+        ],
+        "provenance_truncated": 0
+      },
+      "id": "508edbfe-316d-598e-80cc-d47953fc80e6",
+      "kind": "IMPORTS",
+      "source_id": "4e3b20c3-6051-56b9-84de-e0acae2034cc",
+      "source_location": {
+        "end_column": 19,
+        "end_line": 2,
+        "file_path": "src/ui/controller.ts",
+        "start_column": 10,
+        "start_line": 2
+      },
+      "target_id": "8723fde6-1320-52f9-9cc8-f6377a4f9914",
+      "weight": 1.0
+    },
+    {
+      "attributes": {
+        "occurrences": 1,
+        "provenance": [
+          {
+            "extractor_id": "typescript-syntax-extractor",
+            "reference_kind": "IMPORT",
+            "resolution_method": "EXACT_IMPORT",
+            "resolution_status": "RESOLVED",
+            "source_location": {
+              "end_column": 16,
+              "end_line": 1,
+              "file_path": "src/ui/controller.ts",
+              "start_column": 10,
+              "start_line": 1
+            }
+          }
+        ],
+        "provenance_truncated": 0
+      },
+      "id": "b6197d9d-8e2e-57d5-8f9b-afe94dec48fb",
+      "kind": "IMPORTS",
+      "source_id": "4e3b20c3-6051-56b9-84de-e0acae2034cc",
+      "source_location": {
+        "end_column": 16,
+        "end_line": 1,
+        "file_path": "src/ui/controller.ts",
+        "start_column": 10,
+        "start_line": 1
+      },
+      "target_id": "d9b1d63f-d610-5139-9b92-04895984d7b3",
+      "weight": 1.0
+    },
+    {
+      "attributes": {
+        "occurrences": 1,
+        "provenance": [
+          {
+            "extractor_id": "typescript-syntax-extractor",
+            "reference_kind": "IMPORT",
+            "resolution_method": "EXACT_IMPORT",
+            "resolution_status": "RESOLVED",
+            "source_location": {
+              "end_column": 19,
+              "end_line": 1,
+              "file_path": "src/data/repository.ts",
+              "start_column": 10,
+              "start_line": 1
+            }
+          }
+        ],
+        "provenance_truncated": 0
+      },
+      "id": "f98f4b42-9c77-5a19-a41b-abbf7d2fa0d0",
+      "kind": "IMPORTS",
+      "source_id": "8723fde6-1320-52f9-9cc8-f6377a4f9914",
+      "source_location": {
+        "end_column": 19,
+        "end_line": 1,
+        "file_path": "src/data/repository.ts",
+        "start_column": 10,
+        "start_line": 1
+      },
+      "target_id": "4e3b20c3-6051-56b9-84de-e0acae2034cc",
+      "weight": 1.0
+    }
+  ],
+  "iam_schema_version": "1.0",
+  "metadata": {
+    "builder_version": "1.0.0",
+    "containment_convention": "parent_node_id / container_symbol_id v1",
+    "extraction_config": {
+      "max_declarations_per_file": 10000,
+      "max_imports_per_file": 10000,
+      "max_provenance_per_edge": 1000,
+      "max_references_per_file": 50000,
+      "project_name": "ArchGuard project",
+      "repository_namespace": "archguard:signature-v2-fixture",
+      "skip_invalid_files": true
+    },
+    "extractor_versions": [
+      {
+        "dialect": "TYPESCRIPT",
+        "extractor_id": "typescript-syntax-extractor",
+        "extractor_version": "1.1.0"
+      }
+    ],
+    "is_complete": true,
+    "is_valid": true,
+    "parser_config": {
+      "collect_error_nodes": true,
+      "enabled_languages": [
+        "JAVA",
+        "JAVASCRIPT",
+        "TSX",
+        "TYPESCRIPT"
+      ],
+      "max_diagnostics_per_file": 100,
+      "max_source_file_bytes": 2097152,
+      "strict_syntax_errors": false
+    },
+    "parser_versions": [
+      {
+        "grammar_abi_version": 14,
+        "grammar_package": "tree-sitter-typescript",
+        "grammar_version": "0.23.2",
+        "implementation_version": "1.0.0",
+        "language": "TYPESCRIPT",
+        "parser_id": "typescript-tree-sitter",
+        "runtime_package": "tree-sitter",
+        "runtime_version": "0.26.0"
+      }
+    ],
+    "repository_namespace": "archguard:signature-v2-fixture",
+    "resolver_version": "1.0.0",
+    "snapshot_fingerprint": "4fc578f00fdb9bcb438136b6ee60a56b04534f3fa024178470bf64f4d01fd305",
+    "snapshot_id": "1e601843-4307-5f1c-af4c-88721be6eeb7",
+    "source_coordinates": "one-based UTF-8 byte columns; inclusive end",
+    "statistics": {
+      "declarations_by_language": {
+        "TYPESCRIPT": 3
+      },
+      "declarations_total": 3,
+      "edges_created": 4,
+      "external_nodes": 0,
+      "files_extracted": 3,
+      "files_seen": 4,
+      "files_with_parse_errors": 0,
+      "imports_total": 4,
+      "nodes_created": 10,
+      "references_ambiguous": 0,
+      "references_external": 0,
+      "references_resolved": 4,
+      "references_total": 4,
+      "references_unresolved": 0
+    }
+  },
+  "modules": [
+    {
+      "attributes": {
+        "semantics": "es_file_module"
+      },
+      "id": "0904f6f0-5699-5369-a81c-33313d5a8484",
+      "name": "es:src/domain/service.ts",
+      "project_id": "beacbdc4-e113-5631-b46b-6e632fb3f1a9"
+    },
+    {
+      "attributes": {
+        "semantics": "es_file_module"
+      },
+      "id": "5bf64492-8b83-59e6-a338-a60cfc66242d",
+      "name": "es:src/data/repository.ts",
+      "project_id": "beacbdc4-e113-5631-b46b-6e632fb3f1a9"
+    },
+    {
+      "attributes": {
+        "semantics": "es_file_module"
+      },
+      "id": "af01ae66-5459-51eb-86d4-610b206296da",
+      "name": "es:src/ui/controller.ts",
+      "project_id": "beacbdc4-e113-5631-b46b-6e632fb3f1a9"
+    }
+  ],
+  "nodes": [
+    {
+      "attributes": {
+        "parent_node_id": "8723fde6-1320-52f9-9cc8-f6377a4f9914"
+      },
+      "file_id": "a8331137-d459-5a9f-9ab2-5634a05cf28a",
+      "id": "09b9acf4-b8dc-5bb1-bbb0-41659f19a207",
+      "kind": "CLASS",
+      "language": "TYPESCRIPT",
+      "layer": null,
+      "module": "5bf64492-8b83-59e6-a338-a60cfc66242d",
+      "name": "Repository",
+      "package": null,
+      "qualified_name": "src/data/repository.ts::Repository",
+      "source_location": {
+        "end_column": 26,
+        "end_line": 3,
+        "file_path": "src/data/repository.ts",
+        "start_column": 8,
+        "start_line": 3
+      },
+      "symbol_id": "fbf64f08-e27f-53e8-a76d-a83133014638"
+    },
+    {
+      "attributes": {
+        "parent_node_id": "e6545cb3-6e61-5f03-a160-a1ecf9105a4c",
+        "semantics": "es_file_module"
+      },
+      "file_id": null,
+      "id": "1d9a61e1-63ab-5b5a-b361-b32973224ae2",
+      "kind": "MODULE",
+      "language": "UNKNOWN",
+      "layer": null,
+      "module": "5bf64492-8b83-59e6-a338-a60cfc66242d",
+      "name": "es:src/data/repository.ts",
+      "package": null,
+      "qualified_name": "es:src/data/repository.ts",
+      "source_location": null,
+      "symbol_id": null
+    },
+    {
+      "attributes": {
+        "parent_node_id": "c79f62d1-bf23-5cc1-8a18-0a73b4f8e6bc",
+        "parser_dialect": "TYPESCRIPT",
+        "sha256": "a3356e2600b96d1306a2eb767b65dda720df2ea86bebe6e716b701f7e2525ac9",
+        "source_had_syntax_errors": false
+      },
+      "file_id": "6c9ba059-f6db-576b-b002-2792a890b1ad",
+      "id": "4e3b20c3-6051-56b9-84de-e0acae2034cc",
+      "kind": "FILE",
+      "language": "TYPESCRIPT",
+      "layer": null,
+      "module": "af01ae66-5459-51eb-86d4-610b206296da",
+      "name": "controller.ts",
+      "package": null,
+      "qualified_name": "src/ui/controller.ts",
+      "source_location": {
+        "end_column": null,
+        "end_line": null,
+        "file_path": "src/ui/controller.ts",
+        "start_column": 1,
+        "start_line": 1
+      },
+      "symbol_id": null
+    },
+    {
+      "attributes": {
+        "parent_node_id": "e6545cb3-6e61-5f03-a160-a1ecf9105a4c",
+        "semantics": "es_file_module"
+      },
+      "file_id": null,
+      "id": "5bda2798-ba05-5a46-8a68-9030a653a9d8",
+      "kind": "MODULE",
+      "language": "UNKNOWN",
+      "layer": null,
+      "module": "0904f6f0-5699-5369-a81c-33313d5a8484",
+      "name": "es:src/domain/service.ts",
+      "package": null,
+      "qualified_name": "es:src/domain/service.ts",
+      "source_location": null,
+      "symbol_id": null
+    },
+    {
+      "attributes": {
+        "parent_node_id": "4e3b20c3-6051-56b9-84de-e0acae2034cc"
+      },
+      "file_id": "6c9ba059-f6db-576b-b002-2792a890b1ad",
+      "id": "7872101d-b13e-5508-931a-3661e1ed380c",
+      "kind": "CLASS",
+      "language": "TYPESCRIPT",
+      "layer": null,
+      "module": "af01ae66-5459-51eb-86d4-610b206296da",
+      "name": "Controller",
+      "package": null,
+      "qualified_name": "src/ui/controller.ts::Controller",
+      "source_location": {
+        "end_column": 26,
+        "end_line": 4,
+        "file_path": "src/ui/controller.ts",
+        "start_column": 8,
+        "start_line": 4
+      },
+      "symbol_id": "4388c8d3-0544-53f5-8e7d-f7f0a4e34af2"
+    },
+    {
+      "attributes": {
+        "parent_node_id": "1d9a61e1-63ab-5b5a-b361-b32973224ae2",
+        "parser_dialect": "TYPESCRIPT",
+        "sha256": "5dd7fe828fcff254c2fc072e854b420fc815e555ceb6d0f0cb8337525944a332",
+        "source_had_syntax_errors": false
+      },
+      "file_id": "a8331137-d459-5a9f-9ab2-5634a05cf28a",
+      "id": "8723fde6-1320-52f9-9cc8-f6377a4f9914",
+      "kind": "FILE",
+      "language": "TYPESCRIPT",
+      "layer": null,
+      "module": "5bf64492-8b83-59e6-a338-a60cfc66242d",
+      "name": "repository.ts",
+      "package": null,
+      "qualified_name": "src/data/repository.ts",
+      "source_location": {
+        "end_column": null,
+        "end_line": null,
+        "file_path": "src/data/repository.ts",
+        "start_column": 1,
+        "start_line": 1
+      },
+      "symbol_id": null
+    },
+    {
+      "attributes": {
+        "parent_node_id": "e6545cb3-6e61-5f03-a160-a1ecf9105a4c",
+        "semantics": "es_file_module"
+      },
+      "file_id": null,
+      "id": "c79f62d1-bf23-5cc1-8a18-0a73b4f8e6bc",
+      "kind": "MODULE",
+      "language": "UNKNOWN",
+      "layer": null,
+      "module": "af01ae66-5459-51eb-86d4-610b206296da",
+      "name": "es:src/ui/controller.ts",
+      "package": null,
+      "qualified_name": "es:src/ui/controller.ts",
+      "source_location": null,
+      "symbol_id": null
+    },
+    {
+      "attributes": {
+        "parent_node_id": "5bda2798-ba05-5a46-8a68-9030a653a9d8",
+        "parser_dialect": "TYPESCRIPT",
+        "sha256": "db039ea8cbb1d125fb8c7032bfa52bd68b7049395eccac4e5b6cbd1fe64affb8",
+        "source_had_syntax_errors": false
+      },
+      "file_id": "e83117ac-ffa0-5fcc-90c4-d53c2fe002a9",
+      "id": "d9b1d63f-d610-5139-9b92-04895984d7b3",
+      "kind": "FILE",
+      "language": "TYPESCRIPT",
+      "layer": null,
+      "module": "0904f6f0-5699-5369-a81c-33313d5a8484",
+      "name": "service.ts",
+      "package": null,
+      "qualified_name": "src/domain/service.ts",
+      "source_location": {
+        "end_column": null,
+        "end_line": null,
+        "file_path": "src/domain/service.ts",
+        "start_column": 1,
+        "start_line": 1
+      },
+      "symbol_id": null
+    },
+    {
+      "attributes": {},
+      "file_id": null,
+      "id": "e6545cb3-6e61-5f03-a160-a1ecf9105a4c",
+      "kind": "PROJECT",
+      "language": "UNKNOWN",
+      "layer": null,
+      "module": null,
+      "name": "ArchGuard project",
+      "package": null,
+      "qualified_name": "project",
+      "source_location": null,
+      "symbol_id": null
+    },
+    {
+      "attributes": {
+        "parent_node_id": "d9b1d63f-d610-5139-9b92-04895984d7b3"
+      },
+      "file_id": "e83117ac-ffa0-5fcc-90c4-d53c2fe002a9",
+      "id": "f23c9c71-99af-59d1-808f-d5d2f9fe9329",
+      "kind": "CLASS",
+      "language": "TYPESCRIPT",
+      "layer": null,
+      "module": "0904f6f0-5699-5369-a81c-33313d5a8484",
+      "name": "Service",
+      "package": null,
+      "qualified_name": "src/domain/service.ts::Service",
+      "source_location": {
+        "end_column": 23,
+        "end_line": 3,
+        "file_path": "src/domain/service.ts",
+        "start_column": 8,
+        "start_line": 3
+      },
+      "symbol_id": "22db5b8b-55e1-5de4-a690-725e5179400b"
+    }
+  ],
+  "packages": [],
+  "project": {
+    "description": null,
+    "id": "beacbdc4-e113-5631-b46b-6e632fb3f1a9",
+    "name": "ArchGuard project"
+  },
+  "source_files": [
+    {
+      "attributes": {
+        "parser_dialect": "TYPESCRIPT",
+        "sha256": "a3356e2600b96d1306a2eb767b65dda720df2ea86bebe6e716b701f7e2525ac9",
+        "source_had_syntax_errors": false
+      },
+      "file_path": "src/ui/controller.ts",
+      "id": "6c9ba059-f6db-576b-b002-2792a890b1ad",
+      "language": "TYPESCRIPT",
+      "module_id": "af01ae66-5459-51eb-86d4-610b206296da",
+      "package_id": null
+    },
+    {
+      "attributes": {
+        "parser_dialect": "TYPESCRIPT",
+        "sha256": "5dd7fe828fcff254c2fc072e854b420fc815e555ceb6d0f0cb8337525944a332",
+        "source_had_syntax_errors": false
+      },
+      "file_path": "src/data/repository.ts",
+      "id": "a8331137-d459-5a9f-9ab2-5634a05cf28a",
+      "language": "TYPESCRIPT",
+      "module_id": "5bf64492-8b83-59e6-a338-a60cfc66242d",
+      "package_id": null
+    },
+    {
+      "attributes": {
+        "parser_dialect": "TYPESCRIPT",
+        "sha256": "db039ea8cbb1d125fb8c7032bfa52bd68b7049395eccac4e5b6cbd1fe64affb8",
+        "source_had_syntax_errors": false
+      },
+      "file_path": "src/domain/service.ts",
+      "id": "e83117ac-ffa0-5fcc-90c4-d53c2fe002a9",
+      "language": "TYPESCRIPT",
+      "module_id": "0904f6f0-5699-5369-a81c-33313d5a8484",
+      "package_id": null
+    }
+  ],
+  "symbols": [
+    {
+      "attributes": {
+        "annotations": [],
+        "container_symbol_id": null,
+        "is_default_export": false,
+        "is_exported": true,
+        "modifiers": [],
+        "parameters": [],
+        "type_name": null,
+        "type_parameters": [],
+        "visibility": "DEFAULT"
+      },
+      "file_id": "e83117ac-ffa0-5fcc-90c4-d53c2fe002a9",
+      "id": "22db5b8b-55e1-5de4-a690-725e5179400b",
+      "kind": "CLASS",
+      "name": "Service",
+      "qualified_name": "src/domain/service.ts::Service",
+      "signature": null,
+      "source_location": {
+        "end_column": 23,
+        "end_line": 3,
+        "file_path": "src/domain/service.ts",
+        "start_column": 8,
+        "start_line": 3
+      }
+    },
+    {
+      "attributes": {
+        "annotations": [],
+        "container_symbol_id": null,
+        "is_default_export": false,
+        "is_exported": true,
+        "modifiers": [],
+        "parameters": [],
+        "type_name": null,
+        "type_parameters": [],
+        "visibility": "DEFAULT"
+      },
+      "file_id": "6c9ba059-f6db-576b-b002-2792a890b1ad",
+      "id": "4388c8d3-0544-53f5-8e7d-f7f0a4e34af2",
+      "kind": "CLASS",
+      "name": "Controller",
+      "qualified_name": "src/ui/controller.ts::Controller",
+      "signature": null,
+      "source_location": {
+        "end_column": 26,
+        "end_line": 4,
+        "file_path": "src/ui/controller.ts",
+        "start_column": 8,
+        "start_line": 4
+      }
+    },
+    {
+      "attributes": {
+        "annotations": [],
+        "container_symbol_id": null,
+        "is_default_export": false,
+        "is_exported": true,
+        "modifiers": [],
+        "parameters": [],
+        "type_name": null,
+        "type_parameters": [],
+        "visibility": "DEFAULT"
+      },
+      "file_id": "a8331137-d459-5a9f-9ab2-5634a05cf28a",
+      "id": "fbf64f08-e27f-53e8-a76d-a83133014638",
+      "kind": "CLASS",
+      "name": "Repository",
+      "qualified_name": "src/data/repository.ts::Repository",
+      "signature": null,
+      "source_location": {
+        "end_column": 26,
+        "end_line": 3,
+        "file_path": "src/data/repository.ts",
+        "start_column": 8,
+        "start_line": 3
+      }
+    }
+  ]
+}

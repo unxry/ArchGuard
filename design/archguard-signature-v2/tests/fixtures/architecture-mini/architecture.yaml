@@ -1,0 +1,18 @@
+version: "1.0"
+architecture:
+  layers:
+    - name: presentation
+      include: ["src/ui/**"]
+    - name: domain
+      include: ["src/domain/**"]
+    - name: persistence
+      include: ["src/data/**"]
+rules:
+  - id: ARCH001
+    type: forbidden_dependency
+    from:
+      layer: presentation
+    to:
+      layer: persistence
+    severity: HIGH
+    relations: [IMPORTS]

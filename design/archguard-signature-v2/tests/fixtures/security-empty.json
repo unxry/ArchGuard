@@ -1,0 +1,26 @@
+{
+  "namespace": "SEC",
+  "findings": [],
+  "requested_rules": [
+    "SEC002"
+  ],
+  "analyzed_rules": [
+    "SEC002"
+  ],
+  "applicable_rules": [],
+  "unsupported_rules": [],
+  "diagnostics": [],
+  "analyzer_version": "security-interprocedural-v2",
+  "analysis_metadata": {
+    "coverage": {
+      "SEC002": {
+        "requested": true,
+        "supported": true,
+        "evaluated": true,
+        "status": "SUPPORTED_PARTIAL_V2_SCOPE"
+      }
+    },
+    "partial": true
+  },
+  "zero_findings_is_security_guarantee": false
+}

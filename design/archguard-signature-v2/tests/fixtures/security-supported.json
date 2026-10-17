@@ -1,0 +1,169 @@
+{
+  "namespace": "SEC",
+  "findings": [
+    {
+      "schema_version": "security-finding-v1",
+      "namespace": "SEC",
+      "repository_id": "10000000-0000-4000-8000-000000000001",
+      "snapshot_id": "10000000-0000-4000-8000-000000000002",
+      "rule_id": "SEC002",
+      "title": "Synthetic SQL evidence",
+      "description": "Authored contract fixture; no analysis performed.",
+      "severity": "HIGH",
+      "evidence_strength": "HIGH",
+      "status": "SUPPORTED",
+      "language": "TYPESCRIPT",
+      "primary_source": {
+        "file_id": "10000000-0000-4000-8000-000000000004",
+        "location": {
+          "file_path": "src/demo.ts",
+          "start_line": 7,
+          "start_column": 1,
+          "end_line": 7,
+          "end_column": 8
+        },
+        "language": "TYPESCRIPT",
+        "symbol_id": null,
+        "module_id": null,
+        "input_category": "SOURCE",
+        "configuration_category": null
+      },
+      "evidence": [
+        {
+          "namespace": "SEC",
+          "id": "10000000-0000-4000-8000-000000000010",
+          "kind": "DATAFLOW_SOURCE",
+          "source": {
+            "file_id": "10000000-0000-4000-8000-000000000004",
+            "location": {
+              "file_path": "src/demo.ts",
+              "start_line": 5,
+              "start_column": 1,
+              "end_line": 5,
+              "end_column": 8
+            },
+            "language": "TYPESCRIPT",
+            "symbol_id": null,
+            "module_id": null,
+            "input_category": "SOURCE",
+            "configuration_category": null
+          },
+          "summary": "request input",
+          "analysis_version": "security-interprocedural-v2",
+          "related_evidence": [],
+          "metadata": {
+            "step_kind": "synthetic-local-step"
+          }
+        },
+        {
+          "namespace": "SEC",
+          "id": "10000000-0000-4000-8000-000000000011",
+          "kind": "DATAFLOW_STEP",
+          "source": {
+            "file_id": "10000000-0000-4000-8000-000000000004",
+            "location": {
+              "file_path": "src/demo.ts",
+              "start_line": 6,
+              "start_column": 1,
+              "end_line": 6,
+              "end_column": 8
+            },
+            "language": "TYPESCRIPT",
+            "symbol_id": null,
+            "module_id": null,
+            "input_category": "SOURCE",
+            "configuration_category": null
+          },
+          "summary": "local string construction",
+          "analysis_version": "security-interprocedural-v2",
+          "related_evidence": [],
+          "metadata": {
+            "step_kind": "synthetic-local-step"
+          }
+        },
+        {
+          "namespace": "SEC",
+          "id": "10000000-0000-4000-8000-000000000012",
+          "kind": "DATAFLOW_SINK",
+          "source": {
+            "file_id": "10000000-0000-4000-8000-000000000004",
+            "location": {
+              "file_path": "src/demo.ts",
+              "start_line": 7,
+              "start_column": 1,
+              "end_line": 7,
+              "end_column": 8
+            },
+            "language": "TYPESCRIPT",
+            "symbol_id": null,
+            "module_id": null,
+            "input_category": "SOURCE",
+            "configuration_category": null
+          },
+          "summary": "query sink",
+          "analysis_version": "security-interprocedural-v2",
+          "related_evidence": [],
+          "metadata": {
+            "step_kind": "synthetic-local-step"
+          }
+        }
+      ],
+      "evidence_refs": [
+        "10000000-0000-4000-8000-000000000010",
+        "10000000-0000-4000-8000-000000000011",
+        "10000000-0000-4000-8000-000000000012"
+      ],
+      "source_ref": "10000000-0000-4000-8000-000000000010",
+      "sink_ref": "10000000-0000-4000-8000-000000000012",
+      "flow": {
+        "protocol_version": "security-interprocedural-v2",
+        "steps": [
+          {
+            "role": "SOURCE",
+            "evidence_ref": "10000000-0000-4000-8000-000000000010"
+          },
+          {
+            "role": "PROPAGATION",
+            "evidence_ref": "10000000-0000-4000-8000-000000000011"
+          },
+          {
+            "role": "SINK",
+            "evidence_ref": "10000000-0000-4000-8000-000000000012"
+          }
+        ],
+        "complete": true,
+        "uncertainty": []
+      },
+      "remediation": "Review the parameter boundary.",
+      "metadata": {
+        "raw_values": "OMITTED"
+      },
+      "analyzer_version": "security-interprocedural-v2",
+      "id": "facdeb0f-ded1-51cc-ae04-ccc4f6325918"
+    }
+  ],
+  "requested_rules": [
+    "SEC002"
+  ],
+  "analyzed_rules": [
+    "SEC002"
+  ],
+  "applicable_rules": [
+    "SEC002"
+  ],
+  "unsupported_rules": [],
+  "diagnostics": [],
+  "analyzer_version": "security-interprocedural-v2",
+  "analysis_metadata": {
+    "coverage": {
+      "SEC002": {
+        "requested": true,
+        "supported": true,
+        "evaluated": true,
+        "status": "SUPPORTED_PARTIAL_V2_SCOPE"
+      }
+    },
+    "partial": true
+  },
+  "zero_findings_is_security_guarantee": false
+}

@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+<meta name="color-scheme" content="dark light"><meta name="theme-color" content="#142820">
+<title>ArchGuard — Systems Studio</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip"></a>
+<div class="shell">
+<aside class="sidebar">
+<a href="#projects" data-action="navigate" data-view="projects" class="brand" aria-label="ArchGuard"><svg viewBox="0 0 32 36" aria-hidden="true"><path d="M16 2 29 9v18l-13 7L3 27V9zM3 9l13 8 13-8M16 17v17M9 13v10l7 4 7-4V13"/></svg><span>ArchGuard<small data-i18n="studio"></small></span><sup>AI</sup></a>
+<div class="workspace-chip"><span class="workspace-avatar">N</span><span id="workspaceName">Northstar Commerce</span></div>
+<nav id="navigation" data-i18n-label="navigation"></nav>
+<div class="sidebar-bottom"><div class="local-signal"><i></i><span data-i18n="localOnly"></span></div><button class="help-button" data-action="help"><span>?</span><span data-i18n="preferences"></span></button><div class="edition">SIGNATURE EDITION <span>02</span></div></div>
+</aside>
+<div class="workspace"><header class="topbar"><div class="breadcrumb"><span data-i18n="workspace"></span><b id="currentView"></b></div><div class="topbar-actions"><label class="search-box"><span aria-hidden="true">⌕</span><input id="globalSearch" type="search" data-i18n-placeholder="search" data-i18n-label="workspaceSearch"><kbd>/</kbd></label><span id="dataMode" class="mode-badge"></span><button id="language" aria-label="Язык интерфейса / Interface language">EN</button><button class="avatar" data-action="help" data-i18n-label="preferences">AG</button></div></header><main id="main" tabindex="-1"></main></div>
+</div>
+<dialog id="dialog"><div id="dialogContent"></div></dialog><input type="file" id="artifactFile" accept=".json,application/json" hidden><div id="toast" role="status" hidden></div><div id="liveRegion" class="sr-only" aria-live="polite"></div>
+<script src="src/core.js"></script><script src="src/i18n.js"></script><script src="src/fixtures.js"></script><script src="src/catalog.js"></script><script src="src/adapters.js"></script><script src="src/graph.js"></script><script src="src/artifacts.js"></script><script src="src/views.js"></script><script src="src/onboarding.js"></script><script src="src/app.js"></script>
+</body></html>

@@ -1,0 +1,290 @@
+{
+  "classification": {
+    "diagnostics": [],
+    "nodes": [
+      {
+        "file_id": "a8331137-d459-5a9f-9ab2-5634a05cf28a",
+        "file_path": "src/data/repository.ts",
+        "layer": "persistence",
+        "layer_candidates": [
+          "persistence"
+        ],
+        "module": null,
+        "module_candidates": [],
+        "node_id": "09b9acf4-b8dc-5bb1-bbb0-41659f19a207"
+      },
+      {
+        "file_id": "6c9ba059-f6db-576b-b002-2792a890b1ad",
+        "file_path": "src/ui/controller.ts",
+        "layer": "presentation",
+        "layer_candidates": [
+          "presentation"
+        ],
+        "module": null,
+        "module_candidates": [],
+        "node_id": "4e3b20c3-6051-56b9-84de-e0acae2034cc"
+      },
+      {
+        "file_id": "6c9ba059-f6db-576b-b002-2792a890b1ad",
+        "file_path": "src/ui/controller.ts",
+        "layer": "presentation",
+        "layer_candidates": [
+          "presentation"
+        ],
+        "module": null,
+        "module_candidates": [],
+        "node_id": "7872101d-b13e-5508-931a-3661e1ed380c"
+      },
+      {
+        "file_id": "a8331137-d459-5a9f-9ab2-5634a05cf28a",
+        "file_path": "src/data/repository.ts",
+        "layer": "persistence",
+        "layer_candidates": [
+          "persistence"
+        ],
+        "module": null,
+        "module_candidates": [],
+        "node_id": "8723fde6-1320-52f9-9cc8-f6377a4f9914"
+      },
+      {
+        "file_id": "e83117ac-ffa0-5fcc-90c4-d53c2fe002a9",
+        "file_path": "src/domain/service.ts",
+        "layer": "domain",
+        "layer_candidates": [
+          "domain"
+        ],
+        "module": null,
+        "module_candidates": [],
+        "node_id": "d9b1d63f-d610-5139-9b92-04895984d7b3"
+      },
+      {
+        "file_id": "e83117ac-ffa0-5fcc-90c4-d53c2fe002a9",
+        "file_path": "src/domain/service.ts",
+        "layer": "domain",
+        "layer_candidates": [
+          "domain"
+        ],
+        "module": null,
+        "module_candidates": [],
+        "node_id": "f23c9c71-99af-59d1-808f-d5d2f9fe9329"
+      }
+    ]
+  },
+  "diagnostics": [],
+  "findings": [
+    {
+      "category": "forbidden_dependency",
+      "confidence": null,
+      "description": "Dependency from 'src/ui/controller.ts' (layer=presentation, module=unclassified) to 'src/data/repository.ts' (layer=persistence, module=unclassified) violates ARCH001 (forbidden_dependency).",
+      "detector": {
+        "name": "static-architecture-rule-engine",
+        "source": "STATIC",
+        "version": "1.0.0"
+      },
+      "evidence": [
+        {
+          "id": "e7e91286-24a0-5e79-955f-2e4a702c73d7",
+          "location": null,
+          "message": "The explicit target architecture constraint forbids this dependency.",
+          "namespace": "ARCH",
+          "properties": {
+            "expected": {
+              "description": null,
+              "enabled": true,
+              "from": {
+                "layer": "presentation",
+                "module": null
+              },
+              "id": "ARCH001",
+              "relations": [
+                "IMPORTS"
+              ],
+              "severity": "HIGH",
+              "to": {
+                "layer": "persistence",
+                "module": null
+              },
+              "type": "forbidden_dependency"
+            },
+            "rule_id": "ARCH001",
+            "rule_type": "forbidden_dependency",
+            "source_layer": "presentation",
+            "source_module": null,
+            "spec_fingerprint": "bb7b6d4422537b9f0743cc6cb277eaef7aa759529d0d84002b3fe41bbc0e148e",
+            "target_layer": "persistence",
+            "target_module": null
+          },
+          "type": "ARCHITECTURE_RULE"
+        },
+        {
+          "id": "1604c47e-2f89-52e6-b800-045f3c9c2265",
+          "location": {
+            "end_column": 19,
+            "end_line": 2,
+            "file_path": "src/ui/controller.ts",
+            "start_column": 10,
+            "start_line": 2
+          },
+          "message": "Actual resolved internal IMPORTS dependency.",
+          "namespace": "ARCH",
+          "properties": {
+            "edge_id": "508edbfe-316d-598e-80cc-d47953fc80e6",
+            "occurrences": 1,
+            "provenance": [
+              {
+                "reference_kind": "IMPORT",
+                "resolution_method": "EXACT_IMPORT",
+                "resolution_status": "RESOLVED",
+                "source_location": {
+                  "end_column": 19,
+                  "end_line": 2,
+                  "file_path": "src/ui/controller.ts",
+                  "start_column": 10,
+                  "start_line": 2
+                }
+              }
+            ],
+            "provenance_truncated": 0,
+            "relation": "IMPORTS",
+            "source_file_id": "6c9ba059-f6db-576b-b002-2792a890b1ad",
+            "source_name": "src/ui/controller.ts",
+            "source_node_id": "4e3b20c3-6051-56b9-84de-e0acae2034cc",
+            "target_file_id": "a8331137-d459-5a9f-9ab2-5634a05cf28a",
+            "target_name": "src/data/repository.ts",
+            "target_node_id": "8723fde6-1320-52f9-9cc8-f6377a4f9914"
+          },
+          "type": "STATIC_RULE"
+        }
+      ],
+      "finding_schema_version": "1.0",
+      "id": "3ddf9e9c-96f7-5208-af84-06bca2c576e5",
+      "metadata": {
+        "deterministic": true,
+        "edge_ids": [
+          "508edbfe-316d-598e-80cc-d47953fc80e6"
+        ],
+        "occurrences": 1,
+        "provenance_truncated": 0,
+        "relation_kinds": [
+          "IMPORTS"
+        ],
+        "source_component": "src/ui/controller.ts",
+        "source_component_file_id": "6c9ba059-f6db-576b-b002-2792a890b1ad",
+        "target_component": "src/data/repository.ts",
+        "target_component_file_id": "a8331137-d459-5a9f-9ab2-5634a05cf28a"
+      },
+      "namespace": "ARCH",
+      "primary_location": {
+        "end_column": 19,
+        "end_line": 2,
+        "file_path": "src/ui/controller.ts",
+        "start_column": 10,
+        "start_line": 2
+      },
+      "recommendation": "Route the dependency through an allowed architecture boundary, or update the target specification if the dependency is intentional.",
+      "related_locations": [],
+      "rule_id": "ARCH001",
+      "severity": "HIGH",
+      "title": "Forbidden Dependency",
+      "trace": {
+        "id": "5c1fcd83-b68e-533b-9ad3-d779c4a579ee",
+        "metadata": {
+          "edge_ids": [
+            "508edbfe-316d-598e-80cc-d47953fc80e6"
+          ],
+          "source_component_file_id": "6c9ba059-f6db-576b-b002-2792a890b1ad",
+          "target_component_file_id": "a8331137-d459-5a9f-9ab2-5634a05cf28a"
+        },
+        "steps": [
+          {
+            "edge_id": null,
+            "label": "src/ui/controller.ts",
+            "location": {
+              "end_column": 19,
+              "end_line": 2,
+              "file_path": "src/ui/controller.ts",
+              "start_column": 10,
+              "start_line": 2
+            },
+            "metadata": {},
+            "node_id": "4e3b20c3-6051-56b9-84de-e0acae2034cc",
+            "relation": null,
+            "sequence": 1
+          },
+          {
+            "edge_id": "508edbfe-316d-598e-80cc-d47953fc80e6",
+            "label": "src/data/repository.ts",
+            "location": {
+              "end_column": 19,
+              "end_line": 2,
+              "file_path": "src/ui/controller.ts",
+              "start_column": 10,
+              "start_line": 2
+            },
+            "metadata": {},
+            "node_id": "8723fde6-1320-52f9-9cc8-f6377a4f9914",
+            "relation": "IMPORTS",
+            "sequence": 2
+          }
+        ]
+      }
+    }
+  ],
+  "is_complete": true,
+  "is_valid": true,
+  "reproducibility": {
+    "analyzer_version": "1.0.0",
+    "architecture_spec_fingerprint": "bb7b6d4422537b9f0743cc6cb277eaef7aa759529d0d84002b3fe41bbc0e148e",
+    "architecture_spec_version": "1.0",
+    "classifier_version": "1.0.0",
+    "configuration": {
+      "require_complete_iam": true
+    },
+    "iam_fingerprint": "66b8a1b7cb80583fa7a4eeb0faa173f4b44e333f4a5413d1421e67ba0c586da2",
+    "iam_schema_version": "1.0",
+    "project_id": "beacbdc4-e113-5631-b46b-6e632fb3f1a9",
+    "rule_engine_version": "1.0.0",
+    "snapshot_fingerprint": "4fc578f00fdb9bcb438136b6ee60a56b04534f3fa024178470bf64f4d01fd305",
+    "snapshot_id": "1e601843-4307-5f1c-af4c-88721be6eeb7"
+  },
+  "result_schema_version": "1.0",
+  "specification_summary": {
+    "fingerprint": "bb7b6d4422537b9f0743cc6cb277eaef7aa759529d0d84002b3fe41bbc0e148e",
+    "layers": [
+      "domain",
+      "persistence",
+      "presentation"
+    ],
+    "modules": [],
+    "rules": [
+      "ARCH001"
+    ],
+    "version": "1.0"
+  },
+  "statistics": {
+    "ambiguous_nodes": 0,
+    "edges_considered": 4,
+    "edges_ignored": 0,
+    "findings_by_rule": {
+      "ARCH001": 1
+    },
+    "findings_by_severity": {
+      "HIGH": 1
+    },
+    "findings_total": 1,
+    "iam_edges_total": 4,
+    "iam_nodes_total": 10,
+    "nodes_by_layer": {
+      "domain": 2,
+      "persistence": 2,
+      "presentation": 2
+    },
+    "nodes_by_module": {},
+    "nodes_classified": 6,
+    "nodes_considered": 6,
+    "nodes_unclassified": 0,
+    "rules_enabled": 1,
+    "rules_evaluated": 1
+  },
+  "status": "NON_CONFORMANT"
+}

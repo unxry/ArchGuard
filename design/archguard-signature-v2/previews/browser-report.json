@@ -1,0 +1,277 @@
+{
+  "browser": "151.0.7922.34",
+  "checks": [
+    {
+      "name": "First launch: Russian, synthetic marker and 6 workspaces",
+      "status": "PASS"
+    },
+    {
+      "name": "All RU/EN resource keys match",
+      "status": "PASS"
+    },
+    {
+      "name": "All six spaces render in both locales",
+      "status": "PASS"
+    },
+    {
+      "name": "Onboarding validates empty name",
+      "status": "PASS"
+    },
+    {
+      "name": "Onboarding returns to named source",
+      "status": "PASS"
+    },
+    {
+      "name": "Analyzer selection cannot be empty",
+      "status": "PASS"
+    },
+    {
+      "name": "Cancelable finite demo stages preserve prior result",
+      "status": "PASS"
+    },
+    {
+      "name": "Git credentials rejected; no clone/fetch request",
+      "status": "PASS"
+    },
+    {
+      "name": "Local/ZIP source plans stay gated",
+      "status": "PASS"
+    },
+    {
+      "name": "Demo workflow completes and records session configuration",
+      "status": "PASS"
+    },
+    {
+      "name": "12 modules / 18 static relationships",
+      "status": "PASS"
+    },
+    {
+      "name": "Keyboard node selection and inspector sync",
+      "status": "PASS"
+    },
+    {
+      "name": "Pulses follow real paths and stop after four seconds",
+      "status": "PASS"
+    },
+    {
+      "name": "Zoom / focus / fit",
+      "status": "PASS"
+    },
+    {
+      "name": "Pan changes camera",
+      "status": "PASS"
+    },
+    {
+      "name": "Relation filtering updates actual SVG paths",
+      "status": "PASS"
+    },
+    {
+      "name": "Direction selection limits active incident edges",
+      "status": "PASS"
+    },
+    {
+      "name": "40 nodes: grouped overview and cluster drilldown",
+      "status": "PASS"
+    },
+    {
+      "name": "216 nodes: grouped overview and cluster drilldown",
+      "status": "PASS"
+    },
+    {
+      "name": "Search expands correct cluster and selects node",
+      "status": "PASS"
+    },
+    {
+      "name": "Motion switch cancels RAF, reduced motion suppresses pulses",
+      "status": "PASS"
+    },
+    {
+      "name": "Visibility lifecycle pauses and resumes without frame accumulation",
+      "status": "PASS"
+    },
+    {
+      "name": "Navigation disposes animation and graph handlers",
+      "status": "PASS"
+    },
+    {
+      "name": "Finding filtering and empty-state recovery",
+      "status": "PASS"
+    },
+    {
+      "name": "Finding evidence / source tabs and graph navigation",
+      "status": "PASS"
+    },
+    {
+      "name": "Security has ten rule outcomes and positive proof path",
+      "status": "PASS"
+    },
+    {
+      "name": "Potential/insufficient paths retain unknown boundaries",
+      "status": "PASS"
+    },
+    {
+      "name": "Scoped certificate and unsupported outcomes are distinct",
+      "status": "PASS"
+    },
+    {
+      "name": "All model tabs and 25 rule explanations",
+      "status": "PASS"
+    },
+    {
+      "name": "Real/synthetic contract import: architecture-graph",
+      "status": "PASS"
+    },
+    {
+      "name": "Real/synthetic contract import: architecture-check",
+      "status": "PASS"
+    },
+    {
+      "name": "Real/synthetic contract import: architecture-composite",
+      "status": "PASS"
+    },
+    {
+      "name": "Real/synthetic contract import: architecture-candidates",
+      "status": "PASS"
+    },
+    {
+      "name": "Real/synthetic contract import: architecture-iam",
+      "status": "PASS"
+    },
+    {
+      "name": "Real/synthetic contract import: architecture-discovery",
+      "status": "PASS"
+    },
+    {
+      "name": "Real/synthetic contract import: architecture-context",
+      "status": "PASS"
+    },
+    {
+      "name": "Real/synthetic contract import: architecture-hybrid",
+      "status": "PASS"
+    },
+    {
+      "name": "Real/synthetic contract import: security-supported",
+      "status": "PASS"
+    },
+    {
+      "name": "Real/synthetic contract import: security-potential",
+      "status": "PASS"
+    },
+    {
+      "name": "Real/synthetic contract import: security-empty",
+      "status": "PASS"
+    },
+    {
+      "name": "Invalid import preserves dataset and shows localized error",
+      "status": "PASS"
+    },
+    {
+      "name": "5 MiB file cap",
+      "status": "PASS"
+    },
+    {
+      "name": "Imported XSS remains text; no network or execution",
+      "status": "PASS"
+    },
+    {
+      "name": "Local export retains exact original artifact",
+      "status": "PASS"
+    },
+    {
+      "name": "File preview cannot claim backend connection",
+      "status": "PASS"
+    },
+    {
+      "name": "Session comparison accepts same project identifiers",
+      "status": "PASS"
+    },
+    {
+      "name": "Session comparison refuses incompatible project/mode",
+      "status": "PASS"
+    },
+    {
+      "name": "Keyboard search shortcut and native modal Escape",
+      "status": "PASS"
+    },
+    {
+      "name": "Responsive viewport 1920",
+      "status": "PASS"
+    },
+    {
+      "name": "Responsive viewport 1024",
+      "status": "PASS"
+    },
+    {
+      "name": "Responsive viewport 768",
+      "status": "PASS"
+    },
+    {
+      "name": "Responsive viewport 390",
+      "status": "PASS"
+    },
+    {
+      "name": "Responsive viewport 320",
+      "status": "PASS"
+    },
+    {
+      "name": "216-node stress at 4× CPU slowdown",
+      "status": "PASS"
+    },
+    {
+      "name": "Repeated graph mounts clean resources",
+      "status": "PASS"
+    },
+    {
+      "name": "Only locale and motion stored",
+      "status": "PASS"
+    },
+    {
+      "name": "No JS errors during offline workflows",
+      "status": "PASS"
+    },
+    {
+      "name": "Real backend handshake is system-only and independent of data mode",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "consoleErrors": [],
+  "requests": [
+    "/",
+    "/style.css",
+    "/src/core.js",
+    "/src/i18n.js",
+    "/src/fixtures.js",
+    "/src/catalog.js",
+    "/src/adapters.js",
+    "/src/graph.js",
+    "/src/artifacts.js",
+    "/src/views.js",
+    "/src/onboarding.js",
+    "/src/app.js",
+    "/__bridge/system"
+  ],
+  "measurements": {
+    "render40Ms": 31,
+    "render216Ms": 35,
+    "animation": {
+      "frames": 242,
+      "longFrames": 0,
+      "p95Ms": 17.400000000001455
+    },
+    "heapAfterTwentyCycles": 3107700,
+    "heapBeforeCycles": 10927556,
+    "page": {
+      "longTasks": [
+        307
+      ],
+      "cls": 0.002506251507040895,
+      "navigation": 126.5
+    }
+  },
+  "summary": {
+    "passed": 58,
+    "failed": 0,
+    "jsErrors": 0
+  }
+}

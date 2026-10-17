@@ -1,0 +1,1352 @@
+{
+  "analysis_kind": "architecture_check",
+  "findings": [
+    {
+      "category": "forbidden_dependency",
+      "confidence": null,
+      "description": "Dependency from 'src/ui/controller.ts' (layer=presentation, module=unclassified) to 'src/data/repository.ts' (layer=persistence, module=unclassified) violates ARCH001 (forbidden_dependency).",
+      "detector": {
+        "name": "static-architecture-rule-engine",
+        "source": "STATIC",
+        "version": "1.0.0"
+      },
+      "evidence": [
+        {
+          "id": "e7e91286-24a0-5e79-955f-2e4a702c73d7",
+          "location": null,
+          "message": "The explicit target architecture constraint forbids this dependency.",
+          "namespace": "ARCH",
+          "properties": {
+            "expected": {
+              "description": null,
+              "enabled": true,
+              "from": {
+                "layer": "presentation",
+                "module": null
+              },
+              "id": "ARCH001",
+              "relations": [
+                "IMPORTS"
+              ],
+              "severity": "HIGH",
+              "to": {
+                "layer": "persistence",
+                "module": null
+              },
+              "type": "forbidden_dependency"
+            },
+            "rule_id": "ARCH001",
+            "rule_type": "forbidden_dependency",
+            "source_layer": "presentation",
+            "source_module": null,
+            "spec_fingerprint": "8b046979cb77f205a2d160858e880a7e86ad2ab3070d8da9ec57816dd4a9a06a",
+            "target_layer": "persistence",
+            "target_module": null
+          },
+          "type": "ARCHITECTURE_RULE"
+        },
+        {
+          "id": "1604c47e-2f89-52e6-b800-045f3c9c2265",
+          "location": {
+            "end_column": 19,
+            "end_line": 2,
+            "file_path": "src/ui/controller.ts",
+            "start_column": 10,
+            "start_line": 2
+          },
+          "message": "Actual resolved internal IMPORTS dependency.",
+          "namespace": "ARCH",
+          "properties": {
+            "edge_id": "508edbfe-316d-598e-80cc-d47953fc80e6",
+            "occurrences": 1,
+            "provenance": [
+              {
+                "reference_kind": "IMPORT",
+                "resolution_method": "EXACT_IMPORT",
+                "resolution_status": "RESOLVED",
+                "source_location": {
+                  "end_column": 19,
+                  "end_line": 2,
+                  "file_path": "src/ui/controller.ts",
+                  "start_column": 10,
+                  "start_line": 2
+                }
+              }
+            ],
+            "provenance_truncated": 0,
+            "relation": "IMPORTS",
+            "source_file_id": "6c9ba059-f6db-576b-b002-2792a890b1ad",
+            "source_name": "src/ui/controller.ts",
+            "source_node_id": "4e3b20c3-6051-56b9-84de-e0acae2034cc",
+            "target_file_id": "a8331137-d459-5a9f-9ab2-5634a05cf28a",
+            "target_name": "src/data/repository.ts",
+            "target_node_id": "8723fde6-1320-52f9-9cc8-f6377a4f9914"
+          },
+          "type": "STATIC_RULE"
+        }
+      ],
+      "finding_schema_version": "1.0",
+      "id": "3ddf9e9c-96f7-5208-af84-06bca2c576e5",
+      "metadata": {
+        "deterministic": true,
+        "edge_ids": [
+          "508edbfe-316d-598e-80cc-d47953fc80e6"
+        ],
+        "occurrences": 1,
+        "provenance_truncated": 0,
+        "relation_kinds": [
+          "IMPORTS"
+        ],
+        "source_component": "src/ui/controller.ts",
+        "source_component_file_id": "6c9ba059-f6db-576b-b002-2792a890b1ad",
+        "target_component": "src/data/repository.ts",
+        "target_component_file_id": "a8331137-d459-5a9f-9ab2-5634a05cf28a"
+      },
+      "namespace": "ARCH",
+      "primary_location": {
+        "end_column": 19,
+        "end_line": 2,
+        "file_path": "src/ui/controller.ts",
+        "start_column": 10,
+        "start_line": 2
+      },
+      "recommendation": "Route the dependency through an allowed architecture boundary, or update the target specification if the dependency is intentional.",
+      "related_locations": [],
+      "rule_id": "ARCH001",
+      "severity": "HIGH",
+      "title": "Forbidden Dependency",
+      "trace": {
+        "id": "5c1fcd83-b68e-533b-9ad3-d779c4a579ee",
+        "metadata": {
+          "edge_ids": [
+            "508edbfe-316d-598e-80cc-d47953fc80e6"
+          ],
+          "source_component_file_id": "6c9ba059-f6db-576b-b002-2792a890b1ad",
+          "target_component_file_id": "a8331137-d459-5a9f-9ab2-5634a05cf28a"
+        },
+        "steps": [
+          {
+            "edge_id": null,
+            "label": "src/ui/controller.ts",
+            "location": {
+              "end_column": 19,
+              "end_line": 2,
+              "file_path": "src/ui/controller.ts",
+              "start_column": 10,
+              "start_line": 2
+            },
+            "metadata": {},
+            "node_id": "4e3b20c3-6051-56b9-84de-e0acae2034cc",
+            "relation": null,
+            "sequence": 1
+          },
+          {
+            "edge_id": "508edbfe-316d-598e-80cc-d47953fc80e6",
+            "label": "src/data/repository.ts",
+            "location": {
+              "end_column": 19,
+              "end_line": 2,
+              "file_path": "src/ui/controller.ts",
+              "start_column": 10,
+              "start_line": 2
+            },
+            "metadata": {},
+            "node_id": "8723fde6-1320-52f9-9cc8-f6377a4f9914",
+            "relation": "IMPORTS",
+            "sequence": 2
+          }
+        ]
+      }
+    },
+    {
+      "category": "circular_dependency",
+      "confidence": null,
+      "description": "An explicit cycle prohibition is violated by an SCC of 3 components in the file projection.",
+      "detector": {
+        "name": "graph-circular-conformance",
+        "source": "GRAPH",
+        "version": "1.0.0"
+      },
+      "evidence": [
+        {
+          "id": "77cd84d2-036e-57c6-bb21-9cf457c30193",
+          "location": null,
+          "message": "The target specification explicitly prohibits dependency cycles.",
+          "namespace": "ARCH",
+          "properties": {
+            "expected": {
+              "description": null,
+              "enabled": true,
+              "id": "ARCH003",
+              "projection": "file",
+              "relations": [
+                "IMPORTS"
+              ],
+              "severity": "HIGH",
+              "type": "circular_dependency"
+            },
+            "spec_fingerprint": "8b046979cb77f205a2d160858e880a7e86ad2ab3070d8da9ec57816dd4a9a06a"
+          },
+          "type": "ARCHITECTURE_RULE"
+        },
+        {
+          "id": "a33bf07c-b2fd-5941-b3ab-9cde8024a2e3",
+          "location": {
+            "end_column": 19,
+            "end_line": 1,
+            "file_path": "src/data/repository.ts",
+            "start_column": 10,
+            "start_line": 1
+          },
+          "message": "A deterministic closed directed path proves the cyclic SCC.",
+          "namespace": "ARCH",
+          "properties": {
+            "edges": [
+              {
+                "id": "1cda3418-70f1-5508-97a3-441c3874cc31",
+                "proofs": [
+                  {
+                    "iam_edge_id": "f98f4b42-9c77-5a19-a41b-abbf7d2fa0d0",
+                    "locations": [
+                      {
+                        "end_column": 19,
+                        "end_line": 1,
+                        "file_path": "src/data/repository.ts",
+                        "start_column": 10,
+                        "start_line": 1
+                      }
+                    ],
+                    "occurrences": 1,
+                    "provenance": [
+                      {
+                        "reference_kind": "IMPORT",
+                        "resolution_method": "EXACT_IMPORT",
+                        "resolution_status": "RESOLVED",
+                        "source_location": {
+                          "end_column": 19,
+                          "end_line": 1,
+                          "file_path": "src/data/repository.ts",
+                          "start_column": 10,
+                          "start_line": 1
+                        }
+                      }
+                    ],
+                    "provenance_truncated": 0,
+                    "relation": "IMPORTS",
+                    "source_node_id": "8723fde6-1320-52f9-9cc8-f6377a4f9914",
+                    "target_node_id": "4e3b20c3-6051-56b9-84de-e0acae2034cc"
+                  }
+                ],
+                "relation_kinds": [
+                  "IMPORTS"
+                ],
+                "source_id": "8723fde6-1320-52f9-9cc8-f6377a4f9914",
+                "target_id": "4e3b20c3-6051-56b9-84de-e0acae2034cc"
+              },
+              {
+                "id": "986aeadb-9500-5fcd-96b5-a5c5bf574031",
+                "proofs": [
+                  {
+                    "iam_edge_id": "508edbfe-316d-598e-80cc-d47953fc80e6",
+                    "locations": [
+                      {
+                        "end_column": 19,
+                        "end_line": 2,
+                        "file_path": "src/ui/controller.ts",
+                        "start_column": 10,
+                        "start_line": 2
+                      }
+                    ],
+                    "occurrences": 1,
+                    "provenance": [
+                      {
+                        "reference_kind": "IMPORT",
+                        "resolution_method": "EXACT_IMPORT",
+                        "resolution_status": "RESOLVED",
+                        "source_location": {
+                          "end_column": 19,
+                          "end_line": 2,
+                          "file_path": "src/ui/controller.ts",
+                          "start_column": 10,
+                          "start_line": 2
+                        }
+                      }
+                    ],
+                    "provenance_truncated": 0,
+                    "relation": "IMPORTS",
+                    "source_node_id": "4e3b20c3-6051-56b9-84de-e0acae2034cc",
+                    "target_node_id": "8723fde6-1320-52f9-9cc8-f6377a4f9914"
+                  }
+                ],
+                "relation_kinds": [
+                  "IMPORTS"
+                ],
+                "source_id": "4e3b20c3-6051-56b9-84de-e0acae2034cc",
+                "target_id": "8723fde6-1320-52f9-9cc8-f6377a4f9914"
+              }
+            ],
+            "members": [
+              "4e3b20c3-6051-56b9-84de-e0acae2034cc",
+              "8723fde6-1320-52f9-9cc8-f6377a4f9914",
+              "d9b1d63f-d610-5139-9b92-04895984d7b3"
+            ],
+            "representative_cycle": {
+              "edge_ids": [
+                "1cda3418-70f1-5508-97a3-441c3874cc31",
+                "986aeadb-9500-5fcd-96b5-a5c5bf574031"
+              ],
+              "members": [
+                "4e3b20c3-6051-56b9-84de-e0acae2034cc",
+                "8723fde6-1320-52f9-9cc8-f6377a4f9914",
+                "d9b1d63f-d610-5139-9b92-04895984d7b3"
+              ],
+              "node_ids": [
+                "8723fde6-1320-52f9-9cc8-f6377a4f9914",
+                "4e3b20c3-6051-56b9-84de-e0acae2034cc",
+                "8723fde6-1320-52f9-9cc8-f6377a4f9914"
+              ],
+              "scc_id": "14ba62c4-5b74-5628-be3c-9263183d3c9d",
+              "truncated": false
+            },
+            "scc_id": "14ba62c4-5b74-5628-be3c-9263183d3c9d"
+          },
+          "type": "GRAPH_PATH"
+        }
+      ],
+      "finding_schema_version": "1.0",
+      "id": "3ed0e936-9a02-544d-b38d-3f0f5eaed2c0",
+      "metadata": {
+        "deterministic": true,
+        "projection": "file",
+        "scc_members": [
+          "4e3b20c3-6051-56b9-84de-e0acae2034cc",
+          "8723fde6-1320-52f9-9cc8-f6377a4f9914",
+          "d9b1d63f-d610-5139-9b92-04895984d7b3"
+        ]
+      },
+      "namespace": "ARCH",
+      "primary_location": {
+        "end_column": 19,
+        "end_line": 1,
+        "file_path": "src/data/repository.ts",
+        "start_column": 10,
+        "start_line": 1
+      },
+      "recommendation": "Break a dependency direction in the cycle, or update the explicit target rule if the cyclic boundary is intentional.",
+      "related_locations": [
+        {
+          "end_column": 19,
+          "end_line": 2,
+          "file_path": "src/ui/controller.ts",
+          "start_column": 10,
+          "start_line": 2
+        }
+      ],
+      "rule_id": "ARCH003",
+      "severity": "HIGH",
+      "title": "Circular Dependency",
+      "trace": {
+        "id": "7f43b526-1346-5ab4-b163-8c26f1bf1af4",
+        "metadata": {
+          "projection": "file",
+          "scc_id": "14ba62c4-5b74-5628-be3c-9263183d3c9d"
+        },
+        "steps": [
+          {
+            "edge_id": null,
+            "label": "src/data/repository.ts",
+            "location": {
+              "end_column": 19,
+              "end_line": 1,
+              "file_path": "src/data/repository.ts",
+              "start_column": 10,
+              "start_line": 1
+            },
+            "metadata": {},
+            "node_id": "8723fde6-1320-52f9-9cc8-f6377a4f9914",
+            "relation": null,
+            "sequence": 1
+          },
+          {
+            "edge_id": "1cda3418-70f1-5508-97a3-441c3874cc31",
+            "label": "src/ui/controller.ts",
+            "location": {
+              "end_column": 19,
+              "end_line": 1,
+              "file_path": "src/data/repository.ts",
+              "start_column": 10,
+              "start_line": 1
+            },
+            "metadata": {
+              "graph_edge_id": "1cda3418-70f1-5508-97a3-441c3874cc31",
+              "iam_edge_ids": [
+                "f98f4b42-9c77-5a19-a41b-abbf7d2fa0d0"
+              ],
+              "relation_kinds": [
+                "IMPORTS"
+              ]
+            },
+            "node_id": "4e3b20c3-6051-56b9-84de-e0acae2034cc",
+            "relation": "IMPORTS",
+            "sequence": 2
+          },
+          {
+            "edge_id": "986aeadb-9500-5fcd-96b5-a5c5bf574031",
+            "label": "src/data/repository.ts",
+            "location": {
+              "end_column": 19,
+              "end_line": 2,
+              "file_path": "src/ui/controller.ts",
+              "start_column": 10,
+              "start_line": 2
+            },
+            "metadata": {
+              "graph_edge_id": "986aeadb-9500-5fcd-96b5-a5c5bf574031",
+              "iam_edge_ids": [
+                "508edbfe-316d-598e-80cc-d47953fc80e6"
+              ],
+              "relation_kinds": [
+                "IMPORTS"
+              ]
+            },
+            "node_id": "8723fde6-1320-52f9-9cc8-f6377a4f9914",
+            "relation": "IMPORTS",
+            "sequence": 3
+          }
+        ]
+      }
+    }
+  ],
+  "graph_result": {
+    "cycles": [
+      {
+        "edge_ids": [
+          "1cda3418-70f1-5508-97a3-441c3874cc31",
+          "986aeadb-9500-5fcd-96b5-a5c5bf574031"
+        ],
+        "members": [
+          "4e3b20c3-6051-56b9-84de-e0acae2034cc",
+          "8723fde6-1320-52f9-9cc8-f6377a4f9914",
+          "d9b1d63f-d610-5139-9b92-04895984d7b3"
+        ],
+        "node_ids": [
+          "8723fde6-1320-52f9-9cc8-f6377a4f9914",
+          "4e3b20c3-6051-56b9-84de-e0acae2034cc",
+          "8723fde6-1320-52f9-9cc8-f6377a4f9914"
+        ],
+        "scc_id": "14ba62c4-5b74-5628-be3c-9263183d3c9d",
+        "truncated": false
+      }
+    ],
+    "diagnostics": [],
+    "findings": [
+      {
+        "category": "circular_dependency",
+        "confidence": null,
+        "description": "An explicit cycle prohibition is violated by an SCC of 3 components in the file projection.",
+        "detector": {
+          "name": "graph-circular-conformance",
+          "source": "GRAPH",
+          "version": "1.0.0"
+        },
+        "evidence": [
+          {
+            "id": "77cd84d2-036e-57c6-bb21-9cf457c30193",
+            "location": null,
+            "message": "The target specification explicitly prohibits dependency cycles.",
+            "namespace": "ARCH",
+            "properties": {
+              "expected": {
+                "description": null,
+                "enabled": true,
+                "id": "ARCH003",
+                "projection": "file",
+                "relations": [
+                  "IMPORTS"
+                ],
+                "severity": "HIGH",
+                "type": "circular_dependency"
+              },
+              "spec_fingerprint": "8b046979cb77f205a2d160858e880a7e86ad2ab3070d8da9ec57816dd4a9a06a"
+            },
+            "type": "ARCHITECTURE_RULE"
+          },
+          {
+            "id": "a33bf07c-b2fd-5941-b3ab-9cde8024a2e3",
+            "location": {
+              "end_column": 19,
+              "end_line": 1,
+              "file_path": "src/data/repository.ts",
+              "start_column": 10,
+              "start_line": 1
+            },
+            "message": "A deterministic closed directed path proves the cyclic SCC.",
+            "namespace": "ARCH",
+            "properties": {
+              "edges": [
+                {
+                  "id": "1cda3418-70f1-5508-97a3-441c3874cc31",
+                  "proofs": [
+                    {
+                      "iam_edge_id": "f98f4b42-9c77-5a19-a41b-abbf7d2fa0d0",
+                      "locations": [
+                        {
+                          "end_column": 19,
+                          "end_line": 1,
+                          "file_path": "src/data/repository.ts",
+                          "start_column": 10,
+                          "start_line": 1
+                        }
+                      ],
+                      "occurrences": 1,
+                      "provenance": [
+                        {
+                          "reference_kind": "IMPORT",
+                          "resolution_method": "EXACT_IMPORT",
+                          "resolution_status": "RESOLVED",
+                          "source_location": {
+                            "end_column": 19,
+                            "end_line": 1,
+                            "file_path": "src/data/repository.ts",
+                            "start_column": 10,
+                            "start_line": 1
+                          }
+                        }
+                      ],
+                      "provenance_truncated": 0,
+                      "relation": "IMPORTS",
+                      "source_node_id": "8723fde6-1320-52f9-9cc8-f6377a4f9914",
+                      "target_node_id": "4e3b20c3-6051-56b9-84de-e0acae2034cc"
+                    }
+                  ],
+                  "relation_kinds": [
+                    "IMPORTS"
+                  ],
+                  "source_id": "8723fde6-1320-52f9-9cc8-f6377a4f9914",
+                  "target_id": "4e3b20c3-6051-56b9-84de-e0acae2034cc"
+                },
+                {
+                  "id": "986aeadb-9500-5fcd-96b5-a5c5bf574031",
+                  "proofs": [
+                    {
+                      "iam_edge_id": "508edbfe-316d-598e-80cc-d47953fc80e6",
+                      "locations": [
+                        {
+                          "end_column": 19,
+                          "end_line": 2,
+                          "file_path": "src/ui/controller.ts",
+                          "start_column": 10,
+                          "start_line": 2
+                        }
+                      ],
+                      "occurrences": 1,
+                      "provenance": [
+                        {
+                          "reference_kind": "IMPORT",
+                          "resolution_method": "EXACT_IMPORT",
+                          "resolution_status": "RESOLVED",
+                          "source_location": {
+                            "end_column": 19,
+                            "end_line": 2,
+                            "file_path": "src/ui/controller.ts",
+                            "start_column": 10,
+                            "start_line": 2
+                          }
+                        }
+                      ],
+                      "provenance_truncated": 0,
+                      "relation": "IMPORTS",
+                      "source_node_id": "4e3b20c3-6051-56b9-84de-e0acae2034cc",
+                      "target_node_id": "8723fde6-1320-52f9-9cc8-f6377a4f9914"
+                    }
+                  ],
+                  "relation_kinds": [
+                    "IMPORTS"
+                  ],
+                  "source_id": "4e3b20c3-6051-56b9-84de-e0acae2034cc",
+                  "target_id": "8723fde6-1320-52f9-9cc8-f6377a4f9914"
+                }
+              ],
+              "members": [
+                "4e3b20c3-6051-56b9-84de-e0acae2034cc",
+                "8723fde6-1320-52f9-9cc8-f6377a4f9914",
+                "d9b1d63f-d610-5139-9b92-04895984d7b3"
+              ],
+              "representative_cycle": {
+                "edge_ids": [
+                  "1cda3418-70f1-5508-97a3-441c3874cc31",
+                  "986aeadb-9500-5fcd-96b5-a5c5bf574031"
+                ],
+                "members": [
+                  "4e3b20c3-6051-56b9-84de-e0acae2034cc",
+                  "8723fde6-1320-52f9-9cc8-f6377a4f9914",
+                  "d9b1d63f-d610-5139-9b92-04895984d7b3"
+                ],
+                "node_ids": [
+                  "8723fde6-1320-52f9-9cc8-f6377a4f9914",
+                  "4e3b20c3-6051-56b9-84de-e0acae2034cc",
+                  "8723fde6-1320-52f9-9cc8-f6377a4f9914"
+                ],
+                "scc_id": "14ba62c4-5b74-5628-be3c-9263183d3c9d",
+                "truncated": false
+              },
+              "scc_id": "14ba62c4-5b74-5628-be3c-9263183d3c9d"
+            },
+            "type": "GRAPH_PATH"
+          }
+        ],
+        "finding_schema_version": "1.0",
+        "id": "3ed0e936-9a02-544d-b38d-3f0f5eaed2c0",
+        "metadata": {
+          "deterministic": true,
+          "projection": "file",
+          "scc_members": [
+            "4e3b20c3-6051-56b9-84de-e0acae2034cc",
+            "8723fde6-1320-52f9-9cc8-f6377a4f9914",
+            "d9b1d63f-d610-5139-9b92-04895984d7b3"
+          ]
+        },
+        "namespace": "ARCH",
+        "primary_location": {
+          "end_column": 19,
+          "end_line": 1,
+          "file_path": "src/data/repository.ts",
+          "start_column": 10,
+          "start_line": 1
+        },
+        "recommendation": "Break a dependency direction in the cycle, or update the explicit target rule if the cyclic boundary is intentional.",
+        "related_locations": [
+          {
+            "end_column": 19,
+            "end_line": 2,
+            "file_path": "src/ui/controller.ts",
+            "start_column": 10,
+            "start_line": 2
+          }
+        ],
+        "rule_id": "ARCH003",
+        "severity": "HIGH",
+        "title": "Circular Dependency",
+        "trace": {
+          "id": "7f43b526-1346-5ab4-b163-8c26f1bf1af4",
+          "metadata": {
+            "projection": "file",
+            "scc_id": "14ba62c4-5b74-5628-be3c-9263183d3c9d"
+          },
+          "steps": [
+            {
+              "edge_id": null,
+              "label": "src/data/repository.ts",
+              "location": {
+                "end_column": 19,
+                "end_line": 1,
+                "file_path": "src/data/repository.ts",
+                "start_column": 10,
+                "start_line": 1
+              },
+              "metadata": {},
+              "node_id": "8723fde6-1320-52f9-9cc8-f6377a4f9914",
+              "relation": null,
+              "sequence": 1
+            },
+            {
+              "edge_id": "1cda3418-70f1-5508-97a3-441c3874cc31",
+              "label": "src/ui/controller.ts",
+              "location": {
+                "end_column": 19,
+                "end_line": 1,
+                "file_path": "src/data/repository.ts",
+                "start_column": 10,
+                "start_line": 1
+              },
+              "metadata": {
+                "graph_edge_id": "1cda3418-70f1-5508-97a3-441c3874cc31",
+                "iam_edge_ids": [
+                  "f98f4b42-9c77-5a19-a41b-abbf7d2fa0d0"
+                ],
+                "relation_kinds": [
+                  "IMPORTS"
+                ]
+              },
+              "node_id": "4e3b20c3-6051-56b9-84de-e0acae2034cc",
+              "relation": "IMPORTS",
+              "sequence": 2
+            },
+            {
+              "edge_id": "986aeadb-9500-5fcd-96b5-a5c5bf574031",
+              "label": "src/data/repository.ts",
+              "location": {
+                "end_column": 19,
+                "end_line": 2,
+                "file_path": "src/ui/controller.ts",
+                "start_column": 10,
+                "start_line": 2
+              },
+              "metadata": {
+                "graph_edge_id": "986aeadb-9500-5fcd-96b5-a5c5bf574031",
+                "iam_edge_ids": [
+                  "508edbfe-316d-598e-80cc-d47953fc80e6"
+                ],
+                "relation_kinds": [
+                  "IMPORTS"
+                ]
+              },
+              "node_id": "8723fde6-1320-52f9-9cc8-f6377a4f9914",
+              "relation": "IMPORTS",
+              "sequence": 3
+            }
+          ]
+        }
+      }
+    ],
+    "graph": {
+      "edges": [
+        {
+          "id": "986aeadb-9500-5fcd-96b5-a5c5bf574031",
+          "proofs": [
+            {
+              "iam_edge_id": "508edbfe-316d-598e-80cc-d47953fc80e6",
+              "locations": [
+                {
+                  "end_column": 19,
+                  "end_line": 2,
+                  "file_path": "src/ui/controller.ts",
+                  "start_column": 10,
+                  "start_line": 2
+                }
+              ],
+              "occurrences": 1,
+              "provenance": [
+                {
+                  "reference_kind": "IMPORT",
+                  "resolution_method": "EXACT_IMPORT",
+                  "resolution_status": "RESOLVED",
+                  "source_location": {
+                    "end_column": 19,
+                    "end_line": 2,
+                    "file_path": "src/ui/controller.ts",
+                    "start_column": 10,
+                    "start_line": 2
+                  }
+                }
+              ],
+              "provenance_truncated": 0,
+              "relation": "IMPORTS",
+              "source_node_id": "4e3b20c3-6051-56b9-84de-e0acae2034cc",
+              "target_node_id": "8723fde6-1320-52f9-9cc8-f6377a4f9914"
+            }
+          ],
+          "relation_kinds": [
+            "IMPORTS"
+          ],
+          "source_id": "4e3b20c3-6051-56b9-84de-e0acae2034cc",
+          "target_id": "8723fde6-1320-52f9-9cc8-f6377a4f9914"
+        },
+        {
+          "id": "84f62ae2-5814-5109-8083-acd89bd603e0",
+          "proofs": [
+            {
+              "iam_edge_id": "b6197d9d-8e2e-57d5-8f9b-afe94dec48fb",
+              "locations": [
+                {
+                  "end_column": 16,
+                  "end_line": 1,
+                  "file_path": "src/ui/controller.ts",
+                  "start_column": 10,
+                  "start_line": 1
+                }
+              ],
+              "occurrences": 1,
+              "provenance": [
+                {
+                  "reference_kind": "IMPORT",
+                  "resolution_method": "EXACT_IMPORT",
+                  "resolution_status": "RESOLVED",
+                  "source_location": {
+                    "end_column": 16,
+                    "end_line": 1,
+                    "file_path": "src/ui/controller.ts",
+                    "start_column": 10,
+                    "start_line": 1
+                  }
+                }
+              ],
+              "provenance_truncated": 0,
+              "relation": "IMPORTS",
+              "source_node_id": "4e3b20c3-6051-56b9-84de-e0acae2034cc",
+              "target_node_id": "d9b1d63f-d610-5139-9b92-04895984d7b3"
+            }
+          ],
+          "relation_kinds": [
+            "IMPORTS"
+          ],
+          "source_id": "4e3b20c3-6051-56b9-84de-e0acae2034cc",
+          "target_id": "d9b1d63f-d610-5139-9b92-04895984d7b3"
+        },
+        {
+          "id": "1cda3418-70f1-5508-97a3-441c3874cc31",
+          "proofs": [
+            {
+              "iam_edge_id": "f98f4b42-9c77-5a19-a41b-abbf7d2fa0d0",
+              "locations": [
+                {
+                  "end_column": 19,
+                  "end_line": 1,
+                  "file_path": "src/data/repository.ts",
+                  "start_column": 10,
+                  "start_line": 1
+                }
+              ],
+              "occurrences": 1,
+              "provenance": [
+                {
+                  "reference_kind": "IMPORT",
+                  "resolution_method": "EXACT_IMPORT",
+                  "resolution_status": "RESOLVED",
+                  "source_location": {
+                    "end_column": 19,
+                    "end_line": 1,
+                    "file_path": "src/data/repository.ts",
+                    "start_column": 10,
+                    "start_line": 1
+                  }
+                }
+              ],
+              "provenance_truncated": 0,
+              "relation": "IMPORTS",
+              "source_node_id": "8723fde6-1320-52f9-9cc8-f6377a4f9914",
+              "target_node_id": "4e3b20c3-6051-56b9-84de-e0acae2034cc"
+            }
+          ],
+          "relation_kinds": [
+            "IMPORTS"
+          ],
+          "source_id": "8723fde6-1320-52f9-9cc8-f6377a4f9914",
+          "target_id": "4e3b20c3-6051-56b9-84de-e0acae2034cc"
+        },
+        {
+          "id": "335c859c-7c03-54ee-83e5-c4812c57157d",
+          "proofs": [
+            {
+              "iam_edge_id": "3f3c8d3d-5edf-5a20-89a8-4776ffe00c58",
+              "locations": [
+                {
+                  "end_column": 19,
+                  "end_line": 1,
+                  "file_path": "src/domain/service.ts",
+                  "start_column": 10,
+                  "start_line": 1
+                }
+              ],
+              "occurrences": 1,
+              "provenance": [
+                {
+                  "reference_kind": "IMPORT",
+                  "resolution_method": "EXACT_IMPORT",
+                  "resolution_status": "RESOLVED",
+                  "source_location": {
+                    "end_column": 19,
+                    "end_line": 1,
+                    "file_path": "src/domain/service.ts",
+                    "start_column": 10,
+                    "start_line": 1
+                  }
+                }
+              ],
+              "provenance_truncated": 0,
+              "relation": "IMPORTS",
+              "source_node_id": "d9b1d63f-d610-5139-9b92-04895984d7b3",
+              "target_node_id": "8723fde6-1320-52f9-9cc8-f6377a4f9914"
+            }
+          ],
+          "relation_kinds": [
+            "IMPORTS"
+          ],
+          "source_id": "d9b1d63f-d610-5139-9b92-04895984d7b3",
+          "target_id": "8723fde6-1320-52f9-9cc8-f6377a4f9914"
+        }
+      ],
+      "graph_schema_version": "1.0",
+      "nodes": [
+        {
+          "iam_node_ids": [
+            "4e3b20c3-6051-56b9-84de-e0acae2034cc",
+            "7872101d-b13e-5508-931a-3661e1ed380c"
+          ],
+          "id": "4e3b20c3-6051-56b9-84de-e0acae2034cc",
+          "kind": "FILE",
+          "label": "src/ui/controller.ts",
+          "locations": [
+            {
+              "end_column": null,
+              "end_line": null,
+              "file_path": "src/ui/controller.ts",
+              "start_column": 1,
+              "start_line": 1
+            },
+            {
+              "end_column": 26,
+              "end_line": 4,
+              "file_path": "src/ui/controller.ts",
+              "start_column": 8,
+              "start_line": 4
+            }
+          ],
+          "member_count": 0,
+          "method_count": 0
+        },
+        {
+          "iam_node_ids": [
+            "09b9acf4-b8dc-5bb1-bbb0-41659f19a207",
+            "8723fde6-1320-52f9-9cc8-f6377a4f9914"
+          ],
+          "id": "8723fde6-1320-52f9-9cc8-f6377a4f9914",
+          "kind": "FILE",
+          "label": "src/data/repository.ts",
+          "locations": [
+            {
+              "end_column": null,
+              "end_line": null,
+              "file_path": "src/data/repository.ts",
+              "start_column": 1,
+              "start_line": 1
+            },
+            {
+              "end_column": 26,
+              "end_line": 3,
+              "file_path": "src/data/repository.ts",
+              "start_column": 8,
+              "start_line": 3
+            }
+          ],
+          "member_count": 0,
+          "method_count": 0
+        },
+        {
+          "iam_node_ids": [
+            "d9b1d63f-d610-5139-9b92-04895984d7b3",
+            "f23c9c71-99af-59d1-808f-d5d2f9fe9329"
+          ],
+          "id": "d9b1d63f-d610-5139-9b92-04895984d7b3",
+          "kind": "FILE",
+          "label": "src/domain/service.ts",
+          "locations": [
+            {
+              "end_column": null,
+              "end_line": null,
+              "file_path": "src/domain/service.ts",
+              "start_column": 1,
+              "start_line": 1
+            },
+            {
+              "end_column": 23,
+              "end_line": 3,
+              "file_path": "src/domain/service.ts",
+              "start_column": 8,
+              "start_line": 3
+            }
+          ],
+          "member_count": 0,
+          "method_count": 0
+        }
+      ],
+      "project_id": "beacbdc4-e113-5631-b46b-6e632fb3f1a9",
+      "projection": {
+        "include_external": false,
+        "include_self_edges": false,
+        "included_relations": [
+          "IMPORTS"
+        ],
+        "projection": "file"
+      }
+    },
+    "is_complete": true,
+    "is_valid": true,
+    "reproducibility": {
+      "configuration": {
+        "betweenness_node_limit": 1000,
+        "calculate_betweenness": true,
+        "calculate_pagerank": true,
+        "candidates": {
+          "bottleneck_betweenness": null,
+          "bottleneck_min_neighbors": null,
+          "excessive_coupling": null,
+          "god_min_coupling": null,
+          "god_min_members": null,
+          "god_min_methods": null,
+          "hub_fan_in": null,
+          "unstable_delta": null
+        },
+        "max_cycle_trace_length": 256,
+        "max_graph_edges": 100000,
+        "max_graph_nodes": 10000,
+        "max_neighbourhood_nodes": 1000,
+        "pagerank_alpha": 0.85,
+        "pagerank_max_iterations": 200,
+        "pagerank_tolerance": 1e-10,
+        "projection": {
+          "include_external": false,
+          "include_self_edges": false,
+          "included_relations": [
+            "IMPORTS"
+          ],
+          "projection": "file"
+        }
+      },
+      "engine_version": "1.0.0",
+      "iam_fingerprint": "66b8a1b7cb80583fa7a4eeb0faa173f4b44e333f4a5413d1421e67ba0c586da2",
+      "networkx_version": "3.7",
+      "spec_fingerprint": "8b046979cb77f205a2d160858e880a7e86ad2ab3070d8da9ec57816dd4a9a06a"
+    },
+    "rule_enabled": true,
+    "sccs": [
+      {
+        "id": "14ba62c4-5b74-5628-be3c-9263183d3c9d",
+        "internal_edge_count": 4,
+        "members": [
+          "4e3b20c3-6051-56b9-84de-e0acae2034cc",
+          "8723fde6-1320-52f9-9cc8-f6377a4f9914",
+          "d9b1d63f-d610-5139-9b92-04895984d7b3"
+        ],
+        "size": 3
+      }
+    ],
+    "status": "NON_CONFORMANT"
+  },
+  "is_complete": true,
+  "is_valid": true,
+  "reproducibility": {
+    "analyzer_version": "1.0.0",
+    "architecture_spec_fingerprint": "8b046979cb77f205a2d160858e880a7e86ad2ab3070d8da9ec57816dd4a9a06a",
+    "architecture_spec_version": "1.0",
+    "classifier_version": "1.0.0",
+    "configuration": {
+      "require_complete_iam": true
+    },
+    "iam_fingerprint": "66b8a1b7cb80583fa7a4eeb0faa173f4b44e333f4a5413d1421e67ba0c586da2",
+    "iam_schema_version": "1.0",
+    "project_id": "beacbdc4-e113-5631-b46b-6e632fb3f1a9",
+    "rule_engine_version": "1.0.0",
+    "snapshot_fingerprint": "4fc578f00fdb9bcb438136b6ee60a56b04534f3fa024178470bf64f4d01fd305",
+    "snapshot_id": "1e601843-4307-5f1c-af4c-88721be6eeb7"
+  },
+  "result_schema_version": "1.0",
+  "static_result": {
+    "classification": {
+      "diagnostics": [],
+      "nodes": [
+        {
+          "file_id": "a8331137-d459-5a9f-9ab2-5634a05cf28a",
+          "file_path": "src/data/repository.ts",
+          "layer": "persistence",
+          "layer_candidates": [
+            "persistence"
+          ],
+          "module": null,
+          "module_candidates": [],
+          "node_id": "09b9acf4-b8dc-5bb1-bbb0-41659f19a207"
+        },
+        {
+          "file_id": "6c9ba059-f6db-576b-b002-2792a890b1ad",
+          "file_path": "src/ui/controller.ts",
+          "layer": "presentation",
+          "layer_candidates": [
+            "presentation"
+          ],
+          "module": null,
+          "module_candidates": [],
+          "node_id": "4e3b20c3-6051-56b9-84de-e0acae2034cc"
+        },
+        {
+          "file_id": "6c9ba059-f6db-576b-b002-2792a890b1ad",
+          "file_path": "src/ui/controller.ts",
+          "layer": "presentation",
+          "layer_candidates": [
+            "presentation"
+          ],
+          "module": null,
+          "module_candidates": [],
+          "node_id": "7872101d-b13e-5508-931a-3661e1ed380c"
+        },
+        {
+          "file_id": "a8331137-d459-5a9f-9ab2-5634a05cf28a",
+          "file_path": "src/data/repository.ts",
+          "layer": "persistence",
+          "layer_candidates": [
+            "persistence"
+          ],
+          "module": null,
+          "module_candidates": [],
+          "node_id": "8723fde6-1320-52f9-9cc8-f6377a4f9914"
+        },
+        {
+          "file_id": "e83117ac-ffa0-5fcc-90c4-d53c2fe002a9",
+          "file_path": "src/domain/service.ts",
+          "layer": "domain",
+          "layer_candidates": [
+            "domain"
+          ],
+          "module": null,
+          "module_candidates": [],
+          "node_id": "d9b1d63f-d610-5139-9b92-04895984d7b3"
+        },
+        {
+          "file_id": "e83117ac-ffa0-5fcc-90c4-d53c2fe002a9",
+          "file_path": "src/domain/service.ts",
+          "layer": "domain",
+          "layer_candidates": [
+            "domain"
+          ],
+          "module": null,
+          "module_candidates": [],
+          "node_id": "f23c9c71-99af-59d1-808f-d5d2f9fe9329"
+        }
+      ]
+    },
+    "diagnostics": [],
+    "findings": [
+      {
+        "category": "forbidden_dependency",
+        "confidence": null,
+        "description": "Dependency from 'src/ui/controller.ts' (layer=presentation, module=unclassified) to 'src/data/repository.ts' (layer=persistence, module=unclassified) violates ARCH001 (forbidden_dependency).",
+        "detector": {
+          "name": "static-architecture-rule-engine",
+          "source": "STATIC",
+          "version": "1.0.0"
+        },
+        "evidence": [
+          {
+            "id": "e7e91286-24a0-5e79-955f-2e4a702c73d7",
+            "location": null,
+            "message": "The explicit target architecture constraint forbids this dependency.",
+            "namespace": "ARCH",
+            "properties": {
+              "expected": {
+                "description": null,
+                "enabled": true,
+                "from": {
+                  "layer": "presentation",
+                  "module": null
+                },
+                "id": "ARCH001",
+                "relations": [
+                  "IMPORTS"
+                ],
+                "severity": "HIGH",
+                "to": {
+                  "layer": "persistence",
+                  "module": null
+                },
+                "type": "forbidden_dependency"
+              },
+              "rule_id": "ARCH001",
+              "rule_type": "forbidden_dependency",
+              "source_layer": "presentation",
+              "source_module": null,
+              "spec_fingerprint": "8b046979cb77f205a2d160858e880a7e86ad2ab3070d8da9ec57816dd4a9a06a",
+              "target_layer": "persistence",
+              "target_module": null
+            },
+            "type": "ARCHITECTURE_RULE"
+          },
+          {
+            "id": "1604c47e-2f89-52e6-b800-045f3c9c2265",
+            "location": {
+              "end_column": 19,
+              "end_line": 2,
+              "file_path": "src/ui/controller.ts",
+              "start_column": 10,
+              "start_line": 2
+            },
+            "message": "Actual resolved internal IMPORTS dependency.",
+            "namespace": "ARCH",
+            "properties": {
+              "edge_id": "508edbfe-316d-598e-80cc-d47953fc80e6",
+              "occurrences": 1,
+              "provenance": [
+                {
+                  "reference_kind": "IMPORT",
+                  "resolution_method": "EXACT_IMPORT",
+                  "resolution_status": "RESOLVED",
+                  "source_location": {
+                    "end_column": 19,
+                    "end_line": 2,
+                    "file_path": "src/ui/controller.ts",
+                    "start_column": 10,
+                    "start_line": 2
+                  }
+                }
+              ],
+              "provenance_truncated": 0,
+              "relation": "IMPORTS",
+              "source_file_id": "6c9ba059-f6db-576b-b002-2792a890b1ad",
+              "source_name": "src/ui/controller.ts",
+              "source_node_id": "4e3b20c3-6051-56b9-84de-e0acae2034cc",
+              "target_file_id": "a8331137-d459-5a9f-9ab2-5634a05cf28a",
+              "target_name": "src/data/repository.ts",
+              "target_node_id": "8723fde6-1320-52f9-9cc8-f6377a4f9914"
+            },
+            "type": "STATIC_RULE"
+          }
+        ],
+        "finding_schema_version": "1.0",
+        "id": "3ddf9e9c-96f7-5208-af84-06bca2c576e5",
+        "metadata": {
+          "deterministic": true,
+          "edge_ids": [
+            "508edbfe-316d-598e-80cc-d47953fc80e6"
+          ],
+          "occurrences": 1,
+          "provenance_truncated": 0,
+          "relation_kinds": [
+            "IMPORTS"
+          ],
+          "source_component": "src/ui/controller.ts",
+          "source_component_file_id": "6c9ba059-f6db-576b-b002-2792a890b1ad",
+          "target_component": "src/data/repository.ts",
+          "target_component_file_id": "a8331137-d459-5a9f-9ab2-5634a05cf28a"
+        },
+        "namespace": "ARCH",
+        "primary_location": {
+          "end_column": 19,
+          "end_line": 2,
+          "file_path": "src/ui/controller.ts",
+          "start_column": 10,
+          "start_line": 2
+        },
+        "recommendation": "Route the dependency through an allowed architecture boundary, or update the target specification if the dependency is intentional.",
+        "related_locations": [],
+        "rule_id": "ARCH001",
+        "severity": "HIGH",
+        "title": "Forbidden Dependency",
+        "trace": {
+          "id": "5c1fcd83-b68e-533b-9ad3-d779c4a579ee",
+          "metadata": {
+            "edge_ids": [
+              "508edbfe-316d-598e-80cc-d47953fc80e6"
+            ],
+            "source_component_file_id": "6c9ba059-f6db-576b-b002-2792a890b1ad",
+            "target_component_file_id": "a8331137-d459-5a9f-9ab2-5634a05cf28a"
+          },
+          "steps": [
+            {
+              "edge_id": null,
+              "label": "src/ui/controller.ts",
+              "location": {
+                "end_column": 19,
+                "end_line": 2,
+                "file_path": "src/ui/controller.ts",
+                "start_column": 10,
+                "start_line": 2
+              },
+              "metadata": {},
+              "node_id": "4e3b20c3-6051-56b9-84de-e0acae2034cc",
+              "relation": null,
+              "sequence": 1
+            },
+            {
+              "edge_id": "508edbfe-316d-598e-80cc-d47953fc80e6",
+              "label": "src/data/repository.ts",
+              "location": {
+                "end_column": 19,
+                "end_line": 2,
+                "file_path": "src/ui/controller.ts",
+                "start_column": 10,
+                "start_line": 2
+              },
+              "metadata": {},
+              "node_id": "8723fde6-1320-52f9-9cc8-f6377a4f9914",
+              "relation": "IMPORTS",
+              "sequence": 2
+            }
+          ]
+        }
+      }
+    ],
+    "is_complete": true,
+    "is_valid": true,
+    "reproducibility": {
+      "analyzer_version": "1.0.0",
+      "architecture_spec_fingerprint": "8b046979cb77f205a2d160858e880a7e86ad2ab3070d8da9ec57816dd4a9a06a",
+      "architecture_spec_version": "1.0",
+      "classifier_version": "1.0.0",
+      "configuration": {
+        "require_complete_iam": true
+      },
+      "iam_fingerprint": "66b8a1b7cb80583fa7a4eeb0faa173f4b44e333f4a5413d1421e67ba0c586da2",
+      "iam_schema_version": "1.0",
+      "project_id": "beacbdc4-e113-5631-b46b-6e632fb3f1a9",
+      "rule_engine_version": "1.0.0",
+      "snapshot_fingerprint": "4fc578f00fdb9bcb438136b6ee60a56b04534f3fa024178470bf64f4d01fd305",
+      "snapshot_id": "1e601843-4307-5f1c-af4c-88721be6eeb7"
+    },
+    "result_schema_version": "1.0",
+    "specification_summary": {
+      "fingerprint": "8b046979cb77f205a2d160858e880a7e86ad2ab3070d8da9ec57816dd4a9a06a",
+      "layers": [
+        "domain",
+        "persistence",
+        "presentation"
+      ],
+      "modules": [],
+      "rules": [
+        "ARCH001",
+        "ARCH003"
+      ],
+      "version": "1.0"
+    },
+    "statistics": {
+      "ambiguous_nodes": 0,
+      "edges_considered": 4,
+      "edges_ignored": 0,
+      "findings_by_rule": {
+        "ARCH001": 1
+      },
+      "findings_by_severity": {
+        "HIGH": 1
+      },
+      "findings_total": 1,
+      "iam_edges_total": 4,
+      "iam_nodes_total": 10,
+      "nodes_by_layer": {
+        "domain": 2,
+        "persistence": 2,
+        "presentation": 2
+      },
+      "nodes_by_module": {},
+      "nodes_classified": 6,
+      "nodes_considered": 6,
+      "nodes_unclassified": 0,
+      "rules_enabled": 1,
+      "rules_evaluated": 1
+    },
+    "status": "NON_CONFORMANT"
+  },
+  "statistics": {
+    "ambiguous_nodes": 0,
+    "edges_considered": 4,
+    "edges_ignored": 0,
+    "findings_by_rule": {
+      "ARCH001": 1,
+      "ARCH003": 1
+    },
+    "findings_by_severity": {
+      "HIGH": 2
+    },
+    "findings_total": 2,
+    "iam_edges_total": 4,
+    "iam_nodes_total": 10,
+    "nodes_by_layer": {
+      "domain": 2,
+      "persistence": 2,
+      "presentation": 2
+    },
+    "nodes_by_module": {},
+    "nodes_classified": 6,
+    "nodes_considered": 6,
+    "nodes_unclassified": 0,
+    "rules_enabled": 2,
+    "rules_evaluated": 2
+  },
+  "status": "NON_CONFORMANT"
+}

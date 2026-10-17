@@ -1,0 +1,7282 @@
+{
+  "method": "Tracked public Python source symbol inventory; deep capability reviews are sibling documents. No runtime data inspected.",
+  "modules": 285,
+  "groups": {
+    "entrypoints": 8,
+    "api": 3,
+    "application": 10,
+    "architecture": 60,
+    "benchmark": 28,
+    "calibration": 6,
+    "core": 15,
+    "experiments": 2,
+    "extraction": 19,
+    "iam": 4,
+    "iam_building": 5,
+    "infrastructure": 84,
+    "parsing": 11,
+    "reports": 1,
+    "repository": 7,
+    "security": 18,
+    "security_benchmark": 4
+  },
+  "sources": [
+    {
+      "path": "src/archguard/__init__.py",
+      "symbols": []
+    },
+    {
+      "path": "src/archguard/ai_cli.py",
+      "symbols": [
+        {
+          "symbol": "ai_arguments",
+          "line": 34
+        },
+        {
+          "symbol": "execute_ai",
+          "line": 57
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/api/__init__.py",
+      "symbols": []
+    },
+    {
+      "path": "src/archguard/api/app.py",
+      "symbols": [
+        {
+          "symbol": "create_app",
+          "line": 14
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/api/schemas.py",
+      "symbols": [
+        {
+          "symbol": "HealthResponse",
+          "line": 6
+        },
+        {
+          "symbol": "SystemInfoResponse",
+          "line": 11
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/application/__init__.py",
+      "symbols": []
+    },
+    {
+      "path": "src/archguard/application/analyze_architecture_hybrid.py",
+      "symbols": [
+        {
+          "symbol": "HybridAnalysisInputs",
+          "line": 29
+        },
+        {
+          "symbol": "AnalyzeArchitectureHybrid",
+          "line": 38
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/application/analyze_architecture_semantics.py",
+      "symbols": [
+        {
+          "symbol": "SemanticAnalysisInputs",
+          "line": 19
+        },
+        {
+          "symbol": "AnalyzeArchitectureSemantics",
+          "line": 25
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/application/analyze_graph.py",
+      "symbols": [
+        {
+          "symbol": "AnalyzeGraph",
+          "line": 10
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/application/build_iam.py",
+      "symbols": [
+        {
+          "symbol": "BuildIAM",
+          "line": 23
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/application/check_architecture.py",
+      "symbols": [
+        {
+          "symbol": "CheckArchitecture",
+          "line": 20
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/application/discover_architecture.py",
+      "symbols": [
+        {
+          "symbol": "DiscoverArchitecture",
+          "line": 10
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/application/discover_repository.py",
+      "symbols": [
+        {
+          "symbol": "DiscoveredRepository",
+          "line": 15
+        },
+        {
+          "symbol": "DiscoverRepository",
+          "line": 20
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/application/parse_repository.py",
+      "symbols": [
+        {
+          "symbol": "ParseRepository",
+          "line": 28
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/application/system.py",
+      "symbols": [
+        {
+          "symbol": "SystemInformation",
+          "line": 10
+        },
+        {
+          "symbol": "get_system_information",
+          "line": 18
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/architecture/__init__.py",
+      "symbols": []
+    },
+    {
+      "path": "src/archguard/architecture/check_result.py",
+      "symbols": [
+        {
+          "symbol": "ArchitectureCheckResult",
+          "line": 16
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/architecture/classification/__init__.py",
+      "symbols": []
+    },
+    {
+      "path": "src/archguard/architecture/classification/classifier.py",
+      "symbols": [
+        {
+          "symbol": "path_matches",
+          "line": 13
+        },
+        {
+          "symbol": "_scope_matches",
+          "line": 30
+        },
+        {
+          "symbol": "ArchitectureClassifier",
+          "line": 36
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/architecture/classification/models.py",
+      "symbols": [
+        {
+          "symbol": "ClassificationStatus",
+          "line": 8
+        },
+        {
+          "symbol": "ConformanceDiagnostic",
+          "line": 14
+        },
+        {
+          "symbol": "NodeClassification",
+          "line": 21
+        },
+        {
+          "symbol": "ArchitectureClassification",
+          "line": 41
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/architecture/conformance/__init__.py",
+      "symbols": []
+    },
+    {
+      "path": "src/archguard/architecture/conformance/analyzer.py",
+      "symbols": [
+        {
+          "symbol": "iam_fingerprint",
+          "line": 30
+        },
+        {
+          "symbol": "StaticConformanceAnalyzer",
+          "line": 39
+        },
+        {
+          "symbol": "serialize_conformance",
+          "line": 193
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/architecture/conformance/dependencies.py",
+      "symbols": [
+        {
+          "symbol": "ProvenDependency",
+          "line": 34
+        },
+        {
+          "symbol": "proven_dependencies",
+          "line": 46
+        },
+        {
+          "symbol": "location_order",
+          "line": 137
+        },
+        {
+          "symbol": "dependency_order",
+          "line": 147
+        },
+        {
+          "symbol": "dependency_properties",
+          "line": 157
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/architecture/conformance/findings.py",
+      "symbols": [
+        {
+          "symbol": "build_finding",
+          "line": 28
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/architecture/conformance/models.py",
+      "symbols": [
+        {
+          "symbol": "ConformanceStatus",
+          "line": 20
+        },
+        {
+          "symbol": "StaticAnalysisConfig",
+          "line": 27
+        },
+        {
+          "symbol": "StaticConformanceStatistics",
+          "line": 31
+        },
+        {
+          "symbol": "ConformanceReproducibility",
+          "line": 64
+        },
+        {
+          "symbol": "StaticConformanceResult",
+          "line": 78
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/architecture/discovery/__init__.py",
+      "symbols": []
+    },
+    {
+      "path": "src/archguard/architecture/discovery/analyzer.py",
+      "symbols": [
+        {
+          "symbol": "upstream_versions",
+          "line": 44
+        },
+        {
+          "symbol": "ArchitectureDiscoveryAnalyzer",
+          "line": 69
+        },
+        {
+          "symbol": "serialize_discovery",
+          "line": 224
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/architecture/discovery/classification.py",
+      "symbols": [
+        {
+          "symbol": "StructuralRoleClassifier",
+          "line": 41
+        },
+        {
+          "symbol": "dependency_signals",
+          "line": 174
+        },
+        {
+          "symbol": "LayerInferenceEngine",
+          "line": 239
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/architecture/discovery/config.py",
+      "symbols": [
+        {
+          "symbol": "ArchitectureDiscoveryConfig",
+          "line": 12
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/architecture/discovery/enums.py",
+      "symbols": [
+        {
+          "symbol": "DiscoveryStrength",
+          "line": 4
+        },
+        {
+          "symbol": "ComponentRole",
+          "line": 11
+        },
+        {
+          "symbol": "DiscoveredLayer",
+          "line": 25
+        },
+        {
+          "symbol": "DiscoveryEvidenceKind",
+          "line": 35
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/architecture/discovery/models.py",
+      "symbols": [
+        {
+          "symbol": "DiscoveryEvidence",
+          "line": 28
+        },
+        {
+          "symbol": "RoleHypothesis",
+          "line": 41
+        },
+        {
+          "symbol": "LayerHypothesis",
+          "line": 52
+        },
+        {
+          "symbol": "DiscoveredComponent",
+          "line": 63
+        },
+        {
+          "symbol": "LayerGroup",
+          "line": 76
+        },
+        {
+          "symbol": "ModuleCandidate",
+          "line": 85
+        },
+        {
+          "symbol": "DependencyMatrixCell",
+          "line": 125
+        },
+        {
+          "symbol": "DependencyMatrix",
+          "line": 143
+        },
+        {
+          "symbol": "TopologyRank",
+          "line": 160
+        },
+        {
+          "symbol": "TopologySummary",
+          "line": 165
+        },
+        {
+          "symbol": "DiscoveredArchitecture",
+          "line": 176
+        },
+        {
+          "symbol": "DiscoveryStatistics",
+          "line": 188
+        },
+        {
+          "symbol": "DiscoveryReproducibility",
+          "line": 233
+        },
+        {
+          "symbol": "ArchitectureDiscoveryResult",
+          "line": 246
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/architecture/discovery/modules.py",
+      "symbols": [
+        {
+          "symbol": "common_prefix",
+          "line": 40
+        },
+        {
+          "symbol": "ModuleDiscovery",
+          "line": 51
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/architecture/discovery/signals.py",
+      "symbols": [
+        {
+          "symbol": "name_role",
+          "line": 97
+        },
+        {
+          "symbol": "evidence",
+          "line": 110
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/architecture/discovery/summary.py",
+      "symbols": [
+        {
+          "symbol": "dependency_matrix",
+          "line": 17
+        },
+        {
+          "symbol": "layer_groups",
+          "line": 45
+        },
+        {
+          "symbol": "topology_summary",
+          "line": 82
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/architecture/graph/__init__.py",
+      "symbols": []
+    },
+    {
+      "path": "src/archguard/architecture/graph/algorithms.py",
+      "symbols": [
+        {
+          "symbol": "GraphQueryError",
+          "line": 18
+        },
+        {
+          "symbol": "strongly_connected_components",
+          "line": 22
+        },
+        {
+          "symbol": "cycle_observations",
+          "line": 50
+        },
+        {
+          "symbol": "shortest_path",
+          "line": 102
+        },
+        {
+          "symbol": "neighbourhood",
+          "line": 135
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/architecture/graph/analyzer.py",
+      "symbols": [
+        {
+          "symbol": "GraphAnalyzer",
+          "line": 29
+        },
+        {
+          "symbol": "_quantize",
+          "line": 142
+        },
+        {
+          "symbol": "serialize_graph_result",
+          "line": 153
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/architecture/graph/builder.py",
+      "symbols": [
+        {
+          "symbol": "GraphResourceLimitError",
+          "line": 28
+        },
+        {
+          "symbol": "GraphBuilder",
+          "line": 32
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/architecture/graph/candidates.py",
+      "symbols": [
+        {
+          "symbol": "GraphCandidate",
+          "line": 23
+        },
+        {
+          "symbol": "generate_candidates",
+          "line": 40
+        },
+        {
+          "symbol": "meets_float_threshold",
+          "line": 220
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/architecture/graph/config.py",
+      "symbols": [
+        {
+          "symbol": "fingerprint",
+          "line": 17
+        },
+        {
+          "symbol": "GraphProjectionSpec",
+          "line": 25
+        },
+        {
+          "symbol": "CandidateThresholds",
+          "line": 39
+        },
+        {
+          "symbol": "GraphAnalysisConfig",
+          "line": 64
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/architecture/graph/conformance.py",
+      "symbols": [
+        {
+          "symbol": "GraphConformanceResult",
+          "line": 38
+        },
+        {
+          "symbol": "cyclic_finding",
+          "line": 51
+        },
+        {
+          "symbol": "GraphConformanceAnalyzer",
+          "line": 166
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/architecture/graph/enums.py",
+      "symbols": [
+        {
+          "symbol": "GraphProjection",
+          "line": 4
+        },
+        {
+          "symbol": "NeighbourhoodDirection",
+          "line": 12
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/architecture/graph/metrics.py",
+      "symbols": [
+        {
+          "symbol": "PageRankConvergenceError",
+          "line": 16
+        },
+        {
+          "symbol": "pagerank",
+          "line": 20
+        },
+        {
+          "symbol": "calculate_metrics",
+          "line": 50
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/architecture/graph/models.py",
+      "symbols": [
+        {
+          "symbol": "GraphDiagnostic",
+          "line": 17
+        },
+        {
+          "symbol": "GraphNode",
+          "line": 23
+        },
+        {
+          "symbol": "DependencyProof",
+          "line": 33
+        },
+        {
+          "symbol": "GraphEdge",
+          "line": 52
+        },
+        {
+          "symbol": "ArchitectureGraph",
+          "line": 69
+        },
+        {
+          "symbol": "ProjectionStatistics",
+          "line": 94
+        },
+        {
+          "symbol": "GraphBuildResult",
+          "line": 107
+        },
+        {
+          "symbol": "StronglyConnectedComponent",
+          "line": 115
+        },
+        {
+          "symbol": "CycleObservation",
+          "line": 131
+        },
+        {
+          "symbol": "GraphNodeMetrics",
+          "line": 152
+        },
+        {
+          "symbol": "GraphPath",
+          "line": 170
+        },
+        {
+          "symbol": "GraphNeighbourhood",
+          "line": 176
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/architecture/graph/native.py",
+      "symbols": [
+        {
+          "symbol": "native_graph",
+          "line": 8
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/architecture/graph/provenance.py",
+      "symbols": [
+        {
+          "symbol": "dependency_proof",
+          "line": 14
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/architecture/graph/result.py",
+      "symbols": [
+        {
+          "symbol": "GraphStatistics",
+          "line": 23
+        },
+        {
+          "symbol": "GraphReproducibility",
+          "line": 34
+        },
+        {
+          "symbol": "GraphAnalysisResult",
+          "line": 48
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/architecture/hybrid/__init__.py",
+      "symbols": []
+    },
+    {
+      "path": "src/archguard/architecture/hybrid/alignment.py",
+      "symbols": [
+        {
+          "symbol": "HybridEvidenceAligner",
+          "line": 24
+        },
+        {
+          "symbol": "concern_agreement",
+          "line": 86
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/architecture/hybrid/analyzer.py",
+      "symbols": [
+        {
+          "symbol": "HybridAnalysisConfig",
+          "line": 35
+        },
+        {
+          "symbol": "HybridAnalyzer",
+          "line": 40
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/architecture/hybrid/artifacts.py",
+      "symbols": [
+        {
+          "symbol": "PolicyCoefficient",
+          "line": 12
+        },
+        {
+          "symbol": "CalibratedPolicyArtifact",
+          "line": 17
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/architecture/hybrid/assembler.py",
+      "symbols": [
+        {
+          "symbol": "HybridInputError",
+          "line": 45
+        },
+        {
+          "symbol": "ordered_pairs",
+          "line": 49
+        },
+        {
+          "symbol": "numeric_observations",
+          "line": 53
+        },
+        {
+          "symbol": "HybridEvidenceAssembler",
+          "line": 62
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/architecture/hybrid/calibration.py",
+      "symbols": [
+        {
+          "symbol": "feature_names",
+          "line": 50
+        },
+        {
+          "symbol": "StructuralCalibrationError",
+          "line": 54
+        },
+        {
+          "symbol": "PreprocessorColumn",
+          "line": 58
+        },
+        {
+          "symbol": "DroppedFeature",
+          "line": 67
+        },
+        {
+          "symbol": "StructuralPreprocessorArtifact",
+          "line": 72
+        },
+        {
+          "symbol": "PortableStructuralModel",
+          "line": 119
+        },
+        {
+          "symbol": "stable_sigmoid",
+          "line": 147
+        },
+        {
+          "symbol": "MetricValues",
+          "line": 151
+        },
+        {
+          "symbol": "FamilyMetric",
+          "line": 160
+        },
+        {
+          "symbol": "StructuralMetrics",
+          "line": 169
+        },
+        {
+          "symbol": "FrozenStructuralHybridPolicyArtifact",
+          "line": 182
+        },
+        {
+          "symbol": "runtime_values",
+          "line": 241
+        },
+        {
+          "symbol": "numeric_values",
+          "line": 273
+        },
+        {
+          "symbol": "CalibratedStructuralHybridPolicy",
+          "line": 285
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/architecture/hybrid/contracts.py",
+      "symbols": [
+        {
+          "symbol": "ArchitectureEvidenceBundle",
+          "line": 28
+        },
+        {
+          "symbol": "ArchitectureDecision",
+          "line": 64
+        },
+        {
+          "symbol": "HybridDecisionEngine",
+          "line": 75
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/architecture/hybrid/features.py",
+      "symbols": [
+        {
+          "symbol": "feature_schema",
+          "line": 16
+        },
+        {
+          "symbol": "extract_features",
+          "line": 47
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/architecture/hybrid/models.py",
+      "symbols": [
+        {
+          "symbol": "HybridCaseType",
+          "line": 28
+        },
+        {
+          "symbol": "EvidenceAgreement",
+          "line": 35
+        },
+        {
+          "symbol": "AlignmentMethod",
+          "line": 43
+        },
+        {
+          "symbol": "CalibrationStatus",
+          "line": 51
+        },
+        {
+          "symbol": "HybridDecisionState",
+          "line": 57
+        },
+        {
+          "symbol": "SubjectPair",
+          "line": 67
+        },
+        {
+          "symbol": "HybridCase",
+          "line": 72
+        },
+        {
+          "symbol": "StaticProof",
+          "line": 85
+        },
+        {
+          "symbol": "NumericObservation",
+          "line": 112
+        },
+        {
+          "symbol": "GraphSignal",
+          "line": 117
+        },
+        {
+          "symbol": "GraphMeasurement",
+          "line": 130
+        },
+        {
+          "symbol": "SemanticSignal",
+          "line": 139
+        },
+        {
+          "symbol": "DiscoverySignal",
+          "line": 157
+        },
+        {
+          "symbol": "ContextReference",
+          "line": 172
+        },
+        {
+          "symbol": "ContextSummary",
+          "line": 182
+        },
+        {
+          "symbol": "EvidenceCompleteness",
+          "line": 195
+        },
+        {
+          "symbol": "EvidenceAlignment",
+          "line": 212
+        },
+        {
+          "symbol": "HybridEvidenceBundle",
+          "line": 221
+        },
+        {
+          "symbol": "FeatureValueType",
+          "line": 233
+        },
+        {
+          "symbol": "FeatureAvailability",
+          "line": 242
+        },
+        {
+          "symbol": "HybridFeature",
+          "line": 248
+        },
+        {
+          "symbol": "HybridFeatureDefinition",
+          "line": 274
+        },
+        {
+          "symbol": "HybridFeatureSchema",
+          "line": 279
+        },
+        {
+          "symbol": "HybridFeatureVector",
+          "line": 284
+        },
+        {
+          "symbol": "HybridPolicyMetadata",
+          "line": 291
+        },
+        {
+          "symbol": "HybridDecision",
+          "line": 298
+        },
+        {
+          "symbol": "HybridStatistics",
+          "line": 365
+        },
+        {
+          "symbol": "HybridReproducibility",
+          "line": 376
+        },
+        {
+          "symbol": "HybridAnalysisResult",
+          "line": 394
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/architecture/hybrid/policies.py",
+      "symbols": [
+        {
+          "symbol": "HybridPolicyError",
+          "line": 20
+        },
+        {
+          "symbol": "HybridDecisionPolicy",
+          "line": 24
+        },
+        {
+          "symbol": "DeterministicPrecedencePolicy",
+          "line": 33
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/architecture/hybrid/prospective_alignment.py",
+      "symbols": [
+        {
+          "symbol": "architectural_owner",
+          "line": 16
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/architecture/hybrid/serialization.py",
+      "symbols": [
+        {
+          "symbol": "canonical",
+          "line": 7
+        },
+        {
+          "symbol": "fingerprint",
+          "line": 18
+        },
+        {
+          "symbol": "serialize_hybrid",
+          "line": 22
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/architecture/intelligence/__init__.py",
+      "symbols": []
+    },
+    {
+      "path": "src/archguard/architecture/intelligence/analyzer.py",
+      "symbols": [
+        {
+          "symbol": "SemanticArchitectureAnalyzer",
+          "line": 26
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/architecture/intelligence/context.py",
+      "symbols": [
+        {
+          "symbol": "_constraints",
+          "line": 39
+        },
+        {
+          "symbol": "GraphGuidedContextBuilder",
+          "line": 87
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/architecture/intelligence/fragments.py",
+      "symbols": [
+        {
+          "symbol": "_Range",
+          "line": 17
+        },
+        {
+          "symbol": "extract_fragments",
+          "line": 28
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/architecture/intelligence/models.py",
+      "symbols": [
+        {
+          "symbol": "canonical",
+          "line": 36
+        },
+        {
+          "symbol": "digest",
+          "line": 44
+        },
+        {
+          "symbol": "ContextStrategy",
+          "line": 48
+        },
+        {
+          "symbol": "ContextSelectionConfig",
+          "line": 54
+        },
+        {
+          "symbol": "ContextDiagnostic",
+          "line": 82
+        },
+        {
+          "symbol": "SelectedNode",
+          "line": 88
+        },
+        {
+          "symbol": "FragmentReference",
+          "line": 94
+        },
+        {
+          "symbol": "SourceFragment",
+          "line": 113
+        },
+        {
+          "symbol": "ContextEvidence",
+          "line": 127
+        },
+        {
+          "symbol": "ContextManifest",
+          "line": 134
+        },
+        {
+          "symbol": "ArchitectureContextPack",
+          "line": 175
+        },
+        {
+          "symbol": "SemanticDecision",
+          "line": 198
+        },
+        {
+          "symbol": "SemanticArchitectureAssessment",
+          "line": 204
+        },
+        {
+          "symbol": "SemanticAnalysisTarget",
+          "line": 227
+        },
+        {
+          "symbol": "TargetSelectionConfig",
+          "line": 233
+        },
+        {
+          "symbol": "AIAnalysisBudget",
+          "line": 243
+        },
+        {
+          "symbol": "AIAnalysisConfig",
+          "line": 251
+        },
+        {
+          "symbol": "LLMUsage",
+          "line": 273
+        },
+        {
+          "symbol": "ProviderCapabilities",
+          "line": 291
+        },
+        {
+          "symbol": "StructuredLLMRequest",
+          "line": 297
+        },
+        {
+          "symbol": "StructuredLLMResponse",
+          "line": 308
+        },
+        {
+          "symbol": "SemanticArchitectureCandidate",
+          "line": 316
+        },
+        {
+          "symbol": "AIInvocation",
+          "line": 328
+        },
+        {
+          "symbol": "AIAnalysisResult",
+          "line": 340
+        },
+        {
+          "symbol": "serialize_ai",
+          "line": 353
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/architecture/intelligence/ports.py",
+      "symbols": [
+        {
+          "symbol": "SourceReader",
+          "line": 11
+        },
+        {
+          "symbol": "ContextRedactor",
+          "line": 17
+        },
+        {
+          "symbol": "LLMProvider",
+          "line": 23
+        },
+        {
+          "symbol": "LLMProviderError",
+          "line": 35
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/architecture/intelligence/prompt.py",
+      "symbols": [
+        {
+          "symbol": "build_request",
+          "line": 32
+        },
+        {
+          "symbol": "request_metadata",
+          "line": 50
+        },
+        {
+          "symbol": "validate_response",
+          "line": 62
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/architecture/intelligence/selection.py",
+      "symbols": [
+        {
+          "symbol": "ContextSelectionError",
+          "line": 19
+        },
+        {
+          "symbol": "resolve_node",
+          "line": 23
+        },
+        {
+          "symbol": "graph_owner",
+          "line": 35
+        },
+        {
+          "symbol": "representative",
+          "line": 42
+        },
+        {
+          "symbol": "filtered_graph",
+          "line": 54
+        },
+        {
+          "symbol": "select_context_nodes",
+          "line": 78
+        },
+        {
+          "symbol": "SemanticAnalysisTargetSelector",
+          "line": 141
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/architecture/rules/__init__.py",
+      "symbols": []
+    },
+    {
+      "path": "src/archguard/architecture/rules/builtin.py",
+      "symbols": [
+        {
+          "symbol": "_matches",
+          "line": 13
+        },
+        {
+          "symbol": "ForbiddenDependencyRule",
+          "line": 21
+        },
+        {
+          "symbol": "LayerDependencyRule",
+          "line": 34
+        },
+        {
+          "symbol": "ReverseDependencyRule",
+          "line": 55
+        },
+        {
+          "symbol": "ModuleBoundaryRule",
+          "line": 68
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/architecture/rules/protocol.py",
+      "symbols": [
+        {
+          "symbol": "StaticArchitectureRule",
+          "line": 7
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/architecture/rules/registry.py",
+      "symbols": [
+        {
+          "symbol": "StaticRuleRegistry",
+          "line": 14
+        },
+        {
+          "symbol": "create_static_rule_registry",
+          "line": 36
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/architecture/specification/__init__.py",
+      "symbols": []
+    },
+    {
+      "path": "src/archguard/architecture/specification/errors.py",
+      "symbols": [
+        {
+          "symbol": "ArchitectureSpecificationError",
+          "line": 1
+        },
+        {
+          "symbol": "UnsupportedArchitectureSpecVersionError",
+          "line": 10
+        },
+        {
+          "symbol": "UnsupportedArchitectureRuleError",
+          "line": 14
+        },
+        {
+          "symbol": "ArchitectureSpecResourceLimitError",
+          "line": 18
+        },
+        {
+          "symbol": "StaticRuleRegistrationError",
+          "line": 22
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/architecture/specification/loader.py",
+      "symbols": [
+        {
+          "symbol": "ArchitectureSpecLoaderConfig",
+          "line": 19
+        },
+        {
+          "symbol": "_value",
+          "line": 25
+        },
+        {
+          "symbol": "ArchitectureSpecLoader",
+          "line": 69
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/architecture/specification/models.py",
+      "symbols": [
+        {
+          "symbol": "RuleType",
+          "line": 26
+        },
+        {
+          "symbol": "ArchitectureSpecModel",
+          "line": 34
+        },
+        {
+          "symbol": "ArchitectureScope",
+          "line": 38
+        },
+        {
+          "symbol": "LayerSpecification",
+          "line": 63
+        },
+        {
+          "symbol": "TargetArchitectureModule",
+          "line": 67
+        },
+        {
+          "symbol": "TargetArchitecture",
+          "line": 71
+        },
+        {
+          "symbol": "TargetSelector",
+          "line": 85
+        },
+        {
+          "symbol": "RuleBase",
+          "line": 96
+        },
+        {
+          "symbol": "ForbiddenDependencySpecification",
+          "line": 115
+        },
+        {
+          "symbol": "DependencyConstraint",
+          "line": 122
+        },
+        {
+          "symbol": "LayerDependencySpecification",
+          "line": 138
+        },
+        {
+          "symbol": "ExpectedDirection",
+          "line": 144
+        },
+        {
+          "symbol": "ReverseDependencySpecification",
+          "line": 155
+        },
+        {
+          "symbol": "ModuleBoundarySpecification",
+          "line": 161
+        },
+        {
+          "symbol": "CircularDependencySpecification",
+          "line": 166
+        },
+        {
+          "symbol": "ArchitectureSpecification",
+          "line": 191
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/benchmark/__init__.py",
+      "symbols": []
+    },
+    {
+      "path": "src/archguard/benchmark/adapters.py",
+      "symbols": [
+        {
+          "symbol": "prediction",
+          "line": 26
+        },
+        {
+          "symbol": "static_predictions",
+          "line": 50
+        },
+        {
+          "symbol": "graph_predictions",
+          "line": 81
+        },
+        {
+          "symbol": "ai_predictions",
+          "line": 159
+        },
+        {
+          "symbol": "hybrid_subjects",
+          "line": 192
+        },
+        {
+          "symbol": "hybrid_predictions",
+          "line": 198
+        },
+        {
+          "symbol": "training_records",
+          "line": 224
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/benchmark/cohort.py",
+      "symbols": [
+        {
+          "symbol": "AIAssessmentManifest",
+          "line": 30
+        },
+        {
+          "symbol": "CalibrationTrainingRecord",
+          "line": 48
+        },
+        {
+          "symbol": "join_label",
+          "line": 124
+        },
+        {
+          "symbol": "CalibrationCohort",
+          "line": 208
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/benchmark/component_holdout.py",
+      "symbols": [
+        {
+          "symbol": "identity",
+          "line": 20
+        },
+        {
+          "symbol": "recipes",
+          "line": 24
+        },
+        {
+          "symbol": "topology",
+          "line": 46
+        },
+        {
+          "symbol": "adjacency",
+          "line": 89
+        },
+        {
+          "symbol": "reachable",
+          "line": 98
+        },
+        {
+          "symbol": "oracle",
+          "line": 112
+        },
+        {
+          "symbol": "specification",
+          "line": 162
+        },
+        {
+          "symbol": "sources",
+          "line": 204
+        },
+        {
+          "symbol": "metrics",
+          "line": 242
+        },
+        {
+          "symbol": "validate_design",
+          "line": 272
+        },
+        {
+          "symbol": "plan",
+          "line": 293
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/benchmark/evaluation.py",
+      "symbols": [
+        {
+          "symbol": "ratio",
+          "line": 26
+        },
+        {
+          "symbol": "metrics",
+          "line": 30
+        },
+        {
+          "symbol": "macro",
+          "line": 43
+        },
+        {
+          "symbol": "evaluate",
+          "line": 51
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/benchmark/final_evaluation.py",
+      "symbols": [
+        {
+          "symbol": "unique",
+          "line": 39
+        },
+        {
+          "symbol": "metrics",
+          "line": 46
+        },
+        {
+          "symbol": "ratio",
+          "line": 97
+        },
+        {
+          "symbol": "deltas",
+          "line": 102
+        },
+        {
+          "symbol": "correct",
+          "line": 110
+        },
+        {
+          "symbol": "paired",
+          "line": 118
+        },
+        {
+          "symbol": "hypothesis",
+          "line": 134
+        },
+        {
+          "symbol": "aggregate",
+          "line": 176
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/benchmark/identity.py",
+      "symbols": [
+        {
+          "symbol": "digest",
+          "line": 8
+        },
+        {
+          "symbol": "case_id",
+          "line": 12
+        },
+        {
+          "symbol": "subject_key",
+          "line": 18
+        },
+        {
+          "symbol": "resolved_key",
+          "line": 22
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/benchmark/materialization.py",
+      "symbols": [
+        {
+          "symbol": "CohortVariant",
+          "line": 39
+        },
+        {
+          "symbol": "AISource",
+          "line": 46
+        },
+        {
+          "symbol": "EvaluationAnchor",
+          "line": 52
+        },
+        {
+          "symbol": "MaterializedEvaluationCase",
+          "line": 58
+        },
+        {
+          "symbol": "calibration_feature_schema",
+          "line": 73
+        },
+        {
+          "symbol": "logical_subjects",
+          "line": 105
+        },
+        {
+          "symbol": "MaterializeEvaluationCase",
+          "line": 118
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/benchmark/models.py",
+      "symbols": [
+        {
+          "symbol": "Split",
+          "line": 18
+        },
+        {
+          "symbol": "Origin",
+          "line": 24
+        },
+        {
+          "symbol": "Label",
+          "line": 31
+        },
+        {
+          "symbol": "AnnotationStatus",
+          "line": 37
+        },
+        {
+          "symbol": "RuleFamily",
+          "line": 44
+        },
+        {
+          "symbol": "rule_family",
+          "line": 50
+        },
+        {
+          "symbol": "Task",
+          "line": 56
+        },
+        {
+          "symbol": "Mode",
+          "line": 71
+        },
+        {
+          "symbol": "Ablation",
+          "line": 78
+        },
+        {
+          "symbol": "relative_path",
+          "line": 88
+        },
+        {
+          "symbol": "Locator",
+          "line": 100
+        },
+        {
+          "symbol": "Subjects",
+          "line": 110
+        },
+        {
+          "symbol": "AnnotatedSubject",
+          "line": 126
+        },
+        {
+          "symbol": "AnnotationScope",
+          "line": 131
+        },
+        {
+          "symbol": "ReviewMetadata",
+          "line": 162
+        },
+        {
+          "symbol": "GroundTruthCase",
+          "line": 169
+        },
+        {
+          "symbol": "BenchmarkRepository",
+          "line": 195
+        },
+        {
+          "symbol": "BenchmarkDataset",
+          "line": 230
+        },
+        {
+          "symbol": "PredictionState",
+          "line": 242
+        },
+        {
+          "symbol": "BenchmarkPrediction",
+          "line": 249
+        },
+        {
+          "symbol": "PredictionArtifact",
+          "line": 273
+        },
+        {
+          "symbol": "Confusion",
+          "line": 280
+        },
+        {
+          "symbol": "Metrics",
+          "line": 295
+        },
+        {
+          "symbol": "EvaluationGroup",
+          "line": 305
+        },
+        {
+          "symbol": "BenchmarkRun",
+          "line": 311
+        },
+        {
+          "symbol": "HybridTrainingRecord",
+          "line": 333
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/benchmark/mutations.py",
+      "symbols": [
+        {
+          "symbol": "MutationLimits",
+          "line": 26
+        },
+        {
+          "symbol": "MutationConfig",
+          "line": 33
+        },
+        {
+          "symbol": "FileChange",
+          "line": 52
+        },
+        {
+          "symbol": "MutationResult",
+          "line": 58
+        },
+        {
+          "symbol": "MutationOperator",
+          "line": 74
+        },
+        {
+          "symbol": "file_hash",
+          "line": 83
+        },
+        {
+          "symbol": "source_fingerprint",
+          "line": 87
+        },
+        {
+          "symbol": "DependencyMutation",
+          "line": 97
+        },
+        {
+          "symbol": "MutationRegistry",
+          "line": 180
+        },
+        {
+          "symbol": "mutation_identity",
+          "line": 192
+        },
+        {
+          "symbol": "expected_truth",
+          "line": 209
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/benchmark/oss/__init__.py",
+      "symbols": []
+    },
+    {
+      "path": "src/archguard/benchmark/oss/annotation.py",
+      "symbols": [
+        {
+          "symbol": "SamplingSubject",
+          "line": 53
+        },
+        {
+          "symbol": "sample_subjects",
+          "line": 59
+        },
+        {
+          "symbol": "review_annotations",
+          "line": 125
+        },
+        {
+          "symbol": "annotation_scope",
+          "line": 191
+        },
+        {
+          "symbol": "agreement",
+          "line": 206
+        },
+        {
+          "symbol": "SamplingFrame",
+          "line": 229
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/benchmark/oss/models.py",
+      "symbols": [
+        {
+          "symbol": "_json_default",
+          "line": 18
+        },
+        {
+          "symbol": "canonical",
+          "line": 24
+        },
+        {
+          "symbol": "digest",
+          "line": 32
+        },
+        {
+          "symbol": "Sealed",
+          "line": 36
+        },
+        {
+          "symbol": "seal",
+          "line": 46
+        },
+        {
+          "symbol": "SamplingProtocol",
+          "line": 52
+        },
+        {
+          "symbol": "SelectionProtocol",
+          "line": 74
+        },
+        {
+          "symbol": "EvidenceReference",
+          "line": 107
+        },
+        {
+          "symbol": "TargetArchitectureProvenance",
+          "line": 123
+        },
+        {
+          "symbol": "OSSRepository",
+          "line": 142
+        },
+        {
+          "symbol": "OSSCorpus",
+          "line": 175
+        },
+        {
+          "symbol": "CorpusFreeze",
+          "line": 195
+        },
+        {
+          "symbol": "AcquisitionReceipt",
+          "line": 207
+        },
+        {
+          "symbol": "AnnotationPacket",
+          "line": 223
+        },
+        {
+          "symbol": "AnnotationSample",
+          "line": 260
+        },
+        {
+          "symbol": "HumanAnnotation",
+          "line": 279
+        },
+        {
+          "symbol": "Adjudication",
+          "line": 298
+        },
+        {
+          "symbol": "CaseReview",
+          "line": 307
+        },
+        {
+          "symbol": "AnnotationResult",
+          "line": 315
+        },
+        {
+          "symbol": "AnnotationFreeze",
+          "line": 324
+        },
+        {
+          "symbol": "SampleFreeze",
+          "line": 335
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/benchmark/oss/review.py",
+      "symbols": [
+        {
+          "symbol": "PinnedEvidence",
+          "line": 25
+        },
+        {
+          "symbol": "PacketRevision",
+          "line": 43
+        },
+        {
+          "symbol": "RevisionCatalog",
+          "line": 55
+        },
+        {
+          "symbol": "original_evidence",
+          "line": 61
+        },
+        {
+          "symbol": "validate_catalog",
+          "line": 78
+        },
+        {
+          "symbol": "HumanDecision",
+          "line": 121
+        },
+        {
+          "symbol": "ReviewInput",
+          "line": 138
+        },
+        {
+          "symbol": "AdjudicationInput",
+          "line": 143
+        },
+        {
+          "symbol": "ReviewEvent",
+          "line": 149
+        },
+        {
+          "symbol": "AdjudicationEvent",
+          "line": 153
+        },
+        {
+          "symbol": "ResolvedCase",
+          "line": 157
+        },
+        {
+          "symbol": "ReviewStore",
+          "line": 170
+        },
+        {
+          "symbol": "_decision_scope",
+          "line": 179
+        },
+        {
+          "symbol": "_replay",
+          "line": 208
+        },
+        {
+          "symbol": "append_reviews",
+          "line": 307
+        },
+        {
+          "symbol": "active_reviews",
+          "line": 342
+        },
+        {
+          "symbol": "Agreement",
+          "line": 349
+        },
+        {
+          "symbol": "paired_agreement",
+          "line": 358
+        },
+        {
+          "symbol": "ReviewCounts",
+          "line": 385
+        },
+        {
+          "symbol": "counts",
+          "line": 399
+        },
+        {
+          "symbol": "ReviewGroup",
+          "line": 417
+        },
+        {
+          "symbol": "AnnotationReviewReport",
+          "line": 423
+        },
+        {
+          "symbol": "review_report",
+          "line": 447
+        },
+        {
+          "symbol": "ReviewedFreeze",
+          "line": 517
+        },
+        {
+          "symbol": "freeze_reviews",
+          "line": 535
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/benchmark/prospective_materialization.py",
+      "symbols": [
+        {
+          "symbol": "ProspectiveMaterializeEvaluationCase",
+          "line": 9
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/benchmark/readiness.py",
+      "symbols": [
+        {
+          "symbol": "ReadinessStatus",
+          "line": 11
+        },
+        {
+          "symbol": "CalibrationReadinessReport",
+          "line": 16
+        },
+        {
+          "symbol": "status",
+          "line": 36
+        },
+        {
+          "symbol": "CalibrationReadinessValidator",
+          "line": 44
+        },
+        {
+          "symbol": "human_readiness",
+          "line": 205
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/benchmark/resolver.py",
+      "symbols": [
+        {
+          "symbol": "ResolutionStatus",
+          "line": 10
+        },
+        {
+          "symbol": "LocatorResolver",
+          "line": 16
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/benchmark/semantic_adjudication.py",
+      "symbols": [
+        {
+          "symbol": "SafeConflictCase",
+          "line": 14
+        },
+        {
+          "symbol": "SafeConflictIndex",
+          "line": 21
+        },
+        {
+          "symbol": "AdjudicatorPacket",
+          "line": 38
+        },
+        {
+          "symbol": "AdjudicatorBundle",
+          "line": 59
+        },
+        {
+          "symbol": "AdjudicatorSubmission",
+          "line": 77
+        },
+        {
+          "symbol": "validate_adjudication_response",
+          "line": 92
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/benchmark/semantic_agreement.py",
+      "symbols": [
+        {
+          "symbol": "CaseAlignment",
+          "line": 17
+        },
+        {
+          "symbol": "PairedDecision",
+          "line": 25
+        },
+        {
+          "symbol": "align_decisions",
+          "line": 30
+        },
+        {
+          "symbol": "agreement_statistics",
+          "line": 52
+        },
+        {
+          "symbol": "analyze_agreement",
+          "line": 100
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/benchmark/semantic_construction_diagnostic.py",
+      "symbols": [
+        {
+          "symbol": "ConstructionCase",
+          "line": 30
+        },
+        {
+          "symbol": "HumanCase",
+          "line": 39
+        },
+        {
+          "symbol": "sealed",
+          "line": 46
+        },
+        {
+          "symbol": "diagnostic_plan",
+          "line": 50
+        },
+        {
+          "symbol": "validate_design",
+          "line": 120
+        },
+        {
+          "symbol": "join_intent",
+          "line": 145
+        },
+        {
+          "symbol": "pair_category",
+          "line": 175
+        },
+        {
+          "symbol": "summarize",
+          "line": 183
+        },
+        {
+          "symbol": "aggregate_diagnostic",
+          "line": 244
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/benchmark/semantic_evaluation.py",
+      "symbols": [
+        {
+          "symbol": "ratio",
+          "line": 11
+        },
+        {
+          "symbol": "descriptive",
+          "line": 15
+        },
+        {
+          "symbol": "metrics",
+          "line": 27
+        },
+        {
+          "symbol": "evaluate",
+          "line": 72
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/benchmark/semantic_holdout.py",
+      "symbols": [
+        {
+          "symbol": "opaque_id",
+          "line": 22
+        },
+        {
+          "symbol": "Operator",
+          "line": 26
+        },
+        {
+          "symbol": "operators",
+          "line": 38
+        },
+        {
+          "symbol": "formula",
+          "line": 106
+        },
+        {
+          "symbol": "fixture_sources",
+          "line": 121
+        },
+        {
+          "symbol": "target_name",
+          "line": 235
+        },
+        {
+          "symbol": "SourceEvidence",
+          "line": 241
+        },
+        {
+          "symbol": "BlindedPacket",
+          "line": 256
+        },
+        {
+          "symbol": "CaseRecord",
+          "line": 274
+        },
+        {
+          "symbol": "HoldoutSample",
+          "line": 286
+        },
+        {
+          "symbol": "PrivatePair",
+          "line": 305
+        },
+        {
+          "symbol": "validate_pairs",
+          "line": 319
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/benchmark/semantic_positive_evaluation.py",
+      "symbols": [
+        {
+          "symbol": "ratio",
+          "line": 7
+        },
+        {
+          "symbol": "semantic_metrics",
+          "line": 11
+        },
+        {
+          "symbol": "usage_summary",
+          "line": 106
+        },
+        {
+          "symbol": "paired_comparison",
+          "line": 125
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/benchmark/semantic_positive_experiment.py",
+      "symbols": [
+        {
+          "symbol": "PositiveAssessment",
+          "line": 27
+        },
+        {
+          "symbol": "PositiveProtocol",
+          "line": 31
+        },
+        {
+          "symbol": "prompt_contract",
+          "line": 85
+        },
+        {
+          "symbol": "analysis_plan",
+          "line": 104
+        },
+        {
+          "symbol": "RequestRecord",
+          "line": 185
+        },
+        {
+          "symbol": "ordered_product",
+          "line": 203
+        },
+        {
+          "symbol": "token_estimate",
+          "line": 213
+        },
+        {
+          "symbol": "preflight_cost",
+          "line": 218
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/benchmark/semantic_preflight.py",
+      "symbols": [
+        {
+          "symbol": "SemanticAssessmentJudgment",
+          "line": 62
+        },
+        {
+          "symbol": "SemanticExperimentManifest",
+          "line": 79
+        },
+        {
+          "symbol": "experiment_manifest",
+          "line": 180
+        },
+        {
+          "symbol": "research_request",
+          "line": 216
+        },
+        {
+          "symbol": "RequestPreflight",
+          "line": 249
+        },
+        {
+          "symbol": "measure_request",
+          "line": 266
+        },
+        {
+          "symbol": "PricingAssumption",
+          "line": 302
+        },
+        {
+          "symbol": "cost_report",
+          "line": 342
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/benchmark/semantic_review.py",
+      "symbols": [
+        {
+          "symbol": "_ReviewBundle",
+          "line": 15
+        },
+        {
+          "symbol": "ReviewerABundle",
+          "line": 38
+        },
+        {
+          "symbol": "ReviewerBBundle",
+          "line": 42
+        },
+        {
+          "symbol": "EvidenceReference",
+          "line": 46
+        },
+        {
+          "symbol": "HumanResponse",
+          "line": 58
+        },
+        {
+          "symbol": "_HumanSubmission",
+          "line": 74
+        },
+        {
+          "symbol": "ReviewerASubmission",
+          "line": 91
+        },
+        {
+          "symbol": "ReviewerBSubmission",
+          "line": 95
+        },
+        {
+          "symbol": "validate_submission",
+          "line": 99
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/benchmark/splits.py",
+      "symbols": [
+        {
+          "symbol": "plan_splits",
+          "line": 6
+        },
+        {
+          "symbol": "validate_leakage",
+          "line": 19
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/benchmark/unified_hybrid.py",
+      "symbols": [
+        {
+          "symbol": "UnifiedAssessment",
+          "line": 67
+        },
+        {
+          "symbol": "family",
+          "line": 77
+        },
+        {
+          "symbol": "protocol",
+          "line": 83
+        },
+        {
+          "symbol": "hybrid_protocol",
+          "line": 155
+        },
+        {
+          "symbol": "grouped_split",
+          "line": 243
+        },
+        {
+          "symbol": "h0",
+          "line": 266
+        },
+        {
+          "symbol": "precedence",
+          "line": 279
+        },
+        {
+          "symbol": "metric_scores",
+          "line": 286
+        },
+        {
+          "symbol": "transform",
+          "line": 298
+        },
+        {
+          "symbol": "predict",
+          "line": 311
+        },
+        {
+          "symbol": "select_candidate",
+          "line": 330
+        },
+        {
+          "symbol": "costs",
+          "line": 343
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/benchmark_cli.py",
+      "symbols": [
+        {
+          "symbol": "benchmark_arguments",
+          "line": 30
+        },
+        {
+          "symbol": "execute_benchmark",
+          "line": 62
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/calibration/__init__.py",
+      "symbols": []
+    },
+    {
+      "path": "src/archguard/calibration/hybrid_development.py",
+      "symbols": [
+        {
+          "symbol": "validate_rows",
+          "line": 19
+        },
+        {
+          "symbol": "development_contract",
+          "line": 55
+        },
+        {
+          "symbol": "fitted_candidates",
+          "line": 83
+        },
+        {
+          "symbol": "prediction",
+          "line": 147
+        },
+        {
+          "symbol": "component_prediction",
+          "line": 157
+        },
+        {
+          "symbol": "metrics",
+          "line": 161
+        },
+        {
+          "symbol": "views",
+          "line": 196
+        },
+        {
+          "symbol": "validation_selection",
+          "line": 224
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/calibration/models.py",
+      "symbols": [
+        {
+          "symbol": "ExperimentManifest",
+          "line": 22
+        },
+        {
+          "symbol": "StructuralV2ExperimentManifest",
+          "line": 71
+        },
+        {
+          "symbol": "PrimaryCohort",
+          "line": 111
+        },
+        {
+          "symbol": "TrainingRunResult",
+          "line": 122
+        },
+        {
+          "symbol": "CandidateValidation",
+          "line": 158
+        },
+        {
+          "symbol": "ModelSelectionReport",
+          "line": 165
+        },
+        {
+          "symbol": "HeldoutEvaluationResult",
+          "line": 194
+        },
+        {
+          "symbol": "DirectGraphBaselineResult",
+          "line": 208
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/calibration/numeric.py",
+      "symbols": [
+        {
+          "symbol": "solve",
+          "line": 8
+        },
+        {
+          "symbol": "fit_coefficients",
+          "line": 28
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/calibration/unified.py",
+      "symbols": [
+        {
+          "symbol": "fit_candidate",
+          "line": 16
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/calibration/workflow.py",
+      "symbols": [
+        {
+          "symbol": "seal",
+          "line": 42
+        },
+        {
+          "symbol": "primary_cohort",
+          "line": 52
+        },
+        {
+          "symbol": "ordered_dump",
+          "line": 107
+        },
+        {
+          "symbol": "assert_split_allowed",
+          "line": 111
+        },
+        {
+          "symbol": "assert_evaluation_allowed",
+          "line": 119
+        },
+        {
+          "symbol": "values",
+          "line": 127
+        },
+        {
+          "symbol": "family_weights",
+          "line": 133
+        },
+        {
+          "symbol": "fit_preprocessor",
+          "line": 140
+        },
+        {
+          "symbol": "train_models",
+          "line": 185
+        },
+        {
+          "symbol": "metric_values",
+          "line": 245
+        },
+        {
+          "symbol": "measure",
+          "line": 259
+        },
+        {
+          "symbol": "scores",
+          "line": 292
+        },
+        {
+          "symbol": "threshold_candidates",
+          "line": 303
+        },
+        {
+          "symbol": "rank",
+          "line": 322
+        },
+        {
+          "symbol": "select_model",
+          "line": 334
+        },
+        {
+          "symbol": "freeze",
+          "line": 370
+        },
+        {
+          "symbol": "evaluate_frozen",
+          "line": 410
+        },
+        {
+          "symbol": "direct_graph_baseline",
+          "line": 441
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/calibration_cli.py",
+      "symbols": [
+        {
+          "symbol": "calibration_arguments",
+          "line": 34
+        },
+        {
+          "symbol": "execute_calibration",
+          "line": 58
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/cli.py",
+      "symbols": [
+        {
+          "symbol": "_repository_arguments",
+          "line": 64
+        },
+        {
+          "symbol": "_parser",
+          "line": 82
+        },
+        {
+          "symbol": "_print_summary",
+          "line": 145
+        },
+        {
+          "symbol": "_print_parse_summary",
+          "line": 160
+        },
+        {
+          "symbol": "_print_iam_summary",
+          "line": 180
+        },
+        {
+          "symbol": "_print_spec_summary",
+          "line": 209
+        },
+        {
+          "symbol": "_print_conformance_summary",
+          "line": 218
+        },
+        {
+          "symbol": "_serialize_architecture",
+          "line": 241
+        },
+        {
+          "symbol": "_graph_config",
+          "line": 256
+        },
+        {
+          "symbol": "_print_graph_summary",
+          "line": 270
+        },
+        {
+          "symbol": "_print_discovery_summary",
+          "line": 297
+        },
+        {
+          "symbol": "main",
+          "line": 329
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/core/__init__.py",
+      "symbols": []
+    },
+    {
+      "path": "src/archguard/core/evidence/__init__.py",
+      "symbols": [
+        {
+          "symbol": "EvidenceType",
+          "line": 13
+        },
+        {
+          "symbol": "Evidence",
+          "line": 38
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/core/findings/__init__.py",
+      "symbols": []
+    },
+    {
+      "path": "src/archguard/core/findings/confidence.py",
+      "symbols": [
+        {
+          "symbol": "CalibrationStatus",
+          "line": 10
+        },
+        {
+          "symbol": "Confidence",
+          "line": 15
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/core/findings/detector.py",
+      "symbols": [
+        {
+          "symbol": "Detector",
+          "line": 6
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/core/findings/enums.py",
+      "symbols": [
+        {
+          "symbol": "FindingNamespace",
+          "line": 4
+        },
+        {
+          "symbol": "Severity",
+          "line": 9
+        },
+        {
+          "symbol": "DetectorSource",
+          "line": 17
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/core/findings/model.py",
+      "symbols": [
+        {
+          "symbol": "Finding",
+          "line": 19
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/core/identifiers/__init__.py",
+      "symbols": [
+        {
+          "symbol": "_stable_uuid",
+          "line": 19
+        },
+        {
+          "symbol": "stable_node_id",
+          "line": 25
+        },
+        {
+          "symbol": "stable_edge_id",
+          "line": 30
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/core/locations/__init__.py",
+      "symbols": [
+        {
+          "symbol": "SourceLocation",
+          "line": 11
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/core/model/__init__.py",
+      "symbols": []
+    },
+    {
+      "path": "src/archguard/core/model/base.py",
+      "symbols": [
+        {
+          "symbol": "DomainModel",
+          "line": 6
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/core/model/entities.py",
+      "symbols": [
+        {
+          "symbol": "Project",
+          "line": 10
+        },
+        {
+          "symbol": "Module",
+          "line": 16
+        },
+        {
+          "symbol": "Package",
+          "line": 23
+        },
+        {
+          "symbol": "SourceFile",
+          "line": 31
+        },
+        {
+          "symbol": "Symbol",
+          "line": 40
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/core/model/enums.py",
+      "symbols": [
+        {
+          "symbol": "Language",
+          "line": 4
+        },
+        {
+          "symbol": "NodeKind",
+          "line": 12
+        },
+        {
+          "symbol": "EdgeKind",
+          "line": 31
+        },
+        {
+          "symbol": "GraphProjection",
+          "line": 47
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/core/model/types.py",
+      "symbols": [
+        {
+          "symbol": "_nonblank",
+          "line": 7
+        },
+        {
+          "symbol": "_repository_path",
+          "line": 13
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/core/traces/__init__.py",
+      "symbols": [
+        {
+          "symbol": "TraceStep",
+          "line": 12
+        },
+        {
+          "symbol": "Trace",
+          "line": 22
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/experiments/__init__.py",
+      "symbols": []
+    },
+    {
+      "path": "src/archguard/experiments/contracts.py",
+      "symbols": [
+        {
+          "symbol": "ModelConfiguration",
+          "line": 10
+        },
+        {
+          "symbol": "ParserVersion",
+          "line": 16
+        },
+        {
+          "symbol": "ReproducibilityManifest",
+          "line": 21
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/extraction/__init__.py",
+      "symbols": []
+    },
+    {
+      "path": "src/archguard/extraction/collector.py",
+      "symbols": [
+        {
+          "symbol": "FactCollector",
+          "line": 24
+        },
+        {
+          "symbol": "collect_shadow_names",
+          "line": 234
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/extraction/common.py",
+      "symbols": [
+        {
+          "symbol": "walk",
+          "line": 9
+        },
+        {
+          "symbol": "child",
+          "line": 23
+        },
+        {
+          "symbol": "text",
+          "line": 27
+        },
+        {
+          "symbol": "dotted_name",
+          "line": 34
+        },
+        {
+          "symbol": "location",
+          "line": 41
+        },
+        {
+          "symbol": "type_signature",
+          "line": 66
+        },
+        {
+          "symbol": "module_literal",
+          "line": 93
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/extraction/config.py",
+      "symbols": [
+        {
+          "symbol": "ExtractionConfig",
+          "line": 6
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/extraction/ecmascript/__init__.py",
+      "symbols": []
+    },
+    {
+      "path": "src/archguard/extraction/ecmascript/extractor.py",
+      "symbols": [
+        {
+          "symbol": "_parameters",
+          "line": 37
+        },
+        {
+          "symbol": "_flags",
+          "line": 60
+        },
+        {
+          "symbol": "_decorators",
+          "line": 92
+        },
+        {
+          "symbol": "ECMAScriptExtractor",
+          "line": 112
+        },
+        {
+          "symbol": "TypeScriptExtractor",
+          "line": 583
+        },
+        {
+          "symbol": "JavaScriptExtractor",
+          "line": 588
+        },
+        {
+          "symbol": "TSXExtractor",
+          "line": 593
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/extraction/enums.py",
+      "symbols": [
+        {
+          "symbol": "ReferenceKind",
+          "line": 4
+        },
+        {
+          "symbol": "ImportKind",
+          "line": 13
+        },
+        {
+          "symbol": "Visibility",
+          "line": 22
+        },
+        {
+          "symbol": "ResolutionStatus",
+          "line": 29
+        },
+        {
+          "symbol": "ResolutionMethod",
+          "line": 36
+        },
+        {
+          "symbol": "ExtractionDiagnosticCode",
+          "line": 48
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/extraction/errors.py",
+      "symbols": [
+        {
+          "symbol": "ExtractionError",
+          "line": 1
+        },
+        {
+          "symbol": "DuplicateExtractorError",
+          "line": 5
+        },
+        {
+          "symbol": "UnsupportedExtractorError",
+          "line": 9
+        },
+        {
+          "symbol": "ExtractionLimitError",
+          "line": 13
+        },
+        {
+          "symbol": "IAMValidationError",
+          "line": 17
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/extraction/factory.py",
+      "symbols": [
+        {
+          "symbol": "create_extractor_registry",
+          "line": 10
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/extraction/identity.py",
+      "symbols": [
+        {
+          "symbol": "canonical_identity",
+          "line": 8
+        },
+        {
+          "symbol": "declaration_key",
+          "line": 12
+        },
+        {
+          "symbol": "project_id",
+          "line": 20
+        },
+        {
+          "symbol": "entity_id",
+          "line": 24
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/extraction/java/__init__.py",
+      "symbols": []
+    },
+    {
+      "path": "src/archguard/extraction/java/extractor.py",
+      "symbols": [
+        {
+          "symbol": "_modifiers",
+          "line": 26
+        },
+        {
+          "symbol": "_parameters",
+          "line": 49
+        },
+        {
+          "symbol": "_heritage_types",
+          "line": 75
+        },
+        {
+          "symbol": "_base_type",
+          "line": 81
+        },
+        {
+          "symbol": "_type_parameters",
+          "line": 89
+        },
+        {
+          "symbol": "JavaExtractor",
+          "line": 105
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/extraction/models.py",
+      "symbols": [
+        {
+          "symbol": "ExtractorMetadata",
+          "line": 37
+        },
+        {
+          "symbol": "ExtractionDiagnostic",
+          "line": 43
+        },
+        {
+          "symbol": "ExtractedParameter",
+          "line": 50
+        },
+        {
+          "symbol": "ExtractedDeclaration",
+          "line": 57
+        },
+        {
+          "symbol": "ExtractedImport",
+          "line": 82
+        },
+        {
+          "symbol": "ExtractedExport",
+          "line": 92
+        },
+        {
+          "symbol": "SymbolReference",
+          "line": 100
+        },
+        {
+          "symbol": "ExtractedFileFacts",
+          "line": 116
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/extraction/protocols.py",
+      "symbols": [
+        {
+          "symbol": "LanguageExtractor",
+          "line": 9
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/extraction/registry.py",
+      "symbols": [
+        {
+          "symbol": "ExtractorRegistry",
+          "line": 8
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/extraction/resolution/__init__.py",
+      "symbols": []
+    },
+    {
+      "path": "src/archguard/extraction/resolution/index.py",
+      "symbols": [
+        {
+          "symbol": "IndexedSymbol",
+          "line": 11
+        },
+        {
+          "symbol": "SymbolIndex",
+          "line": 16
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/extraction/resolution/models.py",
+      "symbols": [
+        {
+          "symbol": "ExternalDependency",
+          "line": 11
+        },
+        {
+          "symbol": "ResolutionResult",
+          "line": 20
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/extraction/resolution/resolver.py",
+      "symbols": [
+        {
+          "symbol": "SymbolResolver",
+          "line": 14
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/hybrid_cli.py",
+      "symbols": [
+        {
+          "symbol": "hybrid_arguments",
+          "line": 30
+        },
+        {
+          "symbol": "human_summary",
+          "line": 41
+        },
+        {
+          "symbol": "execute_hybrid",
+          "line": 67
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/iam/__init__.py",
+      "symbols": []
+    },
+    {
+      "path": "src/archguard/iam/edges.py",
+      "symbols": [
+        {
+          "symbol": "ArchitectureEdge",
+          "line": 12
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/iam/model.py",
+      "symbols": [
+        {
+          "symbol": "ArchitectureModel",
+          "line": 15
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/iam/nodes.py",
+      "symbols": [
+        {
+          "symbol": "ArchitectureNode",
+          "line": 10
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/iam_building/__init__.py",
+      "symbols": []
+    },
+    {
+      "path": "src/archguard/iam_building/builder.py",
+      "symbols": [
+        {
+          "symbol": "IAMBuilder",
+          "line": 42
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/iam_building/models.py",
+      "symbols": [
+        {
+          "symbol": "IAMBuildStatistics",
+          "line": 18
+        },
+        {
+          "symbol": "IAMBuildResult",
+          "line": 57
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/iam_building/serialization.py",
+      "symbols": [
+        {
+          "symbol": "serialize_iam",
+          "line": 7
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/iam_building/validation.py",
+      "symbols": [
+        {
+          "symbol": "validate_built_iam",
+          "line": 10
+        },
+        {
+          "symbol": "_validate_structure",
+          "line": 18
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/__init__.py",
+      "symbols": []
+    },
+    {
+      "path": "src/archguard/infrastructure/ai_configuration.py",
+      "symbols": [
+        {
+          "symbol": "AIConfigurationError",
+          "line": 7
+        },
+        {
+          "symbol": "load_ai_configuration",
+          "line": 11
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/architecture_specification.py",
+      "symbols": [
+        {
+          "symbol": "load_architecture_file",
+          "line": 8
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/benchmark.py",
+      "symbols": [
+        {
+          "symbol": "BenchmarkLimits",
+          "line": 46
+        },
+        {
+          "symbol": "BenchmarkError",
+          "line": 58
+        },
+        {
+          "symbol": "UniqueLoader",
+          "line": 62
+        },
+        {
+          "symbol": "_mapping",
+          "line": 66
+        },
+        {
+          "symbol": "read_manifest",
+          "line": 79
+        },
+        {
+          "symbol": "safe_path",
+          "line": 103
+        },
+        {
+          "symbol": "source_files",
+          "line": 114
+        },
+        {
+          "symbol": "LoadedBenchmark",
+          "line": 140
+        },
+        {
+          "symbol": "load_dataset",
+          "line": 148
+        },
+        {
+          "symbol": "building",
+          "line": 275
+        },
+        {
+          "symbol": "build_source",
+          "line": 283
+        },
+        {
+          "symbol": "prepared",
+          "line": 290
+        },
+        {
+          "symbol": "validate_dataset",
+          "line": 314
+        },
+        {
+          "symbol": "generate_mutation",
+          "line": 389
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/calibration.py",
+      "symbols": [
+        {
+          "symbol": "load_experiment",
+          "line": 21
+        },
+        {
+          "symbol": "load_primary",
+          "line": 25
+        },
+        {
+          "symbol": "load_policy",
+          "line": 44
+        },
+        {
+          "symbol": "save_new",
+          "line": 48
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/calibration_cohort.py",
+      "symbols": [
+        {
+          "symbol": "extract_cohort",
+          "line": 19
+        },
+        {
+          "symbol": "export_cohort",
+          "line": 100
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/component_holdout.py",
+      "symbols": [
+        {
+          "symbol": "offline",
+          "line": 83
+        },
+        {
+          "symbol": "read",
+          "line": 94
+        },
+        {
+          "symbol": "sha",
+          "line": 101
+        },
+        {
+          "symbol": "event",
+          "line": 105
+        },
+        {
+          "symbol": "chronology",
+          "line": 124
+        },
+        {
+          "symbol": "_v2_capability",
+          "line": 157
+        },
+        {
+          "symbol": "capability",
+          "line": 223
+        },
+        {
+          "symbol": "lineage",
+          "line": 242
+        },
+        {
+          "symbol": "old_guards",
+          "line": 267
+        },
+        {
+          "symbol": "prepare_plan",
+          "line": 292
+        },
+        {
+          "symbol": "public_privacy",
+          "line": 330
+        },
+        {
+          "symbol": "blind_manifest",
+          "line": 346
+        },
+        {
+          "symbol": "build",
+          "line": 355
+        },
+        {
+          "symbol": "normalized",
+          "line": 386
+        },
+        {
+          "symbol": "native_validation",
+          "line": 404
+        },
+        {
+          "symbol": "construct",
+          "line": 442
+        },
+        {
+          "symbol": "verify_holdout",
+          "line": 588
+        },
+        {
+          "symbol": "worker",
+          "line": 635
+        },
+        {
+          "symbol": "run_components",
+          "line": 736
+        },
+        {
+          "symbol": "semantic_evidence",
+          "line": 770
+        },
+        {
+          "symbol": "run_evidence",
+          "line": 852
+        },
+        {
+          "symbol": "evaluate",
+          "line": 881
+        },
+        {
+          "symbol": "registry",
+          "line": 986
+        },
+        {
+          "symbol": "verify_results",
+          "line": 1013
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/database/__init__.py",
+      "symbols": []
+    },
+    {
+      "path": "src/archguard/infrastructure/database/base.py",
+      "symbols": [
+        {
+          "symbol": "Base",
+          "line": 5
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/database/session.py",
+      "symbols": [
+        {
+          "symbol": "Database",
+          "line": 9
+        },
+        {
+          "symbol": "create_database",
+          "line": 23
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/development_llm_executor.py",
+      "symbols": [
+        {
+          "symbol": "audit_payload",
+          "line": 74
+        },
+        {
+          "symbol": "audit_hook",
+          "line": 117
+        },
+        {
+          "symbol": "executor_scope",
+          "line": 159
+        },
+        {
+          "symbol": "protocol",
+          "line": 173
+        },
+        {
+          "symbol": "costs",
+          "line": 220
+        },
+        {
+          "symbol": "visible_tokens",
+          "line": 258
+        },
+        {
+          "symbol": "load_bundle",
+          "line": 266
+        },
+        {
+          "symbol": "Outcome",
+          "line": 345
+        },
+        {
+          "symbol": "approval_check",
+          "line": 360
+        },
+        {
+          "symbol": "prepare_ledger",
+          "line": 393
+        },
+        {
+          "symbol": "ledger_state",
+          "line": 411
+        },
+        {
+          "symbol": "store_outcome",
+          "line": 510
+        },
+        {
+          "symbol": "execute",
+          "line": 592
+        },
+        {
+          "symbol": "operational",
+          "line": 721
+        },
+        {
+          "symbol": "OpenAITransport",
+          "line": 760
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/development_llm_preflight.py",
+      "symbols": [
+        {
+          "symbol": "freeze",
+          "line": 48
+        },
+        {
+          "symbol": "human_gate",
+          "line": 57
+        },
+        {
+          "symbol": "scientific_gate",
+          "line": 122
+        },
+        {
+          "symbol": "prepare",
+          "line": 330
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/discovery_configuration.py",
+      "symbols": [
+        {
+          "symbol": "DiscoveryConfigurationError",
+          "line": 9
+        },
+        {
+          "symbol": "load_discovery_configuration",
+          "line": 13
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/final_evaluation.py",
+      "symbols": [
+        {
+          "symbol": "git_gate",
+          "line": 67
+        },
+        {
+          "symbol": "inventory",
+          "line": 106
+        },
+        {
+          "symbol": "freeze_directory",
+          "line": 110
+        },
+        {
+          "symbol": "verify_directory",
+          "line": 122
+        },
+        {
+          "symbol": "models",
+          "line": 132
+        },
+        {
+          "symbol": "verify_acquisition",
+          "line": 136
+        },
+        {
+          "symbol": "prepare",
+          "line": 180
+        },
+        {
+          "symbol": "model_immutability",
+          "line": 314
+        },
+        {
+          "symbol": "blind_matrix",
+          "line": 327
+        },
+        {
+          "symbol": "prediction_row",
+          "line": 358
+        },
+        {
+          "symbol": "predict",
+          "line": 381
+        },
+        {
+          "symbol": "prediction_gate",
+          "line": 461
+        },
+        {
+          "symbol": "open_truth",
+          "line": 481
+        },
+        {
+          "symbol": "join_predictions",
+          "line": 566
+        },
+        {
+          "symbol": "prior_evidence",
+          "line": 595
+        },
+        {
+          "symbol": "rq_summary",
+          "line": 673
+        },
+        {
+          "symbol": "evaluate",
+          "line": 818
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/final_llm_completion.py",
+      "symbols": [
+        {
+          "symbol": "git_gate",
+          "line": 57
+        },
+        {
+          "symbol": "verify_snapshot",
+          "line": 83
+        },
+        {
+          "symbol": "usage_records",
+          "line": 95
+        },
+        {
+          "symbol": "history",
+          "line": 160
+        },
+        {
+          "symbol": "prepare",
+          "line": 256
+        },
+        {
+          "symbol": "approval_bindings",
+          "line": 379
+        },
+        {
+          "symbol": "load",
+          "line": 420
+        },
+        {
+          "symbol": "initialize",
+          "line": 487
+        },
+        {
+          "symbol": "segment_state",
+          "line": 504
+        },
+        {
+          "symbol": "guard_request",
+          "line": 529
+        },
+        {
+          "symbol": "operational",
+          "line": 546
+        },
+        {
+          "symbol": "durable_intent",
+          "line": 561
+        },
+        {
+          "symbol": "execute",
+          "line": 573
+        },
+        {
+          "symbol": "composite_rows",
+          "line": 698
+        },
+        {
+          "symbol": "readiness",
+          "line": 744
+        },
+        {
+          "symbol": "freeze",
+          "line": 761
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/final_llm_continuation.py",
+      "symbols": [
+        {
+          "symbol": "audit_hook",
+          "line": 45
+        },
+        {
+          "symbol": "scope",
+          "line": 76
+        },
+        {
+          "symbol": "git_gate",
+          "line": 103
+        },
+        {
+          "symbol": "history",
+          "line": 140
+        },
+        {
+          "symbol": "prepare",
+          "line": 195
+        },
+        {
+          "symbol": "approval_bindings",
+          "line": 290
+        },
+        {
+          "symbol": "load",
+          "line": 321
+        },
+        {
+          "symbol": "segment_state",
+          "line": 377
+        },
+        {
+          "symbol": "guard_request",
+          "line": 398
+        },
+        {
+          "symbol": "operational",
+          "line": 414
+        },
+        {
+          "symbol": "initialize",
+          "line": 430
+        },
+        {
+          "symbol": "execute",
+          "line": 447
+        },
+        {
+          "symbol": "composite_rows",
+          "line": 568
+        },
+        {
+          "symbol": "freeze",
+          "line": 627
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/final_llm_executor.py",
+      "symbols": [
+        {
+          "symbol": "costs",
+          "line": 51
+        },
+        {
+          "symbol": "protocol",
+          "line": 61
+        },
+        {
+          "symbol": "audit_payload",
+          "line": 72
+        },
+        {
+          "symbol": "final_scope",
+          "line": 116
+        },
+        {
+          "symbol": "approval_bindings",
+          "line": 129
+        },
+        {
+          "symbol": "approval_check",
+          "line": 154
+        },
+        {
+          "symbol": "prepare_ledger",
+          "line": 182
+        },
+        {
+          "symbol": "ledger_state",
+          "line": 197
+        },
+        {
+          "symbol": "operational",
+          "line": 206
+        },
+        {
+          "symbol": "load_bundle",
+          "line": 212
+        },
+        {
+          "symbol": "execute",
+          "line": 314
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/final_llm_preflight.py",
+      "symbols": [
+        {
+          "symbol": "prep_hook",
+          "line": 66
+        },
+        {
+          "symbol": "offline_scope",
+          "line": 114
+        },
+        {
+          "symbol": "seal",
+          "line": 133
+        },
+        {
+          "symbol": "git_gate",
+          "line": 142
+        },
+        {
+          "symbol": "model_gate",
+          "line": 160
+        },
+        {
+          "symbol": "source_gate",
+          "line": 217
+        },
+        {
+          "symbol": "prepare",
+          "line": 349
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/graph_configuration.py",
+      "symbols": [
+        {
+          "symbol": "GraphConfigurationError",
+          "line": 9
+        },
+        {
+          "symbol": "load_graph_configuration",
+          "line": 13
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/hybrid_configuration.py",
+      "symbols": [
+        {
+          "symbol": "HybridConfigurationError",
+          "line": 8
+        },
+        {
+          "symbol": "_unique",
+          "line": 12
+        },
+        {
+          "symbol": "_source_free",
+          "line": 18
+        },
+        {
+          "symbol": "_read",
+          "line": 41
+        },
+        {
+          "symbol": "load_hybrid_configuration",
+          "line": 54
+        },
+        {
+          "symbol": "load_hybrid_ai_result",
+          "line": 63
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/hybrid_development.py",
+      "symbols": [
+        {
+          "symbol": "audit_hook",
+          "line": 73
+        },
+        {
+          "symbol": "enable_offline",
+          "line": 118
+        },
+        {
+          "symbol": "training_scope",
+          "line": 127
+        },
+        {
+          "symbol": "seal",
+          "line": 138
+        },
+        {
+          "symbol": "git_gate",
+          "line": 147
+        },
+        {
+          "symbol": "protocol_gate",
+          "line": 169
+        },
+        {
+          "symbol": "prepare",
+          "line": 197
+        },
+        {
+          "symbol": "matrix",
+          "line": 469
+        },
+        {
+          "symbol": "labeled_predictions",
+          "line": 479
+        },
+        {
+          "symbol": "fit_runs",
+          "line": 499
+        },
+        {
+          "symbol": "verify_implementation",
+          "line": 833
+        },
+        {
+          "symbol": "verify_outputs",
+          "line": 880
+        },
+        {
+          "symbol": "execute",
+          "line": 922
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/llm_provider.py",
+      "symbols": [
+        {
+          "symbol": "AIProviderSettings",
+          "line": 20
+        },
+        {
+          "symbol": "_NoRedirect",
+          "line": 29
+        },
+        {
+          "symbol": "_post",
+          "line": 36
+        },
+        {
+          "symbol": "OpenAIResponsesProvider",
+          "line": 69
+        },
+        {
+          "symbol": "create_llm_provider",
+          "line": 146
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/logging.py",
+      "symbols": [
+        {
+          "symbol": "JsonFormatter",
+          "line": 9
+        },
+        {
+          "symbol": "configure_logging",
+          "line": 22
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/oss_annotation.py",
+      "symbols": [
+        {
+          "symbol": "frame_subjects",
+          "line": 39
+        },
+        {
+          "symbol": "validate_sample",
+          "line": 171
+        },
+        {
+          "symbol": "export_annotations",
+          "line": 218
+        },
+        {
+          "symbol": "import_annotations",
+          "line": 284
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/oss_assistance.py",
+      "symbols": [
+        {
+          "symbol": "EvidenceCandidate",
+          "line": 98
+        },
+        {
+          "symbol": "ContextRequest",
+          "line": 106
+        },
+        {
+          "symbol": "AssistanceCase",
+          "line": 112
+        },
+        {
+          "symbol": "AssistancePackage",
+          "line": 135
+        },
+        {
+          "symbol": "SourceFact",
+          "line": 145
+        },
+        {
+          "symbol": "masked_source",
+          "line": 156
+        },
+        {
+          "symbol": "_facts",
+          "line": 166
+        },
+        {
+          "symbol": "_spread",
+          "line": 192
+        },
+        {
+          "symbol": "_documentation_line",
+          "line": 198
+        },
+        {
+          "symbol": "_candidate",
+          "line": 209
+        },
+        {
+          "symbol": "_ranges",
+          "line": 224
+        },
+        {
+          "symbol": "build_assistance",
+          "line": 250
+        },
+        {
+          "symbol": "render_case",
+          "line": 462
+        },
+        {
+          "symbol": "publish_assistance",
+          "line": 521
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/oss_assistance_b.py",
+      "symbols": [
+        {
+          "symbol": "ContextSufficiency",
+          "line": 23
+        },
+        {
+          "symbol": "ReviewerBAssistance",
+          "line": 28
+        },
+        {
+          "symbol": "BAssistanceFreeze",
+          "line": 45
+        },
+        {
+          "symbol": "build_b_assistance",
+          "line": 57
+        },
+        {
+          "symbol": "publish_b_assistance",
+          "line": 91
+        },
+        {
+          "symbol": "verify_b_freeze",
+          "line": 114
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/oss_benchmark.py",
+      "symbols": [
+        {
+          "symbol": "FrozenOSSCorpus",
+          "line": 43
+        },
+        {
+          "symbol": "load_corpus",
+          "line": 53
+        },
+        {
+          "symbol": "write_new",
+          "line": 79
+        },
+        {
+          "symbol": "cache_root",
+          "line": 84
+        },
+        {
+          "symbol": "source_path",
+          "line": 100
+        },
+        {
+          "symbol": "content_identity",
+          "line": 110
+        },
+        {
+          "symbol": "snapshot",
+          "line": 132
+        },
+        {
+          "symbol": "verify_acquisition",
+          "line": 139
+        },
+        {
+          "symbol": "fetch_repository",
+          "line": 161
+        },
+        {
+          "symbol": "characterize_repository",
+          "line": 300
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/oss_context_comparison.py",
+      "symbols": [
+        {
+          "symbol": "ContextPair",
+          "line": 15
+        },
+        {
+          "symbol": "ContextConsensus",
+          "line": 23
+        },
+        {
+          "symbol": "compare_context",
+          "line": 36
+        },
+        {
+          "symbol": "publish_context_comparison",
+          "line": 103
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/oss_final_context.py",
+      "symbols": [
+        {
+          "symbol": "RevisionMapping",
+          "line": 43
+        },
+        {
+          "symbol": "FinalContextFreeze",
+          "line": 52
+        },
+        {
+          "symbol": "CaseContextAudit",
+          "line": 64
+        },
+        {
+          "symbol": "FinalContextAudit",
+          "line": 79
+        },
+        {
+          "symbol": "HumanReviewReady",
+          "line": 87
+        },
+        {
+          "symbol": "freeze_context",
+          "line": 112
+        },
+        {
+          "symbol": "_body_visible",
+          "line": 212
+        },
+        {
+          "symbol": "audit_context",
+          "line": 230
+        },
+        {
+          "symbol": "prepare_final_context",
+          "line": 339
+        },
+        {
+          "symbol": "verify_ready",
+          "line": 395
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/oss_review.py",
+      "symbols": [
+        {
+          "symbol": "initial_catalog",
+          "line": 116
+        },
+        {
+          "symbol": "verify_evidence",
+          "line": 137
+        },
+        {
+          "symbol": "validate_context",
+          "line": 163
+        },
+        {
+          "symbol": "atomic_directory",
+          "line": 176
+        },
+        {
+          "symbol": "blank_decision",
+          "line": 189
+        },
+        {
+          "symbol": "render_packet",
+          "line": 202
+        },
+        {
+          "symbol": "prepare_bundles",
+          "line": 265
+        },
+        {
+          "symbol": "supplement_context",
+          "line": 346
+        },
+        {
+          "symbol": "import_review_batch",
+          "line": 398
+        },
+        {
+          "symbol": "publish_store",
+          "line": 429
+        },
+        {
+          "symbol": "export_adjudication",
+          "line": 454
+        },
+        {
+          "symbol": "publish_freeze",
+          "line": 510
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/oss_review_wizard.py",
+      "symbols": [
+        {
+          "symbol": "ReviewDraft",
+          "line": 20
+        },
+        {
+          "symbol": "bundle_fingerprint",
+          "line": 29
+        },
+        {
+          "symbol": "_validate_draft",
+          "line": 57
+        },
+        {
+          "symbol": "load_draft",
+          "line": 90
+        },
+        {
+          "symbol": "_save",
+          "line": 107
+        },
+        {
+          "symbol": "_human_row",
+          "line": 120
+        },
+        {
+          "symbol": "wizard",
+          "line": 181
+        },
+        {
+          "symbol": "export_draft",
+          "line": 218
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/repository/__init__.py",
+      "symbols": []
+    },
+    {
+      "path": "src/archguard/infrastructure/repository/classification.py",
+      "symbols": [
+        {
+          "symbol": "Classification",
+          "line": 65
+        },
+        {
+          "symbol": "classify",
+          "line": 73
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/repository/discovery.py",
+      "symbols": [
+        {
+          "symbol": "collect_entries",
+          "line": 32
+        },
+        {
+          "symbol": "describe_file",
+          "line": 74
+        },
+        {
+          "symbol": "source_roots",
+          "line": 123
+        },
+        {
+          "symbol": "build_snapshot",
+          "line": 149
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/repository/exclusions.py",
+      "symbols": [
+        {
+          "symbol": "IgnoreScope",
+          "line": 12
+        },
+        {
+          "symbol": "load_ignore_scope",
+          "line": 17
+        },
+        {
+          "symbol": "Exclusions",
+          "line": 28
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/repository/factory.py",
+      "symbols": [
+        {
+          "symbol": "create_discovery",
+          "line": 9
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/repository/filesystem.py",
+      "symbols": [
+        {
+          "symbol": "stat_identity",
+          "line": 20
+        },
+        {
+          "symbol": "Entry",
+          "line": 25
+        },
+        {
+          "symbol": "SafeRoot",
+          "line": 30
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/repository/git_runner.py",
+      "symbols": [
+        {
+          "symbol": "GitRunner",
+          "line": 12
+        },
+        {
+          "symbol": "GitCommandFailure",
+          "line": 16
+        },
+        {
+          "symbol": "SubprocessGitRunner",
+          "line": 22
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/repository/git_source.py",
+      "symbols": [
+        {
+          "symbol": "validate_public_url",
+          "line": 18
+        },
+        {
+          "symbol": "GitRepositorySource",
+          "line": 42
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/repository/local.py",
+      "symbols": [
+        {
+          "symbol": "LocalDirectorySource",
+          "line": 17
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/repository/workspace.py",
+      "symbols": [
+        {
+          "symbol": "MaterializedRepository",
+          "line": 19
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/repository/zip_source.py",
+      "symbols": [
+        {
+          "symbol": "safe_archive_path",
+          "line": 25
+        },
+        {
+          "symbol": "validate_archive",
+          "line": 40
+        },
+        {
+          "symbol": "extract_archive",
+          "line": 83
+        },
+        {
+          "symbol": "ZipRepositorySource",
+          "line": 111
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/security_analysis_v1.py",
+      "symbols": [
+        {
+          "symbol": "gate",
+          "line": 96
+        },
+        {
+          "symbol": "science_audit",
+          "line": 116
+        },
+        {
+          "symbol": "build",
+          "line": 178
+        },
+        {
+          "symbol": "privacy",
+          "line": 319
+        },
+        {
+          "symbol": "freeze",
+          "line": 337
+        },
+        {
+          "symbol": "verify",
+          "line": 381
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/security_analysis_v2.py",
+      "symbols": [
+        {
+          "symbol": "gate",
+          "line": 94
+        },
+        {
+          "symbol": "historical_audit",
+          "line": 121
+        },
+        {
+          "symbol": "build",
+          "line": 191
+        },
+        {
+          "symbol": "privacy",
+          "line": 418
+        },
+        {
+          "symbol": "freeze",
+          "line": 423
+        },
+        {
+          "symbol": "verify",
+          "line": 466
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/security_benchmark.py",
+      "symbols": [
+        {
+          "symbol": "gate",
+          "line": 119
+        },
+        {
+          "symbol": "historical_audit",
+          "line": 162
+        },
+        {
+          "symbol": "intake",
+          "line": 184
+        },
+        {
+          "symbol": "protocol",
+          "line": 250
+        },
+        {
+          "symbol": "build_public",
+          "line": 312
+        },
+        {
+          "symbol": "privacy",
+          "line": 436
+        },
+        {
+          "symbol": "validate",
+          "line": 458
+        },
+        {
+          "symbol": "write_new",
+          "line": 467
+        },
+        {
+          "symbol": "freeze",
+          "line": 482
+        },
+        {
+          "symbol": "verify",
+          "line": 539
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/security_closure_test_guard.py",
+      "symbols": [
+        {
+          "symbol": "pytest_sessionstart",
+          "line": 12
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/security_dev_evaluation.py",
+      "symbols": [
+        {
+          "symbol": "gate",
+          "line": 107
+        },
+        {
+          "symbol": "verify",
+          "line": 148
+        },
+        {
+          "symbol": "prepare",
+          "line": 218
+        },
+        {
+          "symbol": "prediction_rows",
+          "line": 279
+        },
+        {
+          "symbol": "freeze_predictions",
+          "line": 305
+        },
+        {
+          "symbol": "open_dev_truth",
+          "line": 374
+        },
+        {
+          "symbol": "stable_join",
+          "line": 391
+        },
+        {
+          "symbol": "aggregate",
+          "line": 407
+        },
+        {
+          "symbol": "evaluate",
+          "line": 427
+        },
+        {
+          "symbol": "resource_summary",
+          "line": 569
+        },
+        {
+          "symbol": "run",
+          "line": 607
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/security_dev_test_guard.py",
+      "symbols": [
+        {
+          "symbol": "pytest_sessionstart",
+          "line": 11
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/security_dev_worker.py",
+      "symbols": [
+        {
+          "symbol": "SourceFence",
+          "line": 26
+        },
+        {
+          "symbol": "sealed",
+          "line": 103
+        },
+        {
+          "symbol": "write",
+          "line": 107
+        },
+        {
+          "symbol": "execute",
+          "line": 112
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/security_evaluation_test_guard.py",
+      "symbols": [
+        {
+          "symbol": "pytest_sessionstart",
+          "line": 12
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/security_extension_closure.py",
+      "symbols": [
+        {
+          "symbol": "seal",
+          "line": 95
+        },
+        {
+          "symbol": "git",
+          "line": 99
+        },
+        {
+          "symbol": "guard_reason",
+          "line": 103
+        },
+        {
+          "symbol": "access_guard",
+          "line": 124
+        },
+        {
+          "symbol": "deny_analyzer",
+          "line": 132
+        },
+        {
+          "symbol": "historical_audit",
+          "line": 141
+        },
+        {
+          "symbol": "evidence",
+          "line": 223
+        },
+        {
+          "symbol": "wording_guard",
+          "line": 229
+        },
+        {
+          "symbol": "build",
+          "line": 248
+        },
+        {
+          "symbol": "privacy",
+          "line": 528
+        },
+        {
+          "symbol": "write",
+          "line": 541
+        },
+        {
+          "symbol": "prepare",
+          "line": 545
+        },
+        {
+          "symbol": "metric_audit",
+          "line": 557
+        },
+        {
+          "symbol": "verify",
+          "line": 580
+        },
+        {
+          "symbol": "completion",
+          "line": 591
+        },
+        {
+          "symbol": "freeze",
+          "line": 646
+        },
+        {
+          "symbol": "main",
+          "line": 717
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/security_final_boundary.py",
+      "symbols": [
+        {
+          "symbol": "seal",
+          "line": 44
+        },
+        {
+          "symbol": "write_new",
+          "line": 48
+        },
+        {
+          "symbol": "validate_roster",
+          "line": 55
+        },
+        {
+          "symbol": "FinalFence",
+          "line": 82
+        },
+        {
+          "symbol": "environment",
+          "line": 151
+        },
+        {
+          "symbol": "mechanism",
+          "line": 163
+        },
+        {
+          "symbol": "profile",
+          "line": 170
+        },
+        {
+          "symbol": "command",
+          "line": 210
+        },
+        {
+          "symbol": "preflight",
+          "line": 214
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/security_final_evaluation.py",
+      "symbols": [
+        {
+          "symbol": "TruthGate",
+          "line": 67
+        },
+        {
+          "symbol": "deny_analyzer",
+          "line": 139
+        },
+        {
+          "symbol": "verify_inputs",
+          "line": 148
+        },
+        {
+          "symbol": "validate_truth",
+          "line": 220
+        },
+        {
+          "symbol": "open_truth",
+          "line": 244
+        },
+        {
+          "symbol": "stable_join",
+          "line": 263
+        },
+        {
+          "symbol": "aggregate",
+          "line": 278
+        },
+        {
+          "symbol": "correctness",
+          "line": 291
+        },
+        {
+          "symbol": "diagnostics",
+          "line": 302
+        },
+        {
+          "symbol": "comparison",
+          "line": 331
+        },
+        {
+          "symbol": "build",
+          "line": 364
+        },
+        {
+          "symbol": "fingerprints",
+          "line": 494
+        },
+        {
+          "symbol": "close_private",
+          "line": 501
+        },
+        {
+          "symbol": "run",
+          "line": 511
+        },
+        {
+          "symbol": "verify",
+          "line": 584
+        },
+        {
+          "symbol": "main",
+          "line": 611
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/security_final_prediction.py",
+      "symbols": [
+        {
+          "symbol": "access_guard",
+          "line": 52
+        },
+        {
+          "symbol": "_verify_candidate",
+          "line": 78
+        },
+        {
+          "symbol": "verify_candidate",
+          "line": 107
+        },
+        {
+          "symbol": "verify_history",
+          "line": 114
+        },
+        {
+          "symbol": "runtime_sources",
+          "line": 185
+        },
+        {
+          "symbol": "prepare",
+          "line": 213
+        },
+        {
+          "symbol": "prediction_rows",
+          "line": 271
+        },
+        {
+          "symbol": "counts",
+          "line": 345
+        },
+        {
+          "symbol": "summaries",
+          "line": 350
+        },
+        {
+          "symbol": "readonly",
+          "line": 365
+        },
+        {
+          "symbol": "verify_frozen",
+          "line": 379
+        },
+        {
+          "symbol": "fingerprints",
+          "line": 410
+        },
+        {
+          "symbol": "run",
+          "line": 417
+        },
+        {
+          "symbol": "privacy",
+          "line": 610
+        },
+        {
+          "symbol": "main",
+          "line": 618
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/security_final_test_guard.py",
+      "symbols": [
+        {
+          "symbol": "pytest_sessionstart",
+          "line": 11
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/security_final_worker.py",
+      "symbols": [
+        {
+          "symbol": "execute",
+          "line": 35
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/security_foundation.py",
+      "symbols": [
+        {
+          "symbol": "gate",
+          "line": 71
+        },
+        {
+          "symbol": "import_firewall",
+          "line": 93
+        },
+        {
+          "symbol": "science_freeze",
+          "line": 135
+        },
+        {
+          "symbol": "build",
+          "line": 184
+        },
+        {
+          "symbol": "privacy",
+          "line": 336
+        },
+        {
+          "symbol": "freeze",
+          "line": 352
+        },
+        {
+          "symbol": "verify",
+          "line": 390
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/security_human_truth.py",
+      "symbols": [
+        {
+          "symbol": "Adjudication",
+          "line": 65
+        },
+        {
+          "symbol": "gate",
+          "line": 79
+        },
+        {
+          "symbol": "verify_history",
+          "line": 128
+        },
+        {
+          "symbol": "project",
+          "line": 178
+        },
+        {
+          "symbol": "envelope",
+          "line": 189
+        },
+        {
+          "symbol": "human_only",
+          "line": 204
+        },
+        {
+          "symbol": "intake",
+          "line": 245
+        },
+        {
+          "symbol": "derive",
+          "line": 369
+        },
+        {
+          "symbol": "distribution",
+          "line": 388
+        },
+        {
+          "symbol": "build",
+          "line": 399
+        },
+        {
+          "symbol": "run",
+          "line": 586
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/security_refinement.py",
+      "symbols": [
+        {
+          "symbol": "access_guard",
+          "line": 60
+        },
+        {
+          "symbol": "selection_receipt",
+          "line": 77
+        },
+        {
+          "symbol": "verify_history",
+          "line": 96
+        },
+        {
+          "symbol": "source_fingerprint",
+          "line": 169
+        },
+        {
+          "symbol": "anti_memorization",
+          "line": 173
+        },
+        {
+          "symbol": "registries",
+          "line": 207
+        },
+        {
+          "symbol": "diagnose",
+          "line": 260
+        },
+        {
+          "symbol": "evaluate",
+          "line": 300
+        },
+        {
+          "symbol": "execution",
+          "line": 396
+        },
+        {
+          "symbol": "fingerprints",
+          "line": 429
+        },
+        {
+          "symbol": "verify_selected",
+          "line": 455
+        },
+        {
+          "symbol": "run",
+          "line": 503
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/security_refinement_worker.py",
+      "symbols": [
+        {
+          "symbol": "execute",
+          "line": 26
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/security_review_readiness.py",
+      "symbols": [
+        {
+          "symbol": "gate",
+          "line": 38
+        },
+        {
+          "symbol": "safe",
+          "line": 66
+        },
+        {
+          "symbol": "unique",
+          "line": 73
+        },
+        {
+          "symbol": "load",
+          "line": 82
+        },
+        {
+          "symbol": "verify_packets",
+          "line": 92
+        },
+        {
+          "symbol": "inspect_responses",
+          "line": 168
+        },
+        {
+          "symbol": "dependency_guard",
+          "line": 227
+        },
+        {
+          "symbol": "privacy",
+          "line": 255
+        },
+        {
+          "symbol": "prepare",
+          "line": 269
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/security_review_recovery.py",
+      "symbols": [
+        {
+          "symbol": "gate",
+          "line": 44
+        },
+        {
+          "symbol": "read_object",
+          "line": 79
+        },
+        {
+          "symbol": "write_once",
+          "line": 89
+        },
+        {
+          "symbol": "clean_metadata",
+          "line": 105
+        },
+        {
+          "symbol": "project",
+          "line": 139
+        },
+        {
+          "symbol": "bind",
+          "line": 148
+        },
+        {
+          "symbol": "recover",
+          "line": 162
+        },
+        {
+          "symbol": "agreement",
+          "line": 317
+        },
+        {
+          "symbol": "integrity",
+          "line": 341
+        },
+        {
+          "symbol": "adjudication_packet",
+          "line": 366
+        },
+        {
+          "symbol": "privacy",
+          "line": 378
+        },
+        {
+          "symbol": "analyze",
+          "line": 411
+        },
+        {
+          "symbol": "run",
+          "line": 548
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/semantic_adjudication.py",
+      "symbols": [
+        {
+          "symbol": "verify_conflict_inputs",
+          "line": 54
+        },
+        {
+          "symbol": "audit_adjudicator_bundle",
+          "line": 110
+        },
+        {
+          "symbol": "render_adjudicator",
+          "line": 173
+        },
+        {
+          "symbol": "build_adjudicator_material",
+          "line": 219
+        },
+        {
+          "symbol": "handoff_receipt",
+          "line": 361
+        },
+        {
+          "symbol": "freeze_adjudicator_handoff",
+          "line": 399
+        },
+        {
+          "symbol": "verify_adjudicator_handoff",
+          "line": 427
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/semantic_adjudication_acceptance.py",
+      "symbols": [
+        {
+          "symbol": "SubmissionMismatch",
+          "line": 53
+        },
+        {
+          "symbol": "HandoffRecoveryBlocked",
+          "line": 57
+        },
+        {
+          "symbol": "verify_recoverable_handoff",
+          "line": 61
+        },
+        {
+          "symbol": "recover_exact_blank",
+          "line": 104
+        },
+        {
+          "symbol": "verify_opaque_seal",
+          "line": 127
+        },
+        {
+          "symbol": "verify_primary_integrity",
+          "line": 144
+        },
+        {
+          "symbol": "verify_adjudicator_prerequisites",
+          "line": 156
+        },
+        {
+          "symbol": "validate_completed_adjudication",
+          "line": 256
+        },
+        {
+          "symbol": "freeze_completed_adjudication",
+          "line": 322
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/semantic_adjudication_corrected_acceptance.py",
+      "symbols": [
+        {
+          "symbol": "CorrectedAcceptanceBlocked",
+          "line": 31
+        },
+        {
+          "symbol": "recover_round_os_metadata",
+          "line": 35
+        },
+        {
+          "symbol": "corrected_sha_guard",
+          "line": 107
+        },
+        {
+          "symbol": "verify_frozen_correction_lineage",
+          "line": 124
+        },
+        {
+          "symbol": "validate_corrected_adjudication",
+          "line": 225
+        },
+        {
+          "symbol": "freeze_corrected_adjudication",
+          "line": 295
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/semantic_adjudication_correction.py",
+      "symbols": [
+        {
+          "symbol": "load_original_candidate",
+          "line": 52
+        },
+        {
+          "symbol": "diagnose_structure",
+          "line": 77
+        },
+        {
+          "symbol": "render_correction",
+          "line": 192
+        },
+        {
+          "symbol": "correction_material",
+          "line": 228
+        },
+        {
+          "symbol": "prepare_correction_round",
+          "line": 383
+        },
+        {
+          "symbol": "verify_correction_round",
+          "line": 425
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/semantic_agreement.py",
+      "symbols": [
+        {
+          "symbol": "ReviewExpectation",
+          "line": 27
+        },
+        {
+          "symbol": "FrozenDecisions",
+          "line": 35
+        },
+        {
+          "symbol": "verify_frozen_review",
+          "line": 39
+        },
+        {
+          "symbol": "_sealed",
+          "line": 83
+        },
+        {
+          "symbol": "build_agreement_artifacts",
+          "line": 87
+        },
+        {
+          "symbol": "freeze_agreement_artifacts",
+          "line": 203
+        },
+        {
+          "symbol": "verify_agreement_artifacts",
+          "line": 222
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/semantic_construction_diagnostic.py",
+      "symbols": [
+        {
+          "symbol": "verify_p017",
+          "line": 34
+        },
+        {
+          "symbol": "require_plan",
+          "line": 68
+        },
+        {
+          "symbol": "load_construction",
+          "line": 79
+        },
+        {
+          "symbol": "make_join",
+          "line": 162
+        },
+        {
+          "symbol": "private_diagnostic",
+          "line": 189
+        },
+        {
+          "symbol": "freeze_diagnostic",
+          "line": 221
+        },
+        {
+          "symbol": "verify_diagnostic",
+          "line": 253
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/semantic_final_truth.py",
+      "symbols": [
+        {
+          "symbol": "TruthCase",
+          "line": 54
+        },
+        {
+          "symbol": "FinalHumanTruth",
+          "line": 62
+        },
+        {
+          "symbol": "merge_final_truth",
+          "line": 98
+        },
+        {
+          "symbol": "reference_counts",
+          "line": 145
+        },
+        {
+          "symbol": "truth_receipt",
+          "line": 155
+        },
+        {
+          "symbol": "freeze_final_truth",
+          "line": 190
+        },
+        {
+          "symbol": "verify_final_truth",
+          "line": 209
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/semantic_holdout.py",
+      "symbols": [
+        {
+          "symbol": "sealed",
+          "line": 70
+        },
+        {
+          "symbol": "make_packet",
+          "line": 74
+        },
+        {
+          "symbol": "future_context_input",
+          "line": 106
+        },
+        {
+          "symbol": "offline_context_diagnostics",
+          "line": 119
+        },
+        {
+          "symbol": "validate_fixture",
+          "line": 184
+        },
+        {
+          "symbol": "verify_file_freeze",
+          "line": 306
+        },
+        {
+          "symbol": "construct_holdout",
+          "line": 325
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/semantic_positive_evaluation_freeze.py",
+      "symbols": [
+        {
+          "symbol": "_audit",
+          "line": 26
+        },
+        {
+          "symbol": "evaluation_io",
+          "line": 55
+        },
+        {
+          "symbol": "append_sealed",
+          "line": 63
+        },
+        {
+          "symbol": "verify_truth",
+          "line": 77
+        },
+        {
+          "symbol": "validate_join",
+          "line": 117
+        },
+        {
+          "symbol": "prepare_join",
+          "line": 153
+        },
+        {
+          "symbol": "resource_differences",
+          "line": 183
+        },
+        {
+          "symbol": "aggregate_results",
+          "line": 197
+        },
+        {
+          "symbol": "freeze_evaluation",
+          "line": 292
+        },
+        {
+          "symbol": "verify_evaluation",
+          "line": 315
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/semantic_positive_evaluator.py",
+      "symbols": [
+        {
+          "symbol": "join_frozen_positive",
+          "line": 25
+        },
+        {
+          "symbol": "evaluate_positive_join",
+          "line": 167
+        },
+        {
+          "symbol": "evaluate_frozen_positive",
+          "line": 216
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/semantic_positive_execution.py",
+      "symbols": [
+        {
+          "symbol": "ExecutionBindings",
+          "line": 37
+        },
+        {
+          "symbol": "PaidApproval",
+          "line": 45
+        },
+        {
+          "symbol": "TransportOutcome",
+          "line": 52
+        },
+        {
+          "symbol": "_io_audit",
+          "line": 79
+        },
+        {
+          "symbol": "blind_io",
+          "line": 95
+        },
+        {
+          "symbol": "unique_object",
+          "line": 107
+        },
+        {
+          "symbol": "load_execution",
+          "line": 113
+        },
+        {
+          "symbol": "validated_assessment",
+          "line": 148
+        },
+        {
+          "symbol": "_grounded",
+          "line": 154
+        },
+        {
+          "symbol": "_artifact",
+          "line": 179
+        },
+        {
+          "symbol": "execute_future",
+          "line": 194
+        },
+        {
+          "symbol": "freeze_assessments",
+          "line": 509
+        },
+        {
+          "symbol": "verify_assessments",
+          "line": 588
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/semantic_positive_live.py",
+      "symbols": [
+        {
+          "symbol": "OpenAIPositiveTransport",
+          "line": 44
+        },
+        {
+          "symbol": "operational_report",
+          "line": 243
+        },
+        {
+          "symbol": "freeze_live",
+          "line": 369
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/semantic_positive_offline.py",
+      "symbols": [
+        {
+          "symbol": "audit_metadata",
+          "line": 67
+        },
+        {
+          "symbol": "capability_path",
+          "line": 78
+        },
+        {
+          "symbol": "prepare_material",
+          "line": 89
+        },
+        {
+          "symbol": "freeze_execution_bundle",
+          "line": 301
+        },
+        {
+          "symbol": "verify_execution_bundle",
+          "line": 332
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/semantic_positive_recovery.py",
+      "symbols": [
+        {
+          "symbol": "RecoveryAmendment",
+          "line": 38
+        },
+        {
+          "symbol": "inventory",
+          "line": 82
+        },
+        {
+          "symbol": "append_json",
+          "line": 92
+        },
+        {
+          "symbol": "prepare_recovery",
+          "line": 101
+        },
+        {
+          "symbol": "history_gate",
+          "line": 138
+        },
+        {
+          "symbol": "state",
+          "line": 157
+        },
+        {
+          "symbol": "_intents",
+          "line": 245
+        },
+        {
+          "symbol": "_store_outcome",
+          "line": 256
+        },
+        {
+          "symbol": "_publish",
+          "line": 329
+        },
+        {
+          "symbol": "execute_recovery",
+          "line": 365
+        },
+        {
+          "symbol": "recovery_report",
+          "line": 581
+        },
+        {
+          "symbol": "freeze_recovery",
+          "line": 698
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/semantic_preflight.py",
+      "symbols": [
+        {
+          "symbol": "wire_payload",
+          "line": 35
+        },
+        {
+          "symbol": "prepare_contexts",
+          "line": 63
+        },
+        {
+          "symbol": "publish_preflight",
+          "line": 200
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/semantic_review.py",
+      "symbols": [
+        {
+          "symbol": "audit_bundle",
+          "line": 50
+        },
+        {
+          "symbol": "load_bundle",
+          "line": 109
+        },
+        {
+          "symbol": "blank_template",
+          "line": 117
+        },
+        {
+          "symbol": "render_handoff",
+          "line": 137
+        },
+        {
+          "symbol": "prepare_handoff",
+          "line": 188
+        },
+        {
+          "symbol": "verify_handoff",
+          "line": 220
+        },
+        {
+          "symbol": "verify_submission_contract",
+          "line": 252
+        },
+        {
+          "symbol": "audit_submission",
+          "line": 274
+        },
+        {
+          "symbol": "freeze_submission",
+          "line": 287
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/semantic_review_b.py",
+      "symbols": [
+        {
+          "symbol": "load_b_bundle",
+          "line": 53
+        },
+        {
+          "symbol": "_contents",
+          "line": 63
+        },
+        {
+          "symbol": "prepare_b_handoff",
+          "line": 75
+        },
+        {
+          "symbol": "verify_b_handoff",
+          "line": 103
+        },
+        {
+          "symbol": "verify_b_submission_contract",
+          "line": 134
+        },
+        {
+          "symbol": "freeze_b_submission",
+          "line": 158
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/settings.py",
+      "symbols": [
+        {
+          "symbol": "Environment",
+          "line": 17
+        },
+        {
+          "symbol": "LogLevel",
+          "line": 23
+        },
+        {
+          "symbol": "Settings",
+          "line": 31
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/thesis_closure.py",
+      "symbols": [
+        {
+          "symbol": "sealed",
+          "line": 126
+        },
+        {
+          "symbol": "git",
+          "line": 132
+        },
+        {
+          "symbol": "worktree_gate",
+          "line": 136
+        },
+        {
+          "symbol": "lineage_gate",
+          "line": 165
+        },
+        {
+          "symbol": "safe_path",
+          "line": 205
+        },
+        {
+          "symbol": "artifact",
+          "line": 222
+        },
+        {
+          "symbol": "binding",
+          "line": 232
+        },
+        {
+          "symbol": "frozen_inputs",
+          "line": 245
+        },
+        {
+          "symbol": "prior_integrity",
+          "line": 319
+        },
+        {
+          "symbol": "capability_registry",
+          "line": 538
+        },
+        {
+          "symbol": "rule_registry",
+          "line": 627
+        },
+        {
+          "symbol": "claim_registry",
+          "line": 799
+        },
+        {
+          "symbol": "threats_registry",
+          "line": 931
+        },
+        {
+          "symbol": "validate_bundle",
+          "line": 948
+        },
+        {
+          "symbol": "build",
+          "line": 998
+        },
+        {
+          "symbol": "metric_table",
+          "line": 1283
+        },
+        {
+          "symbol": "documents",
+          "line": 1301
+        },
+        {
+          "symbol": "privacy_audit",
+          "line": 1628
+        },
+        {
+          "symbol": "document_gate",
+          "line": 1643
+        },
+        {
+          "symbol": "write_new",
+          "line": 1652
+        },
+        {
+          "symbol": "generate",
+          "line": 1661
+        },
+        {
+          "symbol": "manifest_value",
+          "line": 1683
+        },
+        {
+          "symbol": "accept",
+          "line": 1716
+        },
+        {
+          "symbol": "verify",
+          "line": 1768
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/unified_human_intake.py",
+      "symbols": [
+        {
+          "symbol": "raw_sha",
+          "line": 44
+        },
+        {
+          "symbol": "intake_capability",
+          "line": 49
+        },
+        {
+          "symbol": "handoff_expected",
+          "line": 64
+        },
+        {
+          "symbol": "verify_incoming",
+          "line": 89
+        },
+        {
+          "symbol": "stage_returns",
+          "line": 123
+        },
+        {
+          "symbol": "freeze_exact",
+          "line": 237
+        },
+        {
+          "symbol": "audit",
+          "line": 246
+        },
+        {
+          "symbol": "validate_current",
+          "line": 274
+        },
+        {
+          "symbol": "accept",
+          "line": 293
+        },
+        {
+          "symbol": "load_accepted",
+          "line": 362
+        },
+        {
+          "symbol": "load_alignment",
+          "line": 397
+        },
+        {
+          "symbol": "FrozenPair",
+          "line": 427
+        },
+        {
+          "symbol": "frozen_pair",
+          "line": 433
+        },
+        {
+          "symbol": "agreement_payload",
+          "line": 458
+        },
+        {
+          "symbol": "conflict_payload",
+          "line": 491
+        },
+        {
+          "symbol": "branch_payload",
+          "line": 514
+        },
+        {
+          "symbol": "prepare_adjudication",
+          "line": 534
+        },
+        {
+          "symbol": "verify_adjudication",
+          "line": 658
+        },
+        {
+          "symbol": "public_conflicts",
+          "line": 699
+        },
+        {
+          "symbol": "execute",
+          "line": 719
+        },
+        {
+          "symbol": "verify_or_freeze",
+          "line": 917
+        },
+        {
+          "symbol": "verify_chronology",
+          "line": 926
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/unified_human_review.py",
+      "symbols": [
+        {
+          "symbol": "ReviewBlocked",
+          "line": 93
+        },
+        {
+          "symbol": "offline_guard",
+          "line": 97
+        },
+        {
+          "symbol": "handoff_capability",
+          "line": 123
+        },
+        {
+          "symbol": "_safe_path",
+          "line": 137
+        },
+        {
+          "symbol": "sha",
+          "line": 144
+        },
+        {
+          "symbol": "_unique",
+          "line": 149
+        },
+        {
+          "symbol": "_json",
+          "line": 158
+        },
+        {
+          "symbol": "read_seal",
+          "line": 168
+        },
+        {
+          "symbol": "append_seal",
+          "line": 179
+        },
+        {
+          "symbol": "verify_files",
+          "line": 189
+        },
+        {
+          "symbol": "scientific_status",
+          "line": 225
+        },
+        {
+          "symbol": "verify_lineage",
+          "line": 236
+        },
+        {
+          "symbol": "authoritative_path",
+          "line": 258
+        },
+        {
+          "symbol": "verify_blind_bundle",
+          "line": 264
+        },
+        {
+          "symbol": "Authority",
+          "line": 272
+        },
+        {
+          "symbol": "load_authority",
+          "line": 281
+        },
+        {
+          "symbol": "instructions",
+          "line": 364
+        },
+        {
+          "symbol": "prepare_handoff",
+          "line": 409
+        },
+        {
+          "symbol": "verify_handoff",
+          "line": 461
+        },
+        {
+          "symbol": "validate_intake",
+          "line": 494
+        },
+        {
+          "symbol": "validate_intake_directory",
+          "line": 511
+        },
+        {
+          "symbol": "HumanCorrection",
+          "line": 536
+        },
+        {
+          "symbol": "verify_accepted",
+          "line": 542
+        },
+        {
+          "symbol": "freeze_intake",
+          "line": 554
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/infrastructure/unified_hybrid.py",
+      "symbols": [
+        {
+          "symbol": "sha",
+          "line": 74
+        },
+        {
+          "symbol": "read",
+          "line": 80
+        },
+        {
+          "symbol": "event",
+          "line": 84
+        },
+        {
+          "symbol": "git_head",
+          "line": 99
+        },
+        {
+          "symbol": "alignment_gate",
+          "line": 103
+        },
+        {
+          "symbol": "freeze_public",
+          "line": 139
+        },
+        {
+          "symbol": "prior_inventory",
+          "line": 150
+        },
+        {
+          "symbol": "prepare_plan",
+          "line": 157
+        },
+        {
+          "symbol": "locator",
+          "line": 213
+        },
+        {
+          "symbol": "renamed_semantic",
+          "line": 234
+        },
+        {
+          "symbol": "source_inventory",
+          "line": 258
+        },
+        {
+          "symbol": "old_identities",
+          "line": 262
+        },
+        {
+          "symbol": "construct_final",
+          "line": 292
+        },
+        {
+          "symbol": "prepare_development",
+          "line": 592
+        },
+        {
+          "symbol": "evidence_record",
+          "line": 745
+        },
+        {
+          "symbol": "evidence_worker",
+          "line": 803
+        },
+        {
+          "symbol": "candidate_values",
+          "line": 872
+        },
+        {
+          "symbol": "request_material",
+          "line": 906
+        },
+        {
+          "symbol": "requests_worker",
+          "line": 1007
+        },
+        {
+          "symbol": "audit_request",
+          "line": 1095
+        },
+        {
+          "symbol": "run_workers",
+          "line": 1116
+        },
+        {
+          "symbol": "verify_worker",
+          "line": 1153
+        },
+        {
+          "symbol": "finish",
+          "line": 1209
+        },
+        {
+          "symbol": "verify",
+          "line": 1303
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/oss_cli.py",
+      "symbols": [
+        {
+          "symbol": "oss_arguments",
+          "line": 35
+        },
+        {
+          "symbol": "execute_oss",
+          "line": 72
+        },
+        {
+          "symbol": "_execute",
+          "line": 79
+        },
+        {
+          "symbol": "load_sample",
+          "line": 246
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/oss_review_cli.py",
+      "symbols": [
+        {
+          "symbol": "review_arguments",
+          "line": 31
+        },
+        {
+          "symbol": "execute_review",
+          "line": 96
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/parsing/__init__.py",
+      "symbols": []
+    },
+    {
+      "path": "src/archguard/parsing/config.py",
+      "symbols": [
+        {
+          "symbol": "ParserConfig",
+          "line": 10
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/parsing/diagnostics.py",
+      "symbols": [
+        {
+          "symbol": "SyntaxDiagnostics",
+          "line": 11
+        },
+        {
+          "symbol": "collect_syntax_diagnostics",
+          "line": 17
+        },
+        {
+          "symbol": "_finish",
+          "line": 56
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/parsing/enums.py",
+      "symbols": [
+        {
+          "symbol": "ParserLanguage",
+          "line": 4
+        },
+        {
+          "symbol": "DiagnosticSeverity",
+          "line": 11
+        },
+        {
+          "symbol": "ParserDiagnosticCode",
+          "line": 16
+        },
+        {
+          "symbol": "ParseStatus",
+          "line": 28
+        },
+        {
+          "symbol": "ParseSkipReason",
+          "line": 36
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/parsing/errors.py",
+      "symbols": [
+        {
+          "symbol": "ParsingError",
+          "line": 4
+        },
+        {
+          "symbol": "UnsupportedLanguageError",
+          "line": 8
+        },
+        {
+          "symbol": "DuplicateParserError",
+          "line": 12
+        },
+        {
+          "symbol": "IneligibleSourceError",
+          "line": 16
+        },
+        {
+          "symbol": "ParserResourceLimitError",
+          "line": 20
+        },
+        {
+          "symbol": "ParserExecutionError",
+          "line": 24
+        },
+        {
+          "symbol": "SourceDecodingError",
+          "line": 28
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/parsing/factory.py",
+      "symbols": [
+        {
+          "symbol": "create_parser_registry",
+          "line": 10
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/parsing/models.py",
+      "symbols": [
+        {
+          "symbol": "ParserRuntimeInfo",
+          "line": 25
+        },
+        {
+          "symbol": "ParserDiagnostic",
+          "line": 36
+        },
+        {
+          "symbol": "FileParseMetadata",
+          "line": 57
+        },
+        {
+          "symbol": "ParsedSourceFile",
+          "line": 92
+        },
+        {
+          "symbol": "ParseLanguageStatistics",
+          "line": 105
+        },
+        {
+          "symbol": "ParseStatistics",
+          "line": 114
+        },
+        {
+          "symbol": "_language_stats",
+          "line": 148
+        },
+        {
+          "symbol": "_parser_versions",
+          "line": 170
+        },
+        {
+          "symbol": "ParseRepositoryResult",
+          "line": 181
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/parsing/ports.py",
+      "symbols": [
+        {
+          "symbol": "ParserAdapter",
+          "line": 10
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/parsing/registry.py",
+      "symbols": [
+        {
+          "symbol": "parser_language",
+          "line": 10
+        },
+        {
+          "symbol": "ParserRegistry",
+          "line": 20
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/parsing/runtime.py",
+      "symbols": [
+        {
+          "symbol": "package_version",
+          "line": 11
+        },
+        {
+          "symbol": "runtime_info",
+          "line": 15
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/parsing/tree_sitter_adapters.py",
+      "symbols": [
+        {
+          "symbol": "TreeSitterParserAdapter",
+          "line": 23
+        },
+        {
+          "symbol": "JavaParser",
+          "line": 107
+        },
+        {
+          "symbol": "TypeScriptParser",
+          "line": 117
+        },
+        {
+          "symbol": "JavaScriptParser",
+          "line": 127
+        },
+        {
+          "symbol": "TSXParser",
+          "line": 137
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/reports/__init__.py",
+      "symbols": []
+    },
+    {
+      "path": "src/archguard/repository/__init__.py",
+      "symbols": []
+    },
+    {
+      "path": "src/archguard/repository/enums.py",
+      "symbols": [
+        {
+          "symbol": "RepositorySourceType",
+          "line": 4
+        },
+        {
+          "symbol": "SourceLanguage",
+          "line": 10
+        },
+        {
+          "symbol": "RepositoryFileKind",
+          "line": 30
+        },
+        {
+          "symbol": "HashStatus",
+          "line": 42
+        },
+        {
+          "symbol": "ExclusionReason",
+          "line": 49
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/repository/errors.py",
+      "symbols": [
+        {
+          "symbol": "RepositoryIntakeError",
+          "line": 1
+        },
+        {
+          "symbol": "InvalidRepositorySource",
+          "line": 7
+        },
+        {
+          "symbol": "RepositoryNotFound",
+          "line": 11
+        },
+        {
+          "symbol": "RepositoryLimitExceeded",
+          "line": 15
+        },
+        {
+          "symbol": "UnsafeArchiveError",
+          "line": 19
+        },
+        {
+          "symbol": "GitCloneError",
+          "line": 23
+        },
+        {
+          "symbol": "GitTimeoutError",
+          "line": 27
+        },
+        {
+          "symbol": "UnsupportedSourceError",
+          "line": 31
+        },
+        {
+          "symbol": "RepositoryReadError",
+          "line": 35
+        },
+        {
+          "symbol": "RepositoryChangedError",
+          "line": 39
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/repository/fingerprint.py",
+      "symbols": [
+        {
+          "symbol": "inventory_fingerprint",
+          "line": 12
+        },
+        {
+          "symbol": "snapshot_id",
+          "line": 32
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/repository/models.py",
+      "symbols": [
+        {
+          "symbol": "RepositoryInput",
+          "line": 25
+        },
+        {
+          "symbol": "RepositoryFile",
+          "line": 48
+        },
+        {
+          "symbol": "RepositoryExclusion",
+          "line": 84
+        },
+        {
+          "symbol": "SourceRoot",
+          "line": 90
+        },
+        {
+          "symbol": "RepositoryStatistics",
+          "line": 103
+        },
+        {
+          "symbol": "RepositorySnapshot",
+          "line": 128
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/repository/policy.py",
+      "symbols": [
+        {
+          "symbol": "RepositoryScanPolicy",
+          "line": 30
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/repository/ports.py",
+      "symbols": [
+        {
+          "symbol": "RepositoryWorkspace",
+          "line": 8
+        },
+        {
+          "symbol": "RepositorySource",
+          "line": 16
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/security/__init__.py",
+      "symbols": []
+    },
+    {
+      "path": "src/archguard/security/analysis.py",
+      "symbols": [
+        {
+          "symbol": "SecurityAnalyzer",
+          "line": 17
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/security/analyzer_v1.py",
+      "symbols": [
+        {
+          "symbol": "SecuritySourceInput",
+          "line": 39
+        },
+        {
+          "symbol": "finding",
+          "line": 45
+        },
+        {
+          "symbol": "StaticFlowDetector",
+          "line": 127
+        },
+        {
+          "symbol": "SecurityAnalyzerV1",
+          "line": 170
+        },
+        {
+          "symbol": "run_security_analysis",
+          "line": 385
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/security/analyzer_v2.py",
+      "symbols": [
+        {
+          "symbol": "make_finding",
+          "line": 42
+        },
+        {
+          "symbol": "V2Detector",
+          "line": 133
+        },
+        {
+          "symbol": "SecurityAnalyzerV2",
+          "line": 161
+        },
+        {
+          "symbol": "run_security_analysis",
+          "line": 379
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/security/analyzer_v3.py",
+      "symbols": [
+        {
+          "symbol": "make_finding",
+          "line": 46
+        },
+        {
+          "symbol": "V3Detector",
+          "line": 137
+        },
+        {
+          "symbol": "SecurityAnalyzerV3",
+          "line": 165
+        },
+        {
+          "symbol": "run_security_analysis",
+          "line": 389
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/security/api_v1.py",
+      "symbols": [
+        {
+          "symbol": "APIEntry",
+          "line": 12
+        },
+        {
+          "symbol": "entries",
+          "line": 33
+        },
+        {
+          "symbol": "supported_rules",
+          "line": 296
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/security/completeness_v3.py",
+      "symbols": [
+        {
+          "symbol": "CompletenessCertificate",
+          "line": 14
+        },
+        {
+          "symbol": "certify",
+          "line": 57
+        },
+        {
+          "symbol": "map_v3_outcome",
+          "line": 128
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/security/dataflow.py",
+      "symbols": [
+        {
+          "symbol": "SecurityAPIRole",
+          "line": 16
+        },
+        {
+          "symbol": "SecurityAPIContract",
+          "line": 23
+        },
+        {
+          "symbol": "SecurityAPIRegistry",
+          "line": 34
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/security/domain.py",
+      "symbols": [
+        {
+          "symbol": "SecurityRuleId",
+          "line": 27
+        },
+        {
+          "symbol": "SecurityLanguage",
+          "line": 40
+        },
+        {
+          "symbol": "SecuritySeverity",
+          "line": 45
+        },
+        {
+          "symbol": "EvidenceStrength",
+          "line": 53
+        },
+        {
+          "symbol": "SecurityFindingStatus",
+          "line": 59
+        },
+        {
+          "symbol": "EvidenceCapability",
+          "line": 67
+        },
+        {
+          "symbol": "SecurityEvidenceKind",
+          "line": 77
+        },
+        {
+          "symbol": "InputCategory",
+          "line": 97
+        },
+        {
+          "symbol": "ConfigurationCategory",
+          "line": 106
+        },
+        {
+          "symbol": "SecuritySourceReference",
+          "line": 113
+        },
+        {
+          "symbol": "SecurityEvidence",
+          "line": 131
+        },
+        {
+          "symbol": "FlowRole",
+          "line": 142
+        },
+        {
+          "symbol": "FlowStep",
+          "line": 151
+        },
+        {
+          "symbol": "FlowPath",
+          "line": 156
+        },
+        {
+          "symbol": "finding_identity",
+          "line": 177
+        },
+        {
+          "symbol": "SecurityFinding",
+          "line": 200
+        },
+        {
+          "symbol": "SecurityAnalysisContext",
+          "line": 265
+        },
+        {
+          "symbol": "SecurityDiagnostic",
+          "line": 298
+        },
+        {
+          "symbol": "SecurityAnalysisResult",
+          "line": 304
+        },
+        {
+          "symbol": "SecurityReportSection",
+          "line": 343
+        },
+        {
+          "symbol": "deduplicate_findings",
+          "line": 349
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/security/engine_v1.py",
+      "symbols": [
+        {
+          "symbol": "security_purpose",
+          "line": 27
+        },
+        {
+          "symbol": "Candidate",
+          "line": 36
+        },
+        {
+          "symbol": "EngineOutput",
+          "line": 45
+        },
+        {
+          "symbol": "BoundedFlowEngine",
+          "line": 51
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/security/engine_v2.py",
+      "symbols": [
+        {
+          "symbol": "ValueOrigin",
+          "line": 44
+        },
+        {
+          "symbol": "PathFact",
+          "line": 51
+        },
+        {
+          "symbol": "V2Value",
+          "line": 59
+        },
+        {
+          "symbol": "V2Candidate",
+          "line": 72
+        },
+        {
+          "symbol": "v2",
+          "line": 76
+        },
+        {
+          "symbol": "join",
+          "line": 90
+        },
+        {
+          "symbol": "InterproceduralEngine",
+          "line": 122
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/security/engine_v3.py",
+      "symbols": [
+        {
+          "symbol": "RefinementEngine",
+          "line": 15
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/security/flow_v1.py",
+      "symbols": [
+        {
+          "symbol": "FlowState",
+          "line": 14
+        },
+        {
+          "symbol": "FlowLimits",
+          "line": 21
+        },
+        {
+          "symbol": "TraceStep",
+          "line": 32
+        },
+        {
+          "symbol": "FlowValue",
+          "line": 39
+        },
+        {
+          "symbol": "merge",
+          "line": 85
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/security/frameworks_v2.py",
+      "symbols": [
+        {
+          "symbol": "FrameworkPack",
+          "line": 9
+        },
+        {
+          "symbol": "ProofDefinition",
+          "line": 22
+        },
+        {
+          "symbol": "packs",
+          "line": 32
+        },
+        {
+          "symbol": "proofs",
+          "line": 194
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/security/index_v2.py",
+      "symbols": [
+        {
+          "symbol": "SourceUnit",
+          "line": 18
+        },
+        {
+          "symbol": "DeclaredSymbol",
+          "line": 30
+        },
+        {
+          "symbol": "CallResolution",
+          "line": 53
+        },
+        {
+          "symbol": "DeclarationIndex",
+          "line": 58
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/security/ports.py",
+      "symbols": [
+        {
+          "symbol": "DetectorRegistration",
+          "line": 19
+        },
+        {
+          "symbol": "DetectorResult",
+          "line": 34
+        },
+        {
+          "symbol": "SecurityRuleDetector",
+          "line": 50
+        },
+        {
+          "symbol": "SecurityAnalyzerPort",
+          "line": 57
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/security/rules.py",
+      "symbols": [
+        {
+          "symbol": "ImplementationStatus",
+          "line": 34
+        },
+        {
+          "symbol": "SecurityRuleDefinition",
+          "line": 40
+        },
+        {
+          "symbol": "canonical_rules",
+          "line": 163
+        },
+        {
+          "symbol": "SecurityRuleRegistry",
+          "line": 180
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/security/summaries_v2.py",
+      "symbols": [
+        {
+          "symbol": "ResolutionState",
+          "line": 20
+        },
+        {
+          "symbol": "SummaryState",
+          "line": 28
+        },
+        {
+          "symbol": "ProofKind",
+          "line": 34
+        },
+        {
+          "symbol": "V2Limits",
+          "line": 42
+        },
+        {
+          "symbol": "ParameterFlow",
+          "line": 66
+        },
+        {
+          "symbol": "ReturnFlow",
+          "line": 73
+        },
+        {
+          "symbol": "SinkEffect",
+          "line": 80
+        },
+        {
+          "symbol": "SanitizerEffect",
+          "line": 87
+        },
+        {
+          "symbol": "FieldEffect",
+          "line": 92
+        },
+        {
+          "symbol": "UnknownEffect",
+          "line": 99
+        },
+        {
+          "symbol": "SafetyProof",
+          "line": 103
+        },
+        {
+          "symbol": "FunctionSummary",
+          "line": 110
+        },
+        {
+          "symbol": "fingerprint",
+          "line": 136
+        },
+        {
+          "symbol": "SummaryCache",
+          "line": 143
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/security_benchmark/__init__.py",
+      "symbols": []
+    },
+    {
+      "path": "src/archguard/security_benchmark/foundation.py",
+      "symbols": [
+        {
+          "symbol": "PredictionInputs",
+          "line": 15
+        },
+        {
+          "symbol": "truth_join_gate",
+          "line": 54
+        },
+        {
+          "symbol": "dependency_audit",
+          "line": 59
+        },
+        {
+          "symbol": "validate_design",
+          "line": 108
+        },
+        {
+          "symbol": "separation",
+          "line": 152
+        },
+        {
+          "symbol": "packets",
+          "line": 215
+        },
+        {
+          "symbol": "blindness_audit",
+          "line": 244
+        },
+        {
+          "symbol": "material",
+          "line": 281
+        },
+        {
+          "symbol": "private_material",
+          "line": 294
+        },
+        {
+          "symbol": "serialized",
+          "line": 326
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/security_benchmark/protocol.py",
+      "symbols": [
+        {
+          "symbol": "TruthLabel",
+          "line": 15
+        },
+        {
+          "symbol": "SourceFile",
+          "line": 22
+        },
+        {
+          "symbol": "ReviewEvidence",
+          "line": 27
+        },
+        {
+          "symbol": "ReviewPacket",
+          "line": 46
+        },
+        {
+          "symbol": "ReviewResponse",
+          "line": 66
+        },
+        {
+          "symbol": "validate_submission",
+          "line": 81
+        },
+        {
+          "symbol": "reconcile",
+          "line": 90
+        },
+        {
+          "symbol": "agreement",
+          "line": 113
+        },
+        {
+          "symbol": "Outcome",
+          "line": 132
+        },
+        {
+          "symbol": "map_outcome",
+          "line": 143
+        },
+        {
+          "symbol": "map_p029_outcome",
+          "line": 169
+        },
+        {
+          "symbol": "metrics",
+          "line": 189
+        },
+        {
+          "symbol": "metric_protocol",
+          "line": 242
+        },
+        {
+          "symbol": "human_protocol",
+          "line": 321
+        }
+      ]
+    },
+    {
+      "path": "src/archguard/security_benchmark/templates.py",
+      "symbols": [
+        {
+          "symbol": "java_bodies",
+          "line": 34
+        },
+        {
+          "symbol": "ts_bodies",
+          "line": 303
+        },
+        {
+          "symbol": "semantic_input",
+          "line": 517
+        },
+        {
+          "symbol": "source_template",
+          "line": 551
+        },
+        {
+          "symbol": "generate",
+          "line": 719
+        }
+      ]
+    }
+  ],
+  "test_modules": [
+    "tests/__init__.py",
+    "tests/benchmark/__init__.py",
+    "tests/benchmark/conftest.py",
+    "tests/benchmark/test_adapters_cli.py",
+    "tests/benchmark/test_calibration_cohort.py",
+    "tests/benchmark/test_component_holdout.py",
+    "tests/benchmark/test_contracts_splits.py",
+    "tests/benchmark/test_evaluation.py",
+    "tests/benchmark/test_hybrid_development.py",
+    "tests/benchmark/test_mutations_io.py",
+    "tests/benchmark/test_oss_assistance.py",
+    "tests/benchmark/test_oss_assistance_b.py",
+    "tests/benchmark/test_oss_benchmark.py",
+    "tests/benchmark/test_oss_final_context.py",
+    "tests/benchmark/test_oss_review.py",
+    "tests/benchmark/test_semantic_adjudication.py",
+    "tests/benchmark/test_semantic_adjudication_acceptance.py",
+    "tests/benchmark/test_semantic_adjudication_corrected_acceptance.py",
+    "tests/benchmark/test_semantic_adjudication_correction.py",
+    "tests/benchmark/test_semantic_adjudication_metadata_recovery.py",
+    "tests/benchmark/test_semantic_agreement.py",
+    "tests/benchmark/test_semantic_construction_diagnostic.py",
+    "tests/benchmark/test_semantic_final_truth.py",
+    "tests/benchmark/test_semantic_holdout.py",
+    "tests/benchmark/test_semantic_review.py",
+    "tests/benchmark/test_semantic_review_b.py",
+    "tests/benchmark/test_structural_calibration.py",
+    "tests/benchmark/test_thesis_closure.py",
+    "tests/benchmark/test_unified_human_intake.py",
+    "tests/benchmark/test_unified_human_review.py",
+    "tests/benchmark/test_unified_hybrid.py",
+    "tests/benchmark/test_unified_review.py",
+    "tests/conftest.py",
+    "tests/helpers/__init__.py",
+    "tests/helpers/scripted_llm.py",
+    "tests/hybrid/__init__.py",
+    "tests/hybrid/conftest.py",
+    "tests/hybrid/test_alignment_features.py",
+    "tests/hybrid/test_application_cli.py",
+    "tests/hybrid/test_decisions.py",
+    "tests/hybrid/test_input_guards.py",
+    "tests/hybrid/test_prospective_alignment.py",
+    "tests/integration/test_api.py",
+    "tests/integration/test_architecture_cli.py",
+    "tests/integration/test_database_foundation.py",
+    "tests/integration/test_discovery_cli.py",
+    "tests/integration/test_discovery_pipeline.py",
+    "tests/integration/test_graph_cli.py",
+    "tests/integration/test_graph_pipeline.py",
+    "tests/integration/test_iam_cli.py",
+    "tests/integration/test_iam_pipeline.py",
+    "tests/integration/test_parsing_cli.py",
+    "tests/integration/test_parsing_repository.py",
+    "tests/integration/test_repository_cli.py",
+    "tests/integration/test_repository_git.py",
+    "tests/integration/test_repository_local.py",
+    "tests/integration/test_repository_zip.py",
+    "tests/integration/test_static_conformance.py",
+    "tests/intelligence/conftest.py",
+    "tests/intelligence/test_application_cli.py",
+    "tests/intelligence/test_context.py",
+    "tests/intelligence/test_contract_edges.py",
+    "tests/intelligence/test_development_llm_executor.py",
+    "tests/intelligence/test_final_evaluation.py",
+    "tests/intelligence/test_final_llm.py",
+    "tests/intelligence/test_final_llm_completion.py",
+    "tests/intelligence/test_final_llm_continuation.py",
+    "tests/intelligence/test_provider.py",
+    "tests/intelligence/test_provider_validation.py",
+    "tests/intelligence/test_semantic_execution.py",
+    "tests/intelligence/test_semantic_positive_evaluation.py",
+    "tests/intelligence/test_semantic_positive_evaluation_freeze.py",
+    "tests/intelligence/test_semantic_positive_execution.py",
+    "tests/intelligence/test_semantic_positive_live.py",
+    "tests/intelligence/test_semantic_positive_offline.py",
+    "tests/intelligence/test_semantic_positive_recovery.py",
+    "tests/intelligence/test_semantic_preflight.py",
+    "tests/intelligence/test_semantics.py",
+    "tests/security/test_analysis_v1.py",
+    "tests/security/test_analysis_v2.py",
+    "tests/security/test_benchmark_foundation.py",
+    "tests/security/test_benchmark_receipts.py",
+    "tests/security/test_dev_evaluation.py",
+    "tests/security/test_final_prediction.py",
+    "tests/security/test_foundation.py",
+    "tests/security/test_human_truth.py",
+    "tests/security/test_receipts_v1.py",
+    "tests/security/test_receipts_v2.py",
+    "tests/security/test_refinement_v3.py",
+    "tests/security/test_review_provenance_binding.py",
+    "tests/security/test_review_readiness.py",
+    "tests/security/test_review_recovery.py",
+    "tests/security/test_security_extension_closure.py",
+    "tests/security/test_security_final_evaluation.py",
+    "tests/unit/test_architecture_specification.py",
+    "tests/unit/test_boundaries.py",
+    "tests/unit/test_discovery_signals.py",
+    "tests/unit/test_findings.py",
+    "tests/unit/test_graph_engine.py",
+    "tests/unit/test_graph_serialization.py",
+    "tests/unit/test_hybrid_contract.py",
+    "tests/unit/test_iam.py",
+    "tests/unit/test_locations.py",
+    "tests/unit/test_logging.py",
+    "tests/unit/test_parser_registry.py",
+    "tests/unit/test_parsing_adapters.py",
+    "tests/unit/test_repository_classification.py",
+    "tests/unit/test_repository_contracts.py",
+    "tests/unit/test_reproducibility.py",
+    "tests/unit/test_settings.py",
+    "tests/unit/test_static_rules.py"
+  ]
+}

@@ -1,0 +1,10 @@
+'use strict';
+const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
+const root=path.resolve(__dirname,'..'),sandbox={window:{AG:{state:{locale:'ru'}}},Intl};
+vm.createContext(sandbox);
+for(const file of ['i18n','fixtures','catalog','artifacts'])vm.runInContext(fs.readFileSync(path.join(root,'src',file+'.js'),'utf8'),sandbox);
+const A=sandbox.window.AG;
+test('all locale resources have nonempty matching Russian and English values',()=>{assert.deepEqual(Object.keys(A.locales.ru).sort(),Object.keys(A.locales.en).sort());for(const key of Object.keys(A.locales.ru)){assert.equal(typeof A.locales.ru[key],'string');assert.ok(A.locales.ru[key].length);assert.ok(A.locales.en[key].length);}});
+test('every literal translation reference exists',()=>{for(const file of fs.readdirSync(path.join(root,'src')).filter(f=>f.endsWith('.js'))){const source=fs.readFileSync(path.join(root,'src',file),'utf8');for(const match of source.matchAll(/\b(?:A\.)?t\(\s*['"]([\w-]+)['"]/g))assert.ok(A.locales.ru[match[1]],file+': '+match[1]);}const html=fs.readFileSync(path.join(root,'index.html'),'utf8');for(const match of html.matchAll(/data-i18n(?:-label|-placeholder)?="([\w-]+)"/g))assert.ok(A.locales.ru[match[1]],match[1]);});
+test('Russian plural rules and substitutions are explicit',()=>{assert.equal(A.count(1),'1 модуль');assert.equal(A.count(2),'2 модуля');assert.equal(A.count(12),'12 модулей');assert.equal(A.t('page',{n:1,total:2}),'Страница 1 из 2');});
+test('authored finding and coverage prose has both locales',()=>{for(const f of A.demo.findings)for(const key of ['title','description','recommendation'])for(const locale of ['ru','en'])assert.ok(f[key][locale],f.id+':'+key);for(const c of A.demo.coverage)for(const key of ['name','scope','detail'])for(const locale of ['ru','en'])assert.ok(c[key][locale],c.rule+':'+key);});

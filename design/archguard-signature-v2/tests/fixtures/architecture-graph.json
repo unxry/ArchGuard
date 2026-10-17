@@ -1,0 +1,427 @@
+{
+  "candidates": [],
+  "conformance": null,
+  "cycles": [
+    {
+      "edge_ids": [
+        "1cda3418-70f1-5508-97a3-441c3874cc31",
+        "986aeadb-9500-5fcd-96b5-a5c5bf574031"
+      ],
+      "members": [
+        "4e3b20c3-6051-56b9-84de-e0acae2034cc",
+        "8723fde6-1320-52f9-9cc8-f6377a4f9914",
+        "d9b1d63f-d610-5139-9b92-04895984d7b3"
+      ],
+      "node_ids": [
+        "8723fde6-1320-52f9-9cc8-f6377a4f9914",
+        "4e3b20c3-6051-56b9-84de-e0acae2034cc",
+        "8723fde6-1320-52f9-9cc8-f6377a4f9914"
+      ],
+      "scc_id": "14ba62c4-5b74-5628-be3c-9263183d3c9d",
+      "truncated": false
+    }
+  ],
+  "diagnostics": [],
+  "findings": [],
+  "graph": {
+    "edges": [
+      {
+        "id": "986aeadb-9500-5fcd-96b5-a5c5bf574031",
+        "proofs": [
+          {
+            "iam_edge_id": "508edbfe-316d-598e-80cc-d47953fc80e6",
+            "locations": [
+              {
+                "end_column": 19,
+                "end_line": 2,
+                "file_path": "src/ui/controller.ts",
+                "start_column": 10,
+                "start_line": 2
+              }
+            ],
+            "occurrences": 1,
+            "provenance": [
+              {
+                "reference_kind": "IMPORT",
+                "resolution_method": "EXACT_IMPORT",
+                "resolution_status": "RESOLVED",
+                "source_location": {
+                  "end_column": 19,
+                  "end_line": 2,
+                  "file_path": "src/ui/controller.ts",
+                  "start_column": 10,
+                  "start_line": 2
+                }
+              }
+            ],
+            "provenance_truncated": 0,
+            "relation": "IMPORTS",
+            "source_node_id": "4e3b20c3-6051-56b9-84de-e0acae2034cc",
+            "target_node_id": "8723fde6-1320-52f9-9cc8-f6377a4f9914"
+          }
+        ],
+        "relation_kinds": [
+          "IMPORTS"
+        ],
+        "source_id": "4e3b20c3-6051-56b9-84de-e0acae2034cc",
+        "target_id": "8723fde6-1320-52f9-9cc8-f6377a4f9914"
+      },
+      {
+        "id": "84f62ae2-5814-5109-8083-acd89bd603e0",
+        "proofs": [
+          {
+            "iam_edge_id": "b6197d9d-8e2e-57d5-8f9b-afe94dec48fb",
+            "locations": [
+              {
+                "end_column": 16,
+                "end_line": 1,
+                "file_path": "src/ui/controller.ts",
+                "start_column": 10,
+                "start_line": 1
+              }
+            ],
+            "occurrences": 1,
+            "provenance": [
+              {
+                "reference_kind": "IMPORT",
+                "resolution_method": "EXACT_IMPORT",
+                "resolution_status": "RESOLVED",
+                "source_location": {
+                  "end_column": 16,
+                  "end_line": 1,
+                  "file_path": "src/ui/controller.ts",
+                  "start_column": 10,
+                  "start_line": 1
+                }
+              }
+            ],
+            "provenance_truncated": 0,
+            "relation": "IMPORTS",
+            "source_node_id": "4e3b20c3-6051-56b9-84de-e0acae2034cc",
+            "target_node_id": "d9b1d63f-d610-5139-9b92-04895984d7b3"
+          }
+        ],
+        "relation_kinds": [
+          "IMPORTS"
+        ],
+        "source_id": "4e3b20c3-6051-56b9-84de-e0acae2034cc",
+        "target_id": "d9b1d63f-d610-5139-9b92-04895984d7b3"
+      },
+      {
+        "id": "1cda3418-70f1-5508-97a3-441c3874cc31",
+        "proofs": [
+          {
+            "iam_edge_id": "f98f4b42-9c77-5a19-a41b-abbf7d2fa0d0",
+            "locations": [
+              {
+                "end_column": 19,
+                "end_line": 1,
+                "file_path": "src/data/repository.ts",
+                "start_column": 10,
+                "start_line": 1
+              }
+            ],
+            "occurrences": 1,
+            "provenance": [
+              {
+                "reference_kind": "IMPORT",
+                "resolution_method": "EXACT_IMPORT",
+                "resolution_status": "RESOLVED",
+                "source_location": {
+                  "end_column": 19,
+                  "end_line": 1,
+                  "file_path": "src/data/repository.ts",
+                  "start_column": 10,
+                  "start_line": 1
+                }
+              }
+            ],
+            "provenance_truncated": 0,
+            "relation": "IMPORTS",
+            "source_node_id": "8723fde6-1320-52f9-9cc8-f6377a4f9914",
+            "target_node_id": "4e3b20c3-6051-56b9-84de-e0acae2034cc"
+          }
+        ],
+        "relation_kinds": [
+          "IMPORTS"
+        ],
+        "source_id": "8723fde6-1320-52f9-9cc8-f6377a4f9914",
+        "target_id": "4e3b20c3-6051-56b9-84de-e0acae2034cc"
+      },
+      {
+        "id": "335c859c-7c03-54ee-83e5-c4812c57157d",
+        "proofs": [
+          {
+            "iam_edge_id": "3f3c8d3d-5edf-5a20-89a8-4776ffe00c58",
+            "locations": [
+              {
+                "end_column": 19,
+                "end_line": 1,
+                "file_path": "src/domain/service.ts",
+                "start_column": 10,
+                "start_line": 1
+              }
+            ],
+            "occurrences": 1,
+            "provenance": [
+              {
+                "reference_kind": "IMPORT",
+                "resolution_method": "EXACT_IMPORT",
+                "resolution_status": "RESOLVED",
+                "source_location": {
+                  "end_column": 19,
+                  "end_line": 1,
+                  "file_path": "src/domain/service.ts",
+                  "start_column": 10,
+                  "start_line": 1
+                }
+              }
+            ],
+            "provenance_truncated": 0,
+            "relation": "IMPORTS",
+            "source_node_id": "d9b1d63f-d610-5139-9b92-04895984d7b3",
+            "target_node_id": "8723fde6-1320-52f9-9cc8-f6377a4f9914"
+          }
+        ],
+        "relation_kinds": [
+          "IMPORTS"
+        ],
+        "source_id": "d9b1d63f-d610-5139-9b92-04895984d7b3",
+        "target_id": "8723fde6-1320-52f9-9cc8-f6377a4f9914"
+      }
+    ],
+    "graph_schema_version": "1.0",
+    "nodes": [
+      {
+        "iam_node_ids": [
+          "4e3b20c3-6051-56b9-84de-e0acae2034cc",
+          "7872101d-b13e-5508-931a-3661e1ed380c"
+        ],
+        "id": "4e3b20c3-6051-56b9-84de-e0acae2034cc",
+        "kind": "FILE",
+        "label": "src/ui/controller.ts",
+        "locations": [
+          {
+            "end_column": null,
+            "end_line": null,
+            "file_path": "src/ui/controller.ts",
+            "start_column": 1,
+            "start_line": 1
+          },
+          {
+            "end_column": 26,
+            "end_line": 4,
+            "file_path": "src/ui/controller.ts",
+            "start_column": 8,
+            "start_line": 4
+          }
+        ],
+        "member_count": 0,
+        "method_count": 0
+      },
+      {
+        "iam_node_ids": [
+          "09b9acf4-b8dc-5bb1-bbb0-41659f19a207",
+          "8723fde6-1320-52f9-9cc8-f6377a4f9914"
+        ],
+        "id": "8723fde6-1320-52f9-9cc8-f6377a4f9914",
+        "kind": "FILE",
+        "label": "src/data/repository.ts",
+        "locations": [
+          {
+            "end_column": null,
+            "end_line": null,
+            "file_path": "src/data/repository.ts",
+            "start_column": 1,
+            "start_line": 1
+          },
+          {
+            "end_column": 26,
+            "end_line": 3,
+            "file_path": "src/data/repository.ts",
+            "start_column": 8,
+            "start_line": 3
+          }
+        ],
+        "member_count": 0,
+        "method_count": 0
+      },
+      {
+        "iam_node_ids": [
+          "d9b1d63f-d610-5139-9b92-04895984d7b3",
+          "f23c9c71-99af-59d1-808f-d5d2f9fe9329"
+        ],
+        "id": "d9b1d63f-d610-5139-9b92-04895984d7b3",
+        "kind": "FILE",
+        "label": "src/domain/service.ts",
+        "locations": [
+          {
+            "end_column": null,
+            "end_line": null,
+            "file_path": "src/domain/service.ts",
+            "start_column": 1,
+            "start_line": 1
+          },
+          {
+            "end_column": 23,
+            "end_line": 3,
+            "file_path": "src/domain/service.ts",
+            "start_column": 8,
+            "start_line": 3
+          }
+        ],
+        "member_count": 0,
+        "method_count": 0
+      }
+    ],
+    "project_id": "beacbdc4-e113-5631-b46b-6e632fb3f1a9",
+    "projection": {
+      "include_external": false,
+      "include_self_edges": false,
+      "included_relations": [
+        "IMPORTS"
+      ],
+      "projection": "file"
+    }
+  },
+  "is_complete": true,
+  "is_valid": true,
+  "metrics": [
+    {
+      "afferent_coupling": 1,
+      "betweenness_centrality": 0.5,
+      "efferent_coupling": 2,
+      "in_degree_centrality": 0.5,
+      "in_degree_edges": 1,
+      "instability": 0.666666666667,
+      "is_cyclic": true,
+      "node_id": "4e3b20c3-6051-56b9-84de-e0acae2034cc",
+      "out_degree_centrality": 1.0,
+      "out_degree_edges": 2,
+      "pagerank": 0.387789711649,
+      "scc_size": 3,
+      "total_unique_neighbors": 2,
+      "unique_in_neighbors": 1,
+      "unique_out_neighbors": 2
+    },
+    {
+      "afferent_coupling": 2,
+      "betweenness_centrality": 0.5,
+      "efferent_coupling": 1,
+      "in_degree_centrality": 1.0,
+      "in_degree_edges": 2,
+      "instability": 0.333333333333,
+      "is_cyclic": true,
+      "node_id": "8723fde6-1320-52f9-9cc8-f6377a4f9914",
+      "out_degree_centrality": 0.5,
+      "out_degree_edges": 1,
+      "pagerank": 0.397399660837,
+      "scc_size": 3,
+      "total_unique_neighbors": 2,
+      "unique_in_neighbors": 2,
+      "unique_out_neighbors": 1
+    },
+    {
+      "afferent_coupling": 1,
+      "betweenness_centrality": 0.0,
+      "efferent_coupling": 1,
+      "in_degree_centrality": 0.5,
+      "in_degree_edges": 1,
+      "instability": 0.5,
+      "is_cyclic": true,
+      "node_id": "d9b1d63f-d610-5139-9b92-04895984d7b3",
+      "out_degree_centrality": 0.5,
+      "out_degree_edges": 1,
+      "pagerank": 0.214810627513,
+      "scc_size": 3,
+      "total_unique_neighbors": 2,
+      "unique_in_neighbors": 1,
+      "unique_out_neighbors": 1
+    }
+  ],
+  "projection_statistics": {
+    "external_nodes_excluded": 0,
+    "filtered_edges": 0,
+    "graph_edges": 4,
+    "graph_nodes": 3,
+    "iam_edges_input": 4,
+    "iam_nodes_input": 10,
+    "self_edges_removed": 0,
+    "unclassified_nodes_excluded": 0,
+    "unmapped_nodes": 0,
+    "unproven_edges": 0
+  },
+  "reproducibility": {
+    "architecture_spec_fingerprint": null,
+    "canonical_float_decimal_places": 12,
+    "configuration": {
+      "betweenness_node_limit": 1000,
+      "calculate_betweenness": true,
+      "calculate_pagerank": true,
+      "candidates": {
+        "bottleneck_betweenness": null,
+        "bottleneck_min_neighbors": null,
+        "excessive_coupling": null,
+        "god_min_coupling": null,
+        "god_min_members": null,
+        "god_min_methods": null,
+        "hub_fan_in": null,
+        "unstable_delta": null
+      },
+      "max_cycle_trace_length": 256,
+      "max_graph_edges": 100000,
+      "max_graph_nodes": 10000,
+      "max_neighbourhood_nodes": 1000,
+      "pagerank_alpha": 0.85,
+      "pagerank_max_iterations": 200,
+      "pagerank_tolerance": 1e-10,
+      "projection": {
+        "include_external": false,
+        "include_self_edges": false,
+        "included_relations": [
+          "IMPORTS"
+        ],
+        "projection": "file"
+      }
+    },
+    "configuration_fingerprint": "3aae9c5c101bb5336aed773aa24c8e26a848c3bc6bef54cd51ad033976670fa3",
+    "graph_engine_version": "1.0.0",
+    "iam_fingerprint": "66b8a1b7cb80583fa7a4eeb0faa173f4b44e333f4a5413d1421e67ba0c586da2",
+    "iam_schema_version": "1.0",
+    "networkx_version": "3.7",
+    "project_id": "beacbdc4-e113-5631-b46b-6e632fb3f1a9",
+    "projection_fingerprint": "94f23c8f8f72b0c52d3ac4f6a81d710448d191ffcef3dbbfb39366fef1852505",
+    "snapshot_fingerprint": "4fc578f00fdb9bcb438136b6ee60a56b04534f3fa024178470bf64f4d01fd305"
+  },
+  "result_schema_version": "1.0",
+  "sccs": [
+    {
+      "id": "14ba62c4-5b74-5628-be3c-9263183d3c9d",
+      "internal_edge_count": 4,
+      "members": [
+        "4e3b20c3-6051-56b9-84de-e0acae2034cc",
+        "8723fde6-1320-52f9-9cc8-f6377a4f9914",
+        "d9b1d63f-d610-5139-9b92-04895984d7b3"
+      ],
+      "size": 3
+    }
+  ],
+  "statistics": {
+    "candidate_count_by_rule": {},
+    "cycle_findings": 0,
+    "cycle_observation_count": 1,
+    "cyclic_scc_count": 1,
+    "metric_node_count": 3,
+    "metrics_computed": [
+      "degree",
+      "coupling",
+      "instability",
+      "degree_centrality",
+      "betweenness",
+      "pagerank"
+    ],
+    "metrics_skipped": [],
+    "scc_count": 1
+  },
+  "status": "COMPLETE"
+}

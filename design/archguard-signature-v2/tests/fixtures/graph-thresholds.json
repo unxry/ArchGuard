@@ -1,0 +1,11 @@
+{
+  "projection": {
+    "projection": "file",
+    "included_relations": [
+      "IMPORTS"
+    ]
+  },
+  "candidates": {
+    "excessive_coupling": 1
+  }
+}
