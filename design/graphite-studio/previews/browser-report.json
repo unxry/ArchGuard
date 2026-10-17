@@ -1,0 +1,306 @@
+{
+  "browser": "151.0.7922.34",
+  "viewport": "1440 × 1000",
+  "checks": [
+    {
+      "name": "precision: RU default, three workspaces, synthetic provenance",
+      "status": "PASS"
+    },
+    {
+      "name": "precision: architecture illustration is an Atlas entry",
+      "status": "PASS"
+    },
+    {
+      "name": "precision: keyboard node / edge selection and dossier sync",
+      "status": "PASS"
+    },
+    {
+      "name": "precision: hover reveals incident geometry",
+      "status": "PASS"
+    },
+    {
+      "name": "precision: pulse head and trailing segment share SVG path",
+      "status": "PASS"
+    },
+    {
+      "name": "precision: pan / focus / fit / zoom",
+      "status": "PASS"
+    },
+    {
+      "name": "precision: inspector and fullscreen toggles",
+      "status": "PASS"
+    },
+    {
+      "name": "precision: relation and direction filters affect edges",
+      "status": "PASS"
+    },
+    {
+      "name": "precision: 40 modules aggregate and drill down",
+      "status": "PASS"
+    },
+    {
+      "name": "precision: 216 modules aggregate and drill down",
+      "status": "PASS"
+    },
+    {
+      "name": "precision: search finds a module beyond initial cluster page",
+      "status": "PASS"
+    },
+    {
+      "name": "precision: Security evidence and source tabs",
+      "status": "PASS"
+    },
+    {
+      "name": "precision: uncertainty, unsupported and scoped-negative stay distinct",
+      "status": "PASS"
+    },
+    {
+      "name": "precision: findings, filters, evidence → graph",
+      "status": "PASS"
+    },
+    {
+      "name": "precision: RU/EN preserves selection and renders all surfaces",
+      "status": "PASS"
+    },
+    {
+      "name": "cinematic: RU default, three workspaces, synthetic provenance",
+      "status": "PASS"
+    },
+    {
+      "name": "cinematic: architecture illustration is an Atlas entry",
+      "status": "PASS"
+    },
+    {
+      "name": "cinematic: keyboard node / edge selection and dossier sync",
+      "status": "PASS"
+    },
+    {
+      "name": "cinematic: hover reveals incident geometry",
+      "status": "PASS"
+    },
+    {
+      "name": "cinematic: pulse head and trailing segment share SVG path",
+      "status": "PASS"
+    },
+    {
+      "name": "cinematic: pan / focus / fit / zoom",
+      "status": "PASS"
+    },
+    {
+      "name": "cinematic: inspector and fullscreen toggles",
+      "status": "PASS"
+    },
+    {
+      "name": "cinematic: relation and direction filters affect edges",
+      "status": "PASS"
+    },
+    {
+      "name": "cinematic: 40 modules aggregate and drill down",
+      "status": "PASS"
+    },
+    {
+      "name": "cinematic: 216 modules aggregate and drill down",
+      "status": "PASS"
+    },
+    {
+      "name": "cinematic: search finds a module beyond initial cluster page",
+      "status": "PASS"
+    },
+    {
+      "name": "cinematic: Security evidence and source tabs",
+      "status": "PASS"
+    },
+    {
+      "name": "cinematic: uncertainty, unsupported and scoped-negative stay distinct",
+      "status": "PASS"
+    },
+    {
+      "name": "cinematic: findings, filters, evidence → graph",
+      "status": "PASS"
+    },
+    {
+      "name": "cinematic: RU/EN preserves selection and renders all surfaces",
+      "status": "PASS"
+    },
+    {
+      "name": "Locale resources are symmetric",
+      "status": "PASS"
+    },
+    {
+      "name": "Switch directions without losing selected node or dataset",
+      "status": "PASS"
+    },
+    {
+      "name": "Motion preference and reduced motion cancel pulses and camera",
+      "status": "PASS"
+    },
+    {
+      "name": "Hidden-tab event pauses/resumes RAF without frame accumulation (simulated visibility)",
+      "status": "PASS"
+    },
+    {
+      "name": "Unmount cancels pulse/camera, WAAPI and listeners",
+      "status": "PASS"
+    },
+    {
+      "name": "Onboarding validation and finite demo complete in new shell",
+      "status": "PASS"
+    },
+    {
+      "name": "CLI import retained: architecture-graph",
+      "status": "PASS"
+    },
+    {
+      "name": "CLI import retained: architecture-check",
+      "status": "PASS"
+    },
+    {
+      "name": "CLI import retained: architecture-candidates",
+      "status": "PASS"
+    },
+    {
+      "name": "CLI import retained: architecture-composite",
+      "status": "PASS"
+    },
+    {
+      "name": "CLI import retained: architecture-discovery",
+      "status": "PASS"
+    },
+    {
+      "name": "CLI import retained: architecture-context",
+      "status": "PASS"
+    },
+    {
+      "name": "CLI import retained: architecture-hybrid",
+      "status": "PASS"
+    },
+    {
+      "name": "CLI import retained: security-supported",
+      "status": "PASS"
+    },
+    {
+      "name": "CLI import retained: security-potential",
+      "status": "PASS"
+    },
+    {
+      "name": "CLI import retained: security-empty",
+      "status": "PASS"
+    },
+    {
+      "name": "Threshold configuration is rejected as a result artifact",
+      "status": "PASS"
+    },
+    {
+      "name": "precision: 390px projects no horizontal page overflow",
+      "status": "PASS"
+    },
+    {
+      "name": "precision: 390px atlas no horizontal page overflow",
+      "status": "PASS"
+    },
+    {
+      "name": "precision: 390px security no horizontal page overflow",
+      "status": "PASS"
+    },
+    {
+      "name": "precision: 768px projects no horizontal page overflow",
+      "status": "PASS"
+    },
+    {
+      "name": "precision: 768px atlas no horizontal page overflow",
+      "status": "PASS"
+    },
+    {
+      "name": "precision: 768px security no horizontal page overflow",
+      "status": "PASS"
+    },
+    {
+      "name": "precision: 1280px projects no horizontal page overflow",
+      "status": "PASS"
+    },
+    {
+      "name": "precision: 1280px atlas no horizontal page overflow",
+      "status": "PASS"
+    },
+    {
+      "name": "precision: 1280px security no horizontal page overflow",
+      "status": "PASS"
+    },
+    {
+      "name": "cinematic: 390px projects no horizontal page overflow",
+      "status": "PASS"
+    },
+    {
+      "name": "cinematic: 390px atlas no horizontal page overflow",
+      "status": "PASS"
+    },
+    {
+      "name": "cinematic: 390px security no horizontal page overflow",
+      "status": "PASS"
+    },
+    {
+      "name": "cinematic: 768px projects no horizontal page overflow",
+      "status": "PASS"
+    },
+    {
+      "name": "cinematic: 768px atlas no horizontal page overflow",
+      "status": "PASS"
+    },
+    {
+      "name": "cinematic: 768px security no horizontal page overflow",
+      "status": "PASS"
+    },
+    {
+      "name": "cinematic: 1280px projects no horizontal page overflow",
+      "status": "PASS"
+    },
+    {
+      "name": "cinematic: 1280px atlas no horizontal page overflow",
+      "status": "PASS"
+    },
+    {
+      "name": "cinematic: 1280px security no horizontal page overflow",
+      "status": "PASS"
+    },
+    {
+      "name": "216-node source / 4× CPU: finite pulse animation",
+      "status": "PASS"
+    },
+    {
+      "name": "20 graph mount/unmount cycles clean resources",
+      "status": "PASS"
+    },
+    {
+      "name": "Offline file previews load and deep links work",
+      "status": "PASS"
+    },
+    {
+      "name": "No console errors or external requests",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "consoleErrors": [],
+  "externalRequests": [],
+  "measurements": {
+    "animation": {
+      "sourceNodes": 216,
+      "visibleNodes": 18,
+      "frames": 240,
+      "longFrames": 0,
+      "p95Ms": 17.5,
+      "longTasks": [],
+      "cls": 0.012683299899631078
+    },
+    "heap": {
+      "before": 3007688,
+      "after": 3002284
+    }
+  },
+  "summary": {
+    "passed": 69,
+    "failed": 0,
+    "jsErrors": 0,
+    "consoleErrors": 0
+  }
+}
