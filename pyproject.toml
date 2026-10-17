@@ -27,6 +27,7 @@ dependencies = [
 
 [project.scripts]
 archguard = "archguard.cli:main"
+archguard-ui = "archguard.product.app:main"
 
 [project.optional-dependencies]
 dev = [

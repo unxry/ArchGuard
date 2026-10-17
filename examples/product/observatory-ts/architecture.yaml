@@ -1,0 +1,16 @@
+version: "1.0"
+architecture:
+  layers:
+    - name: interface
+      include: ["**/controller/**"]
+    - name: application
+      include: ["**/service/**"]
+    - name: infrastructure
+      include: ["**/repository/**"]
+rules:
+  - id: ARCH002
+    type: layer_dependency
+    from: interface
+    allow: [application]
+    allow_same_layer: true
+    severity: high
