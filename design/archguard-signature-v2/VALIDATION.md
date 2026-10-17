@@ -5,7 +5,7 @@ Executed 17 October 2026 against the isolated V2 directory. Browser: Chromium 15
 ## Results
 
 - Native Node tests: **43 passed, 0 failed, 0 skipped**. This includes the original **23 bridge cases**, 16 importer cases and 4 localization cases.
-- Browser scenarios: **58 passed, 0 failed**, **0 JavaScript errors**, **0 console errors** in the final receipt.
+- Browser scenarios: **65 passed, 0 failed** (58 full workflows + 7 supplementary controls), **0 JavaScript errors**, **0 console errors** in the final receipt.
 - All runtime JavaScript passed `node --check`. DTO declarations are documentation; TypeScript compilation is not claimed.
 - Eight actual CLI architecture artifact files imported through the browser; three authored Security V2 artifacts passed real Pydantic validation and browser import. Generic graph/static originals were generated twice byte-identically; extra artifacts are reproducible with the committed generator.
 - Actual FastAPI system handshake returned ArchGuard AI 0.1.0 / foundation / schema 1.0. Only fixed `/health` and `/api/v1/system/info` were queried upstream. `LOCAL_DEMO` remained independent from `LIVE_SYSTEM_ONLY`.
@@ -40,6 +40,8 @@ Representative computed WCAG contrast ratios: primary dark-workspace text **13.3
 2. Initial comparison assertion wrongly assumed two artifacts from the same mini-project were unrelated; now separately tests compatible and incompatible IDs.
 3. Populated Runs overflowed at 768 px because of intrinsic grid minimum width; bounded workspace/columns fixed it and regression passed.
 4. Visual pass found crowded dense domains, insufficient imported artifact inspection and small labels; these were corrected and verified. See VISUAL_REVIEW_V2.md.
+
+The supplementary controls receipt is `previews/controls-report.json`: inspector hide/show, native fullscreen enter/exit, minimap camera, brand navigation, analyzer selection, motion preference and mobile node list. An initial fullscreen assertion ran before the asynchronous transition completed; waiting for the actual fullscreen event/state fixed that harness timing issue.
 
 No failed/skipped scenario is hidden in the final receipt. Intermediate runs were not counted as successful. Full backend/research test suites were not run: no backend source was changed, and private/research artifacts remained outside scope.
 

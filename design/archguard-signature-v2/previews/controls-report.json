@@ -1,0 +1,37 @@
+{
+  "checks": [
+    {
+      "name": "Inspector visibility toggle",
+      "status": "PASS"
+    },
+    {
+      "name": "Fullscreen enter/exit and localized label",
+      "status": "PASS"
+    },
+    {
+      "name": "Minimap camera navigation",
+      "status": "PASS"
+    },
+    {
+      "name": "Brand returns to projects",
+      "status": "PASS"
+    },
+    {
+      "name": "Configuration filters demonstration findings",
+      "status": "PASS"
+    },
+    {
+      "name": "Preference dialog persists only motion setting",
+      "status": "PASS"
+    },
+    {
+      "name": "Mobile module-list selection updates inspector",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "summary": {
+    "passed": 7,
+    "failed": 0
+  }
+}

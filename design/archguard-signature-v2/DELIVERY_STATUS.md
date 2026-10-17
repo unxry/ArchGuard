@@ -35,4 +35,14 @@ READY_FOR_COORDINATOR_VISUAL_REVIEW = YES
 
 These statuses refer to the local V2 experience and the explicitly documented integration boundaries. Full public product audit does not mean every source line was reviewed or private research data was opened. Localization completeness covers authored UI, not automatic translation of imported repository content. No live project-analysis/job/source/auth endpoints are claimed.
 
-Publication confirmation is added only after the normal design-branch push succeeds. Stop before merge into main; coordinator visual review remains the next human step.
+## Publication verified
+
+Implementation commit: `94af3453f0afb39d9d795d4e2eaedba3a30edf7c`.
+Normal push to `origin/design-lab/archguard-signature-v2` succeeded; `git ls-remote` matched that implementation commit. Remote main remained `5e384141a6f9dbafb6654886e83fcad57def564e`. This receipt and supplementary controls tests are committed separately on the same design branch; final branch HEAD is available through `git rev-parse HEAD`.
+
+```text
+P039_ARCHGUARD_SIGNATURE_EXPERIENCE_COMPLETE
+DESIGN_BRANCH_PUSHED = YES
+```
+
+Staged scope/privacy validation checked every new text file for user-specific absolute paths and credential/private-key patterns; none found. Actual catalogue source paths exist. Runtime files passed syntax checks, native tests passed 43/43 and browser checks passed 65/65 across the full and supplementary receipts. The design worktree is clean after publication. Owned temporary preview services are stopped after review; offline index.html remains usable with no server. Stop before merge into main; coordinator visual review is the next human step.
