@@ -1,0 +1,32 @@
+{
+  "checks": [
+    "Custom icons and finite confirmed/uncertain signals",
+    "CTA hover and tactile pressed state",
+    "Beam endpoints are real node bounds; selection preserved",
+    "Repeated CTA and interrupted navigation clean up",
+    "Actual platform polygon hit test and keyboard focus",
+    "Layer preserved through luminous portal",
+    "Manual drag interrupts camera and moves graph",
+    "Cursor zoom preserves anchor; ordinary wheel scrolls page",
+    "Inspector states preserve selection and camera",
+    "Fullscreen enter/exit preserves camera",
+    "Issue signal opens matching evidence",
+    "Motion settings defaults, persistence, Escape, focus restoration",
+    "Help and onboarding source icons, validation, Escape",
+    "Reduced motion portal navigates instantly without beam",
+    "Desktop 1280×800",
+    "Desktop 1440×900",
+    "Desktop 1920×1080",
+    "Desktop 2560×1440",
+    "RU/EN parity, no JS or console errors"
+  ],
+  "errors": [],
+  "console": [],
+  "measurements": {},
+  "summary": {
+    "passed": 19,
+    "failed": 0,
+    "jsErrors": 0,
+    "consoleErrors": 0
+  }
+}

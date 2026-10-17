@@ -1,0 +1,16 @@
+{
+  "frames": 71,
+  "p95Ms": 18.599999999999454,
+  "longTasks": [
+    122
+  ],
+  "bridges": 0,
+  "view": "atlas",
+  "heapBefore": 1394100,
+  "heapAfter": 1640780,
+  "cleanup": {
+    "scopes": 0,
+    "bridges": 0,
+    "graph": false
+  }
+}

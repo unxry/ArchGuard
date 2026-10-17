@@ -217,9 +217,9 @@
     "flow12": {
       "source": 12,
       "visible": 12,
-      "frames": 144,
+      "frames": 143,
       "longFrames": 0,
-      "p95Ms": 17.5,
+      "p95Ms": 18.400000000001455,
       "longTasks": [],
       "active": false
     },
@@ -228,28 +228,28 @@
       "visible": 6,
       "frames": 144,
       "longFrames": 0,
-      "p95Ms": 17.5,
+      "p95Ms": 18,
       "longTasks": [],
       "active": false
     },
     "flow216": {
       "source": 216,
       "visible": 18,
-      "frames": 144,
+      "frames": 143,
       "longFrames": 0,
-      "p95Ms": 17.599999999998545,
+      "p95Ms": 18.099999999998545,
       "longTasks": [],
       "active": false
     },
     "assembly": {
-      "totalIncludingFlowMs": 4895,
+      "totalIncludingFlowMs": 4891,
       "longTasks": [],
       "cls": 0.00002297662805627894,
       "animations": 0
     },
     "heap": {
-      "before": 3334364,
-      "after": 3332472
+      "before": 3399736,
+      "after": 3395704
     }
   },
   "scope": "Desktop; mobile work excluded by user addendum. Narrow-width advisory only.",
