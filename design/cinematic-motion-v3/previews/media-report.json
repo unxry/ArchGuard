@@ -1,0 +1,37 @@
+{
+  "checks": [
+    "Five fresh before screenshots captured from unchanged P039.1",
+    "1920×1080 real WebM: assembly, layer, camera, shared transition, chain, dense drilldown, evidence, replay",
+    "Computed trail opacity fades after actual target arrival",
+    "Reduced motion cancels flow and shared transition",
+    "All five comparison tabs load actual before/after images",
+    "WebM decodes and plays in the review gallery",
+    "Dark/light wordmarks and application icon render"
+  ],
+  "errors": [],
+  "recording": {
+    "method": "Playwright recordVideo: actual Chromium viewport, no reconstructed frames",
+    "width": 1920,
+    "height": 1080,
+    "wallSeconds": 34.109,
+    "bytes": 3936951,
+    "playback": {
+      "currentTime": 0.705963,
+      "width": 1920,
+      "height": 1080,
+      "readyState": 4,
+      "error": null
+    }
+  },
+  "baseline": "P039.1 75d9b9e, unchanged local cinematic.html",
+  "browser": "151.0.7922.34",
+  "light": {
+    "peakComputedOpacity": 0.8,
+    "fadedComputedOpacity": 0.445689
+  },
+  "summary": {
+    "passed": 7,
+    "failed": 0,
+    "jsErrors": 0
+  }
+}

@@ -1,0 +1,263 @@
+{
+  "browser": "151.0.7922.34",
+  "checks": [
+    {
+      "name": "App start: RU, synthetic provenance and evolutionary wordmark",
+      "status": "PASS"
+    },
+    {
+      "name": "Initial assembly: layered geometry, node materialization and path drawing",
+      "status": "PASS"
+    },
+    {
+      "name": "Finite scene rests with no animation frames or running WAAPI",
+      "status": "PASS"
+    },
+    {
+      "name": "Assembly replay and no heavy replay on locale change",
+      "status": "PASS"
+    },
+    {
+      "name": "Layer hover/selection and camera preserve readable node geometry",
+      "status": "PASS"
+    },
+    {
+      "name": "Overview module selection exposes full identifier and context",
+      "status": "PASS"
+    },
+    {
+      "name": "Overview → Atlas shared geometry transition retains selection",
+      "status": "PASS"
+    },
+    {
+      "name": "SVG directed pulses and fading trails share exact edge geometry",
+      "status": "PASS"
+    },
+    {
+      "name": "Dependency arrival activates only actual target nodes",
+      "status": "PASS"
+    },
+    {
+      "name": "Bounded dependency chain and camera focus use linked endpoints",
+      "status": "PASS"
+    },
+    {
+      "name": "Hover edge revelation, keyboard arrow navigation and edge selection",
+      "status": "PASS"
+    },
+    {
+      "name": "Zoom, pan, minimap, fit and fullscreen",
+      "status": "PASS"
+    },
+    {
+      "name": "Relation filtering and directional focus remain functional",
+      "status": "PASS"
+    },
+    {
+      "name": "40 modules: volumetric clusters, drilldown, assembly and pages",
+      "status": "PASS"
+    },
+    {
+      "name": "216 modules: volumetric clusters, drilldown, assembly and pages",
+      "status": "PASS"
+    },
+    {
+      "name": "Search expands the correct dense graph page",
+      "status": "PASS"
+    },
+    {
+      "name": "Overview returns to actual 12-module demo context",
+      "status": "PASS"
+    },
+    {
+      "name": "Module → related finding retains evidence semantics",
+      "status": "PASS"
+    },
+    {
+      "name": "Evidence tabs and graph return preserve selected identity",
+      "status": "PASS"
+    },
+    {
+      "name": "Security proof reveal and code-line focus follow source coordinates",
+      "status": "PASS"
+    },
+    {
+      "name": "Unknown, unsupported and scoped-negative never become confirmed",
+      "status": "PASS"
+    },
+    {
+      "name": "RU/EN resource parity and all six retained spaces",
+      "status": "PASS"
+    },
+    {
+      "name": "Onboarding validation / cancellation and finite demo completion",
+      "status": "PASS"
+    },
+    {
+      "name": "Public CLI artifact retained: architecture-graph",
+      "status": "PASS"
+    },
+    {
+      "name": "Public CLI artifact retained: architecture-check",
+      "status": "PASS"
+    },
+    {
+      "name": "Public CLI artifact retained: architecture-candidates",
+      "status": "PASS"
+    },
+    {
+      "name": "Public CLI artifact retained: architecture-composite",
+      "status": "PASS"
+    },
+    {
+      "name": "Public CLI artifact retained: architecture-discovery",
+      "status": "PASS"
+    },
+    {
+      "name": "Public CLI artifact retained: architecture-context",
+      "status": "PASS"
+    },
+    {
+      "name": "Public CLI artifact retained: architecture-hybrid",
+      "status": "PASS"
+    },
+    {
+      "name": "Public CLI artifact retained: security-supported",
+      "status": "PASS"
+    },
+    {
+      "name": "Public CLI artifact retained: security-potential",
+      "status": "PASS"
+    },
+    {
+      "name": "Public CLI artifact retained: security-empty",
+      "status": "PASS"
+    },
+    {
+      "name": "Raw export preserves imported data and provenance",
+      "status": "PASS"
+    },
+    {
+      "name": "Reduced motion cancels assembly, flow, camera and transition scopes",
+      "status": "PASS"
+    },
+    {
+      "name": "Motion off and edge-flow off independently suppress animation",
+      "status": "PASS"
+    },
+    {
+      "name": "Full / restrained intensity and user-controlled light speed persist",
+      "status": "PASS"
+    },
+    {
+      "name": "Hidden assembly pauses/resumes WAAPI (controlled visibility event)",
+      "status": "PASS"
+    },
+    {
+      "name": "Hidden edge flow pauses RAF without frame accumulation",
+      "status": "PASS"
+    },
+    {
+      "name": "Rapid routes dispose old scopes, listeners and shared elements",
+      "status": "PASS"
+    },
+    {
+      "name": "Desktop 1280×800: composition and readable Atlas",
+      "status": "PASS"
+    },
+    {
+      "name": "Desktop 1440×900: composition and readable Atlas",
+      "status": "PASS"
+    },
+    {
+      "name": "Desktop 1920×1080: composition and readable Atlas",
+      "status": "PASS"
+    },
+    {
+      "name": "Desktop 2560×1440: composition and readable Atlas",
+      "status": "PASS"
+    },
+    {
+      "name": "Narrow window shows advisory and releases hidden graph",
+      "status": "PASS"
+    },
+    {
+      "name": "4× CPU, 12 source modules: measured finite motion",
+      "status": "PASS"
+    },
+    {
+      "name": "4× CPU, 40 source modules: measured finite motion",
+      "status": "PASS"
+    },
+    {
+      "name": "4× CPU, 216 source modules: measured finite motion",
+      "status": "PASS"
+    },
+    {
+      "name": "4× CPU overview assembly timing and layout stability measured",
+      "status": "PASS"
+    },
+    {
+      "name": "20 scene mount/unmount cycles: heap and scope cleanup",
+      "status": "PASS"
+    },
+    {
+      "name": "Offline HTML, deep link and brand assets load",
+      "status": "PASS"
+    },
+    {
+      "name": "No JS errors, console errors or external requests",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "consoleErrors": [],
+  "externalRequests": [],
+  "measurements": {
+    "flow12": {
+      "source": 12,
+      "visible": 12,
+      "frames": 144,
+      "longFrames": 0,
+      "p95Ms": 17.5,
+      "longTasks": [],
+      "active": false
+    },
+    "flow40": {
+      "source": 40,
+      "visible": 6,
+      "frames": 144,
+      "longFrames": 0,
+      "p95Ms": 17.5,
+      "longTasks": [],
+      "active": false
+    },
+    "flow216": {
+      "source": 216,
+      "visible": 18,
+      "frames": 144,
+      "longFrames": 0,
+      "p95Ms": 17.599999999998545,
+      "longTasks": [],
+      "active": false
+    },
+    "assembly": {
+      "totalIncludingFlowMs": 4895,
+      "longTasks": [],
+      "cls": 0.00002297662805627894,
+      "animations": 0
+    },
+    "heap": {
+      "before": 3334364,
+      "after": 3332472
+    }
+  },
+  "scope": "Desktop; mobile work excluded by user addendum. Narrow-width advisory only.",
+  "summary": {
+    "passed": 52,
+    "failed": 0,
+    "skipped": 0,
+    "jsErrors": 0,
+    "consoleErrors": 0
+  }
+}
