@@ -1,0 +1,3 @@
+/* Graphite Studio · shared semantic tokens. Both directions share data and behavior. */
+:root{--bg:#202124;--sidebar:#191a1c;--panel:#292a2d;--panel2:#333437;--line:#44454a;--text:#f5f1e9;--muted:#b2b0ac;--accent:#e4b77c;--coral:#ec947e;--cool:#a9c6dc;--paper:#f0ece3;--ink:#292a2d;--paperline:#d7d1c7;--radius:12px;--shadow:0 24px 70px #11121428;--ease:cubic-bezier(.22,1,.36,1);--fast:180ms;--enter:480ms;font-size:15px}
+:root[data-variant=precision]{--bg:#ece9e2;--panel:#f7f4ed;--panel2:#e7e1d6;--line:#d2cdc3;--text:#292a2d;--muted:#666460;--accent:#975b26;--coral:#a64532;--cool:#38617b;--radius:4px;color-scheme:light}

@@ -1,0 +1,1454 @@
+{
+  "analysis_kind": "architecture_discovery",
+  "diagnostics": [],
+  "discovered": {
+    "ambiguous_components": [
+      "f23c9c71-99af-59d1-808f-d5d2f9fe9329"
+    ],
+    "components": [
+      {
+        "file_path": "src/data/repository.ts",
+        "iam_node_id": "09b9acf4-b8dc-5bb1-bbb0-41659f19a207",
+        "id": "09b9acf4-b8dc-5bb1-bbb0-41659f19a207",
+        "language": "TYPESCRIPT",
+        "layer": {
+          "candidate_layers": [
+            "PERSISTENCE"
+          ],
+          "evidence": [
+            {
+              "id": "2f29ee05-8fda-5fd1-9c52-44c583e3c2aa",
+              "kind": "DEPENDENCY_DIRECTION",
+              "layer_hint": "PERSISTENCE",
+              "location": {
+                "end_column": 19,
+                "end_line": 2,
+                "file_path": "src/ui/controller.ts",
+                "start_column": 10,
+                "start_line": 2
+              },
+              "metadata": {
+                "graph_edge_id": "c24e4a12-8885-5c42-a028-10e4c54f2711"
+              },
+              "observed_value": "PRESENTATION->PERSISTENCE",
+              "role_hint": null,
+              "signal": "observed-directed-edge:c24e4a12-8885-5c42-a028-10e4c54f2711",
+              "strength": "WEAK",
+              "subject_id": "09b9acf4-b8dc-5bb1-bbb0-41659f19a207"
+            },
+            {
+              "id": "3ff9f035-051f-524c-a8c7-1c323530c092",
+              "kind": "STRUCTURAL_SHAPE",
+              "layer_hint": null,
+              "location": {
+                "end_column": 26,
+                "end_line": 3,
+                "file_path": "src/data/repository.ts",
+                "start_column": 8,
+                "start_line": 3
+              },
+              "metadata": {},
+              "observed_value": "members=0;methods=0",
+              "role_hint": null,
+              "signal": "declaration-member-shape",
+              "strength": "WEAK",
+              "subject_id": "09b9acf4-b8dc-5bb1-bbb0-41659f19a207"
+            },
+            {
+              "id": "42322390-e56c-502b-87ce-aa72393b17f3",
+              "kind": "NAME_PATTERN",
+              "layer_hint": null,
+              "location": {
+                "end_column": 26,
+                "end_line": 3,
+                "file_path": "src/data/repository.ts",
+                "start_column": 8,
+                "start_line": 3
+              },
+              "metadata": {},
+              "observed_value": "Repository",
+              "role_hint": "REPOSITORY",
+              "signal": "bounded-name-suffix",
+              "strength": "MODERATE",
+              "subject_id": "09b9acf4-b8dc-5bb1-bbb0-41659f19a207"
+            },
+            {
+              "id": "a9352619-0510-50d7-8575-f3868d5dc73f",
+              "kind": "GRAPH_POSITION",
+              "layer_hint": null,
+              "location": {
+                "end_column": 26,
+                "end_line": 3,
+                "file_path": "src/data/repository.ts",
+                "start_column": 8,
+                "start_line": 3
+              },
+              "metadata": {},
+              "observed_value": "Ca=2;Ce=1",
+              "role_hint": null,
+              "signal": "directed-coupling-support",
+              "strength": "WEAK",
+              "subject_id": "09b9acf4-b8dc-5bb1-bbb0-41659f19a207"
+            },
+            {
+              "id": "f4c9636b-2c52-5277-aa31-34ca29cca9d2",
+              "kind": "DEPENDENCY_DIRECTION",
+              "layer_hint": "PERSISTENCE",
+              "location": {
+                "end_column": 19,
+                "end_line": 1,
+                "file_path": "src/data/repository.ts",
+                "start_column": 10,
+                "start_line": 1
+              },
+              "metadata": {
+                "graph_edge_id": "36777a4d-621b-53cf-bb3d-497add20bad8"
+              },
+              "observed_value": "PERSISTENCE->PRESENTATION",
+              "role_hint": null,
+              "signal": "observed-directed-edge:36777a4d-621b-53cf-bb3d-497add20bad8",
+              "strength": "WEAK",
+              "subject_id": "09b9acf4-b8dc-5bb1-bbb0-41659f19a207"
+            }
+          ],
+          "explanation": "Discovered layer hypothesis from role and structural path/framework evidence",
+          "id": "d9601d98-9226-5992-bfb9-22d064606ee3",
+          "label": "PERSISTENCE",
+          "role_hypothesis_id": "f287e39b-c2b6-5fba-ac06-da03fda46dff",
+          "strength": "MODERATE",
+          "subject_id": "09b9acf4-b8dc-5bb1-bbb0-41659f19a207"
+        },
+        "location": {
+          "end_column": 26,
+          "end_line": 3,
+          "file_path": "src/data/repository.ts",
+          "start_column": 8,
+          "start_line": 3
+        },
+        "module_id": null,
+        "name": "Repository",
+        "qualified_name": "src/data/repository.ts::Repository",
+        "role": {
+          "candidate_roles": [
+            "REPOSITORY"
+          ],
+          "conflicting_roles": [],
+          "evidence": [
+            {
+              "id": "3ff9f035-051f-524c-a8c7-1c323530c092",
+              "kind": "STRUCTURAL_SHAPE",
+              "layer_hint": null,
+              "location": {
+                "end_column": 26,
+                "end_line": 3,
+                "file_path": "src/data/repository.ts",
+                "start_column": 8,
+                "start_line": 3
+              },
+              "metadata": {},
+              "observed_value": "members=0;methods=0",
+              "role_hint": null,
+              "signal": "declaration-member-shape",
+              "strength": "WEAK",
+              "subject_id": "09b9acf4-b8dc-5bb1-bbb0-41659f19a207"
+            },
+            {
+              "id": "42322390-e56c-502b-87ce-aa72393b17f3",
+              "kind": "NAME_PATTERN",
+              "layer_hint": null,
+              "location": {
+                "end_column": 26,
+                "end_line": 3,
+                "file_path": "src/data/repository.ts",
+                "start_column": 8,
+                "start_line": 3
+              },
+              "metadata": {},
+              "observed_value": "Repository",
+              "role_hint": "REPOSITORY",
+              "signal": "bounded-name-suffix",
+              "strength": "MODERATE",
+              "subject_id": "09b9acf4-b8dc-5bb1-bbb0-41659f19a207"
+            },
+            {
+              "id": "a9352619-0510-50d7-8575-f3868d5dc73f",
+              "kind": "GRAPH_POSITION",
+              "layer_hint": null,
+              "location": {
+                "end_column": 26,
+                "end_line": 3,
+                "file_path": "src/data/repository.ts",
+                "start_column": 8,
+                "start_line": 3
+              },
+              "metadata": {},
+              "observed_value": "Ca=2;Ce=1",
+              "role_hint": null,
+              "signal": "directed-coupling-support",
+              "strength": "WEAK",
+              "subject_id": "09b9acf4-b8dc-5bb1-bbb0-41659f19a207"
+            }
+          ],
+          "explanation": "Structural role hypothesis from explicit matched signals",
+          "id": "f287e39b-c2b6-5fba-ac06-da03fda46dff",
+          "role": "REPOSITORY",
+          "strength": "MODERATE",
+          "subject_id": "09b9acf4-b8dc-5bb1-bbb0-41659f19a207"
+        }
+      },
+      {
+        "file_path": "src/ui/controller.ts",
+        "iam_node_id": "7872101d-b13e-5508-931a-3661e1ed380c",
+        "id": "7872101d-b13e-5508-931a-3661e1ed380c",
+        "language": "TYPESCRIPT",
+        "layer": {
+          "candidate_layers": [
+            "PRESENTATION"
+          ],
+          "evidence": [
+            {
+              "id": "109a34aa-cddf-540e-b256-23c8d045cb89",
+              "kind": "DEPENDENCY_DIRECTION",
+              "layer_hint": "PRESENTATION",
+              "location": {
+                "end_column": 19,
+                "end_line": 1,
+                "file_path": "src/data/repository.ts",
+                "start_column": 10,
+                "start_line": 1
+              },
+              "metadata": {
+                "graph_edge_id": "36777a4d-621b-53cf-bb3d-497add20bad8"
+              },
+              "observed_value": "PERSISTENCE->PRESENTATION",
+              "role_hint": null,
+              "signal": "observed-directed-edge:36777a4d-621b-53cf-bb3d-497add20bad8",
+              "strength": "WEAK",
+              "subject_id": "7872101d-b13e-5508-931a-3661e1ed380c"
+            },
+            {
+              "id": "200c5514-38d4-5474-8404-f2744e694e2a",
+              "kind": "GRAPH_POSITION",
+              "layer_hint": null,
+              "location": {
+                "end_column": 26,
+                "end_line": 4,
+                "file_path": "src/ui/controller.ts",
+                "start_column": 8,
+                "start_line": 4
+              },
+              "metadata": {},
+              "observed_value": "Ca=1;Ce=2",
+              "role_hint": null,
+              "signal": "directed-coupling-support",
+              "strength": "WEAK",
+              "subject_id": "7872101d-b13e-5508-931a-3661e1ed380c"
+            },
+            {
+              "id": "620eb900-bb52-50d6-a8c3-a0e268415026",
+              "kind": "STRUCTURAL_SHAPE",
+              "layer_hint": null,
+              "location": {
+                "end_column": 26,
+                "end_line": 4,
+                "file_path": "src/ui/controller.ts",
+                "start_column": 8,
+                "start_line": 4
+              },
+              "metadata": {},
+              "observed_value": "members=0;methods=0",
+              "role_hint": null,
+              "signal": "declaration-member-shape",
+              "strength": "WEAK",
+              "subject_id": "7872101d-b13e-5508-931a-3661e1ed380c"
+            },
+            {
+              "id": "78e0f388-ed47-58f0-95f0-e378330d5649",
+              "kind": "DEPENDENCY_DIRECTION",
+              "layer_hint": "PRESENTATION",
+              "location": {
+                "end_column": 19,
+                "end_line": 2,
+                "file_path": "src/ui/controller.ts",
+                "start_column": 10,
+                "start_line": 2
+              },
+              "metadata": {
+                "graph_edge_id": "c24e4a12-8885-5c42-a028-10e4c54f2711"
+              },
+              "observed_value": "PRESENTATION->PERSISTENCE",
+              "role_hint": null,
+              "signal": "observed-directed-edge:c24e4a12-8885-5c42-a028-10e4c54f2711",
+              "strength": "WEAK",
+              "subject_id": "7872101d-b13e-5508-931a-3661e1ed380c"
+            },
+            {
+              "id": "8c51c428-e07f-5e0a-90f8-df6545045bd5",
+              "kind": "NAME_PATTERN",
+              "layer_hint": null,
+              "location": {
+                "end_column": 26,
+                "end_line": 4,
+                "file_path": "src/ui/controller.ts",
+                "start_column": 8,
+                "start_line": 4
+              },
+              "metadata": {},
+              "observed_value": "Controller",
+              "role_hint": "CONTROLLER",
+              "signal": "bounded-name-suffix",
+              "strength": "MODERATE",
+              "subject_id": "7872101d-b13e-5508-931a-3661e1ed380c"
+            }
+          ],
+          "explanation": "Discovered layer hypothesis from role and structural path/framework evidence",
+          "id": "b59351db-909e-5f30-824c-44d3055c6eee",
+          "label": "PRESENTATION",
+          "role_hypothesis_id": "47f5b75d-19db-57e0-8e2c-a22b4e9259f1",
+          "strength": "MODERATE",
+          "subject_id": "7872101d-b13e-5508-931a-3661e1ed380c"
+        },
+        "location": {
+          "end_column": 26,
+          "end_line": 4,
+          "file_path": "src/ui/controller.ts",
+          "start_column": 8,
+          "start_line": 4
+        },
+        "module_id": null,
+        "name": "Controller",
+        "qualified_name": "src/ui/controller.ts::Controller",
+        "role": {
+          "candidate_roles": [
+            "CONTROLLER"
+          ],
+          "conflicting_roles": [],
+          "evidence": [
+            {
+              "id": "200c5514-38d4-5474-8404-f2744e694e2a",
+              "kind": "GRAPH_POSITION",
+              "layer_hint": null,
+              "location": {
+                "end_column": 26,
+                "end_line": 4,
+                "file_path": "src/ui/controller.ts",
+                "start_column": 8,
+                "start_line": 4
+              },
+              "metadata": {},
+              "observed_value": "Ca=1;Ce=2",
+              "role_hint": null,
+              "signal": "directed-coupling-support",
+              "strength": "WEAK",
+              "subject_id": "7872101d-b13e-5508-931a-3661e1ed380c"
+            },
+            {
+              "id": "620eb900-bb52-50d6-a8c3-a0e268415026",
+              "kind": "STRUCTURAL_SHAPE",
+              "layer_hint": null,
+              "location": {
+                "end_column": 26,
+                "end_line": 4,
+                "file_path": "src/ui/controller.ts",
+                "start_column": 8,
+                "start_line": 4
+              },
+              "metadata": {},
+              "observed_value": "members=0;methods=0",
+              "role_hint": null,
+              "signal": "declaration-member-shape",
+              "strength": "WEAK",
+              "subject_id": "7872101d-b13e-5508-931a-3661e1ed380c"
+            },
+            {
+              "id": "8c51c428-e07f-5e0a-90f8-df6545045bd5",
+              "kind": "NAME_PATTERN",
+              "layer_hint": null,
+              "location": {
+                "end_column": 26,
+                "end_line": 4,
+                "file_path": "src/ui/controller.ts",
+                "start_column": 8,
+                "start_line": 4
+              },
+              "metadata": {},
+              "observed_value": "Controller",
+              "role_hint": "CONTROLLER",
+              "signal": "bounded-name-suffix",
+              "strength": "MODERATE",
+              "subject_id": "7872101d-b13e-5508-931a-3661e1ed380c"
+            }
+          ],
+          "explanation": "Structural role hypothesis from explicit matched signals",
+          "id": "47f5b75d-19db-57e0-8e2c-a22b4e9259f1",
+          "role": "CONTROLLER",
+          "strength": "MODERATE",
+          "subject_id": "7872101d-b13e-5508-931a-3661e1ed380c"
+        }
+      },
+      {
+        "file_path": "src/domain/service.ts",
+        "iam_node_id": "f23c9c71-99af-59d1-808f-d5d2f9fe9329",
+        "id": "f23c9c71-99af-59d1-808f-d5d2f9fe9329",
+        "language": "TYPESCRIPT",
+        "layer": {
+          "candidate_layers": [
+            "APPLICATION",
+            "DOMAIN"
+          ],
+          "evidence": [
+            {
+              "id": "0405ec3a-add9-5727-a368-63ff393344eb",
+              "kind": "STRUCTURAL_SHAPE",
+              "layer_hint": null,
+              "location": {
+                "end_column": 23,
+                "end_line": 3,
+                "file_path": "src/domain/service.ts",
+                "start_column": 8,
+                "start_line": 3
+              },
+              "metadata": {},
+              "observed_value": "members=0;methods=0",
+              "role_hint": null,
+              "signal": "declaration-member-shape",
+              "strength": "WEAK",
+              "subject_id": "f23c9c71-99af-59d1-808f-d5d2f9fe9329"
+            },
+            {
+              "id": "2c28fe49-0de2-536e-80f5-2ab8135cfecb",
+              "kind": "PATH_PATTERN",
+              "layer_hint": "DOMAIN",
+              "location": {
+                "end_column": 23,
+                "end_line": 3,
+                "file_path": "src/domain/service.ts",
+                "start_column": 8,
+                "start_line": 3
+              },
+              "metadata": {},
+              "observed_value": "domain",
+              "role_hint": null,
+              "signal": "directory-segment",
+              "strength": "MODERATE",
+              "subject_id": "f23c9c71-99af-59d1-808f-d5d2f9fe9329"
+            },
+            {
+              "id": "cb670477-3410-5503-bf50-67c7019986d7",
+              "kind": "GRAPH_POSITION",
+              "layer_hint": null,
+              "location": {
+                "end_column": 23,
+                "end_line": 3,
+                "file_path": "src/domain/service.ts",
+                "start_column": 8,
+                "start_line": 3
+              },
+              "metadata": {},
+              "observed_value": "Ca=1;Ce=1",
+              "role_hint": null,
+              "signal": "directed-coupling-support",
+              "strength": "WEAK",
+              "subject_id": "f23c9c71-99af-59d1-808f-d5d2f9fe9329"
+            },
+            {
+              "id": "fa4cb04f-faf1-58fd-9185-54533fbb322e",
+              "kind": "NAME_PATTERN",
+              "layer_hint": null,
+              "location": {
+                "end_column": 23,
+                "end_line": 3,
+                "file_path": "src/domain/service.ts",
+                "start_column": 8,
+                "start_line": 3
+              },
+              "metadata": {},
+              "observed_value": "Service",
+              "role_hint": "SERVICE",
+              "signal": "bounded-name-suffix",
+              "strength": "MODERATE",
+              "subject_id": "f23c9c71-99af-59d1-808f-d5d2f9fe9329"
+            }
+          ],
+          "explanation": "Role/framework and path evidence suggest conflicting discovered layers",
+          "id": "a4d4acb8-b404-516e-9b38-ee0a9e1684c1",
+          "label": "AMBIGUOUS",
+          "role_hypothesis_id": "65a543f2-b2ac-5b05-9fc6-05c680113181",
+          "strength": "AMBIGUOUS",
+          "subject_id": "f23c9c71-99af-59d1-808f-d5d2f9fe9329"
+        },
+        "location": {
+          "end_column": 23,
+          "end_line": 3,
+          "file_path": "src/domain/service.ts",
+          "start_column": 8,
+          "start_line": 3
+        },
+        "module_id": null,
+        "name": "Service",
+        "qualified_name": "src/domain/service.ts::Service",
+        "role": {
+          "candidate_roles": [
+            "SERVICE"
+          ],
+          "conflicting_roles": [],
+          "evidence": [
+            {
+              "id": "0405ec3a-add9-5727-a368-63ff393344eb",
+              "kind": "STRUCTURAL_SHAPE",
+              "layer_hint": null,
+              "location": {
+                "end_column": 23,
+                "end_line": 3,
+                "file_path": "src/domain/service.ts",
+                "start_column": 8,
+                "start_line": 3
+              },
+              "metadata": {},
+              "observed_value": "members=0;methods=0",
+              "role_hint": null,
+              "signal": "declaration-member-shape",
+              "strength": "WEAK",
+              "subject_id": "f23c9c71-99af-59d1-808f-d5d2f9fe9329"
+            },
+            {
+              "id": "2c28fe49-0de2-536e-80f5-2ab8135cfecb",
+              "kind": "PATH_PATTERN",
+              "layer_hint": "DOMAIN",
+              "location": {
+                "end_column": 23,
+                "end_line": 3,
+                "file_path": "src/domain/service.ts",
+                "start_column": 8,
+                "start_line": 3
+              },
+              "metadata": {},
+              "observed_value": "domain",
+              "role_hint": null,
+              "signal": "directory-segment",
+              "strength": "MODERATE",
+              "subject_id": "f23c9c71-99af-59d1-808f-d5d2f9fe9329"
+            },
+            {
+              "id": "cb670477-3410-5503-bf50-67c7019986d7",
+              "kind": "GRAPH_POSITION",
+              "layer_hint": null,
+              "location": {
+                "end_column": 23,
+                "end_line": 3,
+                "file_path": "src/domain/service.ts",
+                "start_column": 8,
+                "start_line": 3
+              },
+              "metadata": {},
+              "observed_value": "Ca=1;Ce=1",
+              "role_hint": null,
+              "signal": "directed-coupling-support",
+              "strength": "WEAK",
+              "subject_id": "f23c9c71-99af-59d1-808f-d5d2f9fe9329"
+            },
+            {
+              "id": "fa4cb04f-faf1-58fd-9185-54533fbb322e",
+              "kind": "NAME_PATTERN",
+              "layer_hint": null,
+              "location": {
+                "end_column": 23,
+                "end_line": 3,
+                "file_path": "src/domain/service.ts",
+                "start_column": 8,
+                "start_line": 3
+              },
+              "metadata": {},
+              "observed_value": "Service",
+              "role_hint": "SERVICE",
+              "signal": "bounded-name-suffix",
+              "strength": "MODERATE",
+              "subject_id": "f23c9c71-99af-59d1-808f-d5d2f9fe9329"
+            }
+          ],
+          "explanation": "Structural role hypothesis from explicit matched signals",
+          "id": "65a543f2-b2ac-5b05-9fc6-05c680113181",
+          "role": "SERVICE",
+          "strength": "MODERATE",
+          "subject_id": "f23c9c71-99af-59d1-808f-d5d2f9fe9329"
+        }
+      }
+    ],
+    "layer_dependency_matrix": {
+      "cells": [
+        {
+          "graph_edge_ids": [
+            "6b5e02f4-de6f-5eda-b2f2-bf84d1554ebc"
+          ],
+          "internal": false,
+          "source": "AMBIGUOUS",
+          "target": "PERSISTENCE",
+          "unique_projected_edges": 1
+        },
+        {
+          "graph_edge_ids": [
+            "36777a4d-621b-53cf-bb3d-497add20bad8"
+          ],
+          "internal": false,
+          "source": "PERSISTENCE",
+          "target": "PRESENTATION",
+          "unique_projected_edges": 1
+        },
+        {
+          "graph_edge_ids": [
+            "dedf15f4-c479-53b1-8132-6c7d9d291c67"
+          ],
+          "internal": false,
+          "source": "PRESENTATION",
+          "target": "AMBIGUOUS",
+          "unique_projected_edges": 1
+        },
+        {
+          "graph_edge_ids": [
+            "c24e4a12-8885-5c42-a028-10e4c54f2711"
+          ],
+          "internal": false,
+          "source": "PRESENTATION",
+          "target": "PERSISTENCE",
+          "unique_projected_edges": 1
+        }
+      ],
+      "excluded_noncomponent_edges": 0,
+      "labels": [
+        "AMBIGUOUS",
+        "APPLICATION",
+        "DOMAIN",
+        "INFRASTRUCTURE",
+        "PERSISTENCE",
+        "PRESENTATION",
+        "UNKNOWN"
+      ]
+    },
+    "layer_groups": [
+      {
+        "incoming_edges": 1,
+        "internal_edges": 0,
+        "label": "AMBIGUOUS",
+        "members": [
+          "f23c9c71-99af-59d1-808f-d5d2f9fe9329"
+        ],
+        "outgoing_edges": 1,
+        "strength_counts": {
+          "AMBIGUOUS": 1
+        }
+      },
+      {
+        "incoming_edges": 0,
+        "internal_edges": 0,
+        "label": "APPLICATION",
+        "members": [],
+        "outgoing_edges": 0,
+        "strength_counts": {}
+      },
+      {
+        "incoming_edges": 0,
+        "internal_edges": 0,
+        "label": "DOMAIN",
+        "members": [],
+        "outgoing_edges": 0,
+        "strength_counts": {}
+      },
+      {
+        "incoming_edges": 0,
+        "internal_edges": 0,
+        "label": "INFRASTRUCTURE",
+        "members": [],
+        "outgoing_edges": 0,
+        "strength_counts": {}
+      },
+      {
+        "incoming_edges": 2,
+        "internal_edges": 0,
+        "label": "PERSISTENCE",
+        "members": [
+          "09b9acf4-b8dc-5bb1-bbb0-41659f19a207"
+        ],
+        "outgoing_edges": 1,
+        "strength_counts": {
+          "MODERATE": 1
+        }
+      },
+      {
+        "incoming_edges": 1,
+        "internal_edges": 0,
+        "label": "PRESENTATION",
+        "members": [
+          "7872101d-b13e-5508-931a-3661e1ed380c"
+        ],
+        "outgoing_edges": 2,
+        "strength_counts": {
+          "MODERATE": 1
+        }
+      },
+      {
+        "incoming_edges": 0,
+        "internal_edges": 0,
+        "label": "UNKNOWN",
+        "members": [],
+        "outgoing_edges": 0,
+        "strength_counts": {}
+      }
+    ],
+    "module_candidates": [
+      {
+        "cohesion_ratio": 0.0,
+        "evidence": [
+          {
+            "id": "a1df9726-dc42-52c5-b150-ff1ab05b2198",
+            "kind": "MODULE_PATH",
+            "layer_hint": null,
+            "location": {
+              "end_column": 26,
+              "end_line": 4,
+              "file_path": "src/ui/controller.ts",
+              "start_column": 8,
+              "start_line": 4
+            },
+            "metadata": {
+              "candidate_member_count": 1,
+              "minimum_components": 2
+            },
+            "observed_value": "src/ui",
+            "role_hint": null,
+            "signal": "source_directory",
+            "strength": "MODERATE",
+            "subject_id": "7872101d-b13e-5508-931a-3661e1ed380c"
+          }
+        ],
+        "id": "70344f47-f996-5914-a68e-2b46a3f43354",
+        "incoming_cross_module_edges": 1,
+        "incoming_module_ids": [
+          "a51e4060-1a86-5347-843b-c8c3b3dab50c"
+        ],
+        "internal_component_count": 1,
+        "internal_dependency_edges": 0,
+        "members": [
+          "7872101d-b13e-5508-931a-3661e1ed380c"
+        ],
+        "namespace": "src/ui",
+        "outgoing_cross_module_edges": 2,
+        "outgoing_module_ids": [
+          "a51e4060-1a86-5347-843b-c8c3b3dab50c"
+        ],
+        "seed_kind": "source_directory",
+        "shared_support": false,
+        "strength": "WEAK",
+        "structural_name": "ui"
+      },
+      {
+        "cohesion_ratio": 0.0,
+        "evidence": [
+          {
+            "id": "56ab7881-8e32-5a50-a830-5b4a4638cc1a",
+            "kind": "MODULE_PATH",
+            "layer_hint": null,
+            "location": {
+              "end_column": 26,
+              "end_line": 3,
+              "file_path": "src/data/repository.ts",
+              "start_column": 8,
+              "start_line": 3
+            },
+            "metadata": {
+              "candidate_member_count": 1,
+              "minimum_components": 2
+            },
+            "observed_value": "src/data",
+            "role_hint": null,
+            "signal": "source_directory",
+            "strength": "MODERATE",
+            "subject_id": "09b9acf4-b8dc-5bb1-bbb0-41659f19a207"
+          }
+        ],
+        "id": "a51e4060-1a86-5347-843b-c8c3b3dab50c",
+        "incoming_cross_module_edges": 2,
+        "incoming_module_ids": [
+          "70344f47-f996-5914-a68e-2b46a3f43354"
+        ],
+        "internal_component_count": 1,
+        "internal_dependency_edges": 0,
+        "members": [
+          "09b9acf4-b8dc-5bb1-bbb0-41659f19a207"
+        ],
+        "namespace": "src/data",
+        "outgoing_cross_module_edges": 1,
+        "outgoing_module_ids": [
+          "70344f47-f996-5914-a68e-2b46a3f43354"
+        ],
+        "seed_kind": "source_directory",
+        "shared_support": false,
+        "strength": "WEAK",
+        "structural_name": "data"
+      }
+    ],
+    "module_dependency_matrix": {
+      "cells": [
+        {
+          "graph_edge_ids": [
+            "36777a4d-621b-53cf-bb3d-497add20bad8",
+            "6b5e02f4-de6f-5eda-b2f2-bf84d1554ebc",
+            "c24e4a12-8885-5c42-a028-10e4c54f2711",
+            "dedf15f4-c479-53b1-8132-6c7d9d291c67"
+          ],
+          "internal": true,
+          "source": "UNASSIGNED",
+          "target": "UNASSIGNED",
+          "unique_projected_edges": 4
+        }
+      ],
+      "excluded_noncomponent_edges": 0,
+      "labels": [
+        "70344f47-f996-5914-a68e-2b46a3f43354",
+        "UNASSIGNED",
+        "a51e4060-1a86-5347-843b-c8c3b3dab50c"
+      ]
+    },
+    "module_unassigned_components": [
+      "09b9acf4-b8dc-5bb1-bbb0-41659f19a207",
+      "7872101d-b13e-5508-931a-3661e1ed380c",
+      "f23c9c71-99af-59d1-808f-d5d2f9fe9329"
+    ],
+    "topology": {
+      "component_count": 3,
+      "cyclic_sccs": [
+        {
+          "edge_ids": [
+            "36777a4d-621b-53cf-bb3d-497add20bad8",
+            "c24e4a12-8885-5c42-a028-10e4c54f2711"
+          ],
+          "members": [
+            "09b9acf4-b8dc-5bb1-bbb0-41659f19a207",
+            "7872101d-b13e-5508-931a-3661e1ed380c",
+            "f23c9c71-99af-59d1-808f-d5d2f9fe9329"
+          ],
+          "node_ids": [
+            "09b9acf4-b8dc-5bb1-bbb0-41659f19a207",
+            "7872101d-b13e-5508-931a-3661e1ed380c",
+            "09b9acf4-b8dc-5bb1-bbb0-41659f19a207"
+          ],
+          "scc_id": "2fff6881-a636-58ce-8af9-6bd29974492d",
+          "truncated": false
+        }
+      ],
+      "dependency_count": 4,
+      "graph_candidate_ids": [],
+      "graph_node_count": 3,
+      "highest_betweenness": [
+        {
+          "node_id": "09b9acf4-b8dc-5bb1-bbb0-41659f19a207",
+          "value": 0.5
+        },
+        {
+          "node_id": "7872101d-b13e-5508-931a-3661e1ed380c",
+          "value": 0.5
+        },
+        {
+          "node_id": "f23c9c71-99af-59d1-808f-d5d2f9fe9329",
+          "value": 0.0
+        }
+      ],
+      "highest_fan_in": [
+        {
+          "node_id": "09b9acf4-b8dc-5bb1-bbb0-41659f19a207",
+          "value": 2.0
+        },
+        {
+          "node_id": "7872101d-b13e-5508-931a-3661e1ed380c",
+          "value": 1.0
+        },
+        {
+          "node_id": "f23c9c71-99af-59d1-808f-d5d2f9fe9329",
+          "value": 1.0
+        }
+      ],
+      "highest_fan_out": [
+        {
+          "node_id": "7872101d-b13e-5508-931a-3661e1ed380c",
+          "value": 2.0
+        },
+        {
+          "node_id": "09b9acf4-b8dc-5bb1-bbb0-41659f19a207",
+          "value": 1.0
+        },
+        {
+          "node_id": "f23c9c71-99af-59d1-808f-d5d2f9fe9329",
+          "value": 1.0
+        }
+      ]
+    },
+    "unclassified_components": []
+  },
+  "graph": {
+    "candidates": [],
+    "conformance": null,
+    "cycles": [
+      {
+        "edge_ids": [
+          "36777a4d-621b-53cf-bb3d-497add20bad8",
+          "c24e4a12-8885-5c42-a028-10e4c54f2711"
+        ],
+        "members": [
+          "09b9acf4-b8dc-5bb1-bbb0-41659f19a207",
+          "7872101d-b13e-5508-931a-3661e1ed380c",
+          "f23c9c71-99af-59d1-808f-d5d2f9fe9329"
+        ],
+        "node_ids": [
+          "09b9acf4-b8dc-5bb1-bbb0-41659f19a207",
+          "7872101d-b13e-5508-931a-3661e1ed380c",
+          "09b9acf4-b8dc-5bb1-bbb0-41659f19a207"
+        ],
+        "scc_id": "2fff6881-a636-58ce-8af9-6bd29974492d",
+        "truncated": false
+      }
+    ],
+    "diagnostics": [],
+    "findings": [],
+    "graph": {
+      "edges": [
+        {
+          "id": "36777a4d-621b-53cf-bb3d-497add20bad8",
+          "proofs": [
+            {
+              "iam_edge_id": "f98f4b42-9c77-5a19-a41b-abbf7d2fa0d0",
+              "locations": [
+                {
+                  "end_column": 19,
+                  "end_line": 1,
+                  "file_path": "src/data/repository.ts",
+                  "start_column": 10,
+                  "start_line": 1
+                }
+              ],
+              "occurrences": 1,
+              "provenance": [
+                {
+                  "reference_kind": "IMPORT",
+                  "resolution_method": "EXACT_IMPORT",
+                  "resolution_status": "RESOLVED",
+                  "source_location": {
+                    "end_column": 19,
+                    "end_line": 1,
+                    "file_path": "src/data/repository.ts",
+                    "start_column": 10,
+                    "start_line": 1
+                  }
+                }
+              ],
+              "provenance_truncated": 0,
+              "relation": "IMPORTS",
+              "source_node_id": "8723fde6-1320-52f9-9cc8-f6377a4f9914",
+              "target_node_id": "4e3b20c3-6051-56b9-84de-e0acae2034cc"
+            }
+          ],
+          "relation_kinds": [
+            "IMPORTS"
+          ],
+          "source_id": "09b9acf4-b8dc-5bb1-bbb0-41659f19a207",
+          "target_id": "7872101d-b13e-5508-931a-3661e1ed380c"
+        },
+        {
+          "id": "c24e4a12-8885-5c42-a028-10e4c54f2711",
+          "proofs": [
+            {
+              "iam_edge_id": "508edbfe-316d-598e-80cc-d47953fc80e6",
+              "locations": [
+                {
+                  "end_column": 19,
+                  "end_line": 2,
+                  "file_path": "src/ui/controller.ts",
+                  "start_column": 10,
+                  "start_line": 2
+                }
+              ],
+              "occurrences": 1,
+              "provenance": [
+                {
+                  "reference_kind": "IMPORT",
+                  "resolution_method": "EXACT_IMPORT",
+                  "resolution_status": "RESOLVED",
+                  "source_location": {
+                    "end_column": 19,
+                    "end_line": 2,
+                    "file_path": "src/ui/controller.ts",
+                    "start_column": 10,
+                    "start_line": 2
+                  }
+                }
+              ],
+              "provenance_truncated": 0,
+              "relation": "IMPORTS",
+              "source_node_id": "4e3b20c3-6051-56b9-84de-e0acae2034cc",
+              "target_node_id": "8723fde6-1320-52f9-9cc8-f6377a4f9914"
+            }
+          ],
+          "relation_kinds": [
+            "IMPORTS"
+          ],
+          "source_id": "7872101d-b13e-5508-931a-3661e1ed380c",
+          "target_id": "09b9acf4-b8dc-5bb1-bbb0-41659f19a207"
+        },
+        {
+          "id": "dedf15f4-c479-53b1-8132-6c7d9d291c67",
+          "proofs": [
+            {
+              "iam_edge_id": "b6197d9d-8e2e-57d5-8f9b-afe94dec48fb",
+              "locations": [
+                {
+                  "end_column": 16,
+                  "end_line": 1,
+                  "file_path": "src/ui/controller.ts",
+                  "start_column": 10,
+                  "start_line": 1
+                }
+              ],
+              "occurrences": 1,
+              "provenance": [
+                {
+                  "reference_kind": "IMPORT",
+                  "resolution_method": "EXACT_IMPORT",
+                  "resolution_status": "RESOLVED",
+                  "source_location": {
+                    "end_column": 16,
+                    "end_line": 1,
+                    "file_path": "src/ui/controller.ts",
+                    "start_column": 10,
+                    "start_line": 1
+                  }
+                }
+              ],
+              "provenance_truncated": 0,
+              "relation": "IMPORTS",
+              "source_node_id": "4e3b20c3-6051-56b9-84de-e0acae2034cc",
+              "target_node_id": "d9b1d63f-d610-5139-9b92-04895984d7b3"
+            }
+          ],
+          "relation_kinds": [
+            "IMPORTS"
+          ],
+          "source_id": "7872101d-b13e-5508-931a-3661e1ed380c",
+          "target_id": "f23c9c71-99af-59d1-808f-d5d2f9fe9329"
+        },
+        {
+          "id": "6b5e02f4-de6f-5eda-b2f2-bf84d1554ebc",
+          "proofs": [
+            {
+              "iam_edge_id": "3f3c8d3d-5edf-5a20-89a8-4776ffe00c58",
+              "locations": [
+                {
+                  "end_column": 19,
+                  "end_line": 1,
+                  "file_path": "src/domain/service.ts",
+                  "start_column": 10,
+                  "start_line": 1
+                }
+              ],
+              "occurrences": 1,
+              "provenance": [
+                {
+                  "reference_kind": "IMPORT",
+                  "resolution_method": "EXACT_IMPORT",
+                  "resolution_status": "RESOLVED",
+                  "source_location": {
+                    "end_column": 19,
+                    "end_line": 1,
+                    "file_path": "src/domain/service.ts",
+                    "start_column": 10,
+                    "start_line": 1
+                  }
+                }
+              ],
+              "provenance_truncated": 0,
+              "relation": "IMPORTS",
+              "source_node_id": "d9b1d63f-d610-5139-9b92-04895984d7b3",
+              "target_node_id": "8723fde6-1320-52f9-9cc8-f6377a4f9914"
+            }
+          ],
+          "relation_kinds": [
+            "IMPORTS"
+          ],
+          "source_id": "f23c9c71-99af-59d1-808f-d5d2f9fe9329",
+          "target_id": "09b9acf4-b8dc-5bb1-bbb0-41659f19a207"
+        }
+      ],
+      "graph_schema_version": "1.0",
+      "nodes": [
+        {
+          "iam_node_ids": [
+            "09b9acf4-b8dc-5bb1-bbb0-41659f19a207",
+            "8723fde6-1320-52f9-9cc8-f6377a4f9914"
+          ],
+          "id": "09b9acf4-b8dc-5bb1-bbb0-41659f19a207",
+          "kind": "CLASS",
+          "label": "src/data/repository.ts::Repository",
+          "locations": [
+            {
+              "end_column": null,
+              "end_line": null,
+              "file_path": "src/data/repository.ts",
+              "start_column": 1,
+              "start_line": 1
+            },
+            {
+              "end_column": 26,
+              "end_line": 3,
+              "file_path": "src/data/repository.ts",
+              "start_column": 8,
+              "start_line": 3
+            }
+          ],
+          "member_count": 0,
+          "method_count": 0
+        },
+        {
+          "iam_node_ids": [
+            "4e3b20c3-6051-56b9-84de-e0acae2034cc",
+            "7872101d-b13e-5508-931a-3661e1ed380c"
+          ],
+          "id": "7872101d-b13e-5508-931a-3661e1ed380c",
+          "kind": "CLASS",
+          "label": "src/ui/controller.ts::Controller",
+          "locations": [
+            {
+              "end_column": null,
+              "end_line": null,
+              "file_path": "src/ui/controller.ts",
+              "start_column": 1,
+              "start_line": 1
+            },
+            {
+              "end_column": 26,
+              "end_line": 4,
+              "file_path": "src/ui/controller.ts",
+              "start_column": 8,
+              "start_line": 4
+            }
+          ],
+          "member_count": 0,
+          "method_count": 0
+        },
+        {
+          "iam_node_ids": [
+            "d9b1d63f-d610-5139-9b92-04895984d7b3",
+            "f23c9c71-99af-59d1-808f-d5d2f9fe9329"
+          ],
+          "id": "f23c9c71-99af-59d1-808f-d5d2f9fe9329",
+          "kind": "CLASS",
+          "label": "src/domain/service.ts::Service",
+          "locations": [
+            {
+              "end_column": null,
+              "end_line": null,
+              "file_path": "src/domain/service.ts",
+              "start_column": 1,
+              "start_line": 1
+            },
+            {
+              "end_column": 23,
+              "end_line": 3,
+              "file_path": "src/domain/service.ts",
+              "start_column": 8,
+              "start_line": 3
+            }
+          ],
+          "member_count": 0,
+          "method_count": 0
+        }
+      ],
+      "project_id": "beacbdc4-e113-5631-b46b-6e632fb3f1a9",
+      "projection": {
+        "include_external": false,
+        "include_self_edges": false,
+        "included_relations": [
+          "CALLS",
+          "CREATES",
+          "IMPLEMENTS",
+          "IMPORTS",
+          "INHERITS",
+          "USES"
+        ],
+        "projection": "component"
+      }
+    },
+    "is_complete": true,
+    "is_valid": true,
+    "metrics": [
+      {
+        "afferent_coupling": 2,
+        "betweenness_centrality": 0.5,
+        "efferent_coupling": 1,
+        "in_degree_centrality": 1.0,
+        "in_degree_edges": 2,
+        "instability": 0.333333333333,
+        "is_cyclic": true,
+        "node_id": "09b9acf4-b8dc-5bb1-bbb0-41659f19a207",
+        "out_degree_centrality": 0.5,
+        "out_degree_edges": 1,
+        "pagerank": 0.397399660837,
+        "scc_size": 3,
+        "total_unique_neighbors": 2,
+        "unique_in_neighbors": 2,
+        "unique_out_neighbors": 1
+      },
+      {
+        "afferent_coupling": 1,
+        "betweenness_centrality": 0.5,
+        "efferent_coupling": 2,
+        "in_degree_centrality": 0.5,
+        "in_degree_edges": 1,
+        "instability": 0.666666666667,
+        "is_cyclic": true,
+        "node_id": "7872101d-b13e-5508-931a-3661e1ed380c",
+        "out_degree_centrality": 1.0,
+        "out_degree_edges": 2,
+        "pagerank": 0.387789711649,
+        "scc_size": 3,
+        "total_unique_neighbors": 2,
+        "unique_in_neighbors": 1,
+        "unique_out_neighbors": 2
+      },
+      {
+        "afferent_coupling": 1,
+        "betweenness_centrality": 0.0,
+        "efferent_coupling": 1,
+        "in_degree_centrality": 0.5,
+        "in_degree_edges": 1,
+        "instability": 0.5,
+        "is_cyclic": true,
+        "node_id": "f23c9c71-99af-59d1-808f-d5d2f9fe9329",
+        "out_degree_centrality": 0.5,
+        "out_degree_edges": 1,
+        "pagerank": 0.214810627513,
+        "scc_size": 3,
+        "total_unique_neighbors": 2,
+        "unique_in_neighbors": 1,
+        "unique_out_neighbors": 1
+      }
+    ],
+    "projection_statistics": {
+      "external_nodes_excluded": 0,
+      "filtered_edges": 0,
+      "graph_edges": 4,
+      "graph_nodes": 3,
+      "iam_edges_input": 4,
+      "iam_nodes_input": 10,
+      "self_edges_removed": 0,
+      "unclassified_nodes_excluded": 0,
+      "unmapped_nodes": 0,
+      "unproven_edges": 0
+    },
+    "reproducibility": {
+      "architecture_spec_fingerprint": null,
+      "canonical_float_decimal_places": 12,
+      "configuration": {
+        "betweenness_node_limit": 1000,
+        "calculate_betweenness": true,
+        "calculate_pagerank": true,
+        "candidates": {
+          "bottleneck_betweenness": null,
+          "bottleneck_min_neighbors": null,
+          "excessive_coupling": null,
+          "god_min_coupling": null,
+          "god_min_members": null,
+          "god_min_methods": null,
+          "hub_fan_in": null,
+          "unstable_delta": null
+        },
+        "max_cycle_trace_length": 256,
+        "max_graph_edges": 100000,
+        "max_graph_nodes": 10000,
+        "max_neighbourhood_nodes": 1000,
+        "pagerank_alpha": 0.85,
+        "pagerank_max_iterations": 200,
+        "pagerank_tolerance": 1e-10,
+        "projection": {
+          "include_external": false,
+          "include_self_edges": false,
+          "included_relations": [
+            "CALLS",
+            "CREATES",
+            "IMPLEMENTS",
+            "IMPORTS",
+            "INHERITS",
+            "USES"
+          ],
+          "projection": "component"
+        }
+      },
+      "configuration_fingerprint": "7010d002c624f7da3cad9fc4fc9a3a8b64c2df81d6561bdb0d0212d948a4da69",
+      "graph_engine_version": "1.0.0",
+      "iam_fingerprint": "66b8a1b7cb80583fa7a4eeb0faa173f4b44e333f4a5413d1421e67ba0c586da2",
+      "iam_schema_version": "1.0",
+      "networkx_version": "3.7",
+      "project_id": "beacbdc4-e113-5631-b46b-6e632fb3f1a9",
+      "projection_fingerprint": "0eabc4acdda9d676cd67b612b884da3dd3685004b9c1b4d31fb6b5464bc9d5c6",
+      "snapshot_fingerprint": "4fc578f00fdb9bcb438136b6ee60a56b04534f3fa024178470bf64f4d01fd305"
+    },
+    "result_schema_version": "1.0",
+    "sccs": [
+      {
+        "id": "2fff6881-a636-58ce-8af9-6bd29974492d",
+        "internal_edge_count": 4,
+        "members": [
+          "09b9acf4-b8dc-5bb1-bbb0-41659f19a207",
+          "7872101d-b13e-5508-931a-3661e1ed380c",
+          "f23c9c71-99af-59d1-808f-d5d2f9fe9329"
+        ],
+        "size": 3
+      }
+    ],
+    "statistics": {
+      "candidate_count_by_rule": {},
+      "cycle_findings": 0,
+      "cycle_observation_count": 1,
+      "cyclic_scc_count": 1,
+      "metric_node_count": 3,
+      "metrics_computed": [
+        "degree",
+        "coupling",
+        "instability",
+        "degree_centrality",
+        "betweenness",
+        "pagerank"
+      ],
+      "metrics_skipped": [],
+      "scc_count": 1
+    },
+    "status": "COMPLETE"
+  },
+  "is_complete": true,
+  "is_valid": true,
+  "reproducibility": {
+    "configuration": {
+      "enabled_signal_types": [
+        "ANNOTATION",
+        "DECORATOR",
+        "DEPENDENCY_DIRECTION",
+        "GRAPH_POSITION",
+        "IMPORT_PATTERN",
+        "INHERITANCE",
+        "MODULE_PATH",
+        "NAME_PATTERN",
+        "PATH_PATTERN",
+        "STRUCTURAL_SHAPE"
+      ],
+      "framework_signals": true,
+      "graph": {
+        "betweenness_node_limit": 1000,
+        "calculate_betweenness": true,
+        "calculate_pagerank": true,
+        "candidates": {
+          "bottleneck_betweenness": null,
+          "bottleneck_min_neighbors": null,
+          "excessive_coupling": null,
+          "god_min_coupling": null,
+          "god_min_members": null,
+          "god_min_methods": null,
+          "hub_fan_in": null,
+          "unstable_delta": null
+        },
+        "max_cycle_trace_length": 256,
+        "max_graph_edges": 100000,
+        "max_graph_nodes": 10000,
+        "max_neighbourhood_nodes": 1000,
+        "pagerank_alpha": 0.85,
+        "pagerank_max_iterations": 200,
+        "pagerank_tolerance": 1e-10,
+        "projection": {
+          "include_external": false,
+          "include_self_edges": false,
+          "included_relations": [
+            "CALLS",
+            "CREATES",
+            "IMPLEMENTS",
+            "IMPORTS",
+            "INHERITS",
+            "USES"
+          ],
+          "projection": "component"
+        }
+      },
+      "graph_refinement": true,
+      "java_common_prefix": null,
+      "java_min_package_depth": 3,
+      "max_module_depth": 4,
+      "min_module_components": 2,
+      "minimum_layer_strength": "MODERATE",
+      "minimum_module_strength": "MODERATE",
+      "minimum_role_strength": "MODERATE",
+      "module_root_hints": [
+        "src"
+      ],
+      "profile": "structural-baseline-v1",
+      "role_pattern_version": "suffix-tokens-v1",
+      "topology_rank_limit": 5
+    },
+    "configuration_fingerprint": "8e12583740cbcec7bed585012c1bc80b94fa5e45fd08c66886dc91926dd95680",
+    "discovery_engine_version": "1.0.0",
+    "graph_engine_version": "1.0.0",
+    "iam_fingerprint": "66b8a1b7cb80583fa7a4eeb0faa173f4b44e333f4a5413d1421e67ba0c586da2",
+    "iam_schema_version": "1.0",
+    "not_calibrated": true,
+    "project_id": "beacbdc4-e113-5631-b46b-6e632fb3f1a9",
+    "snapshot_fingerprint": "4fc578f00fdb9bcb438136b6ee60a56b04534f3fa024178470bf64f4d01fd305",
+    "upstream_versions": {
+      "builder_version": "1.0.0",
+      "extractor_versions": [
+        {
+          "extractor_id": "typescript-syntax-extractor",
+          "extractor_version": "1.1.0"
+        }
+      ],
+      "parser_versions": [
+        {
+          "grammar_version": "0.23.2",
+          "implementation_version": "1.0.0",
+          "parser_id": "typescript-tree-sitter",
+          "runtime_version": "0.26.0"
+        }
+      ],
+      "resolver_version": "1.0.0"
+    }
+  },
+  "result_schema_version": "1.0",
+  "statistics": {
+    "components_total": 3,
+    "evidence_count_by_type": {
+      "DEPENDENCY_DIRECTION": 4,
+      "GRAPH_POSITION": 3,
+      "MODULE_PATH": 2,
+      "NAME_PATTERN": 3,
+      "PATH_PATTERN": 1,
+      "STRUCTURAL_SHAPE": 3
+    },
+    "layer_ambiguous": 1,
+    "layer_assigned": 2,
+    "layer_counts": {
+      "AMBIGUOUS": 1,
+      "PERSISTENCE": 1,
+      "PRESENTATION": 1
+    },
+    "layer_coverage": 0.666666666667,
+    "layer_unknown": 0,
+    "module_assigned_components": 0,
+    "module_candidates": 2,
+    "module_unassigned_components": 3,
+    "role_ambiguous": 0,
+    "role_counts": {
+      "CONTROLLER": 1,
+      "REPOSITORY": 1,
+      "SERVICE": 1
+    },
+    "role_coverage": 1.0,
+    "role_hypotheses": 3,
+    "role_strength_counts": {
+      "MODERATE": 3
+    },
+    "role_unknown": 0
+  },
+  "status": "COMPLETE"
+}

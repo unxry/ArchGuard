@@ -220,3 +220,28 @@ def test_termination_and_failure(root: Path, tmp_path: Path, mode: str) -> None:
         await runtime.close()
 
     asyncio.run(run())
+
+
+@pytest.mark.skipif(not MAC, reason="macOS OS sandbox required")
+@pytest.mark.parametrize("security", [False, True])
+def test_optional_operations_do_not_create_other_results(
+    root: Path, tmp_path: Path, security: bool
+) -> None:
+    (root / "sample/src/controller/SearchController.ts").unlink()
+
+    async def run() -> None:
+        runtime = Runtime(root, tmp_path / "state")
+        job = runtime.start(next(iter(projects(root))), False, security)
+        await job.task
+        assert job.status == "READY", job.public()
+        result = json.loads((runtime.state / f"{job.id}.json").read_text())
+        assert result["architecture"] is None
+        assert result["classification"] is None
+        assert len(result["graph"]["graph"]["nodes"]) == 3
+        assert len(result["security"]) == int(security)
+        if security:
+            assert result["security"][0]["findings"] == []
+            assert result["security"][0]["zero_findings_is_security_guarantee"] is False
+        await runtime.close()
+
+    asyncio.run(run())
