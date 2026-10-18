@@ -1,0 +1,23 @@
+{
+  "width": 1920,
+  "height": 1080,
+  "duration": 25.72,
+  "samples": [
+    {
+      "time": 2,
+      "checksum": 2891944477
+    },
+    {
+      "time": 8,
+      "checksum": 322683653
+    },
+    {
+      "time": 14,
+      "checksum": 3475928198
+    },
+    {
+      "time": 20,
+      "checksum": 851172040
+    }
+  ]
+}

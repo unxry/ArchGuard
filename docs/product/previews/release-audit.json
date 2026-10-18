@@ -1,0 +1,201 @@
+{
+  "audited_scope": [
+    "docs/product/CAPABILITY_AUDIT.md",
+    "docs/product/P040_REPORT.md",
+    "docs/product/README.md",
+    "docs/product/comparison.html",
+    "docs/product/design-source-manifest.json",
+    "docs/product/previews/actual-result.json",
+    "docs/product/previews/analysis.png",
+    "docs/product/previews/atlas-1280.png",
+    "docs/product/previews/atlas-1440.png",
+    "docs/product/previews/atlas-1920.png",
+    "docs/product/previews/atlas-2560.png",
+    "docs/product/previews/atlas.png",
+    "docs/product/previews/browser-report.json",
+    "docs/product/previews/demo-baseline.png",
+    "docs/product/previews/finalize-security-report.json",
+    "docs/product/previews/finding-evidence.png",
+    "docs/product/previews/large-graph.png",
+    "docs/product/previews/models.png",
+    "docs/product/previews/overview-1280.png",
+    "docs/product/previews/overview-1440.png",
+    "docs/product/previews/overview-1920.png",
+    "docs/product/previews/overview-2560.png",
+    "docs/product/previews/p0393-before.png",
+    "docs/product/previews/project-selection.png",
+    "docs/product/previews/quality-report.json",
+    "docs/product/previews/real-large-graph.png",
+    "docs/product/previews/real-results.png",
+    "docs/product/previews/real-workflow.webm",
+    "docs/product/previews/reduced-motion.png",
+    "docs/product/previews/runs.png",
+    "docs/product/previews/security.png",
+    "docs/product/previews/settings.png",
+    "docs/product/previews/startup.png",
+    "docs/product/previews/supplement-report.json",
+    "docs/product/previews/video-verification.json",
+    "docs/product/product-source-manifest.json",
+    "examples/product/README.md",
+    "examples/product/observatory-ts/architecture.yaml",
+    "examples/product/observatory-ts/src/controller/CheckoutController.ts",
+    "examples/product/observatory-ts/src/controller/SearchController.ts",
+    "examples/product/observatory-ts/src/repository/OrderRepository.ts",
+    "examples/product/observatory-ts/src/service/OrderService.ts",
+    "pyproject.toml",
+    "src/archguard/product/__init__.py",
+    "src/archguard/product/app.py",
+    "src/archguard/product/intake.py",
+    "src/archguard/product/runtime.py",
+    "src/archguard/product/web/brand/icon.svg",
+    "src/archguard/product/web/brand/wordmark-dark.svg",
+    "src/archguard/product/web/brand/wordmark-light.svg",
+    "src/archguard/product/web/foundation.css",
+    "src/archguard/product/web/index.html",
+    "src/archguard/product/web/polish.css",
+    "src/archguard/product/web/product.css",
+    "src/archguard/product/web/spatial.css",
+    "src/archguard/product/web/src/adapters.js",
+    "src/archguard/product/web/src/app.js",
+    "src/archguard/product/web/src/artifacts.js",
+    "src/archguard/product/web/src/catalog.js",
+    "src/archguard/product/web/src/contracts.d.ts",
+    "src/archguard/product/web/src/core.js",
+    "src/archguard/product/web/src/fixtures.js",
+    "src/archguard/product/web/src/graph.js",
+    "src/archguard/product/web/src/i18n.js",
+    "src/archguard/product/web/src/motion.js",
+    "src/archguard/product/web/src/onboarding.js",
+    "src/archguard/product/web/src/polish.js",
+    "src/archguard/product/web/src/product-data.js",
+    "src/archguard/product/web/src/product.js",
+    "src/archguard/product/web/src/spatial.js",
+    "src/archguard/product/web/src/studio.js",
+    "src/archguard/product/web/src/transitions.js",
+    "src/archguard/product/web/src/views.js",
+    "src/archguard/product/web/studio.css",
+    "src/archguard/product/web/tokens.css",
+    "src/archguard/product/worker.py",
+    "tests/product/adapters.test.cjs",
+    "tests/product/browser.cjs",
+    "tests/product/density.py",
+    "tests/product/fixtures/README.md",
+    "tests/product/fixtures/architecture-candidates.json",
+    "tests/product/fixtures/architecture-check.json",
+    "tests/product/fixtures/architecture-composite.json",
+    "tests/product/fixtures/architecture-context.json",
+    "tests/product/fixtures/architecture-discovery.json",
+    "tests/product/fixtures/architecture-graph.json",
+    "tests/product/fixtures/architecture-hybrid.json",
+    "tests/product/fixtures/architecture-iam.json",
+    "tests/product/media.cjs",
+    "tests/product/supplement.cjs",
+    "tests/product/test_gateway.py"
+  ],
+  "text_files_scanned": 67,
+  "pattern_findings": [],
+  "scientific_paths_changed": 0,
+  "actual_result_nodes": 4,
+  "actual_result_edges": 3,
+  "source_manifest_files_verified": 28,
+  "unchanged_design_files": 19,
+  "media": {
+    "analysis.png": {
+      "sha256": "ae065229080543239d407dcb24d6846759e8740991a53ef69cf1b7e70823db26",
+      "bytes": 185863
+    },
+    "atlas-1280.png": {
+      "sha256": "0740e5113a41c4da915c61b4e17d3f3b49ecc34d8134f5d0b282035a6e863d39",
+      "bytes": 485412
+    },
+    "atlas-1440.png": {
+      "sha256": "fec15b8beb6363b0d5c2c0eb6d3cb061821470c8ef55e91ebd929578a450623d",
+      "bytes": 563685
+    },
+    "atlas-1920.png": {
+      "sha256": "50cfd1bc4d46529de1a3e1d99f785f0e4c92e4f33df0a0321440b561d37aa891",
+      "bytes": 798554
+    },
+    "atlas-2560.png": {
+      "sha256": "93935fd4b6db7c40a1b72d880adc9d1633fed0cca551657cdc0c73bd0454ea46",
+      "bytes": 1087085
+    },
+    "atlas.png": {
+      "sha256": "c03d42699b5ef787b9ed1bb56774abc218fd4bca3b5a7f61d4d5a3f76b29b469",
+      "bytes": 614204
+    },
+    "demo-baseline.png": {
+      "sha256": "978d6ef39bddaca73793294d1f94acac6f9342190d176fc45a0ebe1b10270ef8",
+      "bytes": 610700
+    },
+    "finding-evidence.png": {
+      "sha256": "fedf190cbab2fb48bdee56f8d3c8645976a24d5a9929baad81ce725f7e6c9e5b",
+      "bytes": 267266
+    },
+    "large-graph.png": {
+      "sha256": "3820795a1b77e55356ead0ec30e210d905a2d06cf08d42762d45cd75994a966e",
+      "bytes": 569708
+    },
+    "models.png": {
+      "sha256": "84d9ded3b59160ac9aad825b68f04572c5beba9e026d23a06aa7b9662e689d92",
+      "bytes": 173140
+    },
+    "overview-1280.png": {
+      "sha256": "a8e5dafe94ff87b9fd2f8030f3779144ccd51a3739cc3a6ac73414effd3375cc",
+      "bytes": 484433
+    },
+    "overview-1440.png": {
+      "sha256": "5748383a9006b075d09be61e2368b3779da04a50bf11f354db77a759262a6050",
+      "bytes": 541670
+    },
+    "overview-1920.png": {
+      "sha256": "1281e5a26ae4a4b12480a74396b733b832336efb72b36f0af2cf46862ef99cea",
+      "bytes": 838702
+    },
+    "overview-2560.png": {
+      "sha256": "632c3e768bf060a9c09440a3f6d98ce0b09b261ea17e22d8ef6a3cbe068edced",
+      "bytes": 1154727
+    },
+    "p0393-before.png": {
+      "sha256": "8246f7768178b472837a3fc93abf7ffebab4a131c165d378e3768597212d3553",
+      "bytes": 1065930
+    },
+    "project-selection.png": {
+      "sha256": "52fa0d4181de1b1215e07db86202bedddd1142707cca98f3ebf228ef24de8c63",
+      "bytes": 250817
+    },
+    "real-large-graph.png": {
+      "sha256": "c816cc9ce3645b1f04b0cf2f2c8f365cf8f259fb81e986ffffdd842845642cd1",
+      "bytes": 717091
+    },
+    "real-results.png": {
+      "sha256": "315293a61009917b42b797f97e7c7435d022897b97b80ea401c584e7c71feb67",
+      "bytes": 804195
+    },
+    "real-workflow.webm": {
+      "sha256": "992b6c8a6ab638f65bf1ea30a700cf9b6c35bfc702b78bf5df6330e9566b3259",
+      "bytes": 2787677
+    },
+    "reduced-motion.png": {
+      "sha256": "53cd7976a5a47e723af784a8f4d128a84a61e6ecb0074298705fdc9866864580",
+      "bytes": 622487
+    },
+    "runs.png": {
+      "sha256": "1067bbc1970923b5e463739c79111719816fc0771039f7b879e34b6fb361e8e1",
+      "bytes": 184921
+    },
+    "security.png": {
+      "sha256": "f92ed42df0eb06e0dd7f0b5a5a4de85bb49eac1711e44435cf22c6b56ac64570",
+      "bytes": 246239
+    },
+    "settings.png": {
+      "sha256": "db39ba601e03ceab8353289394333dac6c71a5f83f592ea574277b09d1243b36",
+      "bytes": 283808
+    },
+    "startup.png": {
+      "sha256": "e0d5dc8d6327069002c0d04358f6cf82e64d1be375269f7ac992a586026b7b42",
+      "bytes": 250168
+    }
+  },
+  "scope_note": "Pattern scan plus explicit allowlisted Git diff and public-authored source review; not a universal secret detector"
+}

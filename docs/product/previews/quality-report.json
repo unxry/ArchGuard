@@ -1,0 +1,111 @@
+{
+  "status": "P040_INTEGRATION_DELIVERED_WITH_BASELINE_QUALITY_BLOCKER",
+  "full_check": "BLOCKED_BY_MISSING_PRIVATE_BASELINE_ARTIFACTS",
+  "full_run": {
+    "completed": false,
+    "exit_code": null,
+    "reason": "Interrupted; process absent on finalization; no final pytest or coverage summary",
+    "collected": 3381,
+    "observed_progress": {
+      "passed": 1801,
+      "failed": 6,
+      "setup_errors": 19,
+      "skipped": 0
+    },
+    "unreported": 1555,
+    "last_file": "tests/intelligence/test_semantic_positive_recovery.py",
+    "counts_are_partial": true,
+    "guarded_skips_total": "UNKNOWN"
+  },
+  "reproduction": {
+    "base_commit": "5e384141a6f9dbafb6654886e83fcad57def564e",
+    "method": "git archive base src only, isolated PYTHONPATH, same unchanged historical tests and checkout-relative prerequisites; assert imported archguard path belongs to exported baseline",
+    "baseline": {
+      "passed": 6,
+      "failed": 6,
+      "setup_errors": 19,
+      "skipped": 0,
+      "exit_code": 1
+    },
+    "integration": {
+      "passed": 6,
+      "failed": 6,
+      "setup_errors": 19,
+      "skipped": 0,
+      "exit_code": 1
+    },
+    "identical_failing_test_ids": true,
+    "identical_missing_artifact_paths": true,
+    "failures": [
+      "ERROR tests/benchmark/test_thesis_closure.py::test_accept_freezes_manifest_and_rejects_policy_drift",
+      "ERROR tests/benchmark/test_thesis_closure.py::test_all_mandatory_items_bind_real_source_tests_and_evidence",
+      "ERROR tests/benchmark/test_thesis_closure.py::test_each_rule_retains_all_methods_and_imperfect_strata",
+      "ERROR tests/benchmark/test_thesis_closure.py::test_generation_is_deterministic_and_has_no_new_science",
+      "ERROR tests/benchmark/test_thesis_closure.py::test_hypothesis_and_context_claims_remain_qualified",
+      "ERROR tests/benchmark/test_thesis_closure.py::test_java_typescript_final_strata_and_js_tsx_scope",
+      "ERROR tests/benchmark/test_thesis_closure.py::test_missing_capability_fails_closure",
+      "ERROR tests/benchmark/test_thesis_closure.py::test_numeric_documents_detect_one_digit_drift",
+      "ERROR tests/benchmark/test_thesis_closure.py::test_partial_rqs_cannot_be_promoted[RQ2]",
+      "ERROR tests/benchmark/test_thesis_closure.py::test_partial_rqs_cannot_be_promoted[RQ6]",
+      "ERROR tests/benchmark/test_thesis_closure.py::test_quality_must_precede_complete_declaration",
+      "ERROR tests/benchmark/test_thesis_closure.py::test_rule_set_is_exact_and_has_no_security[SEC]",
+      "ERROR tests/benchmark/test_thesis_closure.py::test_rule_set_is_exact_and_has_no_security[duplicate]",
+      "ERROR tests/benchmark/test_thesis_closure.py::test_rule_set_is_exact_and_has_no_security[missing]",
+      "ERROR tests/benchmark/test_thesis_closure.py::test_supported_claims_cannot_dangle[no_artifact]",
+      "ERROR tests/benchmark/test_thesis_closure.py::test_supported_claims_cannot_dangle[no_fingerprint]",
+      "ERROR tests/benchmark/test_thesis_closure.py::test_supported_claims_cannot_dangle[no_limit]",
+      "ERROR tests/benchmark/test_thesis_closure.py::test_supported_claims_cannot_dangle[no_scope]",
+      "ERROR tests/benchmark/test_thesis_closure.py::test_unimplemented_capability_fails_closure",
+      "FAILED tests/benchmark/test_component_holdout.py::test_completed_local_freezes_and_exact100_evidence",
+      "FAILED tests/benchmark/test_unified_human_review.py::test_real_v2_exact_pins_case_sets_blind_order_and_blankness",
+      "FAILED tests/intelligence/test_development_llm_executor.py::test_future_adapter_reconstructs_identical_frozen_wire_without_call",
+      "FAILED tests/intelligence/test_development_llm_executor.py::test_real_frozen_p020_requests_are_exact_unique_and_blind",
+      "FAILED tests/intelligence/test_final_llm.py::test_actual_p020_final_300_exact_freeze_and_cost",
+      "FAILED tests/intelligence/test_final_llm.py::test_p023_frozen_models_and_protocol_still_locked"
+    ],
+    "missing_artifacts": [
+      "experiments/component-holdout/private/component-baseline-holdout-v1/execution/manifest-v1.json",
+      "experiments/unified-hybrid/private/unified-hybrid-experiment-v1/development/requests/manifest.json",
+      "experiments/unified-hybrid/private/unified-hybrid-experiment-v1/final/evidence/static-output.json",
+      "experiments/unified-hybrid/private/unified-hybrid-experiment-v1/final/review-v2/material-freeze.json",
+      "experiments/unified-hybrid/private/unified-hybrid-experiment-v1/p023-hybrid-models-v1/selected-model-registry.json",
+      "experiments/unified-hybrid/private/unified-hybrid-experiment-v1/p025-prediction-receipts-v1/truth-blind-receipt.json"
+    ]
+  },
+  "baseline_affected_tests": 25,
+  "baseline_missing_artifacts": 6,
+  "product_gateway": {
+    "passed": 17,
+    "failed": 0,
+    "skipped": 0,
+    "finalize_rerun_seconds": 1.27
+  },
+  "product_adapters": {
+    "passed": 16,
+    "failed": 0,
+    "skipped": 0
+  },
+  "browser": {
+    "passed": 34,
+    "failed": 0,
+    "skipped": 0,
+    "js_errors": 0,
+    "console_errors": 0
+  },
+  "finalize_security_probes": {
+    "passed": 2,
+    "failed": 0,
+    "skipped": 0
+  },
+  "static": {
+    "ruff": "PASS",
+    "format_files": 605,
+    "mypy": "PASS",
+    "mypy_source_files": 290
+  },
+  "log_sha256": {
+    "interrupted": "a26306ec7b7efaeed263bddab0439bf27fbdc1c73ed02cb69a8388f75e69c96c",
+    "baseline": "d0cee70272ac7abbc8a012b87d9d6af891d04856137dd431ed45719533aabf7e",
+    "integration": "beefe777124d3941b65d99434308226804c991d70e15ab196d51163e708c3ba9"
+  }
+}

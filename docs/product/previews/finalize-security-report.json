@@ -1,0 +1,10 @@
+{
+  "passed": 2,
+  "failed": 0,
+  "skipped": 0,
+  "checks": [
+    "Fixed sandbox argv and isolated four-variable environment verified on actual worker launch",
+    "Injected RSS threshold signal terminates actual worker and process group, removes snapshot, publishes no result"
+  ],
+  "memory_probe": "Fault injection of ps RSS output; no claim of a hard OS memory quota or real 2 GiB stress test"
+}

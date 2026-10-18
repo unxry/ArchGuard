@@ -1,0 +1,12 @@
+{
+  "passed": 5,
+  "failed": 0,
+  "checks": [
+    "Imported product artifacts do not claim gateway provenance",
+    "Models retains rules, discovery, context and capability surfaces",
+    "Non-canonical layer names render and focus without hardcoded classification",
+    "Actual sandbox result: 200 files, 199 edges, 6 clusters, 18 visible nodes with bounded geometry",
+    "Demo works when all gateway requests fail"
+  ],
+  "jsErrors": []
+}

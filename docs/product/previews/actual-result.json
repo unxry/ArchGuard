@@ -1,0 +1,3906 @@
+{
+  "schema": "archguard-product-v1",
+  "mode": "LOCAL_RESULT",
+  "project": {
+    "id": "ecf331c7af6a45a4",
+    "name": "observatory-ts"
+  },
+  "provenance": {
+    "snapshot_id": "2c0f2aff-8a24-58eb-962d-9d6232c164e8",
+    "snapshot_fingerprint": "cd16e0cf38289105d3aee7b4f323c60f8b42c68fd17dcf8ace318a71d1855abf",
+    "source_digest": "387363f15dfe4e18b8440d9d75fb5c5ddbb99b1b1dbb3d48a8706255135ebfeb",
+    "provider_calls": 0,
+    "source_code_executed": false,
+    "security_version": "security-interprocedural-v2",
+    "intake_scope": "200 UTF-8 Java/TypeScript files; 4 MiB; no dependencies/configuration"
+  },
+  "iam": {
+    "iam_schema_version": "1.0",
+    "project": {
+      "id": "cb679770-e5dd-50ec-8bd3-fe476164e8f8",
+      "name": "ArchGuard project",
+      "description": null
+    },
+    "modules": [
+      {
+        "id": "1f9f52d0-cca5-506a-91c2-5d8740a3bf53",
+        "project_id": "cb679770-e5dd-50ec-8bd3-fe476164e8f8",
+        "name": "es:src/service/OrderService.ts",
+        "attributes": {
+          "semantics": "es_file_module"
+        }
+      },
+      {
+        "id": "84a9823a-6004-57c5-a0f9-2263f8fd7e66",
+        "project_id": "cb679770-e5dd-50ec-8bd3-fe476164e8f8",
+        "name": "es:src/controller/SearchController.ts",
+        "attributes": {
+          "semantics": "es_file_module"
+        }
+      },
+      {
+        "id": "bfed97a2-becb-5364-a7de-31af86f69128",
+        "project_id": "cb679770-e5dd-50ec-8bd3-fe476164e8f8",
+        "name": "es:src/repository/OrderRepository.ts",
+        "attributes": {
+          "semantics": "es_file_module"
+        }
+      },
+      {
+        "id": "f8d34feb-4fa6-5b4b-b70f-56d8fbbfedeb",
+        "project_id": "cb679770-e5dd-50ec-8bd3-fe476164e8f8",
+        "name": "es:src/controller/CheckoutController.ts",
+        "attributes": {
+          "semantics": "es_file_module"
+        }
+      }
+    ],
+    "packages": [],
+    "source_files": [
+      {
+        "id": "1a0ec928-1f96-5cdb-b865-dd639f9b60fd",
+        "module_id": "f8d34feb-4fa6-5b4b-b70f-56d8fbbfedeb",
+        "package_id": null,
+        "file_path": "src/controller/CheckoutController.ts",
+        "language": "TYPESCRIPT",
+        "attributes": {
+          "sha256": "f1a9b6c62f4be7690357c636e1205e9fcb1ca4c268a53b55df5911c949ab5765",
+          "source_had_syntax_errors": false,
+          "parser_dialect": "TYPESCRIPT"
+        }
+      },
+      {
+        "id": "5f759258-e533-5777-9705-574a3c8bb1df",
+        "module_id": "84a9823a-6004-57c5-a0f9-2263f8fd7e66",
+        "package_id": null,
+        "file_path": "src/controller/SearchController.ts",
+        "language": "TYPESCRIPT",
+        "attributes": {
+          "sha256": "e6be2e33c3c4024aee1772f3b9de949e866592e74a582c3e67aeee28e20e99f1",
+          "source_had_syntax_errors": false,
+          "parser_dialect": "TYPESCRIPT"
+        }
+      },
+      {
+        "id": "85ee5df8-fa6d-5e63-8ad2-b0d104d499be",
+        "module_id": "1f9f52d0-cca5-506a-91c2-5d8740a3bf53",
+        "package_id": null,
+        "file_path": "src/service/OrderService.ts",
+        "language": "TYPESCRIPT",
+        "attributes": {
+          "sha256": "96dfeb2976b9ad4c75a312ea85127f52d741fe9af0352a721a491825c4dd4531",
+          "source_had_syntax_errors": false,
+          "parser_dialect": "TYPESCRIPT"
+        }
+      },
+      {
+        "id": "a54e619a-1e8f-5684-9735-b10a35799043",
+        "module_id": "bfed97a2-becb-5364-a7de-31af86f69128",
+        "package_id": null,
+        "file_path": "src/repository/OrderRepository.ts",
+        "language": "TYPESCRIPT",
+        "attributes": {
+          "sha256": "6e905873e1af1b2db5b64bf22b5cf1534ef5092760567f7203a07077caf58367",
+          "source_had_syntax_errors": false,
+          "parser_dialect": "TYPESCRIPT"
+        }
+      }
+    ],
+    "symbols": [
+      {
+        "id": "028854c4-e3d6-55ca-b10a-6cd47c69f3d1",
+        "file_id": "85ee5df8-fa6d-5e63-8ad2-b0d104d499be",
+        "kind": "CONSTRUCTOR",
+        "name": "constructor",
+        "qualified_name": "src/service/OrderService.ts::OrderService#constructor()",
+        "signature": "()",
+        "source_location": {
+          "file_path": "src/service/OrderService.ts",
+          "start_line": 4,
+          "start_column": 3,
+          "end_line": 4,
+          "end_column": 60
+        },
+        "attributes": {
+          "container_symbol_id": "96ce52de-8ace-5618-9dea-9e8b0c34be52",
+          "visibility": "DEFAULT",
+          "modifiers": [],
+          "annotations": [],
+          "type_parameters": [],
+          "parameters": [],
+          "type_name": null,
+          "is_exported": false,
+          "is_default_export": false
+        }
+      },
+      {
+        "id": "4996b12d-0abf-5b33-ad4c-e61adf635ff0",
+        "file_id": "85ee5df8-fa6d-5e63-8ad2-b0d104d499be",
+        "kind": "PROPERTY",
+        "name": "repository",
+        "qualified_name": "src/service/OrderService.ts::OrderService#repository",
+        "signature": null,
+        "source_location": {
+          "file_path": "src/service/OrderService.ts",
+          "start_line": 3,
+          "start_column": 3,
+          "end_line": 3,
+          "end_column": 29
+        },
+        "attributes": {
+          "container_symbol_id": "96ce52de-8ace-5618-9dea-9e8b0c34be52",
+          "visibility": "DEFAULT",
+          "modifiers": [],
+          "annotations": [],
+          "type_parameters": [],
+          "parameters": [],
+          "type_name": "OrderRepository",
+          "is_exported": false,
+          "is_default_export": false
+        }
+      },
+      {
+        "id": "55c065cb-5099-5b25-8171-077b1da0dc5a",
+        "file_id": "1a0ec928-1f96-5cdb-b865-dd639f9b60fd",
+        "kind": "PROPERTY",
+        "name": "service",
+        "qualified_name": "src/controller/CheckoutController.ts::CheckoutController#service",
+        "signature": null,
+        "source_location": {
+          "file_path": "src/controller/CheckoutController.ts",
+          "start_line": 5,
+          "start_column": 3,
+          "end_line": 5,
+          "end_column": 23
+        },
+        "attributes": {
+          "container_symbol_id": "7edc7667-4701-50bb-b92d-98706d2d3fca",
+          "visibility": "DEFAULT",
+          "modifiers": [],
+          "annotations": [],
+          "type_parameters": [],
+          "parameters": [],
+          "type_name": "OrderService",
+          "is_exported": false,
+          "is_default_export": false
+        }
+      },
+      {
+        "id": "651c71c0-fea0-5ddf-8f61-f3bf3b20478f",
+        "file_id": "85ee5df8-fa6d-5e63-8ad2-b0d104d499be",
+        "kind": "METHOD",
+        "name": "submit",
+        "qualified_name": "src/service/OrderService.ts::OrderService#submit(literal)",
+        "signature": "(literal)",
+        "source_location": {
+          "file_path": "src/service/OrderService.ts",
+          "start_line": 5,
+          "start_column": 3,
+          "end_line": 5,
+          "end_column": 57
+        },
+        "attributes": {
+          "container_symbol_id": "96ce52de-8ace-5618-9dea-9e8b0c34be52",
+          "visibility": "DEFAULT",
+          "modifiers": [],
+          "annotations": [],
+          "type_parameters": [],
+          "parameters": [
+            {
+              "name": "id",
+              "type_name": "literal",
+              "optional": false,
+              "is_rest": false
+            }
+          ],
+          "type_name": null,
+          "is_exported": false,
+          "is_default_export": false
+        }
+      },
+      {
+        "id": "6d2213a2-fb30-568d-87d6-e55b8aff839d",
+        "file_id": "1a0ec928-1f96-5cdb-b865-dd639f9b60fd",
+        "kind": "PROPERTY",
+        "name": "repository",
+        "qualified_name": "src/controller/CheckoutController.ts::CheckoutController#repository",
+        "signature": null,
+        "source_location": {
+          "file_path": "src/controller/CheckoutController.ts",
+          "start_line": 6,
+          "start_column": 3,
+          "end_line": 6,
+          "end_column": 29
+        },
+        "attributes": {
+          "container_symbol_id": "7edc7667-4701-50bb-b92d-98706d2d3fca",
+          "visibility": "DEFAULT",
+          "modifiers": [],
+          "annotations": [],
+          "type_parameters": [],
+          "parameters": [],
+          "type_name": "OrderRepository",
+          "is_exported": false,
+          "is_default_export": false
+        }
+      },
+      {
+        "id": "6ed34a6d-3516-5026-963a-19cdd658e544",
+        "file_id": "1a0ec928-1f96-5cdb-b865-dd639f9b60fd",
+        "kind": "CONSTRUCTOR",
+        "name": "constructor",
+        "qualified_name": "src/controller/CheckoutController.ts::CheckoutController#constructor()",
+        "signature": "()",
+        "source_location": {
+          "file_path": "src/controller/CheckoutController.ts",
+          "start_line": 7,
+          "start_column": 3,
+          "end_line": 10,
+          "end_column": 3
+        },
+        "attributes": {
+          "container_symbol_id": "7edc7667-4701-50bb-b92d-98706d2d3fca",
+          "visibility": "DEFAULT",
+          "modifiers": [],
+          "annotations": [],
+          "type_parameters": [],
+          "parameters": [],
+          "type_name": null,
+          "is_exported": false,
+          "is_default_export": false
+        }
+      },
+      {
+        "id": "7edc7667-4701-50bb-b92d-98706d2d3fca",
+        "file_id": "1a0ec928-1f96-5cdb-b865-dd639f9b60fd",
+        "kind": "CLASS",
+        "name": "CheckoutController",
+        "qualified_name": "src/controller/CheckoutController.ts::CheckoutController",
+        "signature": null,
+        "source_location": {
+          "file_path": "src/controller/CheckoutController.ts",
+          "start_line": 4,
+          "start_column": 8,
+          "end_line": 12,
+          "end_column": 1
+        },
+        "attributes": {
+          "container_symbol_id": null,
+          "visibility": "DEFAULT",
+          "modifiers": [],
+          "annotations": [],
+          "type_parameters": [],
+          "parameters": [],
+          "type_name": null,
+          "is_exported": true,
+          "is_default_export": false
+        }
+      },
+      {
+        "id": "9065ff15-9e42-5ffa-a2f9-5d797aaa9d2c",
+        "file_id": "5f759258-e533-5777-9705-574a3c8bb1df",
+        "kind": "FUNCTION",
+        "name": "search",
+        "qualified_name": "src/controller/SearchController.ts::search(Request)",
+        "signature": "(Request)",
+        "source_location": {
+          "file_path": "src/controller/SearchController.ts",
+          "start_line": 4,
+          "start_column": 8,
+          "end_line": 8,
+          "end_column": 1
+        },
+        "attributes": {
+          "container_symbol_id": null,
+          "visibility": "DEFAULT",
+          "modifiers": [],
+          "annotations": [],
+          "type_parameters": [],
+          "parameters": [
+            {
+              "name": "req",
+              "type_name": "Request",
+              "optional": false,
+              "is_rest": false
+            }
+          ],
+          "type_name": null,
+          "is_exported": true,
+          "is_default_export": false
+        }
+      },
+      {
+        "id": "96ce52de-8ace-5618-9dea-9e8b0c34be52",
+        "file_id": "85ee5df8-fa6d-5e63-8ad2-b0d104d499be",
+        "kind": "CLASS",
+        "name": "OrderService",
+        "qualified_name": "src/service/OrderService.ts::OrderService",
+        "signature": null,
+        "source_location": {
+          "file_path": "src/service/OrderService.ts",
+          "start_line": 2,
+          "start_column": 8,
+          "end_line": 6,
+          "end_column": 1
+        },
+        "attributes": {
+          "container_symbol_id": null,
+          "visibility": "DEFAULT",
+          "modifiers": [],
+          "annotations": [],
+          "type_parameters": [],
+          "parameters": [],
+          "type_name": null,
+          "is_exported": true,
+          "is_default_export": false
+        }
+      },
+      {
+        "id": "b29f08df-14a0-55ac-b284-9a9363e878bf",
+        "file_id": "a54e619a-1e8f-5684-9735-b10a35799043",
+        "kind": "METHOD",
+        "name": "find",
+        "qualified_name": "src/repository/OrderRepository.ts::OrderRepository#find(literal)",
+        "signature": "(literal)",
+        "source_location": {
+          "file_path": "src/repository/OrderRepository.ts",
+          "start_line": 2,
+          "start_column": 3,
+          "end_line": 2,
+          "end_column": 37
+        },
+        "attributes": {
+          "container_symbol_id": "be1fe6f2-d5b0-5f9e-ad4b-067524caeeeb",
+          "visibility": "DEFAULT",
+          "modifiers": [],
+          "annotations": [],
+          "type_parameters": [],
+          "parameters": [
+            {
+              "name": "id",
+              "type_name": "literal",
+              "optional": false,
+              "is_rest": false
+            }
+          ],
+          "type_name": null,
+          "is_exported": false,
+          "is_default_export": false
+        }
+      },
+      {
+        "id": "be1fe6f2-d5b0-5f9e-ad4b-067524caeeeb",
+        "file_id": "a54e619a-1e8f-5684-9735-b10a35799043",
+        "kind": "CLASS",
+        "name": "OrderRepository",
+        "qualified_name": "src/repository/OrderRepository.ts::OrderRepository",
+        "signature": null,
+        "source_location": {
+          "file_path": "src/repository/OrderRepository.ts",
+          "start_line": 1,
+          "start_column": 8,
+          "end_line": 3,
+          "end_column": 1
+        },
+        "attributes": {
+          "container_symbol_id": null,
+          "visibility": "DEFAULT",
+          "modifiers": [],
+          "annotations": [],
+          "type_parameters": [],
+          "parameters": [],
+          "type_name": null,
+          "is_exported": true,
+          "is_default_export": false
+        }
+      },
+      {
+        "id": "da0ceaaf-7df5-562d-b4ca-db003b7e320a",
+        "file_id": "1a0ec928-1f96-5cdb-b865-dd639f9b60fd",
+        "kind": "METHOD",
+        "name": "submit",
+        "qualified_name": "src/controller/CheckoutController.ts::CheckoutController#submit(literal)",
+        "signature": "(literal)",
+        "source_location": {
+          "file_path": "src/controller/CheckoutController.ts",
+          "start_line": 11,
+          "start_column": 3,
+          "end_line": 11,
+          "end_column": 57
+        },
+        "attributes": {
+          "container_symbol_id": "7edc7667-4701-50bb-b92d-98706d2d3fca",
+          "visibility": "DEFAULT",
+          "modifiers": [],
+          "annotations": [],
+          "type_parameters": [],
+          "parameters": [
+            {
+              "name": "id",
+              "type_name": "literal",
+              "optional": false,
+              "is_rest": false
+            }
+          ],
+          "type_name": null,
+          "is_exported": false,
+          "is_default_export": false
+        }
+      }
+    ],
+    "nodes": [
+      {
+        "id": "07d4896d-8303-5701-8905-c34b33276e34",
+        "kind": "PROPERTY",
+        "name": "repository",
+        "qualified_name": "src/controller/CheckoutController.ts::CheckoutController#repository",
+        "language": "TYPESCRIPT",
+        "module": "f8d34feb-4fa6-5b4b-b70f-56d8fbbfedeb",
+        "package": null,
+        "file_id": "1a0ec928-1f96-5cdb-b865-dd639f9b60fd",
+        "symbol_id": "6d2213a2-fb30-568d-87d6-e55b8aff839d",
+        "layer": null,
+        "source_location": {
+          "file_path": "src/controller/CheckoutController.ts",
+          "start_line": 6,
+          "start_column": 3,
+          "end_line": 6,
+          "end_column": 29
+        },
+        "attributes": {
+          "parent_node_id": "a347d0b0-4be5-5aa8-b647-7c1b21727b97"
+        }
+      },
+      {
+        "id": "099a5d0d-a284-51d2-801b-88c3ad3c93a5",
+        "kind": "CLASS",
+        "name": "OrderRepository",
+        "qualified_name": "src/repository/OrderRepository.ts::OrderRepository",
+        "language": "TYPESCRIPT",
+        "module": "bfed97a2-becb-5364-a7de-31af86f69128",
+        "package": null,
+        "file_id": "a54e619a-1e8f-5684-9735-b10a35799043",
+        "symbol_id": "be1fe6f2-d5b0-5f9e-ad4b-067524caeeeb",
+        "layer": null,
+        "source_location": {
+          "file_path": "src/repository/OrderRepository.ts",
+          "start_line": 1,
+          "start_column": 8,
+          "end_line": 3,
+          "end_column": 1
+        },
+        "attributes": {
+          "parent_node_id": "4bd1a227-297b-5008-90bb-7c735f8dbb4d"
+        }
+      },
+      {
+        "id": "0df941f1-9209-568c-b3a0-7065b47b9800",
+        "kind": "FILE",
+        "name": "SearchController.ts",
+        "qualified_name": "src/controller/SearchController.ts",
+        "language": "TYPESCRIPT",
+        "module": "84a9823a-6004-57c5-a0f9-2263f8fd7e66",
+        "package": null,
+        "file_id": "5f759258-e533-5777-9705-574a3c8bb1df",
+        "symbol_id": null,
+        "layer": null,
+        "source_location": {
+          "file_path": "src/controller/SearchController.ts",
+          "start_line": 1,
+          "start_column": 1,
+          "end_line": null,
+          "end_column": null
+        },
+        "attributes": {
+          "parent_node_id": "13cf797d-10ad-51fb-8e02-19e26e0c08ef",
+          "sha256": "e6be2e33c3c4024aee1772f3b9de949e866592e74a582c3e67aeee28e20e99f1",
+          "source_had_syntax_errors": false,
+          "parser_dialect": "TYPESCRIPT"
+        }
+      },
+      {
+        "id": "13cf797d-10ad-51fb-8e02-19e26e0c08ef",
+        "kind": "MODULE",
+        "name": "es:src/controller/SearchController.ts",
+        "qualified_name": "es:src/controller/SearchController.ts",
+        "language": "UNKNOWN",
+        "module": "84a9823a-6004-57c5-a0f9-2263f8fd7e66",
+        "package": null,
+        "file_id": null,
+        "symbol_id": null,
+        "layer": null,
+        "source_location": null,
+        "attributes": {
+          "parent_node_id": "2aca0333-a025-554f-a2a8-d2fcf92f25a7",
+          "semantics": "es_file_module"
+        }
+      },
+      {
+        "id": "15a5be54-adb3-5ea9-9780-e2636fbb0ce8",
+        "kind": "EXTERNAL_DEPENDENCY",
+        "name": "express",
+        "qualified_name": "external:npm:express",
+        "language": "UNKNOWN",
+        "module": null,
+        "package": null,
+        "file_id": null,
+        "symbol_id": null,
+        "layer": null,
+        "source_location": null,
+        "attributes": {
+          "parent_node_id": "2aca0333-a025-554f-a2a8-d2fcf92f25a7",
+          "ecosystem": "npm",
+          "namespace": "express"
+        }
+      },
+      {
+        "id": "26aa1461-208c-5993-97c4-1eb8f0ff6af3",
+        "kind": "MODULE",
+        "name": "es:src/repository/OrderRepository.ts",
+        "qualified_name": "es:src/repository/OrderRepository.ts",
+        "language": "UNKNOWN",
+        "module": "bfed97a2-becb-5364-a7de-31af86f69128",
+        "package": null,
+        "file_id": null,
+        "symbol_id": null,
+        "layer": null,
+        "source_location": null,
+        "attributes": {
+          "parent_node_id": "2aca0333-a025-554f-a2a8-d2fcf92f25a7",
+          "semantics": "es_file_module"
+        }
+      },
+      {
+        "id": "2aca0333-a025-554f-a2a8-d2fcf92f25a7",
+        "kind": "PROJECT",
+        "name": "ArchGuard project",
+        "qualified_name": "project",
+        "language": "UNKNOWN",
+        "module": null,
+        "package": null,
+        "file_id": null,
+        "symbol_id": null,
+        "layer": null,
+        "source_location": null,
+        "attributes": {}
+      },
+      {
+        "id": "304623d5-8ccf-5ba3-9199-e377b648cd55",
+        "kind": "PROPERTY",
+        "name": "repository",
+        "qualified_name": "src/service/OrderService.ts::OrderService#repository",
+        "language": "TYPESCRIPT",
+        "module": "1f9f52d0-cca5-506a-91c2-5d8740a3bf53",
+        "package": null,
+        "file_id": "85ee5df8-fa6d-5e63-8ad2-b0d104d499be",
+        "symbol_id": "4996b12d-0abf-5b33-ad4c-e61adf635ff0",
+        "layer": null,
+        "source_location": {
+          "file_path": "src/service/OrderService.ts",
+          "start_line": 3,
+          "start_column": 3,
+          "end_line": 3,
+          "end_column": 29
+        },
+        "attributes": {
+          "parent_node_id": "70791776-09be-5697-bb07-5d721a43bc3b"
+        }
+      },
+      {
+        "id": "4bd1a227-297b-5008-90bb-7c735f8dbb4d",
+        "kind": "FILE",
+        "name": "OrderRepository.ts",
+        "qualified_name": "src/repository/OrderRepository.ts",
+        "language": "TYPESCRIPT",
+        "module": "bfed97a2-becb-5364-a7de-31af86f69128",
+        "package": null,
+        "file_id": "a54e619a-1e8f-5684-9735-b10a35799043",
+        "symbol_id": null,
+        "layer": null,
+        "source_location": {
+          "file_path": "src/repository/OrderRepository.ts",
+          "start_line": 1,
+          "start_column": 1,
+          "end_line": null,
+          "end_column": null
+        },
+        "attributes": {
+          "parent_node_id": "26aa1461-208c-5993-97c4-1eb8f0ff6af3",
+          "sha256": "6e905873e1af1b2db5b64bf22b5cf1534ef5092760567f7203a07077caf58367",
+          "source_had_syntax_errors": false,
+          "parser_dialect": "TYPESCRIPT"
+        }
+      },
+      {
+        "id": "67023095-b911-5e83-8e6a-a177e560edf0",
+        "kind": "METHOD",
+        "name": "find",
+        "qualified_name": "src/repository/OrderRepository.ts::OrderRepository#find(literal)",
+        "language": "TYPESCRIPT",
+        "module": "bfed97a2-becb-5364-a7de-31af86f69128",
+        "package": null,
+        "file_id": "a54e619a-1e8f-5684-9735-b10a35799043",
+        "symbol_id": "b29f08df-14a0-55ac-b284-9a9363e878bf",
+        "layer": null,
+        "source_location": {
+          "file_path": "src/repository/OrderRepository.ts",
+          "start_line": 2,
+          "start_column": 3,
+          "end_line": 2,
+          "end_column": 37
+        },
+        "attributes": {
+          "parent_node_id": "099a5d0d-a284-51d2-801b-88c3ad3c93a5"
+        }
+      },
+      {
+        "id": "70791776-09be-5697-bb07-5d721a43bc3b",
+        "kind": "CLASS",
+        "name": "OrderService",
+        "qualified_name": "src/service/OrderService.ts::OrderService",
+        "language": "TYPESCRIPT",
+        "module": "1f9f52d0-cca5-506a-91c2-5d8740a3bf53",
+        "package": null,
+        "file_id": "85ee5df8-fa6d-5e63-8ad2-b0d104d499be",
+        "symbol_id": "96ce52de-8ace-5618-9dea-9e8b0c34be52",
+        "layer": null,
+        "source_location": {
+          "file_path": "src/service/OrderService.ts",
+          "start_line": 2,
+          "start_column": 8,
+          "end_line": 6,
+          "end_column": 1
+        },
+        "attributes": {
+          "parent_node_id": "d5719db6-a710-53ff-9295-5950ab384d65"
+        }
+      },
+      {
+        "id": "783a9730-e670-59f5-bc90-3f1913eca2c0",
+        "kind": "CONSTRUCTOR",
+        "name": "constructor",
+        "qualified_name": "src/controller/CheckoutController.ts::CheckoutController#constructor()",
+        "language": "TYPESCRIPT",
+        "module": "f8d34feb-4fa6-5b4b-b70f-56d8fbbfedeb",
+        "package": null,
+        "file_id": "1a0ec928-1f96-5cdb-b865-dd639f9b60fd",
+        "symbol_id": "6ed34a6d-3516-5026-963a-19cdd658e544",
+        "layer": null,
+        "source_location": {
+          "file_path": "src/controller/CheckoutController.ts",
+          "start_line": 7,
+          "start_column": 3,
+          "end_line": 10,
+          "end_column": 3
+        },
+        "attributes": {
+          "parent_node_id": "a347d0b0-4be5-5aa8-b647-7c1b21727b97"
+        }
+      },
+      {
+        "id": "7c8a4443-3a15-5f23-bbe7-394ce0a0bef9",
+        "kind": "PROPERTY",
+        "name": "service",
+        "qualified_name": "src/controller/CheckoutController.ts::CheckoutController#service",
+        "language": "TYPESCRIPT",
+        "module": "f8d34feb-4fa6-5b4b-b70f-56d8fbbfedeb",
+        "package": null,
+        "file_id": "1a0ec928-1f96-5cdb-b865-dd639f9b60fd",
+        "symbol_id": "55c065cb-5099-5b25-8171-077b1da0dc5a",
+        "layer": null,
+        "source_location": {
+          "file_path": "src/controller/CheckoutController.ts",
+          "start_line": 5,
+          "start_column": 3,
+          "end_line": 5,
+          "end_column": 23
+        },
+        "attributes": {
+          "parent_node_id": "a347d0b0-4be5-5aa8-b647-7c1b21727b97"
+        }
+      },
+      {
+        "id": "a347d0b0-4be5-5aa8-b647-7c1b21727b97",
+        "kind": "CLASS",
+        "name": "CheckoutController",
+        "qualified_name": "src/controller/CheckoutController.ts::CheckoutController",
+        "language": "TYPESCRIPT",
+        "module": "f8d34feb-4fa6-5b4b-b70f-56d8fbbfedeb",
+        "package": null,
+        "file_id": "1a0ec928-1f96-5cdb-b865-dd639f9b60fd",
+        "symbol_id": "7edc7667-4701-50bb-b92d-98706d2d3fca",
+        "layer": null,
+        "source_location": {
+          "file_path": "src/controller/CheckoutController.ts",
+          "start_line": 4,
+          "start_column": 8,
+          "end_line": 12,
+          "end_column": 1
+        },
+        "attributes": {
+          "parent_node_id": "de7e38cd-d5b5-5696-9281-7523691303d4"
+        }
+      },
+      {
+        "id": "a38c980a-7d16-527b-ad03-cd0b7407d18a",
+        "kind": "EXTERNAL_DEPENDENCY",
+        "name": "pg",
+        "qualified_name": "external:npm:pg",
+        "language": "UNKNOWN",
+        "module": null,
+        "package": null,
+        "file_id": null,
+        "symbol_id": null,
+        "layer": null,
+        "source_location": null,
+        "attributes": {
+          "parent_node_id": "2aca0333-a025-554f-a2a8-d2fcf92f25a7",
+          "ecosystem": "npm",
+          "namespace": "pg"
+        }
+      },
+      {
+        "id": "bd4ea817-da5f-5c30-86f2-91793f1d106e",
+        "kind": "FUNCTION",
+        "name": "search",
+        "qualified_name": "src/controller/SearchController.ts::search(Request)",
+        "language": "TYPESCRIPT",
+        "module": "84a9823a-6004-57c5-a0f9-2263f8fd7e66",
+        "package": null,
+        "file_id": "5f759258-e533-5777-9705-574a3c8bb1df",
+        "symbol_id": "9065ff15-9e42-5ffa-a2f9-5d797aaa9d2c",
+        "layer": null,
+        "source_location": {
+          "file_path": "src/controller/SearchController.ts",
+          "start_line": 4,
+          "start_column": 8,
+          "end_line": 8,
+          "end_column": 1
+        },
+        "attributes": {
+          "parent_node_id": "0df941f1-9209-568c-b3a0-7065b47b9800"
+        }
+      },
+      {
+        "id": "d5719db6-a710-53ff-9295-5950ab384d65",
+        "kind": "FILE",
+        "name": "OrderService.ts",
+        "qualified_name": "src/service/OrderService.ts",
+        "language": "TYPESCRIPT",
+        "module": "1f9f52d0-cca5-506a-91c2-5d8740a3bf53",
+        "package": null,
+        "file_id": "85ee5df8-fa6d-5e63-8ad2-b0d104d499be",
+        "symbol_id": null,
+        "layer": null,
+        "source_location": {
+          "file_path": "src/service/OrderService.ts",
+          "start_line": 1,
+          "start_column": 1,
+          "end_line": null,
+          "end_column": null
+        },
+        "attributes": {
+          "parent_node_id": "f6c8caf3-2824-5b61-aa04-8d4155f59958",
+          "sha256": "96dfeb2976b9ad4c75a312ea85127f52d741fe9af0352a721a491825c4dd4531",
+          "source_had_syntax_errors": false,
+          "parser_dialect": "TYPESCRIPT"
+        }
+      },
+      {
+        "id": "de7e38cd-d5b5-5696-9281-7523691303d4",
+        "kind": "FILE",
+        "name": "CheckoutController.ts",
+        "qualified_name": "src/controller/CheckoutController.ts",
+        "language": "TYPESCRIPT",
+        "module": "f8d34feb-4fa6-5b4b-b70f-56d8fbbfedeb",
+        "package": null,
+        "file_id": "1a0ec928-1f96-5cdb-b865-dd639f9b60fd",
+        "symbol_id": null,
+        "layer": null,
+        "source_location": {
+          "file_path": "src/controller/CheckoutController.ts",
+          "start_line": 1,
+          "start_column": 1,
+          "end_line": null,
+          "end_column": null
+        },
+        "attributes": {
+          "parent_node_id": "fdfec4cf-873c-5b33-b486-128edb0e6fa4",
+          "sha256": "f1a9b6c62f4be7690357c636e1205e9fcb1ca4c268a53b55df5911c949ab5765",
+          "source_had_syntax_errors": false,
+          "parser_dialect": "TYPESCRIPT"
+        }
+      },
+      {
+        "id": "e1284b9b-1279-55ee-8748-2c6c5ea9ebff",
+        "kind": "CONSTRUCTOR",
+        "name": "constructor",
+        "qualified_name": "src/service/OrderService.ts::OrderService#constructor()",
+        "language": "TYPESCRIPT",
+        "module": "1f9f52d0-cca5-506a-91c2-5d8740a3bf53",
+        "package": null,
+        "file_id": "85ee5df8-fa6d-5e63-8ad2-b0d104d499be",
+        "symbol_id": "028854c4-e3d6-55ca-b10a-6cd47c69f3d1",
+        "layer": null,
+        "source_location": {
+          "file_path": "src/service/OrderService.ts",
+          "start_line": 4,
+          "start_column": 3,
+          "end_line": 4,
+          "end_column": 60
+        },
+        "attributes": {
+          "parent_node_id": "70791776-09be-5697-bb07-5d721a43bc3b"
+        }
+      },
+      {
+        "id": "e8b71747-81ca-58e5-9b7b-851082e21fe1",
+        "kind": "METHOD",
+        "name": "submit",
+        "qualified_name": "src/service/OrderService.ts::OrderService#submit(literal)",
+        "language": "TYPESCRIPT",
+        "module": "1f9f52d0-cca5-506a-91c2-5d8740a3bf53",
+        "package": null,
+        "file_id": "85ee5df8-fa6d-5e63-8ad2-b0d104d499be",
+        "symbol_id": "651c71c0-fea0-5ddf-8f61-f3bf3b20478f",
+        "layer": null,
+        "source_location": {
+          "file_path": "src/service/OrderService.ts",
+          "start_line": 5,
+          "start_column": 3,
+          "end_line": 5,
+          "end_column": 57
+        },
+        "attributes": {
+          "parent_node_id": "70791776-09be-5697-bb07-5d721a43bc3b"
+        }
+      },
+      {
+        "id": "f3135acb-3ad4-5c97-8638-70b8b359473a",
+        "kind": "METHOD",
+        "name": "submit",
+        "qualified_name": "src/controller/CheckoutController.ts::CheckoutController#submit(literal)",
+        "language": "TYPESCRIPT",
+        "module": "f8d34feb-4fa6-5b4b-b70f-56d8fbbfedeb",
+        "package": null,
+        "file_id": "1a0ec928-1f96-5cdb-b865-dd639f9b60fd",
+        "symbol_id": "da0ceaaf-7df5-562d-b4ca-db003b7e320a",
+        "layer": null,
+        "source_location": {
+          "file_path": "src/controller/CheckoutController.ts",
+          "start_line": 11,
+          "start_column": 3,
+          "end_line": 11,
+          "end_column": 57
+        },
+        "attributes": {
+          "parent_node_id": "a347d0b0-4be5-5aa8-b647-7c1b21727b97"
+        }
+      },
+      {
+        "id": "f6c8caf3-2824-5b61-aa04-8d4155f59958",
+        "kind": "MODULE",
+        "name": "es:src/service/OrderService.ts",
+        "qualified_name": "es:src/service/OrderService.ts",
+        "language": "UNKNOWN",
+        "module": "1f9f52d0-cca5-506a-91c2-5d8740a3bf53",
+        "package": null,
+        "file_id": null,
+        "symbol_id": null,
+        "layer": null,
+        "source_location": null,
+        "attributes": {
+          "parent_node_id": "2aca0333-a025-554f-a2a8-d2fcf92f25a7",
+          "semantics": "es_file_module"
+        }
+      },
+      {
+        "id": "fdfec4cf-873c-5b33-b486-128edb0e6fa4",
+        "kind": "MODULE",
+        "name": "es:src/controller/CheckoutController.ts",
+        "qualified_name": "es:src/controller/CheckoutController.ts",
+        "language": "UNKNOWN",
+        "module": "f8d34feb-4fa6-5b4b-b70f-56d8fbbfedeb",
+        "package": null,
+        "file_id": null,
+        "symbol_id": null,
+        "layer": null,
+        "source_location": null,
+        "attributes": {
+          "parent_node_id": "2aca0333-a025-554f-a2a8-d2fcf92f25a7",
+          "semantics": "es_file_module"
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "01188d8d-d408-598b-b434-82396795d3e1",
+        "source_id": "783a9730-e670-59f5-bc90-3f1913eca2c0",
+        "target_id": "70791776-09be-5697-bb07-5d721a43bc3b",
+        "kind": "CREATES",
+        "source_location": {
+          "file_path": "src/controller/CheckoutController.ts",
+          "start_line": 8,
+          "start_column": 20,
+          "end_line": 8,
+          "end_column": 37
+        },
+        "weight": 1.0,
+        "attributes": {
+          "occurrences": 1,
+          "provenance_truncated": 0,
+          "provenance": [
+            {
+              "source_location": {
+                "file_path": "src/controller/CheckoutController.ts",
+                "start_line": 8,
+                "start_column": 20,
+                "end_line": 8,
+                "end_column": 37
+              },
+              "reference_kind": "CREATE",
+              "resolution_status": "RESOLVED",
+              "resolution_method": "EXACT_IMPORT",
+              "extractor_id": "typescript-syntax-extractor"
+            }
+          ]
+        }
+      },
+      {
+        "id": "029fbbf0-2a2b-50b0-ae1b-80b9e42e264b",
+        "source_id": "783a9730-e670-59f5-bc90-3f1913eca2c0",
+        "target_id": "099a5d0d-a284-51d2-801b-88c3ad3c93a5",
+        "kind": "CREATES",
+        "source_location": {
+          "file_path": "src/controller/CheckoutController.ts",
+          "start_line": 9,
+          "start_column": 23,
+          "end_line": 9,
+          "end_column": 43
+        },
+        "weight": 1.0,
+        "attributes": {
+          "occurrences": 1,
+          "provenance_truncated": 0,
+          "provenance": [
+            {
+              "source_location": {
+                "file_path": "src/controller/CheckoutController.ts",
+                "start_line": 9,
+                "start_column": 23,
+                "end_line": 9,
+                "end_column": 43
+              },
+              "reference_kind": "CREATE",
+              "resolution_status": "RESOLVED",
+              "resolution_method": "EXACT_IMPORT",
+              "extractor_id": "typescript-syntax-extractor"
+            }
+          ]
+        }
+      },
+      {
+        "id": "3efac960-6909-5b34-bbb6-d6b965cf94c8",
+        "source_id": "0df941f1-9209-568c-b3a0-7065b47b9800",
+        "target_id": "a38c980a-7d16-527b-ad03-cd0b7407d18a",
+        "kind": "IMPORTS",
+        "source_location": {
+          "file_path": "src/controller/SearchController.ts",
+          "start_line": 2,
+          "start_column": 10,
+          "end_line": 2,
+          "end_column": 13
+        },
+        "weight": 1.0,
+        "attributes": {
+          "occurrences": 1,
+          "provenance_truncated": 0,
+          "provenance": [
+            {
+              "source_location": {
+                "file_path": "src/controller/SearchController.ts",
+                "start_line": 2,
+                "start_column": 10,
+                "end_line": 2,
+                "end_column": 13
+              },
+              "reference_kind": "IMPORT",
+              "resolution_status": "EXTERNAL",
+              "resolution_method": "EXTERNAL_PACKAGE",
+              "extractor_id": "typescript-syntax-extractor"
+            }
+          ]
+        }
+      },
+      {
+        "id": "4b7b5312-5102-5e77-b05f-4ef743ecd8d8",
+        "source_id": "de7e38cd-d5b5-5696-9281-7523691303d4",
+        "target_id": "4bd1a227-297b-5008-90bb-7c735f8dbb4d",
+        "kind": "IMPORTS",
+        "source_location": {
+          "file_path": "src/controller/CheckoutController.ts",
+          "start_line": 2,
+          "start_column": 10,
+          "end_line": 2,
+          "end_column": 24
+        },
+        "weight": 1.0,
+        "attributes": {
+          "occurrences": 1,
+          "provenance_truncated": 0,
+          "provenance": [
+            {
+              "source_location": {
+                "file_path": "src/controller/CheckoutController.ts",
+                "start_line": 2,
+                "start_column": 10,
+                "end_line": 2,
+                "end_column": 24
+              },
+              "reference_kind": "IMPORT",
+              "resolution_status": "RESOLVED",
+              "resolution_method": "EXACT_IMPORT",
+              "extractor_id": "typescript-syntax-extractor"
+            }
+          ]
+        }
+      },
+      {
+        "id": "522cb6fd-dd12-5ffb-8d6f-c8e761104b8b",
+        "source_id": "d5719db6-a710-53ff-9295-5950ab384d65",
+        "target_id": "4bd1a227-297b-5008-90bb-7c735f8dbb4d",
+        "kind": "IMPORTS",
+        "source_location": {
+          "file_path": "src/service/OrderService.ts",
+          "start_line": 1,
+          "start_column": 10,
+          "end_line": 1,
+          "end_column": 24
+        },
+        "weight": 1.0,
+        "attributes": {
+          "occurrences": 1,
+          "provenance_truncated": 0,
+          "provenance": [
+            {
+              "source_location": {
+                "file_path": "src/service/OrderService.ts",
+                "start_line": 1,
+                "start_column": 10,
+                "end_line": 1,
+                "end_column": 24
+              },
+              "reference_kind": "IMPORT",
+              "resolution_status": "RESOLVED",
+              "resolution_method": "EXACT_IMPORT",
+              "extractor_id": "typescript-syntax-extractor"
+            }
+          ]
+        }
+      },
+      {
+        "id": "5ac48638-408a-589c-8cea-2c98e3d49819",
+        "source_id": "304623d5-8ccf-5ba3-9199-e377b648cd55",
+        "target_id": "099a5d0d-a284-51d2-801b-88c3ad3c93a5",
+        "kind": "USES",
+        "source_location": {
+          "file_path": "src/service/OrderService.ts",
+          "start_line": 3,
+          "start_column": 15,
+          "end_line": 3,
+          "end_column": 29
+        },
+        "weight": 1.0,
+        "attributes": {
+          "occurrences": 1,
+          "provenance_truncated": 0,
+          "provenance": [
+            {
+              "source_location": {
+                "file_path": "src/service/OrderService.ts",
+                "start_line": 3,
+                "start_column": 15,
+                "end_line": 3,
+                "end_column": 29
+              },
+              "reference_kind": "TYPE_USE",
+              "resolution_status": "RESOLVED",
+              "resolution_method": "EXACT_IMPORT",
+              "extractor_id": "typescript-syntax-extractor"
+            }
+          ]
+        }
+      },
+      {
+        "id": "b638fcbd-dc41-5e95-a4de-a3b6380df9ca",
+        "source_id": "07d4896d-8303-5701-8905-c34b33276e34",
+        "target_id": "099a5d0d-a284-51d2-801b-88c3ad3c93a5",
+        "kind": "USES",
+        "source_location": {
+          "file_path": "src/controller/CheckoutController.ts",
+          "start_line": 6,
+          "start_column": 15,
+          "end_line": 6,
+          "end_column": 29
+        },
+        "weight": 1.0,
+        "attributes": {
+          "occurrences": 1,
+          "provenance_truncated": 0,
+          "provenance": [
+            {
+              "source_location": {
+                "file_path": "src/controller/CheckoutController.ts",
+                "start_line": 6,
+                "start_column": 15,
+                "end_line": 6,
+                "end_column": 29
+              },
+              "reference_kind": "TYPE_USE",
+              "resolution_status": "RESOLVED",
+              "resolution_method": "EXACT_IMPORT",
+              "extractor_id": "typescript-syntax-extractor"
+            }
+          ]
+        }
+      },
+      {
+        "id": "c3fdb127-e658-55af-a33d-ef2102a302f6",
+        "source_id": "0df941f1-9209-568c-b3a0-7065b47b9800",
+        "target_id": "15a5be54-adb3-5ea9-9780-e2636fbb0ce8",
+        "kind": "IMPORTS",
+        "source_location": {
+          "file_path": "src/controller/SearchController.ts",
+          "start_line": 1,
+          "start_column": 15,
+          "end_line": 1,
+          "end_column": 21
+        },
+        "weight": 1.0,
+        "attributes": {
+          "occurrences": 1,
+          "provenance_truncated": 0,
+          "provenance": [
+            {
+              "source_location": {
+                "file_path": "src/controller/SearchController.ts",
+                "start_line": 1,
+                "start_column": 15,
+                "end_line": 1,
+                "end_column": 21
+              },
+              "reference_kind": "IMPORT",
+              "resolution_status": "EXTERNAL",
+              "resolution_method": "EXTERNAL_PACKAGE",
+              "extractor_id": "typescript-syntax-extractor"
+            }
+          ]
+        }
+      },
+      {
+        "id": "da75ae65-d712-5517-af89-e2b19c2eac88",
+        "source_id": "e1284b9b-1279-55ee-8748-2c6c5ea9ebff",
+        "target_id": "099a5d0d-a284-51d2-801b-88c3ad3c93a5",
+        "kind": "CREATES",
+        "source_location": {
+          "file_path": "src/service/OrderService.ts",
+          "start_line": 4,
+          "start_column": 37,
+          "end_line": 4,
+          "end_column": 57
+        },
+        "weight": 1.0,
+        "attributes": {
+          "occurrences": 1,
+          "provenance_truncated": 0,
+          "provenance": [
+            {
+              "source_location": {
+                "file_path": "src/service/OrderService.ts",
+                "start_line": 4,
+                "start_column": 37,
+                "end_line": 4,
+                "end_column": 57
+              },
+              "reference_kind": "CREATE",
+              "resolution_status": "RESOLVED",
+              "resolution_method": "EXACT_IMPORT",
+              "extractor_id": "typescript-syntax-extractor"
+            }
+          ]
+        }
+      },
+      {
+        "id": "f44ec98d-ed9b-5428-b838-d47c1f2d5a60",
+        "source_id": "7c8a4443-3a15-5f23-bbe7-394ce0a0bef9",
+        "target_id": "70791776-09be-5697-bb07-5d721a43bc3b",
+        "kind": "USES",
+        "source_location": {
+          "file_path": "src/controller/CheckoutController.ts",
+          "start_line": 5,
+          "start_column": 12,
+          "end_line": 5,
+          "end_column": 23
+        },
+        "weight": 1.0,
+        "attributes": {
+          "occurrences": 1,
+          "provenance_truncated": 0,
+          "provenance": [
+            {
+              "source_location": {
+                "file_path": "src/controller/CheckoutController.ts",
+                "start_line": 5,
+                "start_column": 12,
+                "end_line": 5,
+                "end_column": 23
+              },
+              "reference_kind": "TYPE_USE",
+              "resolution_status": "RESOLVED",
+              "resolution_method": "EXACT_IMPORT",
+              "extractor_id": "typescript-syntax-extractor"
+            }
+          ]
+        }
+      },
+      {
+        "id": "fb216441-1dbf-551d-98d1-dee99f067fa9",
+        "source_id": "de7e38cd-d5b5-5696-9281-7523691303d4",
+        "target_id": "d5719db6-a710-53ff-9295-5950ab384d65",
+        "kind": "IMPORTS",
+        "source_location": {
+          "file_path": "src/controller/CheckoutController.ts",
+          "start_line": 1,
+          "start_column": 10,
+          "end_line": 1,
+          "end_column": 21
+        },
+        "weight": 1.0,
+        "attributes": {
+          "occurrences": 1,
+          "provenance_truncated": 0,
+          "provenance": [
+            {
+              "source_location": {
+                "file_path": "src/controller/CheckoutController.ts",
+                "start_line": 1,
+                "start_column": 10,
+                "end_line": 1,
+                "end_column": 21
+              },
+              "reference_kind": "IMPORT",
+              "resolution_status": "RESOLVED",
+              "resolution_method": "EXACT_IMPORT",
+              "extractor_id": "typescript-syntax-extractor"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": {
+      "snapshot_id": "2c0f2aff-8a24-58eb-962d-9d6232c164e8",
+      "snapshot_fingerprint": "cd16e0cf38289105d3aee7b4f323c60f8b42c68fd17dcf8ace318a71d1855abf",
+      "repository_namespace": "archguard:product:ecf331c7af6a45a4",
+      "builder_version": "1.0.0",
+      "resolver_version": "1.0.0",
+      "extraction_config": {
+        "repository_namespace": "archguard:product:ecf331c7af6a45a4",
+        "project_name": "ArchGuard project",
+        "skip_invalid_files": true,
+        "max_declarations_per_file": 10000,
+        "max_references_per_file": 50000,
+        "max_imports_per_file": 10000,
+        "max_provenance_per_edge": 1000
+      },
+      "parser_config": {
+        "enabled_languages": [
+          "JAVA",
+          "JAVASCRIPT",
+          "TSX",
+          "TYPESCRIPT"
+        ],
+        "max_source_file_bytes": 2097152,
+        "collect_error_nodes": true,
+        "strict_syntax_errors": true,
+        "max_diagnostics_per_file": 100
+      },
+      "parser_versions": [
+        {
+          "parser_id": "typescript-tree-sitter",
+          "language": "TYPESCRIPT",
+          "implementation_version": "1.0.0",
+          "grammar_package": "tree-sitter-typescript",
+          "grammar_version": "0.23.2",
+          "grammar_abi_version": 14,
+          "runtime_package": "tree-sitter",
+          "runtime_version": "0.26.0"
+        }
+      ],
+      "extractor_versions": [
+        {
+          "extractor_id": "typescript-syntax-extractor",
+          "extractor_version": "1.1.0",
+          "dialect": "TYPESCRIPT"
+        }
+      ],
+      "source_coordinates": "one-based UTF-8 byte columns; inclusive end",
+      "containment_convention": "parent_node_id / container_symbol_id v1",
+      "is_valid": true,
+      "is_complete": true,
+      "statistics": {
+        "files_seen": 5,
+        "files_extracted": 4,
+        "files_with_parse_errors": 0,
+        "declarations_total": 12,
+        "imports_total": 5,
+        "references_total": 16,
+        "references_resolved": 9,
+        "references_ambiguous": 0,
+        "references_unresolved": 3,
+        "references_external": 4,
+        "nodes_created": 23,
+        "edges_created": 11,
+        "external_nodes": 2,
+        "declarations_by_language": {
+          "TYPESCRIPT": 12
+        }
+      }
+    }
+  },
+  "graph": {
+    "result_schema_version": "1.0",
+    "status": "COMPLETE",
+    "is_valid": true,
+    "is_complete": true,
+    "graph": {
+      "graph_schema_version": "1.0",
+      "project_id": "cb679770-e5dd-50ec-8bd3-fe476164e8f8",
+      "projection": {
+        "projection": "file",
+        "included_relations": [
+          "CALLS",
+          "CREATES",
+          "IMPLEMENTS",
+          "IMPORTS",
+          "INHERITS",
+          "USES"
+        ],
+        "include_external": false,
+        "include_self_edges": false
+      },
+      "nodes": [
+        {
+          "id": "0df941f1-9209-568c-b3a0-7065b47b9800",
+          "label": "src/controller/SearchController.ts",
+          "kind": "FILE",
+          "iam_node_ids": [
+            "0df941f1-9209-568c-b3a0-7065b47b9800",
+            "bd4ea817-da5f-5c30-86f2-91793f1d106e"
+          ],
+          "locations": [
+            {
+              "file_path": "src/controller/SearchController.ts",
+              "start_line": 1,
+              "start_column": 1,
+              "end_line": null,
+              "end_column": null
+            },
+            {
+              "file_path": "src/controller/SearchController.ts",
+              "start_line": 4,
+              "start_column": 8,
+              "end_line": 8,
+              "end_column": 1
+            }
+          ],
+          "member_count": 0,
+          "method_count": 0
+        },
+        {
+          "id": "4bd1a227-297b-5008-90bb-7c735f8dbb4d",
+          "label": "src/repository/OrderRepository.ts",
+          "kind": "FILE",
+          "iam_node_ids": [
+            "099a5d0d-a284-51d2-801b-88c3ad3c93a5",
+            "4bd1a227-297b-5008-90bb-7c735f8dbb4d",
+            "67023095-b911-5e83-8e6a-a177e560edf0"
+          ],
+          "locations": [
+            {
+              "file_path": "src/repository/OrderRepository.ts",
+              "start_line": 1,
+              "start_column": 1,
+              "end_line": null,
+              "end_column": null
+            },
+            {
+              "file_path": "src/repository/OrderRepository.ts",
+              "start_line": 1,
+              "start_column": 8,
+              "end_line": 3,
+              "end_column": 1
+            },
+            {
+              "file_path": "src/repository/OrderRepository.ts",
+              "start_line": 2,
+              "start_column": 3,
+              "end_line": 2,
+              "end_column": 37
+            }
+          ],
+          "member_count": 1,
+          "method_count": 1
+        },
+        {
+          "id": "d5719db6-a710-53ff-9295-5950ab384d65",
+          "label": "src/service/OrderService.ts",
+          "kind": "FILE",
+          "iam_node_ids": [
+            "304623d5-8ccf-5ba3-9199-e377b648cd55",
+            "70791776-09be-5697-bb07-5d721a43bc3b",
+            "d5719db6-a710-53ff-9295-5950ab384d65",
+            "e1284b9b-1279-55ee-8748-2c6c5ea9ebff",
+            "e8b71747-81ca-58e5-9b7b-851082e21fe1"
+          ],
+          "locations": [
+            {
+              "file_path": "src/service/OrderService.ts",
+              "start_line": 1,
+              "start_column": 1,
+              "end_line": null,
+              "end_column": null
+            },
+            {
+              "file_path": "src/service/OrderService.ts",
+              "start_line": 2,
+              "start_column": 8,
+              "end_line": 6,
+              "end_column": 1
+            },
+            {
+              "file_path": "src/service/OrderService.ts",
+              "start_line": 3,
+              "start_column": 3,
+              "end_line": 3,
+              "end_column": 29
+            },
+            {
+              "file_path": "src/service/OrderService.ts",
+              "start_line": 4,
+              "start_column": 3,
+              "end_line": 4,
+              "end_column": 60
+            },
+            {
+              "file_path": "src/service/OrderService.ts",
+              "start_line": 5,
+              "start_column": 3,
+              "end_line": 5,
+              "end_column": 57
+            }
+          ],
+          "member_count": 3,
+          "method_count": 1
+        },
+        {
+          "id": "de7e38cd-d5b5-5696-9281-7523691303d4",
+          "label": "src/controller/CheckoutController.ts",
+          "kind": "FILE",
+          "iam_node_ids": [
+            "07d4896d-8303-5701-8905-c34b33276e34",
+            "783a9730-e670-59f5-bc90-3f1913eca2c0",
+            "7c8a4443-3a15-5f23-bbe7-394ce0a0bef9",
+            "a347d0b0-4be5-5aa8-b647-7c1b21727b97",
+            "de7e38cd-d5b5-5696-9281-7523691303d4",
+            "f3135acb-3ad4-5c97-8638-70b8b359473a"
+          ],
+          "locations": [
+            {
+              "file_path": "src/controller/CheckoutController.ts",
+              "start_line": 1,
+              "start_column": 1,
+              "end_line": null,
+              "end_column": null
+            },
+            {
+              "file_path": "src/controller/CheckoutController.ts",
+              "start_line": 4,
+              "start_column": 8,
+              "end_line": 12,
+              "end_column": 1
+            },
+            {
+              "file_path": "src/controller/CheckoutController.ts",
+              "start_line": 5,
+              "start_column": 3,
+              "end_line": 5,
+              "end_column": 23
+            },
+            {
+              "file_path": "src/controller/CheckoutController.ts",
+              "start_line": 6,
+              "start_column": 3,
+              "end_line": 6,
+              "end_column": 29
+            },
+            {
+              "file_path": "src/controller/CheckoutController.ts",
+              "start_line": 7,
+              "start_column": 3,
+              "end_line": 10,
+              "end_column": 3
+            },
+            {
+              "file_path": "src/controller/CheckoutController.ts",
+              "start_line": 11,
+              "start_column": 3,
+              "end_line": 11,
+              "end_column": 57
+            }
+          ],
+          "member_count": 4,
+          "method_count": 1
+        }
+      ],
+      "edges": [
+        {
+          "id": "bbeb4bfe-b5cf-59fd-a881-b00f81d10118",
+          "source_id": "d5719db6-a710-53ff-9295-5950ab384d65",
+          "target_id": "4bd1a227-297b-5008-90bb-7c735f8dbb4d",
+          "relation_kinds": [
+            "CREATES",
+            "IMPORTS",
+            "USES"
+          ],
+          "proofs": [
+            {
+              "iam_edge_id": "522cb6fd-dd12-5ffb-8d6f-c8e761104b8b",
+              "source_node_id": "d5719db6-a710-53ff-9295-5950ab384d65",
+              "target_node_id": "4bd1a227-297b-5008-90bb-7c735f8dbb4d",
+              "relation": "IMPORTS",
+              "locations": [
+                {
+                  "file_path": "src/service/OrderService.ts",
+                  "start_line": 1,
+                  "start_column": 10,
+                  "end_line": 1,
+                  "end_column": 24
+                }
+              ],
+              "provenance": [
+                {
+                  "source_location": {
+                    "file_path": "src/service/OrderService.ts",
+                    "start_line": 1,
+                    "start_column": 10,
+                    "end_line": 1,
+                    "end_column": 24
+                  },
+                  "resolution_status": "RESOLVED",
+                  "resolution_method": "EXACT_IMPORT",
+                  "reference_kind": "IMPORT"
+                }
+              ],
+              "occurrences": 1,
+              "provenance_truncated": 0
+            },
+            {
+              "iam_edge_id": "5ac48638-408a-589c-8cea-2c98e3d49819",
+              "source_node_id": "304623d5-8ccf-5ba3-9199-e377b648cd55",
+              "target_node_id": "099a5d0d-a284-51d2-801b-88c3ad3c93a5",
+              "relation": "USES",
+              "locations": [
+                {
+                  "file_path": "src/service/OrderService.ts",
+                  "start_line": 3,
+                  "start_column": 15,
+                  "end_line": 3,
+                  "end_column": 29
+                }
+              ],
+              "provenance": [
+                {
+                  "source_location": {
+                    "file_path": "src/service/OrderService.ts",
+                    "start_line": 3,
+                    "start_column": 15,
+                    "end_line": 3,
+                    "end_column": 29
+                  },
+                  "resolution_status": "RESOLVED",
+                  "resolution_method": "EXACT_IMPORT",
+                  "reference_kind": "TYPE_USE"
+                }
+              ],
+              "occurrences": 1,
+              "provenance_truncated": 0
+            },
+            {
+              "iam_edge_id": "da75ae65-d712-5517-af89-e2b19c2eac88",
+              "source_node_id": "e1284b9b-1279-55ee-8748-2c6c5ea9ebff",
+              "target_node_id": "099a5d0d-a284-51d2-801b-88c3ad3c93a5",
+              "relation": "CREATES",
+              "locations": [
+                {
+                  "file_path": "src/service/OrderService.ts",
+                  "start_line": 4,
+                  "start_column": 37,
+                  "end_line": 4,
+                  "end_column": 57
+                }
+              ],
+              "provenance": [
+                {
+                  "source_location": {
+                    "file_path": "src/service/OrderService.ts",
+                    "start_line": 4,
+                    "start_column": 37,
+                    "end_line": 4,
+                    "end_column": 57
+                  },
+                  "resolution_status": "RESOLVED",
+                  "resolution_method": "EXACT_IMPORT",
+                  "reference_kind": "CREATE"
+                }
+              ],
+              "occurrences": 1,
+              "provenance_truncated": 0
+            }
+          ]
+        },
+        {
+          "id": "fc1f4c72-7bbe-57b1-94b2-e9de38a6c902",
+          "source_id": "de7e38cd-d5b5-5696-9281-7523691303d4",
+          "target_id": "4bd1a227-297b-5008-90bb-7c735f8dbb4d",
+          "relation_kinds": [
+            "CREATES",
+            "IMPORTS",
+            "USES"
+          ],
+          "proofs": [
+            {
+              "iam_edge_id": "029fbbf0-2a2b-50b0-ae1b-80b9e42e264b",
+              "source_node_id": "783a9730-e670-59f5-bc90-3f1913eca2c0",
+              "target_node_id": "099a5d0d-a284-51d2-801b-88c3ad3c93a5",
+              "relation": "CREATES",
+              "locations": [
+                {
+                  "file_path": "src/controller/CheckoutController.ts",
+                  "start_line": 9,
+                  "start_column": 23,
+                  "end_line": 9,
+                  "end_column": 43
+                }
+              ],
+              "provenance": [
+                {
+                  "source_location": {
+                    "file_path": "src/controller/CheckoutController.ts",
+                    "start_line": 9,
+                    "start_column": 23,
+                    "end_line": 9,
+                    "end_column": 43
+                  },
+                  "resolution_status": "RESOLVED",
+                  "resolution_method": "EXACT_IMPORT",
+                  "reference_kind": "CREATE"
+                }
+              ],
+              "occurrences": 1,
+              "provenance_truncated": 0
+            },
+            {
+              "iam_edge_id": "4b7b5312-5102-5e77-b05f-4ef743ecd8d8",
+              "source_node_id": "de7e38cd-d5b5-5696-9281-7523691303d4",
+              "target_node_id": "4bd1a227-297b-5008-90bb-7c735f8dbb4d",
+              "relation": "IMPORTS",
+              "locations": [
+                {
+                  "file_path": "src/controller/CheckoutController.ts",
+                  "start_line": 2,
+                  "start_column": 10,
+                  "end_line": 2,
+                  "end_column": 24
+                }
+              ],
+              "provenance": [
+                {
+                  "source_location": {
+                    "file_path": "src/controller/CheckoutController.ts",
+                    "start_line": 2,
+                    "start_column": 10,
+                    "end_line": 2,
+                    "end_column": 24
+                  },
+                  "resolution_status": "RESOLVED",
+                  "resolution_method": "EXACT_IMPORT",
+                  "reference_kind": "IMPORT"
+                }
+              ],
+              "occurrences": 1,
+              "provenance_truncated": 0
+            },
+            {
+              "iam_edge_id": "b638fcbd-dc41-5e95-a4de-a3b6380df9ca",
+              "source_node_id": "07d4896d-8303-5701-8905-c34b33276e34",
+              "target_node_id": "099a5d0d-a284-51d2-801b-88c3ad3c93a5",
+              "relation": "USES",
+              "locations": [
+                {
+                  "file_path": "src/controller/CheckoutController.ts",
+                  "start_line": 6,
+                  "start_column": 15,
+                  "end_line": 6,
+                  "end_column": 29
+                }
+              ],
+              "provenance": [
+                {
+                  "source_location": {
+                    "file_path": "src/controller/CheckoutController.ts",
+                    "start_line": 6,
+                    "start_column": 15,
+                    "end_line": 6,
+                    "end_column": 29
+                  },
+                  "resolution_status": "RESOLVED",
+                  "resolution_method": "EXACT_IMPORT",
+                  "reference_kind": "TYPE_USE"
+                }
+              ],
+              "occurrences": 1,
+              "provenance_truncated": 0
+            }
+          ]
+        },
+        {
+          "id": "f0ff6af3-7d68-58e0-bd31-7734529f7902",
+          "source_id": "de7e38cd-d5b5-5696-9281-7523691303d4",
+          "target_id": "d5719db6-a710-53ff-9295-5950ab384d65",
+          "relation_kinds": [
+            "CREATES",
+            "IMPORTS",
+            "USES"
+          ],
+          "proofs": [
+            {
+              "iam_edge_id": "01188d8d-d408-598b-b434-82396795d3e1",
+              "source_node_id": "783a9730-e670-59f5-bc90-3f1913eca2c0",
+              "target_node_id": "70791776-09be-5697-bb07-5d721a43bc3b",
+              "relation": "CREATES",
+              "locations": [
+                {
+                  "file_path": "src/controller/CheckoutController.ts",
+                  "start_line": 8,
+                  "start_column": 20,
+                  "end_line": 8,
+                  "end_column": 37
+                }
+              ],
+              "provenance": [
+                {
+                  "source_location": {
+                    "file_path": "src/controller/CheckoutController.ts",
+                    "start_line": 8,
+                    "start_column": 20,
+                    "end_line": 8,
+                    "end_column": 37
+                  },
+                  "resolution_status": "RESOLVED",
+                  "resolution_method": "EXACT_IMPORT",
+                  "reference_kind": "CREATE"
+                }
+              ],
+              "occurrences": 1,
+              "provenance_truncated": 0
+            },
+            {
+              "iam_edge_id": "f44ec98d-ed9b-5428-b838-d47c1f2d5a60",
+              "source_node_id": "7c8a4443-3a15-5f23-bbe7-394ce0a0bef9",
+              "target_node_id": "70791776-09be-5697-bb07-5d721a43bc3b",
+              "relation": "USES",
+              "locations": [
+                {
+                  "file_path": "src/controller/CheckoutController.ts",
+                  "start_line": 5,
+                  "start_column": 12,
+                  "end_line": 5,
+                  "end_column": 23
+                }
+              ],
+              "provenance": [
+                {
+                  "source_location": {
+                    "file_path": "src/controller/CheckoutController.ts",
+                    "start_line": 5,
+                    "start_column": 12,
+                    "end_line": 5,
+                    "end_column": 23
+                  },
+                  "resolution_status": "RESOLVED",
+                  "resolution_method": "EXACT_IMPORT",
+                  "reference_kind": "TYPE_USE"
+                }
+              ],
+              "occurrences": 1,
+              "provenance_truncated": 0
+            },
+            {
+              "iam_edge_id": "fb216441-1dbf-551d-98d1-dee99f067fa9",
+              "source_node_id": "de7e38cd-d5b5-5696-9281-7523691303d4",
+              "target_node_id": "d5719db6-a710-53ff-9295-5950ab384d65",
+              "relation": "IMPORTS",
+              "locations": [
+                {
+                  "file_path": "src/controller/CheckoutController.ts",
+                  "start_line": 1,
+                  "start_column": 10,
+                  "end_line": 1,
+                  "end_column": 21
+                }
+              ],
+              "provenance": [
+                {
+                  "source_location": {
+                    "file_path": "src/controller/CheckoutController.ts",
+                    "start_line": 1,
+                    "start_column": 10,
+                    "end_line": 1,
+                    "end_column": 21
+                  },
+                  "resolution_status": "RESOLVED",
+                  "resolution_method": "EXACT_IMPORT",
+                  "reference_kind": "IMPORT"
+                }
+              ],
+              "occurrences": 1,
+              "provenance_truncated": 0
+            }
+          ]
+        }
+      ]
+    },
+    "projection_statistics": {
+      "iam_nodes_input": 23,
+      "iam_edges_input": 11,
+      "graph_nodes": 4,
+      "graph_edges": 3,
+      "self_edges_removed": 0,
+      "external_nodes_excluded": 2,
+      "unmapped_nodes": 0,
+      "unclassified_nodes_excluded": 0,
+      "filtered_edges": 2,
+      "unproven_edges": 0
+    },
+    "statistics": {
+      "scc_count": 4,
+      "cyclic_scc_count": 0,
+      "cycle_observation_count": 0,
+      "cycle_findings": 0,
+      "candidate_count_by_rule": {},
+      "metric_node_count": 4,
+      "metrics_computed": [
+        "degree",
+        "coupling",
+        "instability",
+        "degree_centrality",
+        "betweenness",
+        "pagerank"
+      ],
+      "metrics_skipped": []
+    },
+    "metrics": [
+      {
+        "node_id": "0df941f1-9209-568c-b3a0-7065b47b9800",
+        "in_degree_edges": 0,
+        "out_degree_edges": 0,
+        "unique_in_neighbors": 0,
+        "unique_out_neighbors": 0,
+        "afferent_coupling": 0,
+        "efferent_coupling": 0,
+        "total_unique_neighbors": 0,
+        "instability": null,
+        "in_degree_centrality": 0.0,
+        "out_degree_centrality": 0.0,
+        "betweenness_centrality": 0.0,
+        "pagerank": 0.1649824706184529,
+        "scc_size": 1,
+        "is_cyclic": false
+      },
+      {
+        "node_id": "4bd1a227-297b-5008-90bb-7c735f8dbb4d",
+        "in_degree_edges": 2,
+        "out_degree_edges": 0,
+        "unique_in_neighbors": 2,
+        "unique_out_neighbors": 0,
+        "afferent_coupling": 2,
+        "efferent_coupling": 0,
+        "total_unique_neighbors": 2,
+        "instability": 0.0,
+        "in_degree_centrality": 0.6666666666666666,
+        "out_degree_centrality": 0.0,
+        "betweenness_centrality": 0.0,
+        "pagerank": 0.4349350381742666,
+        "scc_size": 1,
+        "is_cyclic": false
+      },
+      {
+        "node_id": "d5719db6-a710-53ff-9295-5950ab384d65",
+        "in_degree_edges": 1,
+        "out_degree_edges": 1,
+        "unique_in_neighbors": 1,
+        "unique_out_neighbors": 1,
+        "afferent_coupling": 1,
+        "efferent_coupling": 1,
+        "total_unique_neighbors": 2,
+        "instability": 0.5,
+        "in_degree_centrality": 0.3333333333333333,
+        "out_degree_centrality": 0.3333333333333333,
+        "betweenness_centrality": 0.0,
+        "pagerank": 0.2351000205888276,
+        "scc_size": 1,
+        "is_cyclic": false
+      },
+      {
+        "node_id": "de7e38cd-d5b5-5696-9281-7523691303d4",
+        "in_degree_edges": 0,
+        "out_degree_edges": 2,
+        "unique_in_neighbors": 0,
+        "unique_out_neighbors": 2,
+        "afferent_coupling": 0,
+        "efferent_coupling": 2,
+        "total_unique_neighbors": 2,
+        "instability": 1.0,
+        "in_degree_centrality": 0.0,
+        "out_degree_centrality": 0.6666666666666666,
+        "betweenness_centrality": 0.0,
+        "pagerank": 0.1649824706184529,
+        "scc_size": 1,
+        "is_cyclic": false
+      }
+    ],
+    "sccs": [
+      {
+        "id": "852da25c-b6b5-54a0-a794-72d42109fcbb",
+        "members": [
+          "4bd1a227-297b-5008-90bb-7c735f8dbb4d"
+        ],
+        "internal_edge_count": 0,
+        "size": 1
+      },
+      {
+        "id": "9429ae0a-1816-5193-8432-39eabf6b4caf",
+        "members": [
+          "0df941f1-9209-568c-b3a0-7065b47b9800"
+        ],
+        "internal_edge_count": 0,
+        "size": 1
+      },
+      {
+        "id": "e2a4e803-e3ec-5794-93b7-5aaa4258170e",
+        "members": [
+          "d5719db6-a710-53ff-9295-5950ab384d65"
+        ],
+        "internal_edge_count": 0,
+        "size": 1
+      },
+      {
+        "id": "f9219baf-54e8-54bf-9539-5f273b8b6276",
+        "members": [
+          "de7e38cd-d5b5-5696-9281-7523691303d4"
+        ],
+        "internal_edge_count": 0,
+        "size": 1
+      }
+    ],
+    "cycles": [],
+    "findings": [],
+    "candidates": [],
+    "conformance": null,
+    "diagnostics": [],
+    "reproducibility": {
+      "project_id": "cb679770-e5dd-50ec-8bd3-fe476164e8f8",
+      "snapshot_fingerprint": "cd16e0cf38289105d3aee7b4f323c60f8b42c68fd17dcf8ace318a71d1855abf",
+      "iam_schema_version": "1.0",
+      "iam_fingerprint": "1a270079547767b0605ea6966f4a14b41c554720d37947944f9944d56200032e",
+      "graph_engine_version": "1.0.0",
+      "networkx_version": "3.7",
+      "configuration": {
+        "projection": {
+          "projection": "file",
+          "included_relations": [
+            "CALLS",
+            "CREATES",
+            "IMPLEMENTS",
+            "IMPORTS",
+            "INHERITS",
+            "USES"
+          ],
+          "include_external": false,
+          "include_self_edges": false
+        },
+        "max_graph_nodes": 10000,
+        "max_graph_edges": 100000,
+        "calculate_pagerank": true,
+        "calculate_betweenness": true,
+        "betweenness_node_limit": 1000,
+        "pagerank_alpha": 0.85,
+        "pagerank_tolerance": 1e-10,
+        "pagerank_max_iterations": 200,
+        "max_cycle_trace_length": 256,
+        "max_neighbourhood_nodes": 1000,
+        "candidates": {
+          "excessive_coupling": null,
+          "hub_fan_in": null,
+          "god_min_members": null,
+          "god_min_methods": null,
+          "god_min_coupling": null,
+          "unstable_delta": null,
+          "bottleneck_betweenness": null,
+          "bottleneck_min_neighbors": null
+        }
+      },
+      "configuration_fingerprint": "1a4db10ce297aef6031a9daa8c368442dd82c002d2d6fa1a37e428c642a2bc46",
+      "projection_fingerprint": "06f4ce929bce182bdf605d78212d189a3ac33df24b4634ce22923c67304ee249",
+      "architecture_spec_fingerprint": "35d65a6630aba1e70187812ccfa40a5456c1653560d803bffb02b13f5ca7fbd3",
+      "canonical_float_decimal_places": 12
+    }
+  },
+  "architecture": {
+    "result_schema_version": "1.0",
+    "status": "NON_CONFORMANT",
+    "is_valid": true,
+    "is_complete": true,
+    "classification": {
+      "nodes": [
+        {
+          "node_id": "07d4896d-8303-5701-8905-c34b33276e34",
+          "file_id": "1a0ec928-1f96-5cdb-b865-dd639f9b60fd",
+          "file_path": "src/controller/CheckoutController.ts",
+          "layer": "interface",
+          "module": null,
+          "layer_candidates": [
+            "interface"
+          ],
+          "module_candidates": []
+        },
+        {
+          "node_id": "099a5d0d-a284-51d2-801b-88c3ad3c93a5",
+          "file_id": "a54e619a-1e8f-5684-9735-b10a35799043",
+          "file_path": "src/repository/OrderRepository.ts",
+          "layer": "infrastructure",
+          "module": null,
+          "layer_candidates": [
+            "infrastructure"
+          ],
+          "module_candidates": []
+        },
+        {
+          "node_id": "0df941f1-9209-568c-b3a0-7065b47b9800",
+          "file_id": "5f759258-e533-5777-9705-574a3c8bb1df",
+          "file_path": "src/controller/SearchController.ts",
+          "layer": "interface",
+          "module": null,
+          "layer_candidates": [
+            "interface"
+          ],
+          "module_candidates": []
+        },
+        {
+          "node_id": "304623d5-8ccf-5ba3-9199-e377b648cd55",
+          "file_id": "85ee5df8-fa6d-5e63-8ad2-b0d104d499be",
+          "file_path": "src/service/OrderService.ts",
+          "layer": "application",
+          "module": null,
+          "layer_candidates": [
+            "application"
+          ],
+          "module_candidates": []
+        },
+        {
+          "node_id": "4bd1a227-297b-5008-90bb-7c735f8dbb4d",
+          "file_id": "a54e619a-1e8f-5684-9735-b10a35799043",
+          "file_path": "src/repository/OrderRepository.ts",
+          "layer": "infrastructure",
+          "module": null,
+          "layer_candidates": [
+            "infrastructure"
+          ],
+          "module_candidates": []
+        },
+        {
+          "node_id": "67023095-b911-5e83-8e6a-a177e560edf0",
+          "file_id": "a54e619a-1e8f-5684-9735-b10a35799043",
+          "file_path": "src/repository/OrderRepository.ts",
+          "layer": "infrastructure",
+          "module": null,
+          "layer_candidates": [
+            "infrastructure"
+          ],
+          "module_candidates": []
+        },
+        {
+          "node_id": "70791776-09be-5697-bb07-5d721a43bc3b",
+          "file_id": "85ee5df8-fa6d-5e63-8ad2-b0d104d499be",
+          "file_path": "src/service/OrderService.ts",
+          "layer": "application",
+          "module": null,
+          "layer_candidates": [
+            "application"
+          ],
+          "module_candidates": []
+        },
+        {
+          "node_id": "783a9730-e670-59f5-bc90-3f1913eca2c0",
+          "file_id": "1a0ec928-1f96-5cdb-b865-dd639f9b60fd",
+          "file_path": "src/controller/CheckoutController.ts",
+          "layer": "interface",
+          "module": null,
+          "layer_candidates": [
+            "interface"
+          ],
+          "module_candidates": []
+        },
+        {
+          "node_id": "7c8a4443-3a15-5f23-bbe7-394ce0a0bef9",
+          "file_id": "1a0ec928-1f96-5cdb-b865-dd639f9b60fd",
+          "file_path": "src/controller/CheckoutController.ts",
+          "layer": "interface",
+          "module": null,
+          "layer_candidates": [
+            "interface"
+          ],
+          "module_candidates": []
+        },
+        {
+          "node_id": "a347d0b0-4be5-5aa8-b647-7c1b21727b97",
+          "file_id": "1a0ec928-1f96-5cdb-b865-dd639f9b60fd",
+          "file_path": "src/controller/CheckoutController.ts",
+          "layer": "interface",
+          "module": null,
+          "layer_candidates": [
+            "interface"
+          ],
+          "module_candidates": []
+        },
+        {
+          "node_id": "bd4ea817-da5f-5c30-86f2-91793f1d106e",
+          "file_id": "5f759258-e533-5777-9705-574a3c8bb1df",
+          "file_path": "src/controller/SearchController.ts",
+          "layer": "interface",
+          "module": null,
+          "layer_candidates": [
+            "interface"
+          ],
+          "module_candidates": []
+        },
+        {
+          "node_id": "d5719db6-a710-53ff-9295-5950ab384d65",
+          "file_id": "85ee5df8-fa6d-5e63-8ad2-b0d104d499be",
+          "file_path": "src/service/OrderService.ts",
+          "layer": "application",
+          "module": null,
+          "layer_candidates": [
+            "application"
+          ],
+          "module_candidates": []
+        },
+        {
+          "node_id": "de7e38cd-d5b5-5696-9281-7523691303d4",
+          "file_id": "1a0ec928-1f96-5cdb-b865-dd639f9b60fd",
+          "file_path": "src/controller/CheckoutController.ts",
+          "layer": "interface",
+          "module": null,
+          "layer_candidates": [
+            "interface"
+          ],
+          "module_candidates": []
+        },
+        {
+          "node_id": "e1284b9b-1279-55ee-8748-2c6c5ea9ebff",
+          "file_id": "85ee5df8-fa6d-5e63-8ad2-b0d104d499be",
+          "file_path": "src/service/OrderService.ts",
+          "layer": "application",
+          "module": null,
+          "layer_candidates": [
+            "application"
+          ],
+          "module_candidates": []
+        },
+        {
+          "node_id": "e8b71747-81ca-58e5-9b7b-851082e21fe1",
+          "file_id": "85ee5df8-fa6d-5e63-8ad2-b0d104d499be",
+          "file_path": "src/service/OrderService.ts",
+          "layer": "application",
+          "module": null,
+          "layer_candidates": [
+            "application"
+          ],
+          "module_candidates": []
+        },
+        {
+          "node_id": "f3135acb-3ad4-5c97-8638-70b8b359473a",
+          "file_id": "1a0ec928-1f96-5cdb-b865-dd639f9b60fd",
+          "file_path": "src/controller/CheckoutController.ts",
+          "layer": "interface",
+          "module": null,
+          "layer_candidates": [
+            "interface"
+          ],
+          "module_candidates": []
+        }
+      ],
+      "diagnostics": []
+    },
+    "statistics": {
+      "iam_nodes_total": 23,
+      "iam_edges_total": 11,
+      "nodes_considered": 16,
+      "nodes_classified": 16,
+      "nodes_unclassified": 0,
+      "ambiguous_nodes": 0,
+      "edges_considered": 9,
+      "edges_ignored": 2,
+      "rules_enabled": 1,
+      "rules_evaluated": 1,
+      "findings_total": 1,
+      "findings_by_rule": {
+        "ARCH002": 1
+      },
+      "findings_by_severity": {
+        "HIGH": 1
+      },
+      "nodes_by_layer": {
+        "application": 5,
+        "infrastructure": 3,
+        "interface": 8
+      },
+      "nodes_by_module": {}
+    },
+    "findings": [
+      {
+        "finding_schema_version": "1.0",
+        "id": "6264987e-626c-5ebe-bc4e-3eb6e58a421e",
+        "namespace": "ARCH",
+        "rule_id": "ARCH002",
+        "category": "layer_dependency",
+        "title": "Layer Violation",
+        "description": "Dependency from 'src/controller/CheckoutController.ts' (layer=interface, module=unclassified) to 'src/repository/OrderRepository.ts' (layer=infrastructure, module=unclassified) violates ARCH002 (layer_dependency).",
+        "severity": "HIGH",
+        "confidence": null,
+        "primary_location": {
+          "file_path": "src/controller/CheckoutController.ts",
+          "start_line": 2,
+          "start_column": 10,
+          "end_line": 2,
+          "end_column": 24
+        },
+        "related_locations": [
+          {
+            "file_path": "src/controller/CheckoutController.ts",
+            "start_line": 6,
+            "start_column": 15,
+            "end_line": 6,
+            "end_column": 29
+          },
+          {
+            "file_path": "src/controller/CheckoutController.ts",
+            "start_line": 9,
+            "start_column": 23,
+            "end_line": 9,
+            "end_column": 43
+          }
+        ],
+        "evidence": [
+          {
+            "id": "d0eee8d7-60f9-5dcd-93be-dece61db6537",
+            "namespace": "ARCH",
+            "type": "ARCHITECTURE_RULE",
+            "message": "The explicit target architecture constraint forbids this dependency.",
+            "location": null,
+            "properties": {
+              "rule_id": "ARCH002",
+              "rule_type": "layer_dependency",
+              "expected": {
+                "severity": "HIGH",
+                "description": null,
+                "enabled": true,
+                "relations": [
+                  "CALLS",
+                  "CREATES",
+                  "IMPLEMENTS",
+                  "IMPORTS",
+                  "INHERITS",
+                  "USES"
+                ],
+                "from": "interface",
+                "allow": [
+                  "application"
+                ],
+                "deny": null,
+                "id": "ARCH002",
+                "type": "layer_dependency",
+                "allow_same_layer": true
+              },
+              "spec_fingerprint": "35d65a6630aba1e70187812ccfa40a5456c1653560d803bffb02b13f5ca7fbd3",
+              "source_layer": "interface",
+              "source_module": null,
+              "target_layer": "infrastructure",
+              "target_module": null
+            }
+          },
+          {
+            "id": "e5bf4694-d719-52c1-b014-37b9bdfe38fe",
+            "namespace": "ARCH",
+            "type": "STATIC_RULE",
+            "message": "Actual resolved internal IMPORTS dependency.",
+            "location": {
+              "file_path": "src/controller/CheckoutController.ts",
+              "start_line": 2,
+              "start_column": 10,
+              "end_line": 2,
+              "end_column": 24
+            },
+            "properties": {
+              "edge_id": "4b7b5312-5102-5e77-b05f-4ef743ecd8d8",
+              "relation": "IMPORTS",
+              "source_node_id": "de7e38cd-d5b5-5696-9281-7523691303d4",
+              "target_node_id": "4bd1a227-297b-5008-90bb-7c735f8dbb4d",
+              "source_name": "src/controller/CheckoutController.ts",
+              "target_name": "src/repository/OrderRepository.ts",
+              "source_file_id": "1a0ec928-1f96-5cdb-b865-dd639f9b60fd",
+              "target_file_id": "a54e619a-1e8f-5684-9735-b10a35799043",
+              "occurrences": 1,
+              "provenance_truncated": 0,
+              "provenance": [
+                {
+                  "source_location": {
+                    "file_path": "src/controller/CheckoutController.ts",
+                    "start_line": 2,
+                    "start_column": 10,
+                    "end_line": 2,
+                    "end_column": 24
+                  },
+                  "resolution_status": "RESOLVED",
+                  "resolution_method": "EXACT_IMPORT",
+                  "reference_kind": "IMPORT"
+                }
+              ]
+            }
+          },
+          {
+            "id": "0e578918-8495-578b-8b57-4461c3842413",
+            "namespace": "ARCH",
+            "type": "STATIC_RULE",
+            "message": "Actual resolved internal USES dependency.",
+            "location": {
+              "file_path": "src/controller/CheckoutController.ts",
+              "start_line": 6,
+              "start_column": 15,
+              "end_line": 6,
+              "end_column": 29
+            },
+            "properties": {
+              "edge_id": "b638fcbd-dc41-5e95-a4de-a3b6380df9ca",
+              "relation": "USES",
+              "source_node_id": "07d4896d-8303-5701-8905-c34b33276e34",
+              "target_node_id": "099a5d0d-a284-51d2-801b-88c3ad3c93a5",
+              "source_name": "src/controller/CheckoutController.ts::CheckoutController#repository",
+              "target_name": "src/repository/OrderRepository.ts::OrderRepository",
+              "source_file_id": "1a0ec928-1f96-5cdb-b865-dd639f9b60fd",
+              "target_file_id": "a54e619a-1e8f-5684-9735-b10a35799043",
+              "occurrences": 1,
+              "provenance_truncated": 0,
+              "provenance": [
+                {
+                  "source_location": {
+                    "file_path": "src/controller/CheckoutController.ts",
+                    "start_line": 6,
+                    "start_column": 15,
+                    "end_line": 6,
+                    "end_column": 29
+                  },
+                  "resolution_status": "RESOLVED",
+                  "resolution_method": "EXACT_IMPORT",
+                  "reference_kind": "TYPE_USE"
+                }
+              ]
+            }
+          },
+          {
+            "id": "86fb9866-ed33-5605-96d7-eb184718e6f3",
+            "namespace": "ARCH",
+            "type": "STATIC_RULE",
+            "message": "Actual resolved internal CREATES dependency.",
+            "location": {
+              "file_path": "src/controller/CheckoutController.ts",
+              "start_line": 9,
+              "start_column": 23,
+              "end_line": 9,
+              "end_column": 43
+            },
+            "properties": {
+              "edge_id": "029fbbf0-2a2b-50b0-ae1b-80b9e42e264b",
+              "relation": "CREATES",
+              "source_node_id": "783a9730-e670-59f5-bc90-3f1913eca2c0",
+              "target_node_id": "099a5d0d-a284-51d2-801b-88c3ad3c93a5",
+              "source_name": "src/controller/CheckoutController.ts::CheckoutController#constructor()",
+              "target_name": "src/repository/OrderRepository.ts::OrderRepository",
+              "source_file_id": "1a0ec928-1f96-5cdb-b865-dd639f9b60fd",
+              "target_file_id": "a54e619a-1e8f-5684-9735-b10a35799043",
+              "occurrences": 1,
+              "provenance_truncated": 0,
+              "provenance": [
+                {
+                  "source_location": {
+                    "file_path": "src/controller/CheckoutController.ts",
+                    "start_line": 9,
+                    "start_column": 23,
+                    "end_line": 9,
+                    "end_column": 43
+                  },
+                  "resolution_status": "RESOLVED",
+                  "resolution_method": "EXACT_IMPORT",
+                  "reference_kind": "CREATE"
+                }
+              ]
+            }
+          }
+        ],
+        "trace": {
+          "id": "154a59a4-7c8d-5f4b-b1a4-37dc26693745",
+          "steps": [
+            {
+              "sequence": 1,
+              "node_id": "de7e38cd-d5b5-5696-9281-7523691303d4",
+              "edge_id": null,
+              "location": {
+                "file_path": "src/controller/CheckoutController.ts",
+                "start_line": 2,
+                "start_column": 10,
+                "end_line": 2,
+                "end_column": 24
+              },
+              "relation": null,
+              "label": "src/controller/CheckoutController.ts",
+              "metadata": {}
+            },
+            {
+              "sequence": 2,
+              "node_id": "4bd1a227-297b-5008-90bb-7c735f8dbb4d",
+              "edge_id": "4b7b5312-5102-5e77-b05f-4ef743ecd8d8",
+              "location": {
+                "file_path": "src/controller/CheckoutController.ts",
+                "start_line": 2,
+                "start_column": 10,
+                "end_line": 2,
+                "end_column": 24
+              },
+              "relation": "IMPORTS",
+              "label": "src/repository/OrderRepository.ts",
+              "metadata": {}
+            }
+          ],
+          "metadata": {
+            "source_component_file_id": "1a0ec928-1f96-5cdb-b865-dd639f9b60fd",
+            "target_component_file_id": "a54e619a-1e8f-5684-9735-b10a35799043",
+            "edge_ids": [
+              "4b7b5312-5102-5e77-b05f-4ef743ecd8d8",
+              "b638fcbd-dc41-5e95-a4de-a3b6380df9ca",
+              "029fbbf0-2a2b-50b0-ae1b-80b9e42e264b"
+            ]
+          }
+        },
+        "detector": {
+          "source": "STATIC",
+          "name": "static-architecture-rule-engine",
+          "version": "1.0.0"
+        },
+        "recommendation": "Route the dependency through an allowed architecture boundary, or update the target specification if the dependency is intentional.",
+        "metadata": {
+          "source_component_file_id": "1a0ec928-1f96-5cdb-b865-dd639f9b60fd",
+          "target_component_file_id": "a54e619a-1e8f-5684-9735-b10a35799043",
+          "source_component": "src/controller/CheckoutController.ts",
+          "target_component": "src/repository/OrderRepository.ts",
+          "relation_kinds": [
+            "CREATES",
+            "IMPORTS",
+            "USES"
+          ],
+          "edge_ids": [
+            "4b7b5312-5102-5e77-b05f-4ef743ecd8d8",
+            "b638fcbd-dc41-5e95-a4de-a3b6380df9ca",
+            "029fbbf0-2a2b-50b0-ae1b-80b9e42e264b"
+          ],
+          "deterministic": true,
+          "occurrences": 3,
+          "provenance_truncated": 0
+        }
+      }
+    ],
+    "diagnostics": [],
+    "reproducibility": {
+      "project_id": "cb679770-e5dd-50ec-8bd3-fe476164e8f8",
+      "snapshot_id": "2c0f2aff-8a24-58eb-962d-9d6232c164e8",
+      "snapshot_fingerprint": "cd16e0cf38289105d3aee7b4f323c60f8b42c68fd17dcf8ace318a71d1855abf",
+      "iam_schema_version": "1.0",
+      "iam_fingerprint": "1a270079547767b0605ea6966f4a14b41c554720d37947944f9944d56200032e",
+      "architecture_spec_version": "1.0",
+      "architecture_spec_fingerprint": "35d65a6630aba1e70187812ccfa40a5456c1653560d803bffb02b13f5ca7fbd3",
+      "analyzer_version": "1.0.0",
+      "rule_engine_version": "1.0.0",
+      "classifier_version": "1.0.0",
+      "configuration": {
+        "require_complete_iam": true
+      }
+    },
+    "specification_summary": {
+      "version": "1.0",
+      "fingerprint": "35d65a6630aba1e70187812ccfa40a5456c1653560d803bffb02b13f5ca7fbd3",
+      "layers": [
+        "application",
+        "infrastructure",
+        "interface"
+      ],
+      "modules": [],
+      "rules": [
+        "ARCH002"
+      ]
+    }
+  },
+  "classification": {
+    "nodes": [
+      {
+        "node_id": "07d4896d-8303-5701-8905-c34b33276e34",
+        "file_id": "1a0ec928-1f96-5cdb-b865-dd639f9b60fd",
+        "file_path": "src/controller/CheckoutController.ts",
+        "layer": "interface",
+        "module": null,
+        "layer_candidates": [
+          "interface"
+        ],
+        "module_candidates": []
+      },
+      {
+        "node_id": "099a5d0d-a284-51d2-801b-88c3ad3c93a5",
+        "file_id": "a54e619a-1e8f-5684-9735-b10a35799043",
+        "file_path": "src/repository/OrderRepository.ts",
+        "layer": "infrastructure",
+        "module": null,
+        "layer_candidates": [
+          "infrastructure"
+        ],
+        "module_candidates": []
+      },
+      {
+        "node_id": "0df941f1-9209-568c-b3a0-7065b47b9800",
+        "file_id": "5f759258-e533-5777-9705-574a3c8bb1df",
+        "file_path": "src/controller/SearchController.ts",
+        "layer": "interface",
+        "module": null,
+        "layer_candidates": [
+          "interface"
+        ],
+        "module_candidates": []
+      },
+      {
+        "node_id": "304623d5-8ccf-5ba3-9199-e377b648cd55",
+        "file_id": "85ee5df8-fa6d-5e63-8ad2-b0d104d499be",
+        "file_path": "src/service/OrderService.ts",
+        "layer": "application",
+        "module": null,
+        "layer_candidates": [
+          "application"
+        ],
+        "module_candidates": []
+      },
+      {
+        "node_id": "4bd1a227-297b-5008-90bb-7c735f8dbb4d",
+        "file_id": "a54e619a-1e8f-5684-9735-b10a35799043",
+        "file_path": "src/repository/OrderRepository.ts",
+        "layer": "infrastructure",
+        "module": null,
+        "layer_candidates": [
+          "infrastructure"
+        ],
+        "module_candidates": []
+      },
+      {
+        "node_id": "67023095-b911-5e83-8e6a-a177e560edf0",
+        "file_id": "a54e619a-1e8f-5684-9735-b10a35799043",
+        "file_path": "src/repository/OrderRepository.ts",
+        "layer": "infrastructure",
+        "module": null,
+        "layer_candidates": [
+          "infrastructure"
+        ],
+        "module_candidates": []
+      },
+      {
+        "node_id": "70791776-09be-5697-bb07-5d721a43bc3b",
+        "file_id": "85ee5df8-fa6d-5e63-8ad2-b0d104d499be",
+        "file_path": "src/service/OrderService.ts",
+        "layer": "application",
+        "module": null,
+        "layer_candidates": [
+          "application"
+        ],
+        "module_candidates": []
+      },
+      {
+        "node_id": "783a9730-e670-59f5-bc90-3f1913eca2c0",
+        "file_id": "1a0ec928-1f96-5cdb-b865-dd639f9b60fd",
+        "file_path": "src/controller/CheckoutController.ts",
+        "layer": "interface",
+        "module": null,
+        "layer_candidates": [
+          "interface"
+        ],
+        "module_candidates": []
+      },
+      {
+        "node_id": "7c8a4443-3a15-5f23-bbe7-394ce0a0bef9",
+        "file_id": "1a0ec928-1f96-5cdb-b865-dd639f9b60fd",
+        "file_path": "src/controller/CheckoutController.ts",
+        "layer": "interface",
+        "module": null,
+        "layer_candidates": [
+          "interface"
+        ],
+        "module_candidates": []
+      },
+      {
+        "node_id": "a347d0b0-4be5-5aa8-b647-7c1b21727b97",
+        "file_id": "1a0ec928-1f96-5cdb-b865-dd639f9b60fd",
+        "file_path": "src/controller/CheckoutController.ts",
+        "layer": "interface",
+        "module": null,
+        "layer_candidates": [
+          "interface"
+        ],
+        "module_candidates": []
+      },
+      {
+        "node_id": "bd4ea817-da5f-5c30-86f2-91793f1d106e",
+        "file_id": "5f759258-e533-5777-9705-574a3c8bb1df",
+        "file_path": "src/controller/SearchController.ts",
+        "layer": "interface",
+        "module": null,
+        "layer_candidates": [
+          "interface"
+        ],
+        "module_candidates": []
+      },
+      {
+        "node_id": "d5719db6-a710-53ff-9295-5950ab384d65",
+        "file_id": "85ee5df8-fa6d-5e63-8ad2-b0d104d499be",
+        "file_path": "src/service/OrderService.ts",
+        "layer": "application",
+        "module": null,
+        "layer_candidates": [
+          "application"
+        ],
+        "module_candidates": []
+      },
+      {
+        "node_id": "de7e38cd-d5b5-5696-9281-7523691303d4",
+        "file_id": "1a0ec928-1f96-5cdb-b865-dd639f9b60fd",
+        "file_path": "src/controller/CheckoutController.ts",
+        "layer": "interface",
+        "module": null,
+        "layer_candidates": [
+          "interface"
+        ],
+        "module_candidates": []
+      },
+      {
+        "node_id": "e1284b9b-1279-55ee-8748-2c6c5ea9ebff",
+        "file_id": "85ee5df8-fa6d-5e63-8ad2-b0d104d499be",
+        "file_path": "src/service/OrderService.ts",
+        "layer": "application",
+        "module": null,
+        "layer_candidates": [
+          "application"
+        ],
+        "module_candidates": []
+      },
+      {
+        "node_id": "e8b71747-81ca-58e5-9b7b-851082e21fe1",
+        "file_id": "85ee5df8-fa6d-5e63-8ad2-b0d104d499be",
+        "file_path": "src/service/OrderService.ts",
+        "layer": "application",
+        "module": null,
+        "layer_candidates": [
+          "application"
+        ],
+        "module_candidates": []
+      },
+      {
+        "node_id": "f3135acb-3ad4-5c97-8638-70b8b359473a",
+        "file_id": "1a0ec928-1f96-5cdb-b865-dd639f9b60fd",
+        "file_path": "src/controller/CheckoutController.ts",
+        "layer": "interface",
+        "module": null,
+        "layer_candidates": [
+          "interface"
+        ],
+        "module_candidates": []
+      }
+    ],
+    "diagnostics": []
+  },
+  "security": [
+    {
+      "namespace": "SEC",
+      "findings": [
+        {
+          "schema_version": "security-finding-v1",
+          "namespace": "SEC",
+          "id": "e8058178-f685-50c9-b88e-a70b2dc3ebef",
+          "repository_id": "cb679770-e5dd-50ec-8bd3-fe476164e8f8",
+          "snapshot_id": "2c0f2aff-8a24-58eb-962d-9d6232c164e8",
+          "rule_id": "SEC002",
+          "title": "SQL Injection Risk",
+          "description": "Bounded Security V2 evidence; inspect declared scope and referenced locations",
+          "severity": "HIGH",
+          "evidence_strength": "HIGH",
+          "status": "SUPPORTED",
+          "language": "TYPESCRIPT",
+          "primary_source": {
+            "file_id": "5f759258-e533-5777-9705-574a3c8bb1df",
+            "location": {
+              "file_path": "src/controller/SearchController.ts",
+              "start_line": 7,
+              "start_column": 10,
+              "end_line": 7,
+              "end_column": 26
+            },
+            "language": "TYPESCRIPT",
+            "symbol_id": null,
+            "module_id": null,
+            "input_category": "SOURCE",
+            "configuration_category": null
+          },
+          "evidence": [
+            {
+              "namespace": "SEC",
+              "id": "18d64595-e212-59be-b222-15f8133c12cf",
+              "kind": "DATAFLOW_SOURCE",
+              "source": {
+                "file_id": "5f759258-e533-5777-9705-574a3c8bb1df",
+                "location": {
+                  "file_path": "src/controller/SearchController.ts",
+                  "start_line": 5,
+                  "start_column": 20,
+                  "end_line": 5,
+                  "end_column": 28
+                },
+                "language": "TYPESCRIPT",
+                "symbol_id": null,
+                "module_id": null,
+                "input_category": "SOURCE",
+                "configuration_category": null
+              },
+              "summary": "t.request",
+              "analysis_version": "security-interprocedural-v2",
+              "related_evidence": [],
+              "metadata": {
+                "step_kind": "t.request"
+              }
+            },
+            {
+              "namespace": "SEC",
+              "id": "77ee583b-4e0f-5394-8bce-8bed33336a88",
+              "kind": "DATAFLOW_STEP",
+              "source": {
+                "file_id": "5f759258-e533-5777-9705-574a3c8bb1df",
+                "location": {
+                  "file_path": "src/controller/SearchController.ts",
+                  "start_line": 5,
+                  "start_column": 20,
+                  "end_line": 5,
+                  "end_column": 37
+                },
+                "language": "TYPESCRIPT",
+                "symbol_id": null,
+                "module_id": null,
+                "input_category": "SOURCE",
+                "configuration_category": null
+              },
+              "summary": "local-propagation",
+              "analysis_version": "security-interprocedural-v2",
+              "related_evidence": [],
+              "metadata": {
+                "step_kind": "local-propagation"
+              }
+            },
+            {
+              "namespace": "SEC",
+              "id": "9bd4c2f8-86e7-5152-81b9-9053b5a51882",
+              "kind": "DATAFLOW_STEP",
+              "source": {
+                "file_id": "5f759258-e533-5777-9705-574a3c8bb1df",
+                "location": {
+                  "file_path": "src/controller/SearchController.ts",
+                  "start_line": 5,
+                  "start_column": 9,
+                  "end_line": 5,
+                  "end_column": 37
+                },
+                "language": "TYPESCRIPT",
+                "symbol_id": null,
+                "module_id": null,
+                "input_category": "SOURCE",
+                "configuration_category": null
+              },
+              "summary": "ASSIGNMENT",
+              "analysis_version": "security-interprocedural-v2",
+              "related_evidence": [],
+              "metadata": {
+                "step_kind": "ASSIGNMENT"
+              }
+            },
+            {
+              "namespace": "SEC",
+              "id": "a2f97d89-abba-5e3b-afe4-c3d8d7b65f73",
+              "kind": "DATAFLOW_STEP",
+              "source": {
+                "file_id": "5f759258-e533-5777-9705-574a3c8bb1df",
+                "location": {
+                  "file_path": "src/controller/SearchController.ts",
+                  "start_line": 6,
+                  "start_column": 17,
+                  "end_line": 6,
+                  "end_column": 69
+                },
+                "language": "TYPESCRIPT",
+                "symbol_id": null,
+                "module_id": null,
+                "input_category": "SOURCE",
+                "configuration_category": null
+              },
+              "summary": "EXPRESSION",
+              "analysis_version": "security-interprocedural-v2",
+              "related_evidence": [],
+              "metadata": {
+                "step_kind": "EXPRESSION"
+              }
+            },
+            {
+              "namespace": "SEC",
+              "id": "d43527a6-8571-500f-bee8-e09e018ea7f8",
+              "kind": "DATAFLOW_STEP",
+              "source": {
+                "file_id": "5f759258-e533-5777-9705-574a3c8bb1df",
+                "location": {
+                  "file_path": "src/controller/SearchController.ts",
+                  "start_line": 6,
+                  "start_column": 17,
+                  "end_line": 6,
+                  "end_column": 75
+                },
+                "language": "TYPESCRIPT",
+                "symbol_id": null,
+                "module_id": null,
+                "input_category": "SOURCE",
+                "configuration_category": null
+              },
+              "summary": "EXPRESSION",
+              "analysis_version": "security-interprocedural-v2",
+              "related_evidence": [],
+              "metadata": {
+                "step_kind": "EXPRESSION"
+              }
+            },
+            {
+              "namespace": "SEC",
+              "id": "c43de5ad-91c2-5acc-8ef7-32bbfb5831aa",
+              "kind": "DATAFLOW_STEP",
+              "source": {
+                "file_id": "5f759258-e533-5777-9705-574a3c8bb1df",
+                "location": {
+                  "file_path": "src/controller/SearchController.ts",
+                  "start_line": 6,
+                  "start_column": 9,
+                  "end_line": 6,
+                  "end_column": 75
+                },
+                "language": "TYPESCRIPT",
+                "symbol_id": null,
+                "module_id": null,
+                "input_category": "SOURCE",
+                "configuration_category": null
+              },
+              "summary": "ASSIGNMENT",
+              "analysis_version": "security-interprocedural-v2",
+              "related_evidence": [],
+              "metadata": {
+                "step_kind": "ASSIGNMENT"
+              }
+            },
+            {
+              "namespace": "SEC",
+              "id": "74fd2c33-9c2c-5cd6-b488-d78d84dde532",
+              "kind": "DATAFLOW_SINK",
+              "source": {
+                "file_id": "5f759258-e533-5777-9705-574a3c8bb1df",
+                "location": {
+                  "file_path": "src/controller/SearchController.ts",
+                  "start_line": 7,
+                  "start_column": 10,
+                  "end_line": 7,
+                  "end_column": 26
+                },
+                "language": "TYPESCRIPT",
+                "symbol_id": null,
+                "module_id": null,
+                "input_category": "SOURCE",
+                "configuration_category": null
+              },
+              "summary": "t.sql",
+              "analysis_version": "security-interprocedural-v2",
+              "related_evidence": [],
+              "metadata": {
+                "step_kind": "t.sql"
+              }
+            }
+          ],
+          "evidence_refs": [
+            "18d64595-e212-59be-b222-15f8133c12cf",
+            "77ee583b-4e0f-5394-8bce-8bed33336a88",
+            "9bd4c2f8-86e7-5152-81b9-9053b5a51882",
+            "a2f97d89-abba-5e3b-afe4-c3d8d7b65f73",
+            "d43527a6-8571-500f-bee8-e09e018ea7f8",
+            "c43de5ad-91c2-5acc-8ef7-32bbfb5831aa",
+            "74fd2c33-9c2c-5cd6-b488-d78d84dde532"
+          ],
+          "source_ref": "18d64595-e212-59be-b222-15f8133c12cf",
+          "sink_ref": "74fd2c33-9c2c-5cd6-b488-d78d84dde532",
+          "flow": {
+            "protocol_version": "security-interprocedural-v2",
+            "steps": [
+              {
+                "role": "SOURCE",
+                "evidence_ref": "18d64595-e212-59be-b222-15f8133c12cf"
+              },
+              {
+                "role": "PROPAGATION",
+                "evidence_ref": "77ee583b-4e0f-5394-8bce-8bed33336a88"
+              },
+              {
+                "role": "PROPAGATION",
+                "evidence_ref": "9bd4c2f8-86e7-5152-81b9-9053b5a51882"
+              },
+              {
+                "role": "PROPAGATION",
+                "evidence_ref": "a2f97d89-abba-5e3b-afe4-c3d8d7b65f73"
+              },
+              {
+                "role": "PROPAGATION",
+                "evidence_ref": "d43527a6-8571-500f-bee8-e09e018ea7f8"
+              },
+              {
+                "role": "PROPAGATION",
+                "evidence_ref": "c43de5ad-91c2-5acc-8ef7-32bbfb5831aa"
+              },
+              {
+                "role": "SINK",
+                "evidence_ref": "74fd2c33-9c2c-5cd6-b488-d78d84dde532"
+              }
+            ],
+            "complete": true,
+            "uncertainty": []
+          },
+          "remediation": "Use parameterized queries and verify the actual driver/framework boundary.",
+          "metadata": {
+            "detector_id": "sec002-v2",
+            "raw_values": "OMITTED"
+          },
+          "analyzer_version": "security-interprocedural-v2"
+        }
+      ],
+      "requested_rules": [
+        "SEC001",
+        "SEC002",
+        "SEC003",
+        "SEC004",
+        "SEC005",
+        "SEC006",
+        "SEC007",
+        "SEC008",
+        "SEC009",
+        "SEC010"
+      ],
+      "analyzed_rules": [
+        "SEC001",
+        "SEC002",
+        "SEC003",
+        "SEC004",
+        "SEC006",
+        "SEC007",
+        "SEC008",
+        "SEC009",
+        "SEC010"
+      ],
+      "applicable_rules": [
+        "SEC002"
+      ],
+      "unsupported_rules": [
+        "SEC005"
+      ],
+      "diagnostics": [
+        {
+          "code": "CALL_UNRESOLVED",
+          "rule_ids": [
+            "SEC001",
+            "SEC002",
+            "SEC003",
+            "SEC004",
+            "SEC005",
+            "SEC006",
+            "SEC007",
+            "SEC008",
+            "SEC009",
+            "SEC010"
+          ],
+          "message": "Bounded Security V2 limitation; inspect per-rule coverage"
+        },
+        {
+          "code": "FIELD_FLOW_UNKNOWN",
+          "rule_ids": [
+            "SEC001",
+            "SEC002",
+            "SEC003",
+            "SEC004",
+            "SEC005",
+            "SEC006",
+            "SEC007",
+            "SEC008",
+            "SEC009",
+            "SEC010"
+          ],
+          "message": "Bounded Security V2 limitation; inspect per-rule coverage"
+        },
+        {
+          "code": "INTERPROCEDURAL_BOUNDARY",
+          "rule_ids": [
+            "SEC001",
+            "SEC002",
+            "SEC003",
+            "SEC004",
+            "SEC005",
+            "SEC006",
+            "SEC007",
+            "SEC008",
+            "SEC009",
+            "SEC010"
+          ],
+          "message": "Bounded Security V2 limitation; inspect per-rule coverage"
+        },
+        {
+          "code": "PARTIAL_ANALYSIS",
+          "rule_ids": [
+            "SEC001",
+            "SEC002",
+            "SEC003",
+            "SEC004",
+            "SEC005",
+            "SEC006",
+            "SEC007",
+            "SEC008",
+            "SEC009",
+            "SEC010"
+          ],
+          "message": "Bounded Security V2 limitation; inspect per-rule coverage"
+        },
+        {
+          "code": "UNMODELED_RETURN",
+          "rule_ids": [
+            "SEC001",
+            "SEC002",
+            "SEC003",
+            "SEC004",
+            "SEC005",
+            "SEC006",
+            "SEC007",
+            "SEC008",
+            "SEC009",
+            "SEC010"
+          ],
+          "message": "Bounded Security V2 limitation; inspect per-rule coverage"
+        },
+        {
+          "code": "UNRESOLVED_VALUE",
+          "rule_ids": [
+            "SEC001",
+            "SEC002",
+            "SEC003",
+            "SEC004",
+            "SEC005",
+            "SEC006",
+            "SEC007",
+            "SEC008",
+            "SEC009",
+            "SEC010"
+          ],
+          "message": "Bounded Security V2 limitation; inspect per-rule coverage"
+        },
+        {
+          "code": "UNSUPPORTED_RULE",
+          "rule_ids": [
+            "SEC001",
+            "SEC002",
+            "SEC003",
+            "SEC004",
+            "SEC005",
+            "SEC006",
+            "SEC007",
+            "SEC008",
+            "SEC009",
+            "SEC010"
+          ],
+          "message": "Bounded Security V2 limitation; inspect per-rule coverage"
+        }
+      ],
+      "analyzer_version": "security-interprocedural-v2",
+      "analysis_metadata": {
+        "coverage": {
+          "SEC001": {
+            "requested": true,
+            "supported": true,
+            "evaluated": true,
+            "status": "SUPPORTED_PARTIAL_V2_SCOPE"
+          },
+          "SEC002": {
+            "requested": true,
+            "supported": true,
+            "evaluated": true,
+            "status": "SUPPORTED_PARTIAL_V2_SCOPE"
+          },
+          "SEC003": {
+            "requested": true,
+            "supported": true,
+            "evaluated": true,
+            "status": "SUPPORTED_PARTIAL_V2_SCOPE"
+          },
+          "SEC004": {
+            "requested": true,
+            "supported": true,
+            "evaluated": true,
+            "status": "SUPPORTED_PARTIAL_V2_SCOPE"
+          },
+          "SEC005": {
+            "requested": true,
+            "supported": false,
+            "evaluated": false,
+            "status": "CONTRACT_ONLY"
+          },
+          "SEC006": {
+            "requested": true,
+            "supported": true,
+            "evaluated": true,
+            "status": "SUPPORTED_PARTIAL_V2_SCOPE"
+          },
+          "SEC007": {
+            "requested": true,
+            "supported": true,
+            "evaluated": true,
+            "status": "SUPPORTED_PARTIAL_V2_SCOPE"
+          },
+          "SEC008": {
+            "requested": true,
+            "supported": true,
+            "evaluated": true,
+            "status": "SUPPORTED_PARTIAL_V2_SCOPE"
+          },
+          "SEC009": {
+            "requested": true,
+            "supported": true,
+            "evaluated": true,
+            "status": "SUPPORTED_PARTIAL_V2_SCOPE"
+          },
+          "SEC010": {
+            "requested": true,
+            "supported": true,
+            "evaluated": true,
+            "status": "SUPPORTED_PARTIAL_V2_SCOPE"
+          }
+        },
+        "limits": {
+          "max_flow_steps": 64,
+          "max_tracked_values": 512,
+          "max_nodes_per_function": 10000,
+          "max_branch_states": 32,
+          "max_file_nodes": 60000,
+          "max_expression_depth": 64,
+          "max_source_bytes": 2097152,
+          "max_call_depth": 4,
+          "max_summary_expansions": 256,
+          "max_recursive_visits": 1,
+          "max_call_targets": 4,
+          "max_summary_nodes": 4096,
+          "max_summary_cache_entries": 256,
+          "max_total_flow_steps": 64,
+          "max_aliases_per_object": 32,
+          "max_heap_objects": 256,
+          "max_fields_per_object": 64,
+          "max_total_heap_fields": 2048,
+          "max_source_files": 64,
+          "max_total_source_bytes": 8388608,
+          "max_total_nodes": 50000,
+          "max_total_summary_nodes": 50000,
+          "max_candidates": 512
+        },
+        "summaries": [
+          {
+            "version": "security-interprocedural-v2",
+            "symbol_id": "14bf6978-505d-5e82-9db0-dfb579be7214",
+            "declaration": {
+              "file_id": "1a0ec928-1f96-5cdb-b865-dd639f9b60fd",
+              "location": {
+                "file_path": "src/controller/CheckoutController.ts",
+                "start_line": 7,
+                "start_column": 3,
+                "end_line": 10,
+                "end_column": 3
+              },
+              "language": "TYPESCRIPT",
+              "symbol_id": null,
+              "module_id": null,
+              "input_category": "SOURCE",
+              "configuration_category": null
+            },
+            "arity": 0,
+            "state": "PARTIAL",
+            "parameter_flows": [],
+            "return_flow": {
+              "state": "UNTAINTED",
+              "parameter_indices": [],
+              "sources": [],
+              "sanitized_for": []
+            },
+            "sinks": [],
+            "sanitizers": [],
+            "call_targets": [],
+            "analysis_nodes": 9,
+            "field_effects": [
+              {
+                "action": "WRITE",
+                "location": {
+                  "file_id": "1a0ec928-1f96-5cdb-b865-dd639f9b60fd",
+                  "location": {
+                    "file_path": "src/controller/CheckoutController.ts",
+                    "start_line": 8,
+                    "start_column": 5,
+                    "end_line": 8,
+                    "end_column": 16
+                  },
+                  "language": "TYPESCRIPT",
+                  "symbol_id": null,
+                  "module_id": null,
+                  "input_category": "SOURCE",
+                  "configuration_category": null
+                },
+                "projection_depth": 1,
+                "parameter_indices": []
+              },
+              {
+                "action": "WRITE",
+                "location": {
+                  "file_id": "1a0ec928-1f96-5cdb-b865-dd639f9b60fd",
+                  "location": {
+                    "file_path": "src/controller/CheckoutController.ts",
+                    "start_line": 9,
+                    "start_column": 5,
+                    "end_line": 9,
+                    "end_column": 19
+                  },
+                  "language": "TYPESCRIPT",
+                  "symbol_id": null,
+                  "module_id": null,
+                  "input_category": "SOURCE",
+                  "configuration_category": null
+                },
+                "projection_depth": 1,
+                "parameter_indices": []
+              }
+            ],
+            "unknown_effects": [
+              {
+                "code": "CALL_UNRESOLVED"
+              },
+              {
+                "code": "INTERPROCEDURAL_BOUNDARY"
+              }
+            ],
+            "fingerprint": "10b13b156514350fe7c8e0c624b92a7867ba49fbeb73111ab25974f0313ecfca"
+          },
+          {
+            "version": "security-interprocedural-v2",
+            "symbol_id": "1e55a103-caeb-5edc-9cc2-b6165385f0fb",
+            "declaration": {
+              "file_id": "a54e619a-1e8f-5684-9735-b10a35799043",
+              "location": {
+                "file_path": "src/repository/OrderRepository.ts",
+                "start_line": 2,
+                "start_column": 3,
+                "end_line": 2,
+                "end_column": 37
+              },
+              "language": "TYPESCRIPT",
+              "symbol_id": null,
+              "module_id": null,
+              "input_category": "SOURCE",
+              "configuration_category": null
+            },
+            "arity": 1,
+            "state": "SUPPORTED",
+            "parameter_flows": [
+              {
+                "parameter_index": 0,
+                "destination": "RETURN",
+                "evidence": [
+                  {
+                    "file_id": "a54e619a-1e8f-5684-9735-b10a35799043",
+                    "location": {
+                      "file_path": "src/repository/OrderRepository.ts",
+                      "start_line": 2,
+                      "start_column": 8,
+                      "end_line": 2,
+                      "end_column": 17
+                    },
+                    "language": "TYPESCRIPT",
+                    "symbol_id": null,
+                    "module_id": null,
+                    "input_category": "SOURCE",
+                    "configuration_category": null
+                  },
+                  {
+                    "file_id": "a54e619a-1e8f-5684-9735-b10a35799043",
+                    "location": {
+                      "file_path": "src/repository/OrderRepository.ts",
+                      "start_line": 2,
+                      "start_column": 22,
+                      "end_line": 2,
+                      "end_column": 35
+                    },
+                    "language": "TYPESCRIPT",
+                    "symbol_id": null,
+                    "module_id": null,
+                    "input_category": "SOURCE",
+                    "configuration_category": null
+                  }
+                ],
+                "rule_ids": []
+              }
+            ],
+            "return_flow": {
+              "state": "TAINTED",
+              "parameter_indices": [
+                0
+              ],
+              "sources": [
+                {
+                  "file_id": "a54e619a-1e8f-5684-9735-b10a35799043",
+                  "location": {
+                    "file_path": "src/repository/OrderRepository.ts",
+                    "start_line": 2,
+                    "start_column": 8,
+                    "end_line": 2,
+                    "end_column": 17
+                  },
+                  "language": "TYPESCRIPT",
+                  "symbol_id": null,
+                  "module_id": null,
+                  "input_category": "SOURCE",
+                  "configuration_category": null
+                }
+              ],
+              "sanitized_for": []
+            },
+            "sinks": [],
+            "sanitizers": [],
+            "call_targets": [],
+            "analysis_nodes": 3,
+            "field_effects": [],
+            "unknown_effects": [],
+            "fingerprint": "9d1131dd2150aa6283048635ef956bf2f07954a61f9e886de275de45ce619dcd"
+          },
+          {
+            "version": "security-interprocedural-v2",
+            "symbol_id": "289de2c3-0f9a-5bc0-9239-6ad881d498b8",
+            "declaration": {
+              "file_id": "1a0ec928-1f96-5cdb-b865-dd639f9b60fd",
+              "location": {
+                "file_path": "src/controller/CheckoutController.ts",
+                "start_line": 11,
+                "start_column": 3,
+                "end_line": 11,
+                "end_column": 57
+              },
+              "language": "TYPESCRIPT",
+              "symbol_id": null,
+              "module_id": null,
+              "input_category": "SOURCE",
+              "configuration_category": null
+            },
+            "arity": 1,
+            "state": "PARTIAL",
+            "parameter_flows": [
+              {
+                "parameter_index": 0,
+                "destination": "RETURN",
+                "evidence": [
+                  {
+                    "file_id": "1a0ec928-1f96-5cdb-b865-dd639f9b60fd",
+                    "location": {
+                      "file_path": "src/controller/CheckoutController.ts",
+                      "start_line": 11,
+                      "start_column": 10,
+                      "end_line": 11,
+                      "end_column": 19
+                    },
+                    "language": "TYPESCRIPT",
+                    "symbol_id": null,
+                    "module_id": null,
+                    "input_category": "SOURCE",
+                    "configuration_category": null
+                  },
+                  {
+                    "file_id": "1a0ec928-1f96-5cdb-b865-dd639f9b60fd",
+                    "location": {
+                      "file_path": "src/controller/CheckoutController.ts",
+                      "start_line": 11,
+                      "start_column": 24,
+                      "end_line": 11,
+                      "end_column": 55
+                    },
+                    "language": "TYPESCRIPT",
+                    "symbol_id": null,
+                    "module_id": null,
+                    "input_category": "SOURCE",
+                    "configuration_category": null
+                  }
+                ],
+                "rule_ids": []
+              }
+            ],
+            "return_flow": {
+              "state": "UNKNOWN",
+              "parameter_indices": [
+                0
+              ],
+              "sources": [
+                {
+                  "file_id": "1a0ec928-1f96-5cdb-b865-dd639f9b60fd",
+                  "location": {
+                    "file_path": "src/controller/CheckoutController.ts",
+                    "start_line": 11,
+                    "start_column": 10,
+                    "end_line": 11,
+                    "end_column": 19
+                  },
+                  "language": "TYPESCRIPT",
+                  "symbol_id": null,
+                  "module_id": null,
+                  "input_category": "SOURCE",
+                  "configuration_category": null
+                }
+              ],
+              "sanitized_for": []
+            },
+            "sinks": [],
+            "sanitizers": [],
+            "call_targets": [],
+            "analysis_nodes": 7,
+            "field_effects": [
+              {
+                "action": "READ",
+                "location": {
+                  "file_id": "1a0ec928-1f96-5cdb-b865-dd639f9b60fd",
+                  "location": {
+                    "file_path": "src/controller/CheckoutController.ts",
+                    "start_line": 11,
+                    "start_column": 31,
+                    "end_line": 11,
+                    "end_column": 45
+                  },
+                  "language": "TYPESCRIPT",
+                  "symbol_id": null,
+                  "module_id": null,
+                  "input_category": "SOURCE",
+                  "configuration_category": null
+                },
+                "projection_depth": 1,
+                "parameter_indices": []
+              },
+              {
+                "action": "READ",
+                "location": {
+                  "file_id": "1a0ec928-1f96-5cdb-b865-dd639f9b60fd",
+                  "location": {
+                    "file_path": "src/controller/CheckoutController.ts",
+                    "start_line": 11,
+                    "start_column": 31,
+                    "end_line": 11,
+                    "end_column": 45
+                  },
+                  "language": "TYPESCRIPT",
+                  "symbol_id": null,
+                  "module_id": null,
+                  "input_category": "SOURCE",
+                  "configuration_category": null
+                },
+                "projection_depth": 1,
+                "parameter_indices": []
+              }
+            ],
+            "unknown_effects": [
+              {
+                "code": "CALL_UNRESOLVED"
+              },
+              {
+                "code": "FIELD_FLOW_UNKNOWN"
+              },
+              {
+                "code": "INTERPROCEDURAL_BOUNDARY"
+              }
+            ],
+            "fingerprint": "5025ef1684fe9dc458fed11aea710821ec8db19e52469aa3b5afd07980b5d8a7"
+          },
+          {
+            "version": "security-interprocedural-v2",
+            "symbol_id": "36307a4e-4051-592d-9d80-973125c182c3",
+            "declaration": {
+              "file_id": "5f759258-e533-5777-9705-574a3c8bb1df",
+              "location": {
+                "file_path": "src/controller/SearchController.ts",
+                "start_line": 4,
+                "start_column": 8,
+                "end_line": 8,
+                "end_column": 1
+              },
+              "language": "TYPESCRIPT",
+              "symbol_id": null,
+              "module_id": null,
+              "input_category": "SOURCE",
+              "configuration_category": null
+            },
+            "arity": 1,
+            "state": "PARTIAL",
+            "parameter_flows": [],
+            "return_flow": {
+              "state": "UNKNOWN",
+              "parameter_indices": [],
+              "sources": [],
+              "sanitized_for": []
+            },
+            "sinks": [
+              {
+                "rule_id": "SEC002",
+                "sink": {
+                  "file_id": "5f759258-e533-5777-9705-574a3c8bb1df",
+                  "location": {
+                    "file_path": "src/controller/SearchController.ts",
+                    "start_line": 7,
+                    "start_column": 10,
+                    "end_line": 7,
+                    "end_column": 26
+                  },
+                  "language": "TYPESCRIPT",
+                  "symbol_id": null,
+                  "module_id": null,
+                  "input_category": "SOURCE",
+                  "configuration_category": null
+                },
+                "parameter_indices": [],
+                "source_locations": [
+                  {
+                    "file_id": "5f759258-e533-5777-9705-574a3c8bb1df",
+                    "location": {
+                      "file_path": "src/controller/SearchController.ts",
+                      "start_line": 5,
+                      "start_column": 20,
+                      "end_line": 5,
+                      "end_column": 28
+                    },
+                    "language": "TYPESCRIPT",
+                    "symbol_id": null,
+                    "module_id": null,
+                    "input_category": "SOURCE",
+                    "configuration_category": null
+                  }
+                ]
+              }
+            ],
+            "sanitizers": [],
+            "call_targets": [],
+            "analysis_nodes": 18,
+            "field_effects": [],
+            "unknown_effects": [
+              {
+                "code": "UNMODELED_RETURN"
+              }
+            ],
+            "fingerprint": "388b8e5b0d792fda668a04da7413c4f04defb39b24909f03aa280ab7eade9522"
+          },
+          {
+            "version": "security-interprocedural-v2",
+            "symbol_id": "db98f0a3-436f-5730-a0cc-a5ff932c2b15",
+            "declaration": {
+              "file_id": "85ee5df8-fa6d-5e63-8ad2-b0d104d499be",
+              "location": {
+                "file_path": "src/service/OrderService.ts",
+                "start_line": 4,
+                "start_column": 3,
+                "end_line": 4,
+                "end_column": 60
+              },
+              "language": "TYPESCRIPT",
+              "symbol_id": null,
+              "module_id": null,
+              "input_category": "SOURCE",
+              "configuration_category": null
+            },
+            "arity": 0,
+            "state": "PARTIAL",
+            "parameter_flows": [],
+            "return_flow": {
+              "state": "UNTAINTED",
+              "parameter_indices": [],
+              "sources": [],
+              "sanitized_for": []
+            },
+            "sinks": [],
+            "sanitizers": [],
+            "call_targets": [],
+            "analysis_nodes": 5,
+            "field_effects": [
+              {
+                "action": "WRITE",
+                "location": {
+                  "file_id": "85ee5df8-fa6d-5e63-8ad2-b0d104d499be",
+                  "location": {
+                    "file_path": "src/service/OrderService.ts",
+                    "start_line": 4,
+                    "start_column": 19,
+                    "end_line": 4,
+                    "end_column": 33
+                  },
+                  "language": "TYPESCRIPT",
+                  "symbol_id": null,
+                  "module_id": null,
+                  "input_category": "SOURCE",
+                  "configuration_category": null
+                },
+                "projection_depth": 1,
+                "parameter_indices": []
+              }
+            ],
+            "unknown_effects": [
+              {
+                "code": "CALL_UNRESOLVED"
+              },
+              {
+                "code": "INTERPROCEDURAL_BOUNDARY"
+              }
+            ],
+            "fingerprint": "da7bf09eecf3b784462a307f15c2f2e1b79887b036c10a4dacb6a483e4457084"
+          },
+          {
+            "version": "security-interprocedural-v2",
+            "symbol_id": "ed645003-fedf-55c4-bc74-1e8b04f495cd",
+            "declaration": {
+              "file_id": "85ee5df8-fa6d-5e63-8ad2-b0d104d499be",
+              "location": {
+                "file_path": "src/service/OrderService.ts",
+                "start_line": 5,
+                "start_column": 3,
+                "end_line": 5,
+                "end_column": 57
+              },
+              "language": "TYPESCRIPT",
+              "symbol_id": null,
+              "module_id": null,
+              "input_category": "SOURCE",
+              "configuration_category": null
+            },
+            "arity": 1,
+            "state": "PARTIAL",
+            "parameter_flows": [
+              {
+                "parameter_index": 0,
+                "destination": "RETURN",
+                "evidence": [
+                  {
+                    "file_id": "85ee5df8-fa6d-5e63-8ad2-b0d104d499be",
+                    "location": {
+                      "file_path": "src/service/OrderService.ts",
+                      "start_line": 5,
+                      "start_column": 10,
+                      "end_line": 5,
+                      "end_column": 19
+                    },
+                    "language": "TYPESCRIPT",
+                    "symbol_id": null,
+                    "module_id": null,
+                    "input_category": "SOURCE",
+                    "configuration_category": null
+                  },
+                  {
+                    "file_id": "85ee5df8-fa6d-5e63-8ad2-b0d104d499be",
+                    "location": {
+                      "file_path": "src/service/OrderService.ts",
+                      "start_line": 5,
+                      "start_column": 24,
+                      "end_line": 5,
+                      "end_column": 55
+                    },
+                    "language": "TYPESCRIPT",
+                    "symbol_id": null,
+                    "module_id": null,
+                    "input_category": "SOURCE",
+                    "configuration_category": null
+                  }
+                ],
+                "rule_ids": []
+              }
+            ],
+            "return_flow": {
+              "state": "UNKNOWN",
+              "parameter_indices": [
+                0
+              ],
+              "sources": [
+                {
+                  "file_id": "85ee5df8-fa6d-5e63-8ad2-b0d104d499be",
+                  "location": {
+                    "file_path": "src/service/OrderService.ts",
+                    "start_line": 5,
+                    "start_column": 10,
+                    "end_line": 5,
+                    "end_column": 19
+                  },
+                  "language": "TYPESCRIPT",
+                  "symbol_id": null,
+                  "module_id": null,
+                  "input_category": "SOURCE",
+                  "configuration_category": null
+                }
+              ],
+              "sanitized_for": []
+            },
+            "sinks": [],
+            "sanitizers": [],
+            "call_targets": [],
+            "analysis_nodes": 7,
+            "field_effects": [
+              {
+                "action": "READ",
+                "location": {
+                  "file_id": "85ee5df8-fa6d-5e63-8ad2-b0d104d499be",
+                  "location": {
+                    "file_path": "src/service/OrderService.ts",
+                    "start_line": 5,
+                    "start_column": 31,
+                    "end_line": 5,
+                    "end_column": 45
+                  },
+                  "language": "TYPESCRIPT",
+                  "symbol_id": null,
+                  "module_id": null,
+                  "input_category": "SOURCE",
+                  "configuration_category": null
+                },
+                "projection_depth": 1,
+                "parameter_indices": []
+              },
+              {
+                "action": "READ",
+                "location": {
+                  "file_id": "85ee5df8-fa6d-5e63-8ad2-b0d104d499be",
+                  "location": {
+                    "file_path": "src/service/OrderService.ts",
+                    "start_line": 5,
+                    "start_column": 31,
+                    "end_line": 5,
+                    "end_column": 45
+                  },
+                  "language": "TYPESCRIPT",
+                  "symbol_id": null,
+                  "module_id": null,
+                  "input_category": "SOURCE",
+                  "configuration_category": null
+                },
+                "projection_depth": 1,
+                "parameter_indices": []
+              }
+            ],
+            "unknown_effects": [
+              {
+                "code": "CALL_UNRESOLVED"
+              },
+              {
+                "code": "FIELD_FLOW_UNKNOWN"
+              },
+              {
+                "code": "INTERPROCEDURAL_BOUNDARY"
+              }
+            ],
+            "fingerprint": "56e22191b2234f6549bd71b351910c47de08a04aeebac6cb2d84b468192774a3"
+          }
+        ],
+        "proofs": [],
+        "call_resolution": [],
+        "source_pack_version": "security-interprocedural-v2",
+        "interprocedural": "BOUNDED_LOCAL_IMPORTED_CONTEXT_SPECIALIZATION",
+        "provider_calls": 0,
+        "credential_reads": 0,
+        "connectivity_calls": 0,
+        "security_effectiveness": "NOT_AVAILABLE",
+        "partial": true,
+        "result_fingerprint": "caa4215bb38ba73ab412ab8fab14c8b1498febf5838cec6cad5074b09d6c6c93"
+      },
+      "zero_findings_is_security_guarantee": false
+    }
+  ],
+  "sources": {
+    "src/controller/CheckoutController.ts": [
+      "import { OrderService } from '../service/OrderService';",
+      "import { OrderRepository } from '../repository/OrderRepository';",
+      "",
+      "export class CheckoutController {",
+      "  service: OrderService;",
+      "  repository: OrderRepository;",
+      "  constructor() {",
+      "    this.service = new OrderService();",
+      "    this.repository = new OrderRepository();",
+      "  }",
+      "  submit(id: string) { return this.repository.find(id); }",
+      "}"
+    ],
+    "src/controller/SearchController.ts": [
+      "import type { Request } from 'express';",
+      "import { Pool } from 'pg';",
+      "const pool = new Pool();",
+      "export function search(req: Request) {",
+      "  const customer = req.query.customer;",
+      "  const query = \"SELECT id FROM orders WHERE customer = '\" + customer + \"'\";",
+      "  return pool.query(query);",
+      "}"
+    ],
+    "src/repository/OrderRepository.ts": [
+      "export class OrderRepository {",
+      "  find(id: string) { return { id }; }",
+      "}"
+    ],
+    "src/service/OrderService.ts": [
+      "import { OrderRepository } from '../repository/OrderRepository';",
+      "export class OrderService {",
+      "  repository: OrderRepository;",
+      "  constructor() { this.repository = new OrderRepository(); }",
+      "  submit(id: string) { return this.repository.find(id); }",
+      "}"
+    ]
+  }
+}
