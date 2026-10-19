@@ -1,0 +1,4394 @@
+{
+  "schema": "archguard-render-measurement-v1",
+  "docx_sha256": "71e83609e42e0592a5cd19a5b148799d5ba407fe6cdc2bd4771cb1c0b4202169",
+  "pdf_sha256": "b26ec0b84b6e15cf06c2f7b317f18d4bdf14c16e25e60530f6f1ef830240f007",
+  "pages_checked": 213,
+  "coordinate_tolerance_pt": {
+    "horizontal": 2,
+    "vertical": 3
+  },
+  "method": "Poppler word boxes; separate actual footer; all page and caption locations",
+  "visual_review_claimed": false,
+  "overflow_or_footer_pages": [],
+  "blank_pages": [],
+  "low_density_pages": [
+    50,
+    68,
+    167
+  ],
+  "object_errors": [],
+  "objects": [
+    {
+      "kind": "Рисунок",
+      "key": "pipeline",
+      "number": "1",
+      "caption": "Последовательность гибридного архитектурного анализа",
+      "pages": [
+        36
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Рисунок",
+      "key": "iam_graph",
+      "number": "2",
+      "caption": "Промежуточная архитектурная модель и проекции зависимостей",
+      "pages": [
+        38
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Рисунок",
+      "key": "dsl_flow",
+      "number": "3",
+      "caption": "Проверка YAML-спецификации и сопоставление целевых ограничений с фактическими связями",
+      "pages": [
+        40
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Рисунок",
+      "key": "static_pipeline",
+      "number": "4",
+      "caption": "Формирование статического архитектурного нарушения по подтверждённой зависимости",
+      "pages": [
+        44
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Рисунок",
+      "key": "graph_context",
+      "number": "5",
+      "caption": "Отбор ограниченного контекста LLM по графу зависимостей",
+      "pages": [
+        46
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Рисунок",
+      "key": "hybrid_engine",
+      "number": "6",
+      "caption": "Приоритет доказательств и исследовательское объединение каналов Hybrid",
+      "pages": [
+        50
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Рисунок",
+      "key": "finding_lifecycle",
+      "number": "7",
+      "caption": "Прослеживаемость от исходного отношения до архитектурного результата",
+      "pages": [
+        52
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Рисунок",
+      "key": "architecture",
+      "number": "8",
+      "caption": "Реализованные модули ArchGuard AI и границы инфраструктурных адаптеров",
+      "pages": [
+        54
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Рисунок",
+      "key": "experiment_design",
+      "number": "9",
+      "caption": "Хронология фиксации модели, слепого предсказания и открытия финального эталона",
+      "pages": [
+        75
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Рисунок",
+      "key": "ablations",
+      "number": "10",
+      "caption": "Семь исследуемых непустых сочетаний Static, Graph и LLM",
+      "pages": [
+        78
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Рисунок",
+      "key": "architecture_results",
+      "number": "11",
+      "caption": "Точность, полнота и F1 вариантов архитектурного анализа",
+      "pages": [
+        80
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Рисунок",
+      "key": "context_tradeoff",
+      "number": "12",
+      "caption": "Ресурсный выигрыш графового контекста",
+      "pages": [
+        83
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Рисунок",
+      "key": "security_flow",
+      "number": "13",
+      "caption": "Источники, ограниченные сводки функций, предметные защитные свойства и состояния результата Security",
+      "pages": [
+        97
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Рисунок",
+      "key": "security_blind",
+      "number": "14",
+      "caption": "Порядок замораживания кандидата, слепого запуска FINAL, закрытия writer и последующего соединения с истиной",
+      "pages": [
+        103
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Рисунок",
+      "key": "security_recovery",
+      "number": "15",
+      "caption": "Эффективное восстановление положительных и окончательный охват: V2 DEV, V3 DEV и V3 FINAL",
+      "pages": [
+        108
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Рисунок",
+      "key": "custody",
+      "number": "16",
+      "caption": "Три уровня воспроизводимости и границы публичного и частного хранения",
+      "pages": [
+        115
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Рисунок",
+      "key": "security_outcomes",
+      "number": "Е.1",
+      "caption": "Исходы Security FINAL при N=200; окончательных отрицательных нет",
+      "pages": [
+        171
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Таблица",
+      "key": "architecture-approaches",
+      "number": "1",
+      "caption": "Подходы и инструменты контроля архитектурного соответствия",
+      "pages": [
+        31
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Таблица",
+      "key": "arch_catalog",
+      "number": "2",
+      "caption": "Каталог архитектурных правил и основания вывода",
+      "pages": [
+        41
+      ],
+      "continuation_pages": [
+        42,
+        43
+      ],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Таблица",
+      "key": "hybrid_decisions",
+      "number": "3",
+      "caption": "Семантика объединения архитектурных свидетельств",
+      "pages": [
+        51
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Таблица",
+      "key": "technology_stack",
+      "number": "4",
+      "caption": "Технологии и фактическая степень их использования",
+      "pages": [
+        55
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Таблица",
+      "key": "data_ownership",
+      "number": "5",
+      "caption": "Модели данных и ответственность модулей",
+      "pages": [
+        57
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Таблица",
+      "key": "implementation_decisions",
+      "number": "6",
+      "caption": "Принятые решения и их последствия",
+      "pages": [
+        60
+      ],
+      "continuation_pages": [
+        61
+      ],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Таблица",
+      "key": "research_questions",
+      "number": "7",
+      "caption": "Исходные исследовательские вопросы архитектурного эксперимента",
+      "pages": [
+        70
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Таблица",
+      "key": "benchmark_composition",
+      "number": "8",
+      "caption": "Состав общего финального архитектурного benchmark",
+      "pages": [
+        73
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Таблица",
+      "key": "architecture_counts",
+      "number": "9",
+      "caption": "Основные количества исходов Architecture на общей выборке",
+      "pages": [
+        78
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Таблица",
+      "key": "architecture_metrics",
+      "number": "10",
+      "caption": "Precision, Recall, F1 и охват всех архитектурных вариантов",
+      "pages": [
+        79
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Таблица",
+      "key": "architecture_strata",
+      "number": "11",
+      "caption": "Результаты A7 по семействам и языкам",
+      "pages": [
+        81
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Таблица",
+      "key": "architecture_paired",
+      "number": "12",
+      "caption": "Парные количества корректных решений A7 и альтернативы",
+      "pages": [
+        81
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Таблица",
+      "key": "context_quality",
+      "number": "13",
+      "caption": "Качество стратегий контекста на отдельном семантическом наборе, N=96",
+      "pages": [
+        82
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Таблица",
+      "key": "architecture_resources",
+      "number": "14",
+      "caption": "Измеренные и отсутствующие ресурсные характеристики финального опыта",
+      "pages": [
+        84
+      ],
+      "continuation_pages": [
+        85
+      ],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Таблица",
+      "key": "ablation_runtime",
+      "number": "15",
+      "caption": "Время применения замороженных вариантов к 300 подготовленным случаям",
+      "pages": [
+        86
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Таблица",
+      "key": "rq_answers",
+      "number": "16",
+      "caption": "Итоговые ответы на исследовательские вопросы",
+      "pages": [
+        87
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Таблица",
+      "key": "security_capabilities",
+      "number": "17",
+      "caption": "Каталог Security и область реализации выбранной версии",
+      "pages": [
+        92
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Таблица",
+      "key": "security_final_outcomes",
+      "number": "18",
+      "caption": "Итоговые состояния предсказаний на FINAL",
+      "pages": [
+        104
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Таблица",
+      "key": "security_rule_final",
+      "number": "19",
+      "caption": "Окончательные результаты по правилам Security на FINAL",
+      "pages": [
+        106
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Таблица",
+      "key": "security_dev_final",
+      "number": "20",
+      "caption": "Различие развивающей и окончательной оценок V3",
+      "pages": [
+        107
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Таблица",
+      "key": "quality_snapshots",
+      "number": "21",
+      "caption": "Различные контрольные точки инженерного качества",
+      "pages": [
+        112
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Таблица",
+      "key": "repro_levels",
+      "number": "22",
+      "caption": "Возможности и пределы уровней воспроизводимости",
+      "pages": [
+        116
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Таблица",
+      "key": "append_a_rule_binding",
+      "number": "А.1",
+      "caption": "Привязка правил к исполнителю и регрессионному тесту",
+      "pages": [
+        141
+      ],
+      "continuation_pages": [
+        142
+      ],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Таблица",
+      "key": "append_b_cohorts",
+      "number": "Б.1",
+      "caption": "Различия экспериментальных наборов",
+      "pages": [
+        145
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Таблица",
+      "key": "append_b_acquisition",
+      "number": "Б.2",
+      "caption": "Сегменты финального получения LLM-ответов",
+      "pages": [
+        148
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Таблица",
+      "key": "append_c_counts",
+      "number": "В.1",
+      "caption": "Все выбранные варианты и первичные количества",
+      "pages": [
+        150
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Таблица",
+      "key": "append_c_prf",
+      "number": "В.2",
+      "caption": "Точность, полнота, F1 и эффективная корректность",
+      "pages": [
+        151
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Таблица",
+      "key": "append_c_negative_metrics",
+      "number": "В.3",
+      "caption": "Specificity и доли ошибок",
+      "pages": [
+        152
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Таблица",
+      "key": "append_c_coverage",
+      "number": "В.4",
+      "caption": "Определённые решения и неохваченные отрицательные случаи",
+      "pages": [
+        153
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Таблица",
+      "key": "append_c_nondef",
+      "number": "В.5",
+      "caption": "Категории неопределённости и применимость",
+      "pages": [
+        154
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Таблица",
+      "key": "append_c_deltas",
+      "number": "В.6",
+      "caption": "Разности A7 минус альтернативный вариант, процентные пункты",
+      "pages": [
+        155
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Таблица",
+      "key": "append_c_runtime",
+      "number": "В.7",
+      "caption": "Время применения к подготовленным данным и измеримость памяти",
+      "pages": [
+        156
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Таблица",
+      "key": "append_d_rules",
+      "number": "Г.1",
+      "caption": "A7 по каждому из пятнадцати правил",
+      "pages": [
+        157
+      ],
+      "continuation_pages": [
+        158
+      ],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Таблица",
+      "key": "append_d_languages",
+      "number": "Г.2",
+      "caption": "A7 по языкам",
+      "pages": [
+        159
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Таблица",
+      "key": "append_d_families",
+      "number": "Г.3",
+      "caption": "A7 по семействам",
+      "pages": [
+        159
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Таблица",
+      "key": "append_d_native",
+      "number": "Г.4",
+      "caption": "Дополнительные native-scope и available-only показатели",
+      "pages": [
+        160
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Таблица",
+      "key": "append_d_catalog",
+      "number": "Д.1",
+      "caption": "Назначение правил и предметные источники CWE",
+      "pages": [
+        162
+      ],
+      "continuation_pages": [
+        163
+      ],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Таблица",
+      "key": "append_d_matrix",
+      "number": "Д.2",
+      "caption": "Замороженная матрица возможностей V3",
+      "pages": [
+        164
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Таблица",
+      "key": "append_e_rules",
+      "number": "Е.1",
+      "caption": "FINAL по каждому правилу: truth и окончательные решения",
+      "pages": [
+        169
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Таблица",
+      "key": "append_e_languages",
+      "number": "Е.2",
+      "caption": "FINAL по языкам: распределение truth и решений",
+      "pages": [
+        169
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Таблица",
+      "key": "append_e_capabilities",
+      "number": "Е.3",
+      "caption": "FINAL по области инженерной поддержки",
+      "pages": [
+        170
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Таблица",
+      "key": "append_e_agreement",
+      "number": "Е.4",
+      "caption": "Перекрестная таблица независимых человеческих решений, N=300",
+      "pages": [
+        172
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Таблица",
+      "key": "append_e_generalization",
+      "number": "Е.5",
+      "caption": "DEV и FINAL: эффективность вместе с охватом",
+      "pages": [
+        173
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Таблица",
+      "key": "append_g_artifacts",
+      "number": "Ж.1",
+      "caption": "Публичные точки входа воспроизведения",
+      "pages": [
+        176
+      ],
+      "continuation_pages": [],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Таблица",
+      "key": "chronology_001_006",
+      "number": "И.1",
+      "caption": "Хронология этапов P001–P006",
+      "pages": [
+        181
+      ],
+      "continuation_pages": [
+        182,
+        183
+      ],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Таблица",
+      "key": "chronology_007_012",
+      "number": "И.2",
+      "caption": "Хронология этапов P007–P012",
+      "pages": [
+        184
+      ],
+      "continuation_pages": [
+        185,
+        186
+      ],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Таблица",
+      "key": "chronology_013_018",
+      "number": "И.3",
+      "caption": "Хронология этапов P013–P018",
+      "pages": [
+        187
+      ],
+      "continuation_pages": [
+        188,
+        189
+      ],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Таблица",
+      "key": "chronology_019_024",
+      "number": "И.4",
+      "caption": "Хронология этапов P019–P024",
+      "pages": [
+        190
+      ],
+      "continuation_pages": [
+        191,
+        192
+      ],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Таблица",
+      "key": "chronology_025_030",
+      "number": "И.5",
+      "caption": "Хронология этапов P025–P030",
+      "pages": [
+        193
+      ],
+      "continuation_pages": [
+        194,
+        195
+      ],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Таблица",
+      "key": "chronology_031_036",
+      "number": "И.6",
+      "caption": "Хронология этапов P031–P036",
+      "pages": [
+        196
+      ],
+      "continuation_pages": [
+        197,
+        198
+      ],
+      "referenced_before_caption": true
+    },
+    {
+      "kind": "Таблица",
+      "key": "future_plan",
+      "number": "Л.1",
+      "caption": "Ограничение, дальнейшее действие и критерий проверки",
+      "pages": [
+        211
+      ],
+      "continuation_pages": [
+        212
+      ],
+      "referenced_before_caption": true
+    }
+  ],
+  "heading_audit": {
+    "checked": 137,
+    "missing": [],
+    "orphan_candidates": []
+  },
+  "table_row_audit": {
+    "logical_tables": 51,
+    "physical_parts": 71,
+    "errors": []
+  },
+  "whitespace_candidates": [
+    3,
+    16,
+    41,
+    50,
+    52,
+    53,
+    68,
+    84,
+    140,
+    149,
+    151,
+    153,
+    167,
+    180,
+    182,
+    183,
+    184,
+    185,
+    186,
+    188,
+    189,
+    191,
+    192,
+    194,
+    195,
+    197,
+    199
+  ],
+  "non_body_fonts": {
+    "/FAAAAA+LinuxLibertineG": [
+      {
+        "page": 39,
+        "text": "∧ ∧ ∧"
+      }
+    ],
+    "/GAAAAA+LiberationSerif-Italic": [
+      {
+        "page": 45,
+        "text": "I"
+      },
+      {
+        "page": 45,
+        "text": "v"
+      },
+      {
+        "page": 45,
+        "text": "C"
+      },
+      {
+        "page": 45,
+        "text": "e"
+      },
+      {
+        "page": 45,
+        "text": "v"
+      },
+      {
+        "page": 45,
+        "text": "C"
+      },
+      {
+        "page": 45,
+        "text": "a"
+      },
+      {
+        "page": 45,
+        "text": "v"
+      },
+      {
+        "page": 45,
+        "text": "C"
+      },
+      {
+        "page": 45,
+        "text": "e"
+      },
+      {
+        "page": 45,
+        "text": "v"
+      },
+      {
+        "page": 45,
+        "text": "."
+      },
+      {
+        "page": 49,
+        "text": "z"
+      },
+      {
+        "page": 49,
+        "text": "j"
+      },
+      {
+        "page": 49,
+        "text": "x"
+      },
+      {
+        "page": 49,
+        "text": "j"
+      },
+      {
+        "page": 49,
+        "text": "μ"
+      },
+      {
+        "page": 49,
+        "text": "j"
+      },
+      {
+        "page": 49,
+        "text": "s"
+      },
+      {
+        "page": 49,
+        "text": "j"
+      },
+      {
+        "page": 49,
+        "text": ","
+      },
+      {
+        "page": 49,
+        "text": "b"
+      },
+      {
+        "page": 49,
+        "text": "j"
+      },
+      {
+        "page": 49,
+        "text": "x"
+      },
+      {
+        "page": 49,
+        "text": "j"
+      },
+      {
+        "page": 49,
+        "text": "отсутствует"
+      },
+      {
+        "page": 49,
+        "text": "."
+      },
+      {
+        "page": 49,
+        "text": "p"
+      },
+      {
+        "page": 49,
+        "text": "x"
+      },
+      {
+        "page": 49,
+        "text": "β"
+      },
+      {
+        "page": 49,
+        "text": "β"
+      },
+      {
+        "page": 49,
+        "text": "T"
+      },
+      {
+        "page": 49,
+        "text": "z"
+      },
+      {
+        "page": 49,
+        "text": "."
+      },
+      {
+        "page": 49,
+        "text": "J"
+      },
+      {
+        "page": 49,
+        "text": "β"
+      },
+      {
+        "page": 49,
+        "text": ","
+      },
+      {
+        "page": 49,
+        "text": "β"
+      },
+      {
+        "page": 49,
+        "text": "∑"
+      },
+      {
+        "page": 49,
+        "text": "i"
+      },
+      {
+        "page": 49,
+        "text": "η"
+      },
+      {
+        "page": 49,
+        "text": "i"
+      },
+      {
+        "page": 49,
+        "text": "y"
+      },
+      {
+        "page": 49,
+        "text": "i"
+      },
+      {
+        "page": 49,
+        "text": "η"
+      },
+      {
+        "page": 49,
+        "text": "i"
+      },
+      {
+        "page": 49,
+        "text": "λ"
+      },
+      {
+        "page": 49,
+        "text": "∑"
+      },
+      {
+        "page": 49,
+        "text": "j"
+      },
+      {
+        "page": 49,
+        "text": "β"
+      },
+      {
+        "page": 49,
+        "text": "j"
+      },
+      {
+        "page": 49,
+        "text": ","
+      },
+      {
+        "page": 49,
+        "text": "η"
+      },
+      {
+        "page": 49,
+        "text": "i"
+      },
+      {
+        "page": 49,
+        "text": "β"
+      },
+      {
+        "page": 49,
+        "text": "β"
+      },
+      {
+        "page": 49,
+        "text": "T"
+      },
+      {
+        "page": 49,
+        "text": "z"
+      },
+      {
+        "page": 49,
+        "text": "i"
+      },
+      {
+        "page": 49,
+        "text": "."
+      },
+      {
+        "page": 77,
+        "text": "P"
+      },
+      {
+        "page": 77,
+        "text": "r"
+      },
+      {
+        "page": 77,
+        "text": "e"
+      },
+      {
+        "page": 77,
+        "text": "c"
+      },
+      {
+        "page": 77,
+        "text": "i"
+      },
+      {
+        "page": 77,
+        "text": "s"
+      },
+      {
+        "page": 77,
+        "text": "i"
+      },
+      {
+        "page": 77,
+        "text": "o"
+      },
+      {
+        "page": 77,
+        "text": "n"
+      },
+      {
+        "page": 77,
+        "text": "T"
+      },
+      {
+        "page": 77,
+        "text": "P"
+      },
+      {
+        "page": 77,
+        "text": "T"
+      },
+      {
+        "page": 77,
+        "text": "P"
+      },
+      {
+        "page": 77,
+        "text": "F"
+      },
+      {
+        "page": 77,
+        "text": "P"
+      },
+      {
+        "page": 77,
+        "text": ","
+      },
+      {
+        "page": 77,
+        "text": "R"
+      },
+      {
+        "page": 77,
+        "text": "e"
+      },
+      {
+        "page": 77,
+        "text": "c"
+      },
+      {
+        "page": 77,
+        "text": "a"
+      },
+      {
+        "page": 77,
+        "text": "l"
+      },
+      {
+        "page": 77,
+        "text": "l"
+      },
+      {
+        "page": 77,
+        "text": "T"
+      },
+      {
+        "page": 77,
+        "text": "P"
+      },
+      {
+        "page": 77,
+        "text": "T"
+      },
+      {
+        "page": 77,
+        "text": "P"
+      },
+      {
+        "page": 77,
+        "text": "F"
+      },
+      {
+        "page": 77,
+        "text": "N"
+      },
+      {
+        "page": 77,
+        "text": "."
+      },
+      {
+        "page": 77,
+        "text": "F"
+      },
+      {
+        "page": 77,
+        "text": "T"
+      },
+      {
+        "page": 77,
+        "text": "P"
+      },
+      {
+        "page": 77,
+        "text": "T"
+      },
+      {
+        "page": 77,
+        "text": "P"
+      },
+      {
+        "page": 77,
+        "text": "F"
+      },
+      {
+        "page": 77,
+        "text": "P"
+      },
+      {
+        "page": 77,
+        "text": "F"
+      },
+      {
+        "page": 77,
+        "text": "N"
+      },
+      {
+        "page": 77,
+        "text": "."
+      },
+      {
+        "page": 77,
+        "text": "S"
+      },
+      {
+        "page": 77,
+        "text": "p"
+      },
+      {
+        "page": 77,
+        "text": "e"
+      },
+      {
+        "page": 77,
+        "text": "c"
+      },
+      {
+        "page": 77,
+        "text": "i"
+      },
+      {
+        "page": 77,
+        "text": "f"
+      },
+      {
+        "page": 77,
+        "text": "i"
+      },
+      {
+        "page": 77,
+        "text": "c"
+      },
+      {
+        "page": 77,
+        "text": "i"
+      },
+      {
+        "page": 77,
+        "text": "t"
+      },
+      {
+        "page": 77,
+        "text": "y"
+      },
+      {
+        "page": 77,
+        "text": "T"
+      },
+      {
+        "page": 77,
+        "text": "N"
+      },
+      {
+        "page": 77,
+        "text": "T"
+      },
+      {
+        "page": 77,
+        "text": "N"
+      },
+      {
+        "page": 77,
+        "text": "F"
+      },
+      {
+        "page": 77,
+        "text": "P"
+      },
+      {
+        "page": 77,
+        "text": ","
+      },
+      {
+        "page": 77,
+        "text": "F"
+      },
+      {
+        "page": 77,
+        "text": "P"
+      },
+      {
+        "page": 77,
+        "text": "R"
+      },
+      {
+        "page": 77,
+        "text": "F"
+      },
+      {
+        "page": 77,
+        "text": "P"
+      },
+      {
+        "page": 77,
+        "text": "T"
+      },
+      {
+        "page": 77,
+        "text": "N"
+      },
+      {
+        "page": 77,
+        "text": "F"
+      },
+      {
+        "page": 77,
+        "text": "P"
+      },
+      {
+        "page": 77,
+        "text": ","
+      },
+      {
+        "page": 77,
+        "text": "F"
+      },
+      {
+        "page": 77,
+        "text": "N"
+      },
+      {
+        "page": 77,
+        "text": "R"
+      },
+      {
+        "page": 77,
+        "text": "F"
+      },
+      {
+        "page": 77,
+        "text": "N"
+      },
+      {
+        "page": 77,
+        "text": "T"
+      },
+      {
+        "page": 77,
+        "text": "P"
+      },
+      {
+        "page": 77,
+        "text": "F"
+      },
+      {
+        "page": 77,
+        "text": "N"
+      },
+      {
+        "page": 77,
+        "text": "."
+      },
+      {
+        "page": 77,
+        "text": "C"
+      },
+      {
+        "page": 77,
+        "text": "o"
+      },
+      {
+        "page": 77,
+        "text": "v"
+      },
+      {
+        "page": 77,
+        "text": "e"
+      },
+      {
+        "page": 77,
+        "text": "r"
+      },
+      {
+        "page": 77,
+        "text": "a"
+      },
+      {
+        "page": 77,
+        "text": "g"
+      },
+      {
+        "page": 77,
+        "text": "e"
+      },
+      {
+        "page": 77,
+        "text": "D"
+      },
+      {
+        "page": 77,
+        "text": "N"
+      },
+      {
+        "page": 77,
+        "text": ","
+      },
+      {
+        "page": 77,
+        "text": "E"
+      },
+      {
+        "page": 77,
+        "text": "f"
+      },
+      {
+        "page": 77,
+        "text": "f"
+      },
+      {
+        "page": 77,
+        "text": "e"
+      },
+      {
+        "page": 77,
+        "text": "c"
+      },
+      {
+        "page": 77,
+        "text": "t"
+      },
+      {
+        "page": 77,
+        "text": "i"
+      },
+      {
+        "page": 77,
+        "text": "v"
+      },
+      {
+        "page": 77,
+        "text": "e"
+      },
+      {
+        "page": 77,
+        "text": "C"
+      },
+      {
+        "page": 77,
+        "text": "o"
+      },
+      {
+        "page": 77,
+        "text": "r"
+      },
+      {
+        "page": 77,
+        "text": "r"
+      },
+      {
+        "page": 77,
+        "text": "e"
+      },
+      {
+        "page": 77,
+        "text": "c"
+      },
+      {
+        "page": 77,
+        "text": "t"
+      },
+      {
+        "page": 77,
+        "text": "n"
+      },
+      {
+        "page": 77,
+        "text": "e"
+      },
+      {
+        "page": 77,
+        "text": "s"
+      },
+      {
+        "page": 77,
+        "text": "s"
+      },
+      {
+        "page": 77,
+        "text": "T"
+      },
+      {
+        "page": 77,
+        "text": "P"
+      },
+      {
+        "page": 77,
+        "text": "T"
+      },
+      {
+        "page": 77,
+        "text": "N"
+      },
+      {
+        "page": 77,
+        "text": "N"
+      },
+      {
+        "page": 77,
+        "text": "."
+      }
+    ],
+    "/HAAAAA+OpenSymbol": [
+      {
+        "page": 45,
+        "text": "("
+      },
+      {
+        "page": 45,
+        "text": ")"
+      },
+      {
+        "page": 45,
+        "text": "("
+      },
+      {
+        "page": 45,
+        "text": ")"
+      },
+      {
+        "page": 45,
+        "text": "("
+      },
+      {
+        "page": 45,
+        "text": ")"
+      },
+      {
+        "page": 45,
+        "text": "("
+      },
+      {
+        "page": 45,
+        "text": ")"
+      },
+      {
+        "page": 49,
+        "text": "~"
+      },
+      {
+        "page": 49,
+        "text": "["
+      },
+      {
+        "page": 49,
+        "text": "]"
+      },
+      {
+        "page": 49,
+        "text": "("
+      },
+      {
+        "page": 49,
+        "text": ")"
+      },
+      {
+        "page": 49,
+        "text": "["
+      },
+      {
+        "page": 49,
+        "text": "("
+      },
+      {
+        "page": 49,
+        "text": ")"
+      },
+      {
+        "page": 49,
+        "text": "]"
+      },
+      {
+        "page": 49,
+        "text": "("
+      },
+      {
+        "page": 49,
+        "text": ")"
+      },
+      {
+        "page": 49,
+        "text": "["
+      },
+      {
+        "page": 49,
+        "text": "("
+      },
+      {
+        "page": 49,
+        "text": "("
+      },
+      {
+        "page": 49,
+        "text": ")"
+      },
+      {
+        "page": 49,
+        "text": ")"
+      },
+      {
+        "page": 49,
+        "text": "]"
+      }
+    ],
+    "/IAAAAA+LiberationSerif": [
+      {
+        "page": 45,
+        "text": "="
+      },
+      {
+        "page": 45,
+        "text": "+"
+      },
+      {
+        "page": 49,
+        "text": "="
+      },
+      {
+        "page": 49,
+        "text": "-"
+      },
+      {
+        "page": 49,
+        "text": "="
+      },
+      {
+        "page": 49,
+        "text": "1"
+      },
+      {
+        "page": 49,
+        "text": "="
+      },
+      {
+        "page": 49,
+        "text": "1"
+      },
+      {
+        "page": 49,
+        "text": "1"
+      },
+      {
+        "page": 49,
+        "text": "+"
+      },
+      {
+        "page": 49,
+        "text": "exp"
+      },
+      {
+        "page": 49,
+        "text": "-"
+      },
+      {
+        "page": 49,
+        "text": "0"
+      },
+      {
+        "page": 49,
+        "text": "+"
+      },
+      {
+        "page": 49,
+        "text": "0"
+      },
+      {
+        "page": 49,
+        "text": "="
+      },
+      {
+        "page": 49,
+        "text": "log"
+      },
+      {
+        "page": 49,
+        "text": "1"
+      },
+      {
+        "page": 49,
+        "text": "+"
+      },
+      {
+        "page": 49,
+        "text": "exp"
+      },
+      {
+        "page": 49,
+        "text": "-"
+      },
+      {
+        "page": 49,
+        "text": "+"
+      },
+      {
+        "page": 49,
+        "text": "2"
+      },
+      {
+        "page": 49,
+        "text": "2"
+      },
+      {
+        "page": 49,
+        "text": "="
+      },
+      {
+        "page": 49,
+        "text": "0"
+      },
+      {
+        "page": 49,
+        "text": "+"
+      },
+      {
+        "page": 77,
+        "text": "="
+      },
+      {
+        "page": 77,
+        "text": "+"
+      },
+      {
+        "page": 77,
+        "text": "="
+      },
+      {
+        "page": 77,
+        "text": "+"
+      },
+      {
+        "page": 77,
+        "text": "1"
+      },
+      {
+        "page": 77,
+        "text": "="
+      },
+      {
+        "page": 77,
+        "text": "2"
+      },
+      {
+        "page": 77,
+        "text": "2"
+      },
+      {
+        "page": 77,
+        "text": "+"
+      },
+      {
+        "page": 77,
+        "text": "+"
+      },
+      {
+        "page": 77,
+        "text": "="
+      },
+      {
+        "page": 77,
+        "text": "+"
+      },
+      {
+        "page": 77,
+        "text": "="
+      },
+      {
+        "page": 77,
+        "text": "+"
+      },
+      {
+        "page": 77,
+        "text": "="
+      },
+      {
+        "page": 77,
+        "text": "+"
+      },
+      {
+        "page": 77,
+        "text": "="
+      },
+      {
+        "page": 77,
+        "text": "="
+      },
+      {
+        "page": 77,
+        "text": "+"
+      }
+    ]
+  },
+  "pages": [
+    {
+      "page": 1,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 101,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 666.824764
+    },
+    {
+      "page": 2,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 160,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 646.974764
+    },
+    {
+      "page": 3,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 128,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 505.474764
+    },
+    {
+      "page": 4,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 192,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 763.074764
+    },
+    {
+      "page": 5,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 198,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 772.574764
+    },
+    {
+      "page": 6,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 202,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 772.574764
+    },
+    {
+      "page": 7,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 171,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 772.574764
+    },
+    {
+      "page": 8,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 188,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 772.574764
+    },
+    {
+      "page": 9,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 177,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 626.224764
+    },
+    {
+      "page": 10,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 203,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 771.124764
+    },
+    {
+      "page": 11,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 225,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 772.574764
+    },
+    {
+      "page": 12,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 164,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 724.274764
+    },
+    {
+      "page": 13,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 191,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 772.574764
+    },
+    {
+      "page": 14,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 204,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 772.574764
+    },
+    {
+      "page": 15,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 192,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 772.574764
+    },
+    {
+      "page": 16,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 79,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 337.874764
+    },
+    {
+      "page": 17,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 204,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 769.674764
+    },
+    {
+      "page": 18,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 216,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 772.574764
+    },
+    {
+      "page": 19,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 202,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 771.124764
+    },
+    {
+      "page": 20,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 204,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 748.424764
+    },
+    {
+      "page": 21,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 207,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 745.524764
+    },
+    {
+      "page": 22,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 231,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 772.574764
+    },
+    {
+      "page": 23,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 206,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 769.674764
+    },
+    {
+      "page": 24,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 207,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 748.424764
+    },
+    {
+      "page": 25,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 205,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 745.524764
+    },
+    {
+      "page": 26,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 213,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 772.574764
+    },
+    {
+      "page": 27,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 198,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 769.674764
+    },
+    {
+      "page": 28,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 218,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 748.424764
+    },
+    {
+      "page": 29,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 210,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 748.424764
+    },
+    {
+      "page": 30,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 149,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 602.074764
+    },
+    {
+      "page": 31,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 216,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 761.824764
+    },
+    {
+      "page": 32,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 212,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 769.674764
+    },
+    {
+      "page": 33,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 225,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 772.574764
+    },
+    {
+      "page": 34,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 129,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 552.324764
+    },
+    {
+      "page": 35,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 183,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 769.674764
+    },
+    {
+      "page": 36,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 187,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 782.624764
+    },
+    {
+      "page": 37,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 203,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 746.974764
+    },
+    {
+      "page": 38,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 169,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 770.174764
+    },
+    {
+      "page": 39,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 197,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 769.674764
+    },
+    {
+      "page": 40,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 136,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 674.924764
+    },
+    {
+      "page": 41,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 119,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 502.792764
+    },
+    {
+      "page": 42,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 124,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 573.992764
+    },
+    {
+      "page": 43,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 173,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 772.524764
+    },
+    {
+      "page": 44,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 175,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 765.724764
+    },
+    {
+      "page": 45,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 225,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 750.924764
+    },
+    {
+      "page": 46,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 174,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 768.224764
+    },
+    {
+      "page": 47,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 208,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 769.674764
+    },
+    {
+      "page": 48,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 211,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 748.424764
+    },
+    {
+      "page": 49,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 258,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 750.124764
+    },
+    {
+      "page": 50,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 46,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": true,
+      "content_bottom_pt": 527.124764
+    },
+    {
+      "page": 51,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 148,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 627.724764
+    },
+    {
+      "page": 52,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 89,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 531.424764
+    },
+    {
+      "page": 53,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 131,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 528.174764
+    },
+    {
+      "page": 54,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 125,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 664.074764
+    },
+    {
+      "page": 55,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 192,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 773.224764
+    },
+    {
+      "page": 56,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 197,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 700.124764
+    },
+    {
+      "page": 57,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 185,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 762.874764
+    },
+    {
+      "page": 58,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 230,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 772.574764
+    },
+    {
+      "page": 59,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 201,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 745.524764
+    },
+    {
+      "page": 60,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 167,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 666.942764
+    },
+    {
+      "page": 61,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 194,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 771.374764
+    },
+    {
+      "page": 62,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 209,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 769.674764
+    },
+    {
+      "page": 63,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 214,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 769.674764
+    },
+    {
+      "page": 64,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 209,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 769.674764
+    },
+    {
+      "page": 65,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 201,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 769.674764
+    },
+    {
+      "page": 66,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 188,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 721.374764
+    },
+    {
+      "page": 67,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 217,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 771.124764
+    },
+    {
+      "page": 68,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 44,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": true,
+      "content_bottom_pt": 192.974764
+    },
+    {
+      "page": 69,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 186,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 697.224764
+    },
+    {
+      "page": 70,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 164,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 741.524764
+    },
+    {
+      "page": 71,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 234,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 772.574764
+    },
+    {
+      "page": 72,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 205,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 769.674764
+    },
+    {
+      "page": 73,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 186,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 783.074764
+    },
+    {
+      "page": 74,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 223,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 769.674764
+    },
+    {
+      "page": 75,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 181,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 779.724764
+    },
+    {
+      "page": 76,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 214,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 769.674764
+    },
+    {
+      "page": 77,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 259,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 755.374764
+    },
+    {
+      "page": 78,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 147,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 669.824764
+    },
+    {
+      "page": 79,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 242,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 783.674764
+    },
+    {
+      "page": 80,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 119,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 745.974764
+    },
+    {
+      "page": 81,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 205,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 753.792764
+    },
+    {
+      "page": 82,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 218,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 777.376764
+    },
+    {
+      "page": 83,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 131,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 676.424764
+    },
+    {
+      "page": 84,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 106,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 439.542764
+    },
+    {
+      "page": 85,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 150,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 672.974764
+    },
+    {
+      "page": 86,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 121,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 672.674764
+    },
+    {
+      "page": 87,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 226,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 769.724764
+    },
+    {
+      "page": 88,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 199,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 769.674764
+    },
+    {
+      "page": 89,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 184,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 700.124764
+    },
+    {
+      "page": 90,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 207,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 769.674764
+    },
+    {
+      "page": 91,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 192,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 675.974764
+    },
+    {
+      "page": 92,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 185,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 771.424764
+    },
+    {
+      "page": 93,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 220,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 772.574764
+    },
+    {
+      "page": 94,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 206,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 769.674764
+    },
+    {
+      "page": 95,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 218,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 772.574764
+    },
+    {
+      "page": 96,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 244,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 772.574764
+    },
+    {
+      "page": 97,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 167,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 757.024764
+    },
+    {
+      "page": 98,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 214,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 772.574764
+    },
+    {
+      "page": 99,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 205,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 748.424764
+    },
+    {
+      "page": 100,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 227,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 771.124764
+    },
+    {
+      "page": 101,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 215,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 769.674764
+    },
+    {
+      "page": 102,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 244,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 772.574764
+    },
+    {
+      "page": 103,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 168,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 772.774764
+    },
+    {
+      "page": 104,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 178,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 762.224764
+    },
+    {
+      "page": 105,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 187,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 627.674764
+    },
+    {
+      "page": 106,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 240,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 780.674764
+    },
+    {
+      "page": 107,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 144,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 554.842764
+    },
+    {
+      "page": 108,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 165,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 764.974764
+    },
+    {
+      "page": 109,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 196,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 700.124764
+    },
+    {
+      "page": 110,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 182,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 769.674764
+    },
+    {
+      "page": 111,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 197,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 721.374764
+    },
+    {
+      "page": 112,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 212,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 772.574764
+    },
+    {
+      "page": 113,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 191,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 675.974764
+    },
+    {
+      "page": 114,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 210,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 771.124764
+    },
+    {
+      "page": 115,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 162,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 764.224764
+    },
+    {
+      "page": 116,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 209,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 769.892764
+    },
+    {
+      "page": 117,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 203,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 745.524764
+    },
+    {
+      "page": 118,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 202,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 769.674764
+    },
+    {
+      "page": 119,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 218,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 772.574764
+    },
+    {
+      "page": 120,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 223,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 772.574764
+    },
+    {
+      "page": 121,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 201,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 769.674764
+    },
+    {
+      "page": 122,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 157,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 603.524764
+    },
+    {
+      "page": 123,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 191,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 771.124764
+    },
+    {
+      "page": 124,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 214,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 772.574764
+    },
+    {
+      "page": 125,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 223,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 772.574764
+    },
+    {
+      "page": 126,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 230,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 772.574764
+    },
+    {
+      "page": 127,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 224,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 772.574764
+    },
+    {
+      "page": 128,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 142,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 579.374764
+    },
+    {
+      "page": 129,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 233,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 746.974764
+    },
+    {
+      "page": 130,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 236,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 748.424764
+    },
+    {
+      "page": 131,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 230,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 772.574764
+    },
+    {
+      "page": 132,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 254,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 772.574764
+    },
+    {
+      "page": 133,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 225,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 748.424764
+    },
+    {
+      "page": 134,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 247,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 772.574764
+    },
+    {
+      "page": 135,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 214,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 772.574764
+    },
+    {
+      "page": 136,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 195,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 748.424764
+    },
+    {
+      "page": 137,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 216,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 772.574764
+    },
+    {
+      "page": 138,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 188,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 772.574764
+    },
+    {
+      "page": 139,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 129,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 555.224764
+    },
+    {
+      "page": 140,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 113,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 504.024764
+    },
+    {
+      "page": 141,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 83,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 594.842764
+    },
+    {
+      "page": 142,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 140,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 769.374764
+    },
+    {
+      "page": 143,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 155,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 773.250764
+    },
+    {
+      "page": 144,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 151,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 576.474764
+    },
+    {
+      "page": 145,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 185,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 772.674764
+    },
+    {
+      "page": 146,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 189,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 721.374764
+    },
+    {
+      "page": 147,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 169,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 647.474764
+    },
+    {
+      "page": 148,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 220,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 759.474764
+    },
+    {
+      "page": 149,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 123,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 528.174764
+    },
+    {
+      "page": 150,
+      "dimensions_pt": [
+        841.889764,
+        595.303937
+      ],
+      "words": 129,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 503.126937
+    },
+    {
+      "page": 151,
+      "dimensions_pt": [
+        841.889764,
+        595.303937
+      ],
+      "words": 85,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 370.292937
+    },
+    {
+      "page": 152,
+      "dimensions_pt": [
+        841.889764,
+        595.303937
+      ],
+      "words": 92,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 399.824937
+    },
+    {
+      "page": 153,
+      "dimensions_pt": [
+        841.889764,
+        595.303937
+      ],
+      "words": 71,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 348.176937
+    },
+    {
+      "page": 154,
+      "dimensions_pt": [
+        841.889764,
+        595.303937
+      ],
+      "words": 110,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 390.624937
+    },
+    {
+      "page": 155,
+      "dimensions_pt": [
+        841.889764,
+        595.303937
+      ],
+      "words": 106,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 414.324937
+    },
+    {
+      "page": 156,
+      "dimensions_pt": [
+        841.889764,
+        595.303937
+      ],
+      "words": 119,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 519.124937
+    },
+    {
+      "page": 157,
+      "dimensions_pt": [
+        841.889764,
+        595.303937
+      ],
+      "words": 110,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 479.976937
+    },
+    {
+      "page": 158,
+      "dimensions_pt": [
+        841.889764,
+        595.303937
+      ],
+      "words": 110,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 412.774937
+    },
+    {
+      "page": 159,
+      "dimensions_pt": [
+        841.889764,
+        595.303937
+      ],
+      "words": 121,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 475.074937
+    },
+    {
+      "page": 160,
+      "dimensions_pt": [
+        841.889764,
+        595.303937
+      ],
+      "words": 131,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 524.824937
+    },
+    {
+      "page": 161,
+      "dimensions_pt": [
+        841.889764,
+        595.303937
+      ],
+      "words": 164,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 431.574937
+    },
+    {
+      "page": 162,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 138,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 551.242764
+    },
+    {
+      "page": 163,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 185,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 772.824764
+    },
+    {
+      "page": 164,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 183,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 748.174764
+    },
+    {
+      "page": 165,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 193,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 769.674764
+    },
+    {
+      "page": 166,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 201,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 769.674764
+    },
+    {
+      "page": 167,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 47,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": true,
+      "content_bottom_pt": 217.124764
+    },
+    {
+      "page": 168,
+      "dimensions_pt": [
+        841.889764,
+        595.303937
+      ],
+      "words": 142,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 407.424937
+    },
+    {
+      "page": 169,
+      "dimensions_pt": [
+        841.889764,
+        595.303937
+      ],
+      "words": 201,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 506.476937
+    },
+    {
+      "page": 170,
+      "dimensions_pt": [
+        841.889764,
+        595.303937
+      ],
+      "words": 189,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 502.424937
+    },
+    {
+      "page": 171,
+      "dimensions_pt": [
+        841.889764,
+        595.303937
+      ],
+      "words": 91,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 503.924937
+    },
+    {
+      "page": 172,
+      "dimensions_pt": [
+        841.889764,
+        595.303937
+      ],
+      "words": 157,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 481.324937
+    },
+    {
+      "page": 173,
+      "dimensions_pt": [
+        841.889764,
+        595.303937
+      ],
+      "words": 189,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 530.624937
+    },
+    {
+      "page": 174,
+      "dimensions_pt": [
+        841.889764,
+        595.303937
+      ],
+      "words": 218,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 482.774937
+    },
+    {
+      "page": 175,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 192,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 745.524764
+    },
+    {
+      "page": 176,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 193,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 762.424764
+    },
+    {
+      "page": 177,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 201,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 769.674764
+    },
+    {
+      "page": 178,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 209,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 766.774764
+    },
+    {
+      "page": 179,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 208,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 700.124764
+    },
+    {
+      "page": 180,
+      "dimensions_pt": [
+        841.889764,
+        595.303937
+      ],
+      "words": 128,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 384.724937
+    },
+    {
+      "page": 181,
+      "dimensions_pt": [
+        841.889764,
+        595.303937
+      ],
+      "words": 156,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 388.792937
+    },
+    {
+      "page": 182,
+      "dimensions_pt": [
+        841.889764,
+        595.303937
+      ],
+      "words": 125,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 317.792937
+    },
+    {
+      "page": 183,
+      "dimensions_pt": [
+        841.889764,
+        595.303937
+      ],
+      "words": 126,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 331.592937
+    },
+    {
+      "page": 184,
+      "dimensions_pt": [
+        841.889764,
+        595.303937
+      ],
+      "words": 143,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 361.192937
+    },
+    {
+      "page": 185,
+      "dimensions_pt": [
+        841.889764,
+        595.303937
+      ],
+      "words": 134,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 331.592937
+    },
+    {
+      "page": 186,
+      "dimensions_pt": [
+        841.889764,
+        595.303937
+      ],
+      "words": 147,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 290.192937
+    },
+    {
+      "page": 187,
+      "dimensions_pt": [
+        841.889764,
+        595.303937
+      ],
+      "words": 159,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 388.792937
+    },
+    {
+      "page": 188,
+      "dimensions_pt": [
+        841.889764,
+        595.303937
+      ],
+      "words": 161,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 331.592937
+    },
+    {
+      "page": 189,
+      "dimensions_pt": [
+        841.889764,
+        595.303937
+      ],
+      "words": 146,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 317.792937
+    },
+    {
+      "page": 190,
+      "dimensions_pt": [
+        841.889764,
+        595.303937
+      ],
+      "words": 162,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 402.592937
+    },
+    {
+      "page": 191,
+      "dimensions_pt": [
+        841.889764,
+        595.303937
+      ],
+      "words": 150,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 303.992937
+    },
+    {
+      "page": 192,
+      "dimensions_pt": [
+        841.889764,
+        595.303937
+      ],
+      "words": 157,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 317.792937
+    },
+    {
+      "page": 193,
+      "dimensions_pt": [
+        841.889764,
+        595.303937
+      ],
+      "words": 160,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 402.592937
+    },
+    {
+      "page": 194,
+      "dimensions_pt": [
+        841.889764,
+        595.303937
+      ],
+      "words": 152,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 372.992937
+    },
+    {
+      "page": 195,
+      "dimensions_pt": [
+        841.889764,
+        595.303937
+      ],
+      "words": 162,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 345.392937
+    },
+    {
+      "page": 196,
+      "dimensions_pt": [
+        841.889764,
+        595.303937
+      ],
+      "words": 196,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 430.192937
+    },
+    {
+      "page": 197,
+      "dimensions_pt": [
+        841.889764,
+        595.303937
+      ],
+      "words": 202,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 372.992937
+    },
+    {
+      "page": 198,
+      "dimensions_pt": [
+        841.889764,
+        595.303937
+      ],
+      "words": 199,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 498.574937
+    },
+    {
+      "page": 199,
+      "dimensions_pt": [
+        841.889764,
+        595.303937
+      ],
+      "words": 154,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 362.024937
+    },
+    {
+      "page": 200,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 177,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 765.324764
+    },
+    {
+      "page": 201,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 205,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 766.774764
+    },
+    {
+      "page": 202,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 182,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 766.774764
+    },
+    {
+      "page": 203,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 175,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 766.774764
+    },
+    {
+      "page": 204,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 202,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 766.774764
+    },
+    {
+      "page": 205,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 188,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 765.324764
+    },
+    {
+      "page": 206,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 207,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 742.624764
+    },
+    {
+      "page": 207,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 193,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 766.774764
+    },
+    {
+      "page": 208,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 221,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 769.674764
+    },
+    {
+      "page": 209,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 183,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 768.224764
+    },
+    {
+      "page": 210,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 235,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 772.574764
+    },
+    {
+      "page": 211,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 168,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 723.042764
+    },
+    {
+      "page": 212,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 202,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 771.824764
+    },
+    {
+      "page": 213,
+      "dimensions_pt": [
+        595.303937,
+        841.889764
+      ],
+      "words": 176,
+      "text_overflow": [],
+      "footer_correct": true,
+      "low_density": false,
+      "content_bottom_pt": 721.374764
+    }
+  ]
+}

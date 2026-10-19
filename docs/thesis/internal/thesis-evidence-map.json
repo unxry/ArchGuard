@@ -1,0 +1,837 @@
+{
+  "schema": "archguard-thesis-evidence-map-v1",
+  "baseline_commit": "5e384141a6f9dbafb6654886e83fcad57def564e",
+  "p036_implementation": "9d40c4fa6a50439c6910325d978de973ef2e5f3d",
+  "scope": "public source and frozen aggregates; no private case-level reads or scientific execution",
+  "stage_coverage": [
+    {
+      "stage": "P001",
+      "goal": "Научная постановка и каркас прототипа",
+      "result": "Тема, гипотеза, RQ1–RQ6; модульный монолит; версионированные IAM, Finding, Evidence, Trace; системный API и инфраструктура БД.",
+      "material_problem": "Отдельного отчёта и отдельного commit P001 нет: история P001–P004 объединена. Иные конкретные аварии этому этапу не приписываются.",
+      "corrective_action": "Использовать существующие ADR, контракты и проверенную объединённую Git-линию; не выдумывать отсутствующие события.",
+      "status": "FOUNDATION_ACCEPTED_COALESCED",
+      "scientific_relevance": "Задаёт предмет исследования и разделение ARCH/SEC",
+      "sources": [
+        "docs/research/RESEARCH_SPECIFICATION.md",
+        "docs/architecture/ARCHITECTURE.md",
+        "docs/architecture/CONTRACTS.md",
+        "docs/architecture/adr/0001-modular-monolith.md",
+        "docs/verification/PROMPT_026.md"
+      ],
+      "source_sha256": {
+        "docs/research/RESEARCH_SPECIFICATION.md": "3400a7c920dc1756be471c6a74f37ae3d5697e35e1cc18d7f831e5fc2f0069c4",
+        "docs/architecture/ARCHITECTURE.md": "1cbb55d82dbe7b5309437700b410f8c16dc9dba5b24bd8682a2c73df11acaad8",
+        "docs/architecture/CONTRACTS.md": "d8d7a9422eb5f47e37e8ab2e4c58e394df0b69558d619abc258b14e6385adc6b",
+        "docs/architecture/adr/0001-modular-monolith.md": "0fad6316f2495fe51d568a2deeff5f599e6c25ce23e85d95784fdd37fe7b28a9",
+        "docs/verification/PROMPT_026.md": "434731fce3403d900fc29165fd934dcf30717a26448d3e8ba8535c761d74d1d3"
+      },
+      "source_status": "EXISTING_ALTERNATE_REPORTS_COALESCED_LINEAGE"
+    },
+    {
+      "stage": "P002",
+      "goal": "Безопасный приём репозитория и обнаружение исходников",
+      "result": "Адаптеры локального каталога, ZIP и публичного HTTPS Git; ограниченный workspace для чтения, физический снимок, исключения и селективное хеширование.",
+      "material_problem": "Локальное чтение неатомарно; архивы и Git несут риски обхода путей и запуска hooks; нехешированные файлы не охвачены полным содержательным отпечатком.",
+      "corrective_action": "Проверки O_NOFOLLOW/dir_fd, квоты, закрываемый workspace, запрет исполнения исходников и явный hash_status; ограничение fingerprint раскрыто.",
+      "status": "IMPLEMENTED",
+      "scientific_relevance": "Наблюдаемый источник данных и исходная воспроизводимость",
+      "sources": [
+        "docs/architecture/REPOSITORY_INTAKE.md",
+        "docs/architecture/adr/0008-repository-materialization.md",
+        "docs/architecture/adr/0009-intake-policy-and-reproducibility.md",
+        "docs/verification/PROMPT_026.md"
+      ],
+      "source_sha256": {
+        "docs/architecture/REPOSITORY_INTAKE.md": "1ec40a4701e8726899cbd3b94ddb819da2b2be1611d8ab487c862eae14372bf6",
+        "docs/architecture/adr/0008-repository-materialization.md": "e39e218d49149508e160e4e75be27aaeb8b7d918323c02314f778fdcfba22e40",
+        "docs/architecture/adr/0009-intake-policy-and-reproducibility.md": "06e4706ef54c2639daeb08fc07fb14bb97fadf20649da2271e77ed90222dd2a0",
+        "docs/verification/PROMPT_026.md": "434731fce3403d900fc29165fd934dcf30717a26448d3e8ba8535c761d74d1d3"
+      },
+      "source_status": "EXISTING_ALTERNATE_REPORTS_COALESCED_LINEAGE"
+    },
+    {
+      "stage": "P003",
+      "goal": "Синтаксические адаптеры Tree-sitter",
+      "result": "Реальные адаптеры Java, TypeScript, JavaScript, TSX; потоковый разбор, strict/tolerant состояния; 343 успешных теста.",
+      "material_problem": "Разные ABI грамматик; нативное дерево удерживает source bytes; синтаксическая ошибка отличается от отказа исполнения.",
+      "corrective_action": "Закреплены версии и API; дерево освобождается после файла; агрегат содержит метаданные; INVALID, UNSUPPORTED и FAILED разделены.",
+      "status": "IMPLEMENTED",
+      "scientific_relevance": "Языковая граница без выдуманной semantic completeness",
+      "sources": [
+        "docs/architecture/PARSING.md",
+        "docs/architecture/adr/0010-tree-sitter-parsing-foundation.md",
+        "docs/verification/PROMPT_026.md"
+      ],
+      "source_sha256": {
+        "docs/architecture/PARSING.md": "7ebfafda6c96d4d3e9b211065215b9903d44f244df533fbef13c914619b76766",
+        "docs/architecture/adr/0010-tree-sitter-parsing-foundation.md": "689ce335806caff7f189c5c75358b489d8b9423837053012d9f870a852673dba",
+        "docs/verification/PROMPT_026.md": "434731fce3403d900fc29165fd934dcf30717a26448d3e8ba8535c761d74d1d3"
+      },
+      "source_status": "EXISTING_ALTERNATE_REPORTS_COALESCED_LINEAGE"
+    },
+    {
+      "stage": "P004",
+      "goal": "Symbol/dependency extraction и IAMBuilder",
+      "result": "Объявления, импорты, шесть типов отношений; компактные факты, индекс, консервативное разрешение и устойчивый UUIDv5; 424 теста.",
+      "material_problem": "Неоднозначные перегрузки, неизвестные receivers, затенение и динамические вызовы; регрессия сериализации generic/type-annotation.",
+      "corrective_action": "Не угадывать рёбра; сохранять RESOLVED, AMBIGUOUS, UNRESOLVED, EXTERNAL; исправить сериализацию и проверить потоковое освобождение деревьев.",
+      "status": "IMPLEMENTED",
+      "scientific_relevance": "IAM является syntaxmodel, не runtimeproof; coalescedbaselinecommit 53956 fc 29 c 4 e 568234579492 ac 5 d 4 efb 95 c 6 d 0 d 8",
+      "sources": [
+        "docs/architecture/IAM_VERIFICATION.md",
+        "docs/architecture/EXTRACTION.md",
+        "docs/architecture/IAM_BUILDER.md",
+        "docs/verification/PROMPT_026.md"
+      ],
+      "source_sha256": {
+        "docs/architecture/IAM_VERIFICATION.md": "68518a31b163a677664bf0bcba9e3c3add419d09a1dd8b09fb94be5f03b53a50",
+        "docs/architecture/EXTRACTION.md": "da7a14c81e6483b1062ca75a23f9d87e245e008f42bf4c1295a352f69108a473",
+        "docs/architecture/IAM_BUILDER.md": "21e770b89c32e65d4759aba79edec54c74729f13850f0602532ba8e659e99e74",
+        "docs/verification/PROMPT_026.md": "434731fce3403d900fc29165fd934dcf30717a26448d3e8ba8535c761d74d1d3"
+      },
+      "source_status": "EXISTING_ALTERNATE_REPORTS_COALESCED_LINEAGE"
+    },
+    {
+      "stage": "P005",
+      "goal": "Explicit targetarchitecture DSL и Staticconformance",
+      "result": "ARCH001, ARCH002, ARCH004, ARCH005; доказательства и трассы из подтверждённых IAM-рёбер; 559 тестов.",
+      "material_problem": "Пересечение целевых областей и неподтверждённые связи не позволяют сформировать достоверное нарушение.",
+      "corrective_action": "Строгий ограниченный YAML; неоднозначность подавляет findings; INCOMPLETE отделён; цикл ARCH003 передан графовому компоненту.",
+      "status": "IMPLEMENTED",
+      "scientific_relevance": "Нормативное нарушение требует targetconstraint, не произвольного архитектурного идеала",
+      "sources": [
+        "docs/architecture/STATIC_VERIFICATION.md",
+        "docs/architecture/STATIC_CONFORMANCE.md",
+        "docs/architecture/ARCHITECTURE_SPECIFICATION.md"
+      ],
+      "source_sha256": {
+        "docs/architecture/STATIC_VERIFICATION.md": "842e7fc1a158713238dd5e13237b63ee9db17b61f4ea6d6abf55eeee321d8f38",
+        "docs/architecture/STATIC_CONFORMANCE.md": "51215159ee61c9d2152f79722bc5ac138eeb98c9689e494755b4a664a46f136e",
+        "docs/architecture/ARCHITECTURE_SPECIFICATION.md": "0d895c7f5a2d1e0446249afa36105873335eabbaa8c347d29a37e8258dea72b0"
+      },
+      "source_status": "EXISTING_ALTERNATE_REPORTS_COALESCED_LINEAGE"
+    },
+    {
+      "stage": "P006",
+      "goal": "Graph Engine и структурные характеристики",
+      "result": "Пять проекций, SCC и замкнутый цикл ARCH003, degree/coupling/I/betweenness/PageRank; кандидаты ARCH101–105; 626 тестов.",
+      "material_problem": "DiGraph не является runtime generic; нужно сохранить точность конфигурации; полное перечисление циклов и центральности ограничено бюджетом.",
+      "corrective_action": "Исправлен импортный дефект; конфигурация хешируется без округления, метрики нормализуются отдельно; одна ограниченная трасса; пропуск метрики даёт null.",
+      "status": "IMPLEMENTED",
+      "scientific_relevance": "Разделяет graphfact, heuristiccandidate и targetconformanceproof",
+      "sources": [
+        "docs/architecture/GRAPH_VERIFICATION.md",
+        "docs/architecture/GRAPH_ENGINE.md",
+        "docs/architecture/GRAPH_METRICS.md",
+        "docs/architecture/GRAPH_CANDIDATES.md"
+      ],
+      "source_sha256": {
+        "docs/architecture/GRAPH_VERIFICATION.md": "c8ba0aca5859888261843d0bde0acff1a5e8cea9083d382c0df60c390a4db8e6",
+        "docs/architecture/GRAPH_ENGINE.md": "aba9fd28e56bd73c9d99780c6686b23923d128fd999fae26404d2c55519bbd9c",
+        "docs/architecture/GRAPH_METRICS.md": "e9bcd335e68367d73a7028e0314baa7727a0687fa888f7c759adf7c79134ceb3",
+        "docs/architecture/GRAPH_CANDIDATES.md": "3779f033563ba53a4c6378b7d0705f0cdefe01c314706a62966c9f5bf3e81d9a"
+      },
+      "source_status": "EXISTING_ALTERNATE_REPORTS_COALESCED_LINEAGE"
+    },
+    {
+      "stage": "P007",
+      "goal": "Architecture Discovery и structuralclassification",
+      "result": "Гипотезы ролей, слоёв и модулей; UNKNOWN/AMBIGUOUS, assignment и cohesion matrices; 704 теста.",
+      "material_problem": "Общие аннотации и неоднозначное членство не подтверждают ответственность; регрессия требовала обновить версию экстрактора.",
+      "corrective_action": "Ограниченные сигналы, явная неопределённость и нераспределённость; однократное построение IAM/Graph; additive version проверена.",
+      "status": "IMPLEMENTED",
+      "scientific_relevance": "Discovery не создаёт targettruth или ARCHfindings; assignmentcoverage не accuracy",
+      "sources": [
+        "docs/architecture/DISCOVERY_VERIFICATION.md",
+        "docs/architecture/ARCHITECTURE_DISCOVERY.md"
+      ],
+      "source_sha256": {
+        "docs/architecture/DISCOVERY_VERIFICATION.md": "f9c040f29e86ed307840ee9a17a68a6eb2f5bdbfcc45300c8303822b23865d85",
+        "docs/architecture/ARCHITECTURE_DISCOVERY.md": "be541c831585f5071444d707ec6947a7f59ab045d49e061201cacfba66d58baa"
+      },
+      "source_status": "EXISTING_ALTERNATE_REPORTS_COALESCED_LINEAGE"
+    },
+    {
+      "stage": "P008",
+      "goal": "Graph-guided LLMcontext и semanticcontracts",
+      "result": "Три стратегии контекста, структурированные ARCH201–205, provider port, реальный адаптер и offline-проверки; 842 теста.",
+      "material_problem": "Tree-sitter 0.26 Point attribute getters возвращали borrowed references: повреждение координат и segmentation fault на большом файле.",
+      "corrective_action": "Распаковка Point как пары; регрессии координат свыше 256 и большого окна метода; потоковое чтение; версия зависимости сохранена.",
+      "status": "IMPLEMENTED_OFFLINE_FOUNDATION",
+      "scientific_relevance": "Не выдавать scriptedtestresults за реальную semanticquality",
+      "sources": [
+        "docs/verification/PROMPT_008.md",
+        "src/archguard/extraction/common.py",
+        "tests/intelligence/test_context.py"
+      ],
+      "source_sha256": {
+        "docs/verification/PROMPT_008.md": "40eba934ddf3b154114c1cb0d794dc05455f0f3fb97a9162d207e14f926d98f6",
+        "src/archguard/extraction/common.py": "fe560f9f3d30bde879dc0fec7562ea165ce877650173b43970eb02f1b54761ba",
+        "tests/intelligence/test_context.py": "d1389cede347edc863a7a8556a09e4e83b33dd891cf06b5c0b25e1cacb2bf11f"
+      },
+      "source_status": "EXISTING_STAGE_REPORTS"
+    },
+    {
+      "stage": "P009",
+      "goal": "Evidencefusion и Hybrid Decision foundation",
+      "result": "Типизированные случаи, признаки и происхождение, приоритет доказательств, REVIEW_REQUIRED/INSUFFICIENT_EVIDENCE; 912 тестов.",
+      "material_problem": "Сходство имён и выравнивание идентичности не означают смыслового согласия; отрицательное LLM-суждение не должно отменять доказательство.",
+      "corrective_action": "Точные субъекты, направления и containment; сохранение proof, ID и severity; confidence отсутствует у некалиброванной политики.",
+      "status": "IMPLEMENTED_OFFLINE_FOUNDATION",
+      "scientific_relevance": "Фиксирует приоритет доказанного forbiddenedge; ещёнеобученная fusionfoundation",
+      "sources": [
+        "docs/verification/PROMPT_009.md",
+        "docs/architecture/HYBRID_ENGINE.md"
+      ],
+      "source_sha256": {
+        "docs/verification/PROMPT_009.md": "2e8307dcf97161676d9c8371037a4b41d237dc4de0bfab74ffaa89be6d710e57",
+        "docs/architecture/HYBRID_ENGINE.md": "45d66db2f31a44739df1d2670695e95a43680c95f2c3bf750b41cdc1891d8554"
+      },
+      "source_status": "EXISTING_STAGE_REPORTS"
+    },
+    {
+      "stage": "P010",
+      "goal": "Benchmark/groundtruth/mutations/splits",
+      "result": "Первоначально 62 случая; затем 138 случаев, 18 семейств, 56 репозиториев; изолированные семейства TRAIN/VALIDATION/TEST; после расширения 1056 тестов.",
+      "material_problem": "Начальные holdout почти не покрывали графовые и семантические семейства; отсутствовал независимый семантический эталон.",
+      "corrective_action": "Расширение корпуса и проверка пригодности; labels отдельно от признаков; scripted assessments исключены; Full Hybrid остаётся NOT_READY.",
+      "status": "ENGINEERING_SEED_COMPLETE",
+      "scientific_relevance": "Engineeringdataset не финальное доказательство эффективности; не смешивать четырекоррелированныхварианта case",
+      "sources": [
+        "docs/verification/PROMPT_010.md",
+        "docs/verification/PROMPT_010_1.md"
+      ],
+      "source_sha256": {
+        "docs/verification/PROMPT_010.md": "a0b61803a67b01db29bb8e4a8457a43a3c9464bcaef999f5ddd7b7d2662c5711",
+        "docs/verification/PROMPT_010_1.md": "22ed776b79ae5f647bf874833b41eddf6b96ef4ac7434b4a2bf0e7ce62658d8d"
+      },
+      "source_status": "EXISTING_STAGE_REPORTS"
+    },
+    {
+      "stage": "P011",
+      "goal": "Структурная калибровка и leakageaudit",
+      "result": "Ridge/logistic machinery; идеальный tiny-TEST сохранён лишь как диагностика; исправленная V2 зафиксирована до свежего holdout; 1074 теста.",
+      "material_problem": "candidate_present воспроизводил threshold-derived эталон; прежний TEST потреблён post-hoc аудитом; V2 на TRAIN хуже прямого Graph.",
+      "corrective_action": "Удалены detector-decision признаки; preprocessing только TRAIN; прежний score признан superseded; потребован новый независимый holdout.",
+      "status": "CALIBRATION_MACHINERY_READY_OLD_RESULT_SUPERSEDED",
+      "scientific_relevance": "Ключевой отрицательный результат: MLaddedvalue не доказана; VALIDATIONV 2=Graph,TRAINV 2 FP 4 vs Graph FP 0",
+      "sources": [
+        "docs/verification/PROMPT_011.md",
+        "docs/verification/PROMPT_011_1.md",
+        "docs/research/FEATURE_LEAKAGE_AUDIT.md"
+      ],
+      "source_sha256": {
+        "docs/verification/PROMPT_011.md": "ec4ffd45391a550ba0c995d9dcaf985e36e4516cb98bfceefededb62928f3eb8",
+        "docs/verification/PROMPT_011_1.md": "923d7e11180d81c3b5931b77d5f0bd87c0af22008f61475b91e8c17896440a98",
+        "docs/research/FEATURE_LEAKAGE_AUDIT.md": "976cd254765d2729315109ed2550ebb4ae82c890d34ae02261d8eec774791a31"
+      },
+      "source_status": "EXISTING_STAGE_REPORTS"
+    },
+    {
+      "stage": "P012",
+      "goal": "OSSbenchmark и независимая annotationfoundation",
+      "result": "Восемь закреплённых OSS-проектов, по четыре Java/TS; 40 пакетов; лицензии и corpus freeze до анализа; 1080 тестов.",
+      "material_problem": "Все восемь проектов PARTIAL; unresolved references, syntax errors, пропущенные symlinks и ограничение betweenness; выборка непредставительна.",
+      "corrective_action": "Состояние PARTIAL сохранено; пакеты привязаны к исходникам; нет замены по качеству; разделены задачи и отсутствие target specification.",
+      "status": "OSS_ANNOTATION_SEED_FROZEN",
+      "scientific_relevance": "Реальный source сам по себе не является groundtruth",
+      "sources": [
+        "docs/verification/PROMPT_012.md"
+      ],
+      "source_sha256": {
+        "docs/verification/PROMPT_012.md": "e34107a573345a322d7e1dafa722ce11acc23c29e0ef22ce23529f55e76a8c87"
+      },
+      "source_status": "EXISTING_STAGE_REPORTS"
+    },
+    {
+      "stage": "P013",
+      "goal": "Независимый humanreview workflow",
+      "result": "Пустые A/B-пакеты, строгий приём, append-only исправления, конфликты, adjudication и freeze; 1113 тестов.",
+      "material_problem": "На исходном этапе нет фактических человеческих ответов; ограниченный контекст и самостоятельное подтверждение происхождения людьми.",
+      "corrective_action": "Остановка WAITING_FOR_HUMAN_REVIEW; не генерировать ответы; проверять lineage и evidence bounds; последующий human freeze учитывается отдельно.",
+      "status": "WORKFLOW_COMPLETE_HUMAN_REVIEW_LATER_FROZEN",
+      "scientific_relevance": "Техническая приёмка не доказывает humanidentity/semantictruth",
+      "sources": [
+        "docs/verification/PROMPT_013.md",
+        "docs/verification/PROMPT_014.md"
+      ],
+      "source_sha256": {
+        "docs/verification/PROMPT_013.md": "7b40b25e3481bf9364c1b696ff097d93f5beaba23b20f7bc115b1f872adc9e34",
+        "docs/verification/PROMPT_014.md": "cb1bc73be0113ed7abee53e28569e237df25d256503c0be330ada0c3a01df6b6"
+      },
+      "source_status": "EXISTING_STAGE_REPORTS"
+    },
+    {
+      "stage": "P014",
+      "goal": "Первое live сравнение3 semanticcontextstrategies",
+      "result": "40 OSS-вопросов × 3 стратегии: 120 принятых оценок, 121 вызов с connectivity, без retries; эталон 32 NEG/8 OOS/0 POS; 1194 теста.",
+      "material_problem": "Нет положительного класса; 90 контекстов содержат неполный INVALID_IAM; усечение 3/19/40; точный локальный tokenizer отсутствует.",
+      "corrective_action": "Recall/F1/FNR не определять; отдельно coverage, effective correctness и OOS; различать оценки токенов, reported usage и отсутствующий invoice.",
+      "status": "COMPLETE_NEGATIVE_OOS_ONLY",
+      "scientific_relevance": "Нельзя использоватьнулевыепозитивы как доказательствочувствительности; cohort не pool",
+      "sources": [
+        "docs/verification/PROMPT_014.md",
+        "docs/verification/PROMPT_014_COST_PREFLIGHT.md",
+        "docs/verification/PROMPT_014_PRE_LIVE_FREEZE.md"
+      ],
+      "source_sha256": {
+        "docs/verification/PROMPT_014.md": "cb1bc73be0113ed7abee53e28569e237df25d256503c0be330ada0c3a01df6b6",
+        "docs/verification/PROMPT_014_COST_PREFLIGHT.md": "0d181ce482fcae7ab8356f5913a18bccef751bc1faa454007dc70ff91fd34ab8",
+        "docs/verification/PROMPT_014_PRE_LIVE_FREEZE.md": "6ff64e61f37562abb03f174218a3a8f58a8207394b0d5efbb25a2a604914deab"
+      },
+      "source_status": "EXISTING_STAGE_REPORTS"
+    },
+    {
+      "stage": "P015",
+      "goal": "Prospectivesemanticholdout и humantruth",
+      "result": "100 случаев, 50 пар; 96 соглашений и четыре конфликта; κ=0.9266996518233461; итог 50 POS/46 NEG/3 UNC/1 OOS.",
+      "material_problem": "Неизвестный ID adjudicator вместо ожидаемого и неправильная evidence-связь; потерян пустой шаблон; затем .DS_Store нарушил точный инвентарь.",
+      "corrective_action": "Сохранить исходные байты; независимый третий человек; append-only уточнение самим человеком; точное восстановление blank; узкое удаление OS metadata.",
+      "status": "FINAL_HUMAN_GROUND_TRUTH_FROZEN",
+      "scientific_relevance": "Constructionintent не truth;4 nonbinarycontrolsretained; нативная компиляция недоступна",
+      "sources": [
+        "docs/verification/PROMPT_015.md",
+        "docs/verification/PROMPT_015_A.md",
+        "docs/verification/PROMPT_015_A_2.md",
+        "docs/verification/PROMPT_015_B.md",
+        "docs/verification/PROMPT_015_B_2.md",
+        "docs/verification/PROMPT_015_C.md",
+        "docs/verification/PROMPT_015_D.md",
+        "docs/verification/PROMPT_015_E_1.md",
+        "docs/verification/PROMPT_015_E_2.md",
+        "docs/verification/PROMPT_015_E_3.md",
+        "docs/verification/PROMPT_015_E_3_1.md",
+        "docs/verification/PROMPT_015_F.md"
+      ],
+      "source_sha256": {
+        "docs/verification/PROMPT_015.md": "ab594d8e917ff8a2e552dc766f9a60543cae86841f659be01d770bfbb45cc53e",
+        "docs/verification/PROMPT_015_A.md": "4c99d1fbb0809655254489c620858c647def835f623451d1ddc1e9375e2948b1",
+        "docs/verification/PROMPT_015_A_2.md": "7e5edcf1ea07bb935cf26db69e34d1ef58bc15c59e6dd3506f047303718a2e29",
+        "docs/verification/PROMPT_015_B.md": "e56a7a67dded2b56e19f9056968d5ddac483f70326049c0af4b127b10a48a120",
+        "docs/verification/PROMPT_015_B_2.md": "ad9ae8094f9a3ea5d22c51c1a0599dc52817eb131a1c3d4589ac36a1fc77db6b",
+        "docs/verification/PROMPT_015_C.md": "6f9ddd180f832ef0fa24e450372cad83869c3682c72c4a1173379b656a1e476f",
+        "docs/verification/PROMPT_015_D.md": "b18a1c6cd824027b5dabf374ff84735ac6d9b7f11c8bfdd9ba1d40cf458990c8",
+        "docs/verification/PROMPT_015_E_1.md": "30750efe21687cdbd63e781275a1211d8faaa9bff7976fac132a73201af7dfaa",
+        "docs/verification/PROMPT_015_E_2.md": "740749f9b7cec0a56c51e2a7ee2b72cb7f09ae2ee8cd8700841b09efedef412f",
+        "docs/verification/PROMPT_015_E_3.md": "9d798a5d568adb25e6fd65d8d787d62a64ed564c728c265c4cef2b1a25bd982f",
+        "docs/verification/PROMPT_015_E_3_1.md": "425758047cb727520b70d5b5acfd5a6fcdbe4e30f99ea75df32da446eb7ea819",
+        "docs/verification/PROMPT_015_F.md": "87ef03ba9785d06e751ea9d2448c9d4b9f530dbc204b8bf0aeee3fa97bef9c90"
+      },
+      "source_status": "EXISTING_STAGE_REPORTS"
+    },
+    {
+      "stage": "P016",
+      "goal": "Blindacquisition 100 cases×3 strategies",
+      "result": "Offline freeze, остановка на 106 принятых; затем заранее зафиксированное слепое восстановление; итог 300 принятых, 304 вызова, 303 captured responses; 1675 тестов.",
+      "material_problem": "Изначально неверный ID и ambiguity без capture; всего три schema failures и одна ambiguity; одна операция без usage.",
+      "corrective_action": "Поправка до truth join; три schema recovery и одна разрешённая blind replacement; принятые ответы неизменны; резерв USD 0.0042768; exactly-once remote processing не заявляется.",
+      "status": "AI_ASSESSMENT_LEDGER_FROZEN",
+      "scientific_relevance": "Recoverybeforetruth preservedblindness; originalinterruptionnoterased",
+      "sources": [
+        "docs/verification/PROMPT_016_OFFLINE.md",
+        "docs/verification/PROMPT_016_LIVE.md",
+        "docs/verification/PROMPT_016_LIVE_1.md"
+      ],
+      "source_sha256": {
+        "docs/verification/PROMPT_016_OFFLINE.md": "29eb8e3bd4a66a9248e39401d8b498acaa679bf5980aad4a1280c012b07a4c2d",
+        "docs/verification/PROMPT_016_LIVE.md": "45f8ce864420d17a5819a992035b23aa7c76ac4a81b143bb7e00dd0c4ea37073",
+        "docs/verification/PROMPT_016_LIVE_1.md": "d9346ca9785303433692443a3dcc9e75778e3015fa4501b29a0896ac7cd946cd"
+      },
+      "source_status": "EXISTING_STAGE_REPORTS"
+    },
+    {
+      "stage": "P017",
+      "goal": "Firstfrozensemanticevaluation",
+      "result": "N=96: LOCAL TP/FP/TN/FN=50/3/40/0 и три отрицательных воздержания; GRAPH=50/6/40/0; EXPANDED=50/4/42/0; 1692 теста.",
+      "material_problem": "Один cumulative usage GRAPH отсутствует; малые страты; графовый контекст имеет более низкие показатели качества.",
+      "corrective_action": "Основные ресурсные пары N=99, качество N=96; все четыре небинарных случая описаны отдельно; без изменения меток и статистической инференции.",
+      "status": "SEMANTIC_EFFECTIVENESS_RESULTS_FROZEN",
+      "scientific_relevance": "Input−52.700049596712%,cost−36.969541052674%;F 1−1.814223512337 pp;qualitypreservationunsupported",
+      "sources": [
+        "docs/verification/PROMPT_017.md"
+      ],
+      "source_sha256": {
+        "docs/verification/PROMPT_017.md": "0013c472015c1ce38f387b46968225ffec1cddc755db5e826f7aca9fa70a0a0b"
+      },
+      "source_status": "EXISTING_STAGE_REPORTS"
+    },
+    {
+      "stage": "P018",
+      "goal": "Postfreezeconstructionintentdiagnostic",
+      "result": "Все 50 мутаций подтверждены POS; 46 контролей NEG, три UNC, один OOS; полностью подтверждены 46 из 50 пар; 1723 теста.",
+      "material_problem": "Четыре контроля не подтверждены как бинарно отрицательные; объективный порог валидности конструкции не был задан.",
+      "corrective_action": "Сохранены все случаи, пары и категории; сообщать 92% подтверждения; не создавать фильтрованную замену F1 и не повторять предсказания.",
+      "status": "CONSTRUCTION_INTENT_DIAGNOSTIC_FROZEN",
+      "scientific_relevance": "Intentcheckedonlyпосле открытия эталона/AI/metricsfreeze,notusedasreference",
+      "sources": [
+        "docs/verification/PROMPT_018.md"
+      ],
+      "source_sha256": {
+        "docs/verification/PROMPT_018.md": "789549a43c0e384cac2ede0a10ecf3cd207a471af75cb21dc18adfa51a16769b"
+      },
+      "source_status": "EXISTING_STAGE_REPORTS"
+    },
+    {
+      "stage": "P019",
+      "goal": "Freshcomponentholdoutandbaselines",
+      "result": "180 новых случаев; Static native N=80 F1=1; Graph cycle N=20 F1=1; V2 N=80 TP40/FP6/TN34/FN0; evidence 100 семантических случаев; 1802 теста.",
+      "material_problem": "В 14 TypeScript случаях выравнивание выбирало PROPERTY, вызывая пропуск scalar features; старый TEST непригоден; javac/tsc недоступны.",
+      "corrective_action": "Исторические признаки, predictions и imputations сохранены; новый holdout имеет lifecycle ACCESSED; исправление после truth не выполнялось.",
+      "status": "COMPONENT_RESULT_REGISTRY_FROZEN",
+      "scientific_relevance": "No crosscohortwinner; collective V 2 featuresnotcausalranking",
+      "sources": [
+        "docs/verification/PROMPT_019.md"
+      ],
+      "source_sha256": {
+        "docs/verification/PROMPT_019.md": "2fe380e3d83d1499b5a2509f4f1600356764edeb75c751b562ad1701d4ac7a90"
+      },
+      "source_status": "EXISTING_STAGE_REPORTS"
+    },
+    {
+      "stage": "P020",
+      "goal": "Unifiedexperimentprospectivefoundation",
+      "result": "Alignment V2; DEVELOPMENT 280 проектов с разбиением 196/84; FINAL 300 новых случаев; 200 структурных эталонов, 100 human-пакетов; 480 новых запросов; 1953 теста.",
+      "material_problem": "Обратный импорт между слоями; структурные данные превысили allocation контекста; legacy ordering сохранял конструкционную смежность пар.",
+      "corrective_action": "Перенос AST-идентичных helpers; перспективное ограниченное перераспределение бюджета; независимо упорядоченный review-v2; исходные generation freezes сохранены.",
+      "status": "OFFLINE_PREPARED",
+      "scientific_relevance": "No DEV/FINALprojectoverlap; модели и протоколы зафиксированыbeforefinaltruth;knownmethodologyreuseexternalvaliditylimit",
+      "sources": [
+        "docs/verification/PROMPT_020_OFFLINE.md"
+      ],
+      "source_sha256": {
+        "docs/verification/PROMPT_020_OFFLINE.md": "8bc139fa315001896e851a39d523ac8c8a43ab1ab2d88d4962e931a7712a91cb"
+      },
+      "source_status": "EXISTING_STAGE_REPORTS"
+    },
+    {
+      "stage": "P021",
+      "goal": "Finalsemantichumanreviewintake",
+      "result": "Два потока по 100 финальных случаев; 50 POS/50 NEG, 100% соглашения, κ=1; конфликтов и adjudication нет; 2052 теста.",
+      "material_problem": "Отсутствовали frozen A schema/B template; ответы и .DS_Store попали в immutable handoff; старый CLI gate не допускал новые файлы этапа.",
+      "corrective_action": "Точное восстановление; копия raw до удаления дубликата; узкое metadata recovery; отдельные формальные acceptance freezes без изменения human content.",
+      "status": "FINAL_SEMANTIC_HUMAN_TRUTH_FROZEN",
+      "scientific_relevance": "No AIlabels; highagreementnotproofauthorship; finaltruthwithheldfromfit/executor",
+      "sources": [
+        "docs/verification/PROMPT_021_A.md",
+        "docs/verification/PROMPT_021_B.md"
+      ],
+      "source_sha256": {
+        "docs/verification/PROMPT_021_A.md": "90bb3c27c29518bffd0f4264c2464e4e62ec4064d361d0fea4412aff6a2ed18c",
+        "docs/verification/PROMPT_021_B.md": "7f4b60e249ab7e5356b03e4b87c0c2d02824956edc8fb7b4912140893e512414"
+      },
+      "source_status": "EXISTING_STAGE_REPORTS"
+    },
+    {
+      "stage": "P022",
+      "goal": "DEVstructural LLMacquisition",
+      "result": "180 запросов и 180 принятых с первой попытки; 499504 input и 72246 output tokens; оценка USD 0.0860734; 2096 тестов.",
+      "material_problem": "Schema/echo/ambiguity/cap отказы предусмотрены протоколом; фактический выполненный запуск их не имел.",
+      "corrective_action": "Закрытая область исполнения, durable intent и raw capture, Decimal budget; авторизация не распространяется на FINAL.",
+      "status": "DEVELOPMENT_LLM_LEDGER_FROZEN",
+      "scientific_relevance": "Adds 180 structuralto 100 reusedsemantic GRAPHrecordswithoutsemanticpaidrerun",
+      "sources": [
+        "docs/verification/PROMPT_022.md",
+        "docs/verification/PROMPT_022_LIVE.md"
+      ],
+      "source_sha256": {
+        "docs/verification/PROMPT_022.md": "8d20616c62206adcff17f7532ee8a7cfefd91e608003b3bc6a4ef8c43547dc6d",
+        "docs/verification/PROMPT_022_LIVE.md": "ab30615b2e7909675e370d41966adac2e00eb33479ae6c33f2562f11f86787ec"
+      },
+      "source_status": "EXISTING_STAGE_REPORTS"
+    },
+    {
+      "stage": "P023",
+      "goal": "TRAINfit/one VALIDATIONselection",
+      "result": "193 TRAIN и 83 VALIDATION бинарных случая; A4=H0, A5/A6=H2@0.5, A7=H2@0.75; без TRAIN+VALIDATION refit; 2149 тестов.",
+      "material_problem": "Полная проверка обнаружила обратную зависимость после freeze; повторный fit по validation изменил бы процедуру выбора.",
+      "corrective_action": "Helper перемещён без изменения байтов алгоритма; отдельный correction receipt; оба набора кандидатов обучены до однократного чтения validation; научного rerun нет.",
+      "status": "FULL_HYBRID_MODEL_FROZEN",
+      "scientific_relevance": "Thresholdgrid TRAINin-sample,not CV; selectedbefore FINAL; development A 7 F 1=1 не финальное доказательство",
+      "sources": [
+        "docs/verification/PROMPT_023.md"
+      ],
+      "source_sha256": {
+        "docs/verification/PROMPT_023.md": "65bd83ceff9cf73df1653302ea1e70482fb8e4ad0c9b1215b4f47ef6542776cc"
+      },
+      "source_status": "EXISTING_STAGE_REPORTS"
+    },
+    {
+      "stage": "P024",
+      "goal": "FINALblind LLMacquisition",
+      "result": "Сегменты 75/74, 170/169 и 55/55 вызовов/принятых; итог 300 физических вызовов, 298 принятых и два постоянных technical missing; 2262 теста.",
+      "material_problem": "Неверный request_id и ambiguity без capture; draft loader не проверял lock metadata при загрузке.",
+      "corrective_action": "Loader исправлен до approval; продолжение только ранее неисполненных запросов; оба отказа закреплены без retry или семантического заполнения; cap USD 3.85 сохранён.",
+      "status": "FINAL_ACQUISITION_FROZEN_WITH_TWO_MISSING",
+      "scientific_relevance": "Knownestimate USD.1424563;unknownreservation.0042768;usage 836148/117683;invoice NULL",
+      "sources": [
+        "docs/verification/PROMPT_024.md",
+        "docs/verification/PROMPT_024_LIVE.md",
+        "docs/verification/PROMPT_024_LIVE_1.md",
+        "docs/verification/PROMPT_024_LIVE_2.md"
+      ],
+      "source_sha256": {
+        "docs/verification/PROMPT_024.md": "4a3ff410f255880f1e69022f4e0ac78fb4d60aad7bd7aebf6846f7b5f23a58e7",
+        "docs/verification/PROMPT_024_LIVE.md": "0bf95217c64206cc1b955c499c9ae15c96dff328e502e5928093894c27d55b42",
+        "docs/verification/PROMPT_024_LIVE_1.md": "faad18082e439449f6c28be12ec27a3567d1c963029d37171cf85856add838d6",
+        "docs/verification/PROMPT_024_LIVE_2.md": "0353b01ed3ec83e7c46a4900cd211a1e366fd7c982625bcae1d91c5bce204495"
+      },
+      "source_status": "EXISTING_STAGE_REPORTS"
+    },
+    {
+      "stage": "P025",
+      "goal": "Truthblindpredictionfreezeandfirst FINALjoin",
+      "result": "Зафиксированы 7×300 предсказаний, затем truth 150 POS/150 NEG; A7 TP149/FP0/TN149/FN1, F1=0.9966555183946488; 2290 тестов.",
+      "material_problem": "Один ARCH104 Java FN, одно TypeScript отрицательное воздержание; два LLM technical missing; отдельные runtime/RSS не измерены.",
+      "corrective_action": "Все 300 основных строк сохранены; дополнительные native/available-only виды отделены; NOT_MEASURED явен; после truth нет fit, predict и tuning.",
+      "status": "FINAL_ARCHITECTURE_EVALUATION_COMPLETE",
+      "scientific_relevance": "Hypothesissupportedonlycontrolled N 300;RQ 2/RQ 6 partial;все абляционные/strata/pairedresultsfrozen",
+      "sources": [
+        "docs/verification/PROMPT_025.md",
+        "docs/verification/FINAL_ARCHITECTURE_EXPERIMENT.md"
+      ],
+      "source_sha256": {
+        "docs/verification/PROMPT_025.md": "441cb084e66d46bfa6943d6e45e571b9eac70e3bf27e0516a1b33a7065a11b46",
+        "docs/verification/FINAL_ARCHITECTURE_EXPERIMENT.md": "d7dbe96050bd7ec6a7ea6a30551e130eaa80907cf31d5104153f3d1b02e72e17"
+      },
+      "source_status": "EXISTING_STAGE_REPORTS"
+    },
+    {
+      "stage": "P026",
+      "goal": "Architecturecorescientificclosure",
+      "result": "Канонические scientific/claim/capability/rule/threat/reproducibility/numeric реестры; 16 утверждений без висячих связей; 2315 тестов, 85% coverage.",
+      "material_problem": "Исторические документы имеют разные readiness; конечный benchmark и отсутствующие измерения не позволяют расширить научные утверждения.",
+      "corrective_action": "Зафиксирован авторитетный реестр с областью действия и точными pins; две идентичные конструкции без новых предсказаний и пересчёта исходной науки.",
+      "status": "CORE_THESIS_COMPLETE_YES",
+      "scientific_relevance": "Closes Architecturehypothesis; doesnotclaimthesisprose/UI/Securitycompletionatthathistoricalpoint",
+      "sources": [
+        "docs/verification/PROMPT_026.md",
+        "docs/verification/THESIS_CORE_RESULTS.md",
+        "experiments/unified-hybrid/thesis-core-v1/scientific-registry.json"
+      ],
+      "source_sha256": {
+        "docs/verification/PROMPT_026.md": "434731fce3403d900fc29165fd934dcf30717a26448d3e8ba8535c761d74d1d3",
+        "docs/verification/THESIS_CORE_RESULTS.md": "7a8f4ffd8ebb646653d9db955715d90266dc1d26afdd051a7c1560d5b5c42bc7",
+        "experiments/unified-hybrid/thesis-core-v1/scientific-registry.json": "a349f40b1aa0fa22c88290d0519852694489c6cac2c98c9f0f9a34b0102a2df3"
+      },
+      "source_status": "EXISTING_STAGE_REPORTS"
+    },
+    {
+      "stage": "P027",
+      "goal": "Зафиксировать самостоятельный Security-контракт",
+      "result": "SEC001–SEC010, отдельные SecurityFinding/SecurityEvidence, интерфейсы и firewall; исполняемых детекторов ещё нет; 2390 тестов.",
+      "material_problem": "Исторически зарезервированные SEC-названия отличаются от нового контракта; старый worktree-тест не допускает незакоммиченные новые файлы.",
+      "corrective_action": "Явно установить версионированный каталог, сохранить историческую документацию; quality запускать на отдельном implementation commit без изменения старых тестов.",
+      "status": "SECURITY_FOUNDATION_COMPLETE",
+      "scientific_relevance": "Отделение ARCH/SEC закреплено до разработки детекторов.",
+      "sources": [
+        "docs/verification/PROMPT_027.md"
+      ],
+      "source_sha256": {
+        "docs/verification/PROMPT_027.md": "3a20f44d4e25ef130d53d69cf26851d2dec1d3dc0d4c8f12dc822429e434e9f9"
+      }
+    },
+    {
+      "stage": "P028",
+      "goal": "Реализовать локальный статический анализ и dataflow V1",
+      "result": "Ограниченные intraprocedural propagation/aliases/branch joins; 10 детекторов; SEC001 IMPLEMENTED_V1, остальные PARTIAL_V1; TS SEC005 CONTRACT_ONLY; 2532 теста.",
+      "material_problem": "Динамические поля, циклы, heap, frameworks и неизвестные вызовы не покрываются; выход за бюджет нельзя интерпретировать как безопасность.",
+      "corrective_action": "UNKNOWN/PARTIAL и FAILED отделены; sanitation rule-specific, новая taint её инвалидирует; вывод требует конкретных source/sink evidence.",
+      "status": "SECURITY_STATIC_DATAFLOW_V1_COMPLETE",
+      "scientific_relevance": "80 инертных fixtures проверяют инженерное поведение, но ещё не эмпирическую эффективность.",
+      "sources": [
+        "docs/verification/PROMPT_028.md"
+      ],
+      "source_sha256": {
+        "docs/verification/PROMPT_028.md": "e79bf243d1823116c8fc029255cff82bc8a06eadf7f25b94cfc7475e4370b1a3"
+      }
+    },
+    {
+      "stage": "P029",
+      "goal": "Добавить ограниченную межпроцедурность V2",
+      "result": "Body-backed summaries, локальные/import/static вызовы, object/field aliases, 17 framework packs и пять proof subsets; 2658 тестов.",
+      "material_problem": "Рекурсия, неоднозначный dispatch, неизвестные transforms и динамический heap не дают достоверного summary; normalize и shell=false не являются общей безопасностью.",
+      "corrective_action": "Ограничения глубины/узлов/heap, UNKNOWN при неоднозначности, concrete rule-scoped proofs и их инвалидирование; никакого whole-program claim.",
+      "status": "SECURITY_INTERPROCEDURAL_V2_COMPLETE",
+      "scientific_relevance": "Frozen V2 становится историческим baseline; 97 engineering fixtures не объявлены benchmark.",
+      "sources": [
+        "docs/verification/PROMPT_029.md"
+      ],
+      "source_sha256": {
+        "docs/verification/PROMPT_029.md": "7853424b55097c2d2926482f3c650794405c49d6116e1021ccf0409cfdc71631"
+      }
+    },
+    {
+      "stage": "P030",
+      "goal": "Подготовить проспективный Security benchmark",
+      "result": "300 мини-проектов: DEV100/FINAL200, Java150/TS150, 10 правил×30; 600 reviewer packets; metrics и split protocol; 3035 тестов.",
+      "material_problem": "Общие API/boilerplate сохраняют lexical similarity; семь из 1000 cross-split пар имеют Jaccard≥0.8; ordinary no-finding V2 не даёт полного отрицательного.",
+      "corrective_action": "Точные/нормализованные пересечения нулевые; similarity раскрыта, случаев не фильтровать по детектору; PARTIAL/POTENTIAL/UNSUPPORTED отделены; COMPLETE нужен для definitive negative.",
+      "status": "SECURITY_BENCHMARK_FOUNDATION_COMPLETE",
+      "scientific_relevance": "Замысел мутации не truth; метрики условные, recovery/coverage фиксированы до результатов.",
+      "sources": [
+        "docs/verification/PROMPT_030.md"
+      ],
+      "source_sha256": {
+        "docs/verification/PROMPT_030.md": "9c6eb76b896be3519f4a91f1b29625b209b850793ee623d7046e4126a16cb11b"
+      }
+    },
+    {
+      "stage": "P031",
+      "goal": "Принять независимую human review и заморозить truth",
+      "result": "A/B по300; 290 соглашений, 10 конфликтов; κ=0.9408913583165859; 10 human adjudications; итог122POS158NEG20UNC; 3113 тестов.",
+      "material_problem": "Исходно ответов нет; nested layout и лишние B-поля; A master отличается от per-case в288 rationale/300 evidence-note; exact provenance требовала уточнения.",
+      "corrective_action": "Механически восстановлены frozen routes и ровно6 научных полей; source values сохранены; master оставлен historical/non-authoritative; координатор подтвердил exact per-case sets; human-only adjudication.",
+      "status": "SECURITY_HUMAN_TRUTH_COMPLETE",
+      "scientific_relevance": "DEV37/52/11, FINAL85/106/9; никаких detector/intent labels; человеческое происхождение процедурное, не криптографическое.",
+      "sources": [
+        "docs/verification/PROMPT_031.md"
+      ],
+      "source_sha256": {
+        "docs/verification/PROMPT_031.md": "838e23b5431a006345d631edc3a34bde6c2f64862b1ddabeab515277e737af9c"
+      }
+    },
+    {
+      "stage": "P032",
+      "goal": "Оценить frozen V2 на DEV до refinement",
+      "result": "100 слепых DEV predictions, затем truth join; TP7/FP0/TN0/FN0, recovery7/37, binary coverage7/89; 3127 passed/18 guarded skips.",
+      "material_problem": "Conditional P/R/F1=1 при30 positive nondefinitive и52 negative nondefinitive может вводить в заблуждение; historical tests пытались открыть protected stores; coverage bootstrap notice.",
+      "corrective_action": "P030 semantics неизменны; companions и знаменатели явны; skip-before-open guard, credential-free environment; raw outputs freeze до DEV truth; notice раскрыт.",
+      "status": "SECURITY_DEV_EVALUATION_COMPLETE",
+      "scientific_relevance": "Первый человеческий DEV baseline; application capability fence, OS isolation не заявлена; FINAL закрыт.",
+      "sources": [
+        "docs/verification/PROMPT_032.md"
+      ],
+      "source_sha256": {
+        "docs/verification/PROMPT_032.md": "d92ab3add89cc00628df35b25f2faae4e82242cdf0975ebddaddb7c95e8b074e"
+      }
+    },
+    {
+      "stage": "P033",
+      "goal": "Выполнить обобщённое DEV-guided refinement V3",
+      "result": "Две кандидатные версии и replay выбранной; выбран iteration-004: TP21/FP0, recovery21/37, coverage21/89; 3185 passed/18 guarded skips.",
+      "material_problem": "Первый кандидат TP20/FP1 из-за потерянного Path.of confinement fact; неясные calls/flow; ни один DEV negative не сертифицирован; old worktree gate остановил quality.",
+      "corrective_action": "Generic API/flow/proof corrections, не case-specific branches; ограниченный COMPLETE grammar TS SEC008; сохранить обе версии; implementation commit перед quality rerun.",
+      "status": "SECURITY_DEV_REFINEMENT_COMPLETE_CANDIDATE_FROZEN",
+      "scientific_relevance": "DEV использован для разработки; +37.8378pp recovery не является blind FINAL improvement; zero definitive negatives.",
+      "sources": [
+        "docs/verification/PROMPT_033.md"
+      ],
+      "source_sha256": {
+        "docs/verification/PROMPT_033.md": "c2eb016c282bb7155e182fee8982e702a2c2820f4aa4bb04196aaf74da447ec4"
+      }
+    },
+    {
+      "stage": "P034",
+      "goal": "Один раз получить FINAL predictions с OS-изоляцией",
+      "result": "Seatbelt deny-default плюс application fence; один worker/200 случаев, 41 definitive positive,0 definitive negative,137 PARTIAL,12 POTENTIAL,10 UNSUPPORTED; 3234 passed/24 skips.",
+      "material_problem": "Synthetic preflight не запускал dyld без literal root-directory read; один fixture не содержал полный receipt; full quality прерван пользователем на48%; host-specific custody.",
+      "corrective_action": "До benchmark исправлены profile и synthetic fixture; только directory entry / без descendants; восемь harmless sentinels запрещены; полный gate повторён; owner-readonly ограничения раскрыты.",
+      "status": "SECURITY_FINAL_BLIND_PREDICTION_COMPLETE",
+      "scientific_relevance": "Truth reads до freeze=0; writer закрыт; outcomes ещё не correctness; kernel-policy host boundary, не защита от privileged owner.",
+      "sources": [
+        "docs/verification/PROMPT_034.md"
+      ],
+      "source_sha256": {
+        "docs/verification/PROMPT_034.md": "df5cd05a0b75802018e8cf8a673865eaebdd71e6248c3c303f577699efa60dbe"
+      }
+    },
+    {
+      "stage": "P035",
+      "goal": "Открыть truth после freeze и оценить held-out FINAL",
+      "result": "N200/binary191; TP38/FP3/TN0/FN0; recovery38/85,coverage41/191,precision38/41; 3278 passed/28 skips,81% coverage.",
+      "material_problem": "47 positive и103 negative nondefinitive,0 definitive negatives; все3FP SEC001; shutdown audit-hook diagnostic; новый test basename collision остановил collection.",
+      "corrective_action": "Без tuning/rerun сохранить всю невыгодную статистику; finally очистить профиль без научного пересчёта; переименовать только новый тест и повторить quality; module-not-measured раскрыт.",
+      "status": "SECURITY_FINAL_EVALUATION_COMPLETE",
+      "scientific_relevance": "Recovery FINAL ниже DEV на12.0508744pp; нет P029 blind FINAL baseline; conditional FN0 не означает отсутствие пропусков.",
+      "sources": [
+        "docs/verification/PROMPT_035.md"
+      ],
+      "source_sha256": {
+        "docs/verification/PROMPT_035.md": "2771bc19013ece0ca9cc514c56e18215666b355d5dad945e01e4155381afbb89"
+      }
+    },
+    {
+      "stage": "P036",
+      "goal": "Закрыть bounded Security research extension",
+      "result": "Frozen scientific/claims/capability/limitations/reproducibility/custody registries; complete в ограниченной области; 3337 passed/29 skips,64% coverage.",
+      "material_problem": "Неверный public Architecture path при подготовке; private quality parser неверно разобрал TOTAL columns, freeze остановился до записи; coverage warning.",
+      "corrective_action": "Исправить только подготовку/парсинг и последовательность receipts; успешный full gate не повторять; сохранить warning и исторические несовершенства; source/candidate/metrics не менять.",
+      "status": "SECURITY_EXTENSION_COMPLETE_BOUNDED_RESEARCH",
+      "scientific_relevance": "Production readiness/soundness не заявлены, natural-prevalence generalization не установлена; original truth reads/analyzer reruns0.",
+      "sources": [
+        "docs/verification/PROMPT_036.md"
+      ],
+      "source_sha256": {
+        "docs/verification/PROMPT_036.md": "62e81a5bfa2b04dc1ff00aaa623eabe54dd08c866ee2c18df9799e693199f227"
+      }
+    }
+  ],
+  "review_record": "29 available dedicated reports PROMPT_008–036; early P001–007 reconstructed from existing alternative verification, ADR and consolidated Git history; absent reports are not claimed read",
+  "architecture_artifacts": {
+    "experiments/unified-hybrid/p025-final-results-v1/final-truth-counts.json": {
+      "fingerprint": "47f7491b7b4a1abe409cafd7f864b13228c5a455259d107c035fc20b2d914788",
+      "sha256": "575f017228d30b5d9766b5e8df6400675e7666800c79a20362fb16a59b242d00"
+    },
+    "experiments/unified-hybrid/p025-final-results-v1/prior-context-efficiency.json": {
+      "fingerprint": "84dbfa2f8dae7ff903f6fe820e08e687343f4df4950e0efb03dc11ef547d1ba6",
+      "sha256": "987d73ac0b03a1449f284c1261e186745d366794dc193cc7faabd473eb7d8e6a"
+    },
+    "experiments/unified-hybrid/p025-final-results-v1/final-language-strata.json": {
+      "fingerprint": "1836a63b276db458a365570eea473a3a95ba1974ae3fff065ea3f6caf8236795",
+      "sha256": "9c8f83a8edf6770e4db3e8fdc5ededae0a98f922175e9192f1c74764007918cf"
+    },
+    "experiments/unified-hybrid/p025-final-results-v1/final-hypothesis.json": {
+      "fingerprint": "43911be7b9ab087cad58158abef19b30e3d4e3a1965b4150bd839a1e23c6a053",
+      "sha256": "f07f9c7d72cb74e636e28d859740e9369797f4dd8f026cec3aba4c528a7026bb"
+    },
+    "experiments/unified-hybrid/p025-final-results-v1/final-paired-comparisons.json": {
+      "fingerprint": "9c896e89f268eab905caa9c3ce1b64284d2f0e5901fcc7c9610efcb164cbeb7c",
+      "sha256": "6c3fb30921c2f06c0715191eeb8b759d02e8450de2ba3fe5ba8033943d4541a9"
+    },
+    "experiments/unified-hybrid/p025-final-results-v1/evaluation-receipt.json": {
+      "fingerprint": "fe510b5bca86b48197c53cc37d219543fe427c0e0379116d5d4ebb5e3ee502f6",
+      "sha256": "2d61d453903e56b22143ba74711ba3eb7e78b905108cf29f733fe9b392dabdde"
+    },
+    "experiments/unified-hybrid/p025-final-results-v1/final-family-strata.json": {
+      "fingerprint": "520fce8aa2af38602406158bb16f170d7711102a1b221e06d67a9b03bb94a2e2",
+      "sha256": "c694ccd4564ff2993e5941febe66df02313c6f0f4ed521968076ea8365650e35"
+    },
+    "experiments/unified-hybrid/p025-final-results-v1/final-native-scope-metrics.json": {
+      "fingerprint": "fc48e613ce28811ce9ff6e85dd78bc7949ebf308c75419801fffeaeab882d604",
+      "sha256": "250d9baab190a565a25a75dabec04ddbde13fa0a805695c75f509ade0ce5aa7d"
+    },
+    "experiments/unified-hybrid/p025-final-results-v1/final-rq-summary.json": {
+      "fingerprint": "402d603c6848d5c6866375ae2b919173cc127d2a2c3c15164372630181bcfb2d",
+      "sha256": "3f231881623369cae45736e444e33d39789ced99b070eae7deccdb4cf4d0d303"
+    },
+    "experiments/unified-hybrid/p025-final-results-v1/final-ablation.json": {
+      "fingerprint": "c68adf9b16375a85812308bc8efc403d238c8d105544d5e20cabd8252ab9c2a2",
+      "sha256": "21d1db1b5ecef1dd3f4b65c062bbdb50359760bbe4cf5cd40e327893b337fe6a"
+    },
+    "experiments/unified-hybrid/p025-final-results-v1/final-rule-strata.json": {
+      "fingerprint": "46cd755a9943e48c84794c9e2beaede45ffb201c14f6abd5d0d895350342d073",
+      "sha256": "88431a42c52d754d724a64eae0e2d70137aa294391302acb1ef4cf956407ecb0"
+    },
+    "experiments/unified-hybrid/p025-final-results-v1/final-coverage-metrics.json": {
+      "fingerprint": "ceea3dea28a10596aa84530d033bbabfe1b576dd397a16a17b07a13c24b0b1e1",
+      "sha256": "14eff5848963f57bbbd59ac01ee7a952f94893000f7bee315b3296c3c3212efb"
+    },
+    "experiments/unified-hybrid/p025-final-results-v1/final-resource-metrics.json": {
+      "fingerprint": "870efc24437b19790073e0986c899c4ae09329085dbe5b84f4af4736c170c6d9",
+      "sha256": "86062117e9a5820d87d1575a4d7f58d26cced315058c239468cba32dfb2d1892"
+    },
+    "experiments/unified-hybrid/p025-final-results-v1/final-primary-metrics.json": {
+      "fingerprint": "f98709ce55c6ed64200052a69612480cb3593e1ea6f82592b2f6ca69278f959e",
+      "sha256": "26431ec29dd438dc13acbc66a2e5027ce3145d28bf3d0394c533e5575ffa3dbb"
+    },
+    "experiments/unified-hybrid/thesis-core-v1/capability-registry.json": {
+      "fingerprint": "62b8ea39dd3a67484efb8452348f7ecc16d19ce03ea033dc5adaa5c431770666",
+      "sha256": "665889003b64181f27b75ea41c4698d94ccdc7908f709888e3ad743ca32da080"
+    },
+    "experiments/unified-hybrid/thesis-core-v1/threats-registry.json": {
+      "fingerprint": "1c185837a3d0266a7550a69f04ce70fd248c9463a7eeef1b110dc235888a5c3f",
+      "sha256": "9162668eaf2467d79e0662f7aa25173c40713359978fc0dea9454547d37985b3"
+    },
+    "experiments/unified-hybrid/thesis-core-v1/reproducibility-registry.json": {
+      "fingerprint": "b7d9212dd238697a541e2eade19e479e9e84d132e882ee720ed550bc2d2316a8",
+      "sha256": "026abee3f528f3b0f16f783cd7fa42052e107a2495e7bf1735bc24a70faf4a7b"
+    },
+    "experiments/unified-hybrid/thesis-core-v1/numeric-facts.json": {
+      "fingerprint": "4ae2451806b1d1c8142aab36a05c1961ad47fce17be0b76a1094c9b20000237e",
+      "sha256": "54fbd6e84228e9c472886f39cef00b567fb2a5974558c779218aef38cf6e516f"
+    },
+    "experiments/unified-hybrid/thesis-core-v1/lineage-registry.json": {
+      "fingerprint": "cdbcb29b75199cbeaacf26978ff5c184cb58083de008930167e6c3e21f349b5c",
+      "sha256": "fb7fd8eb3c23cbee0720c2278b7c5316cfd1f6ca89e139aaca3e7489a473f4f9"
+    },
+    "experiments/unified-hybrid/thesis-core-v1/quality-verification.json": {
+      "fingerprint": "14ea8d662087b3abadd51d2113b9f09c5b24ce7b3079df88662cca251713f3c5",
+      "sha256": "44b505c2a81baf6fe50112ed50457d79b427ae15d71230f4cc8b6fa14492012a"
+    },
+    "experiments/unified-hybrid/thesis-core-v1/claim-registry.json": {
+      "fingerprint": "e1efe0a9ab675b648cc303d1ec6a4b68148a6d467828d866511f390406440622",
+      "sha256": "558d99f5baa144ba798ddc7bb3f6a82084f7d15cfe48330a3989cbfc399fa034"
+    },
+    "experiments/unified-hybrid/thesis-core-v1/rule-coverage.json": {
+      "fingerprint": "e665a944eec98984f797f26528cffab2712992c529d6ef15d5939e3684281389",
+      "sha256": "2ef50fe47d25ef9121aa49d004efcfdd13b9ca6ec74d0e45bd56f8a242b3a6cd"
+    },
+    "experiments/unified-hybrid/thesis-core-v1/scientific-registry.json": {
+      "fingerprint": "53420d0aa167ebb99814adb498f3b84597b096f73fe1f77c5c467dc7882a8db1",
+      "sha256": "a349f40b1aa0fa22c88290d0519852694489c6cac2c98c9f0f9a34b0102a2df3"
+    },
+    "experiments/unified-hybrid/thesis-core-v1/closure-manifest.json": {
+      "fingerprint": "69e17bfe8d573b580ff40099eece74f18dbc90d3be24e5e0077842d55fc97b26",
+      "sha256": "19eebe176d3c6e73bef6f237b2f72708a15e80c54775bf583f3e67ab5aef006f"
+    },
+    "experiments/unified-hybrid/thesis-core-v1/thesis-results.json": {
+      "fingerprint": "dbb025be40c59bb137971d4f1b2f847f7f8f88ce647f56591bdfc111be8a90c1",
+      "sha256": "86fe2d7f31e54eec9d9707bfbd183a56259c4419719d5a82cefc0f6f11c0a813"
+    }
+  },
+  "scientific_claim_map": "docs/thesis/internal/architecture-evidence.json: claims, primary, coverage, strata, ablations, paired, resources, rq_answers, implementation_limits, discrepancies",
+  "security_artifacts": {
+    "experiments/security/security-extension-v1/public/freeze-index.json": "89bf0291a2e281953b74c1e2299035950b3077d450a4f196ee554d6e616212d7",
+    "experiments/security/security-extension-v1/public/quality-verification.json": "118f5e758e464a627470465ebe2343d2fcc990b07c7ec24543235a04916b33c2",
+    "experiments/security/security-extension-v1/public/security-closure-inputs.json": "8431ddfb376f7130219770f221864ea42b7c320b8155d81c953a24a0db609450",
+    "experiments/security/security-extension-v1/public/security-experiment-summary.json": "55a05f0c951523163ac9ed31eef79bb80b7a21445dad86a1e5644c2257429c65",
+    "experiments/security/security-extension-v1/public/security-extension-closure.json": "d0fec941ec76498279aa501c0d5c8801f41cb5eeabad310056545e8939295c93",
+    "experiments/security/security-extension-v1/public/security-extension-final.json": "ba108668b101d5f416a9d7e4f7c197e562b65d82c7cdd1cfc94b4685247c0888",
+    "experiments/security/security-extension-v1/public/security-final-capability-matrix.json": "45c0cd73df6e68818ee4964e688059ea5ed0a408100d601683e5d0f433341d6b",
+    "experiments/security/security-extension-v1/public/security-history-receipt.json": "543915d6909f4076cb7fd79e67326efa39cba2652b1eba43114846a2d4a488d5",
+    "experiments/security/security-extension-v1/public/security-limitations.json": "f033bf6ed20091140fa7f499549824c47102655318fa8c14021ca9d86eb842ba",
+    "experiments/security/security-extension-v1/public/security-privacy-custody-receipt.json": "1e90a12a5d02319b768ef3559ab08db240257b6fce09755ffe528f1268de11f7",
+    "experiments/security/security-extension-v1/public/security-reproducibility-manifest.json": "0f39a43c22a5033d703e3428cd588db1ebd200b536989b9b5755d939d185b99d",
+    "experiments/security/security-extension-v1/public/security-resource-summary.json": "8a65d48fe01f811e614992d2e272e25ef1aa907a5e3b3ed4a7256e53907cb1d0",
+    "experiments/security/security-extension-v1/public/security-rule-catalog.json": "4d9aa0ecd590aea31f177ca6bc4d0082f21a9fe25725141fc8f70580fe3ebd85",
+    "experiments/security/security-extension-v1/public/security-scientific-claims.json": "3507a673dfd92e0fa224a09edd60e2b98097e12dd6d163995e52cf13ecd4e356",
+    "experiments/security/security-extension-v1/public/security-scientific-registry.json": "820298790daa8daf39c7144704e9f326146a3081febdc76d6e2166cd6329599b",
+    "experiments/security/security-extension-v1/public/security-scientific-status.json": "97be54be4fcea0a183f17f9d5bef9b8aecc7ada883d3758bb7f2f9755aee373f"
+  },
+  "chapter_map": {
+    "01_introduction": "RESEARCH_SPECIFICATION and frozen closure scope",
+    "02_chapter1": "references.json and source-ledger.csv; external primary literature",
+    "03_chapter2": "architecture-evidence claims, actual contracts and hybrid implementation",
+    "04_chapter3": "architecture-evidence implementation_limits and verified source contracts",
+    "05_chapter4": "p025-final-results-v1 frozen public aggregates and P026 closure",
+    "06_chapter5": "security public protocols, prospective human review, DEV and frozen FINAL aggregates",
+    "07_chapter6": "P036 quality receipt, validity, custody and bounded implementation",
+    "08_conclusion": "qualified answers to original tasks; no stronger claims than frozen results"
+  },
+  "manuscript_sha256": {
+    "docs/thesis/source/00_frontmatter.md": "ba3cdd66a2fd9c6f6c310fb5db6a278431eb7ac59eaa4d33c70fdb2d81c4a17a",
+    "docs/thesis/source/01_introduction.md": "0446db4ab9341ffdc5031fa521abb59e3e888bb154f6a7896d11f348a1e23ca6",
+    "docs/thesis/source/02_chapter1.md": "88c9ef2c4b4e4ef3a5983f96d27de19c7588600224a3e66c2e3cb3afaaada504",
+    "docs/thesis/source/03_chapter2.md": "caba286830e7e9dea5e09420d92f6bdce4ef9daaead209f6663b87e4ce2b0efb",
+    "docs/thesis/source/04_chapter3.md": "de1c730a04cac8e668203e7a198b305da377f98aee911faa6985220d6e40f659",
+    "docs/thesis/source/05_chapter4.md": "8e83e795361549ae8aebaadace6a5e88862b4417fb7fdc80b46cd75bb722aea9",
+    "docs/thesis/source/06_chapter5.md": "0ec74e10939a4d4366805f50531727546766cabe183722e2e009b5089f3620f6",
+    "docs/thesis/source/07_chapter6.md": "2b4b08fe2723ca8b0a38bf81512f290137fdcd5de6463b7d04f7a355a99123c1",
+    "docs/thesis/source/08_conclusion.md": "4ff2357ac299e9e4cfd6d0d626cfc682b879747fea5b123a8d02c1929254be78",
+    "docs/thesis/source/appendices/01_arch_rules.md": "5fef44112103eac62f0bfd0fbfb1b2a2e5eef3ed9cdf67fc0dea6c868be4516f",
+    "docs/thesis/source/appendices/02_protocol.md": "506d4f03abce79f0e5f3681d3a02c9f742ef3bc9bbd144970e33d7daa5cae502",
+    "docs/thesis/source/appendices/03_ablations.md": "8526c9ccfec54abad16007069ae52056f1be1a6d8fac0c3ae498a6564d40af52",
+    "docs/thesis/source/appendices/04_arch_details.md": "7a06a5cc55d083592095bf8e3b46645e5e7a1902ca564cba68cb8826051083a7",
+    "docs/thesis/source/appendices/05_security_capabilities.md": "9c9bc17ce9ce020fe80cce96ea6dc09c662d93b42921f40cb214c933690eae6c",
+    "docs/thesis/source/appendices/06_security_results.md": "591ba291f21cad4350da3aa2b6a11ffc032429eff445f6305d35559062352132",
+    "docs/thesis/source/appendices/07_reproducibility.md": "cb62749d3161502fcc397b6fecf40a79aef127065579072220f84c90ee56802c",
+    "docs/thesis/source/appendices/08_chronology.md": "a60e0092ab069add64b6db9dcf08a278cf032b5426d04c02b9e526a8bac3e89f",
+    "docs/thesis/source/appendices/09_problems.md": "a7bae7558ef17fb5ffb070d02e3dbc00e4fda8cc5d1772a111436ea043f2fd74",
+    "docs/thesis/source/appendices/10_future.md": "d740a48fd4637443dbedd0a77e6c578d8f594c0e8ecd6b0d8d9a39ab025d0fab"
+  },
+  "authoring_invariants": {
+    "architecture_benchmark_executions": 0,
+    "security_benchmark_executions": 0,
+    "scientific_provider_calls": 0,
+    "truth_mutations": 0,
+    "private_case_level_reads": 0,
+    "production_changes": 0,
+    "ui_implementation": 0,
+    "p034_final_analyzer_executions": 0,
+    "post_final_tuning": 0,
+    "frozen_public_pins_checked": 41,
+    "frozen_public_pin_mismatches": 0
+  },
+  "final_artifact_sha256": "71e83609e42e0592a5cd19a5b148799d5ba407fe6cdc2bd4771cb1c0b4202169"
+}

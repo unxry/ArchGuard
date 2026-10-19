@@ -1,0 +1,371 @@
+{
+  "review_type": "Independent full main-manuscript editorial second pass",
+  "review_date": "2026-10-16",
+  "reviewer_role": "university_norms; independent of Architecture chapters3–5 primary author",
+  "scope": "Eight main source files01–08; preserve exact frozen scientific values, privacy and bibliography keys",
+  "public_only": true,
+  "private_case_reads": 0,
+  "experiment_runs": 0,
+  "scientific_code_changes": 0,
+  "rendering_performed": false,
+  "findings_policy": "Только точные малые изменения текста и ссылок; научные отрицательные/частичные результаты не удалялись. Владелец архитектурных глав исправляет предметный дефект без одновременной правки другим агентом.",
+  "files": [
+    {
+      "file": "docs/thesis/source/01_introduction.md",
+      "read_completely": true,
+      "read_method": "Полное последовательное чтение текста; длинные файлы прочитаны диапазонами с восстановлением обрезанных участков.",
+      "sha256_after_review": "0446db4ab9341ffdc5031fa521abb59e3e888bb154f6a7896d11f348a1e23ca6",
+      "words_whitespace": 1257,
+      "findings": [
+        {
+          "severity": "INFO",
+          "location": "Введение, постановка и задачи",
+          "finding": "Цель, восемь задач, гипотеза и шесть вопросов согласуются с заключением; Security и продуктовая готовность отделены.",
+          "fix_status": "NO_CHANGE_NEEDED"
+        },
+        {
+          "severity": "LOW",
+          "location": "Введение, объект исследования",
+          "finding": "Первоначальная авторская формулировка объекта отличалась от frozen RESEARCH_SPECIFICATION.",
+          "fix_status": "FIXED_BY_OWNER_WITH_ROOT_AUTHORIZATION",
+          "owner": "architecture_evidence",
+          "change": "Объект заменён точной frozen формулировкой процесса контроля; предмет и остальные абзацы не изменены.",
+          "evidence": "docs/research/RESEARCH_SPECIFICATION.md#Объект исследования"
+        }
+      ],
+      "citation_keys": [
+        "archguard",
+        "garlan1994",
+        "liu2024lostmiddle",
+        "murphy1995",
+        "nielson1999"
+      ],
+      "markers": {
+        "count": 0,
+        "unreferenced": []
+      }
+    },
+    {
+      "file": "docs/thesis/source/02_chapter1.md",
+      "read_completely": true,
+      "read_method": "Полное последовательное чтение текста; длинные файлы прочитаны диапазонами с восстановлением обрезанных участков.",
+      "sha256_after_review": "01e5eaef1c4392d71f8e6058c2b4d1130355fa4f0d7757da528d341007501b8d",
+      "words_whitespace": 3577,
+      "findings": [
+        {
+          "severity": "INFO",
+          "location": "§1.3–1.8",
+          "finding": "Теоретические гарантии IFDS/абстрактной интерпретации не приписаны прототипу; обзор сравнивает документированные возможности без вымышленной оценки точности конкурентов.",
+          "fix_status": "NO_CHANGE_NEEDED"
+        },
+        {
+          "severity": "LOW",
+          "location": "§1.6 и выводы по главе",
+          "finding": "Повторение ограничений LLM и охвата имеет разные функции: теория оценки и вывод требований. Признаков количественного padding не выявлено.",
+          "fix_status": "RETAINED_JUSTIFIED_REPETITION"
+        }
+      ],
+      "citation_keys": [
+        "aldrich2002archjava",
+        "ali2017consistency",
+        "archunit-docs",
+        "arzt2014flowdroid",
+        "chen2021",
+        "codeql-docs",
+        "cousot1977",
+        "desilva2012",
+        "ducasse2009",
+        "elyaniv2010",
+        "feng2020codebert",
+        "ferrante1987",
+        "garlan1994",
+        "geifman2017",
+        "grove2001callgraph",
+        "guo2021graphcodebert",
+        "hagberg2008",
+        "iris2025",
+        "jimenez2024swebench",
+        "jqassistant-docs",
+        "kaufman2012leakage",
+        "lewis2020rag",
+        "li2022erosion",
+        "li2024llmdfa",
+        "lipton2014f1",
+        "lipton2018scholarship",
+        "liu2024lostmiddle",
+        "llift2023",
+        "meyes2019ablation",
+        "murphy1995",
+        "nielson1999",
+        "reps1995",
+        "saito2015",
+        "sangal2005",
+        "semgrep-docs",
+        "sonargraph-docs",
+        "tarjan1972",
+        "terra2009",
+        "treesitter-docs",
+        "vitale2026",
+        "wu2024repoformer",
+        "yamaguchi2014",
+        "yang2024sweagent",
+        "zhang2023repocoder"
+      ],
+      "markers": {
+        "count": 1,
+        "unreferenced": []
+      }
+    },
+    {
+      "file": "docs/thesis/source/03_chapter2.md",
+      "read_completely": true,
+      "read_method": "Полное последовательное чтение текста; длинные файлы прочитаны диапазонами с восстановлением обрезанных участков.",
+      "sha256_after_review": "44f4b4a1db8a30831d519ab494555bfee5e0989bd4e638680912481d2b1234b5",
+      "words_whitespace": 3050,
+      "findings": [
+        {
+          "severity": "INFO",
+          "location": "§2.7",
+          "finding": "Формула логистической потери и отсутствие штрафа intercept сверены с src/archguard/calibration/numeric.py; TRAIN in-sample подбор не назван кросс-валидацией.",
+          "fix_status": "NO_CHANGE_NEEDED"
+        },
+        {
+          "severity": "INFO",
+          "location": "§2.2–2.8",
+          "finding": "Консервативное разрешение, направления зависимостей, determinism и native scope не выданы за whole-program completeness.",
+          "fix_status": "NO_CHANGE_NEEDED"
+        }
+      ],
+      "citation_keys": [
+        "archguard",
+        "murphy1995",
+        "tarjan1972",
+        "terra2009"
+      ],
+      "markers": {
+        "count": 9,
+        "unreferenced": []
+      }
+    },
+    {
+      "file": "docs/thesis/source/04_chapter3.md",
+      "read_completely": true,
+      "read_method": "Полное последовательное чтение текста; длинные файлы прочитаны диапазонами с восстановлением обрезанных участков.",
+      "sha256_after_review": "de1c730a04cac8e668203e7a198b305da377f98aee911faa6985220d6e40f659",
+      "words_whitespace": 3045,
+      "findings": [
+        {
+          "severity": "HIGH",
+          "location": "§3.2, абзац о общей схеме Finding",
+          "finding": "Фраза подразумевала общий Finding и SEC LLM_RESULT; фактически реализованы отдельные SecurityFinding/SecurityEvidence, Security не выполняет LLM.",
+          "evidence": [
+            "src/archguard/security/domain.py:131",
+            "src/archguard/security/domain.py:200",
+            "docs/verification/PROMPT_027.md"
+          ],
+          "fix_status": "FIXED_BY_OWNER",
+          "owner": "architecture_evidence",
+          "change": "Явно разделены архитектурные Finding/Evidence/Trace и SecurityFinding/SecurityEvidence; общими названы базовые идентификаторы и координаты; нет утверждения о SEC LLM execution."
+        },
+        {
+          "severity": "INFO",
+          "location": "§3.4 и §3.7",
+          "finding": "ORM, миграции, analysis endpoints, queue, frontend и jobs явно не объявлены завершенными; исследовательские subprocess отличаются от промышленной очереди.",
+          "fix_status": "NO_CHANGE_NEEDED"
+        }
+      ],
+      "citation_keys": [
+        "archguard",
+        "kaufman2012leakage",
+        "networkx-docs",
+        "pytreesitter-docs",
+        "treesitter-docs"
+      ],
+      "markers": {
+        "count": 4,
+        "unreferenced": []
+      }
+    },
+    {
+      "file": "docs/thesis/source/05_chapter4.md",
+      "read_completely": true,
+      "read_method": "Полное последовательное чтение текста; длинные файлы прочитаны диапазонами с восстановлением обрезанных участков.",
+      "sha256_after_review": "8e704b9fb4b82bfd08023f8ee86c64f3d80162a2748cedf627bd695147d7734c",
+      "words_whitespace": 4305,
+      "findings": [
+        {
+          "severity": "INFO",
+          "location": "§4.5–4.7",
+          "finding": "Architecture FN включает любой необнаруженный положительный, отрицательные неопределенные вне TN; это отличается от условной матрицы Security и явно пояснено. A7=149TP/0FP/149TN/1FN плюс1отрицательное воздержание согласуется с артефактами.",
+          "fix_status": "NO_CHANGE_NEEDED"
+        },
+        {
+          "severity": "INFO",
+          "location": "§4.2,4.4,4.8–4.11",
+          "finding": "Ранний leakage-sensitive seed не используется как доказательство; естественный OSS0P раскрыт; graph-guided ухудшение качества и разныеN=99/96 сохранены;298/300 и cost≠invoice раскрыты.",
+          "fix_status": "NO_CHANGE_NEEDED"
+        }
+      ],
+      "citation_keys": [
+        "0",
+        "archguard",
+        "kaufman2012leakage"
+      ],
+      "markers": {
+        "count": 14,
+        "unreferenced": []
+      }
+    },
+    {
+      "file": "docs/thesis/source/06_chapter5.md",
+      "read_completely": true,
+      "read_method": "Полное последовательное чтение текста; длинные файлы прочитаны диапазонами с восстановлением обрезанных участков.",
+      "sha256_after_review": "90e6282e308695fb9c2cedcb5b0ac42633387de780412a80aa73b14034a6db3d",
+      "words_whitespace": 4247,
+      "findings": [
+        {
+          "severity": "MEDIUM",
+          "location": "Семь figure/table markers",
+          "finding": "Иллюстрации и таблицы были представлены без явной адресной ссылки на каждую.",
+          "fix_status": "FIXED",
+          "change": "Добавлены семь [рисунок:key]/[таблица:key] ссылок в относящиеся абзацы."
+        },
+        {
+          "severity": "LOW",
+          "location": "§5.6 и последний абзац",
+          "finding": "Грамматическая неровность описания sentinel отказа и согласования «слепой окончательный проверки».",
+          "fix_status": "FIXED",
+          "change": "Чтение маркеров было запрещено; «слепой окончательной проверки»."
+        },
+        {
+          "severity": "INFO",
+          "location": "§5.7–5.8",
+          "finding": "38TP/3FP/0TN/0FN,47/103неокончательных,0DN,44.7059%recovery,21.4660%coverage,79.5%неокончательных сверены; conditionalrecall100% не выдан за восстановление всех положительных.",
+          "fix_status": "NO_CHANGE_NEEDED"
+        }
+      ],
+      "citation_keys": [
+        "archguard",
+        "codeql-docs",
+        "cousot1977",
+        "elyaniv2010",
+        "iris2025",
+        "reps1995",
+        "yamaguchi2014"
+      ],
+      "markers": {
+        "count": 7,
+        "unreferenced": []
+      }
+    },
+    {
+      "file": "docs/thesis/source/07_chapter6.md",
+      "read_completely": true,
+      "read_method": "Полное последовательное чтение текста; длинные файлы прочитаны диапазонами с восстановлением обрезанных участков.",
+      "sha256_after_review": "2b4b08fe2723ca8b0a38bf81512f290137fdcd5de6463b7d04f7a355a99123c1",
+      "words_whitespace": 2601,
+      "findings": [
+        {
+          "severity": "MEDIUM",
+          "location": "Три figure/table markers",
+          "finding": "Нужны явные адресные ссылки на качество, custody и уровни воспроизводимости.",
+          "fix_status": "FIXED",
+          "change": "Добавлены три xref в тематические абзацы."
+        },
+        {
+          "severity": "LOW",
+          "location": "§6.2",
+          "finding": "«с явным очищенным окружением» — неудачная сочетаемость.",
+          "fix_status": "FIXED",
+          "change": "«с явно заданным очищенным окружением»."
+        },
+        {
+          "severity": "INFO",
+          "location": "§6.2,6.4–6.7",
+          "finding": "64% и81% изложены как разные фактические snapshots; warning раскрыт, причинное объяснение разницы не выдумано; репликация и replay разведены, отрицательные результаты сохранены.",
+          "fix_status": "NO_CHANGE_NEEDED"
+        }
+      ],
+      "citation_keys": [
+        "archguard",
+        "elyaniv2010",
+        "kaufman2012leakage",
+        "saito2015"
+      ],
+      "markers": {
+        "count": 3,
+        "unreferenced": []
+      }
+    },
+    {
+      "file": "docs/thesis/source/08_conclusion.md",
+      "read_completely": true,
+      "read_method": "Полное последовательное чтение текста; длинные файлы прочитаны диапазонами с восстановлением обрезанных участков.",
+      "sha256_after_review": "4ff2357ac299e9e4cfd6d0d626cfc682b879747fea5b123a8d02c1929254be78",
+      "words_whitespace": 1225,
+      "findings": [
+        {
+          "severity": "LOW",
+          "location": "Первый абзац",
+          "finding": "Несогласованное перечисление «статическое, графовое и семантическое LLM-свидетельства».",
+          "fix_status": "FIXED",
+          "change": "«статические и графовые свидетельства с семантическими оценками LLM»; принадлежность LLM только семантическому каналу."
+        },
+        {
+          "severity": "INFO",
+          "location": "Итоги восьми задач",
+          "finding": "Итоги соответствуют введению; Architecture и Security различаются; нет потерянных ошибок/воздержаний, новых экспериментов или заявленной промышленной готовности.",
+          "fix_status": "NO_CHANGE_NEEDED"
+        }
+      ],
+      "citation_keys": [
+        "archguard"
+      ],
+      "markers": {
+        "count": 0,
+        "unreferenced": []
+      }
+    }
+  ],
+  "cohesion": "Сквозная постановка: литература→метод→реализация→Architecture эксперимент→отдельный Security→валидность→задачи заключения. Ограничения повторены в интерпретации и выводах по назначению, без дублирования сырых логов.",
+  "all_main_figure_table_markers": 38,
+  "all_main_markers_referenced": true,
+  "unresolved_high_severity": 0,
+  "overall_status": "PASS_WITH_DISCLOSED_RESEARCH_LIMITATIONS",
+  "administrative_update": "Автор Бендас Роман Александрович подтвержден прямым сообщением пользователя; удален из списка нерешенных полей. Окончательные layout статусы compliance оставлены PARTIAL до реального OOXML/PDF.",
+  "final_resume_review": {
+    "date": "2026-10-19",
+    "source_sha256": {
+      "docs/thesis/source/00_frontmatter.md": "ba3cdd66a2fd9c6f6c310fb5db6a278431eb7ac59eaa4d33c70fdb2d81c4a17a",
+      "docs/thesis/source/01_introduction.md": "0446db4ab9341ffdc5031fa521abb59e3e888bb154f6a7896d11f348a1e23ca6",
+      "docs/thesis/source/02_chapter1.md": "88c9ef2c4b4e4ef3a5983f96d27de19c7588600224a3e66c2e3cb3afaaada504",
+      "docs/thesis/source/03_chapter2.md": "caba286830e7e9dea5e09420d92f6bdce4ef9daaead209f6663b87e4ce2b0efb",
+      "docs/thesis/source/04_chapter3.md": "de1c730a04cac8e668203e7a198b305da377f98aee911faa6985220d6e40f659",
+      "docs/thesis/source/05_chapter4.md": "8e83e795361549ae8aebaadace6a5e88862b4417fb7fdc80b46cd75bb722aea9",
+      "docs/thesis/source/06_chapter5.md": "0ec74e10939a4d4366805f50531727546766cabe183722e2e009b5089f3620f6",
+      "docs/thesis/source/07_chapter6.md": "2b4b08fe2723ca8b0a38bf81512f290137fdcd5de6463b7d04f7a355a99123c1",
+      "docs/thesis/source/08_conclusion.md": "4ff2357ac299e9e4cfd6d0d626cfc682b879747fea5b123a8d02c1929254be78",
+      "docs/thesis/source/appendices/01_arch_rules.md": "5fef44112103eac62f0bfd0fbfb1b2a2e5eef3ed9cdf67fc0dea6c868be4516f",
+      "docs/thesis/source/appendices/02_protocol.md": "506d4f03abce79f0e5f3681d3a02c9f742ef3bc9bbd144970e33d7daa5cae502",
+      "docs/thesis/source/appendices/03_ablations.md": "8526c9ccfec54abad16007069ae52056f1be1a6d8fac0c3ae498a6564d40af52",
+      "docs/thesis/source/appendices/04_arch_details.md": "7a06a5cc55d083592095bf8e3b46645e5e7a1902ca564cba68cb8826051083a7",
+      "docs/thesis/source/appendices/05_security_capabilities.md": "9c9bc17ce9ce020fe80cce96ea6dc09c662d93b42921f40cb214c933690eae6c",
+      "docs/thesis/source/appendices/06_security_results.md": "591ba291f21cad4350da3aa2b6a11ffc032429eff445f6305d35559062352132",
+      "docs/thesis/source/appendices/07_reproducibility.md": "cb62749d3161502fcc397b6fecf40a79aef127065579072220f84c90ee56802c",
+      "docs/thesis/source/appendices/08_chronology.md": "a60e0092ab069add64b6db9dcf08a278cf032b5426d04c02b9e526a8bac3e89f",
+      "docs/thesis/source/appendices/09_problems.md": "a7bae7558ef17fb5ffb070d02e3dbc00e4fda8cc5d1772a111436ea043f2fd74",
+      "docs/thesis/source/appendices/10_future.md": "d740a48fd4637443dbedd0a77e6c578d8f594c0e8ecd6b0d8d9a39ab025d0fab"
+    },
+    "scope": "Existing full main-manuscript editorial pass retained; front matter, appendix prose and all 36 chronology rows read during resume; altered prose/captions and numerical display reviewed; all final pages covered in overview.",
+    "exact_duplicate_paragraphs_over_180_characters": 0,
+    "changes": [
+      "Shortened repeated closing prose without dropping material limitations",
+      "Chronology seven columns rearranged into three, all original fields retained",
+      "Long numeric table cells rounded to six decimals for display; exact frozen evidence unchanged",
+      "Figure 11/12 prose aligned to actual plotted metrics",
+      "Russian reference nouns and composite citations repaired"
+    ],
+    "unresolved_material_editorial_findings": 0,
+    "scientific_changes": 0
+  }
+}

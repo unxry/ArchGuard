@@ -1,0 +1,2238 @@
+[
+  {
+    "key": "garlan1994",
+    "authors": [
+      "David Garlan",
+      "Mary Shaw"
+    ],
+    "title": "An Introduction to Software Architecture",
+    "year": 1994,
+    "venue": "Carnegie Mellon University, Software Engineering Institute. CMU/SEI-94-TR-021",
+    "url": "https://www.sei.cmu.edu/library/an-introduction-to-software-architecture/",
+    "verified": true,
+    "source_type": "technical_report",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "software_architecture",
+      "architecture_styles"
+    ],
+    "supported_claims": [
+      "Архитектурный уровень описывает организацию системы из компонентов, варианты взаимодействия и стили композиции, выходящие за пределы локальных алгоритмов и структур данных."
+    ],
+    "limitations": [
+      "Описание архитектурного стиля само по себе не доказывает соответствие исходного кода проекту."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Успешно открыта официальная SEI-страница: авторы, дата 01.01.1994, номер отчёта и аннотация; просмотрена ссылка на PDF.",
+    "thesis_sections": [
+      "Глава 1",
+      "Глава 2"
+    ],
+    "bibliographic_ru": "An Introduction to Software Architecture / David Garlan, Mary Shaw. — Carnegie Mellon University, Software Engineering Institute. CMU/SEI-94-TR-021. — 1994. — URL: https://www.sei.cmu.edu/library/an-introduction-to-software-architecture/ (дата обращения: 16.10.2026). — Текст : электронный."
+  },
+  {
+    "key": "murphy1995",
+    "authors": [
+      "Gail C. Murphy",
+      "David Notkin",
+      "Kevin Sullivan"
+    ],
+    "title": "Software Reflexion Models: Bridging the Gap Between Source and High-Level Models",
+    "year": 1995,
+    "venue": "Proceedings of the Third ACM SIGSOFT Symposium on Foundations of Software Engineering",
+    "url": "https://www.cs.ubc.ca/~murphy/papers/rm/fse95.html",
+    "verified": true,
+    "source_type": "peer_reviewed",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "architecture_conformance",
+      "mapping",
+      "reflexion_models"
+    ],
+    "supported_claims": [
+      "Reflexion model сопоставляет заданную высокоуровневую модель с извлечённой моделью исходного кода через явное отображение; результат показывает совпадения и расхождения."
+    ],
+    "limitations": [
+      "Отображение исходных сущностей в архитектурные элементы задаёт инженер; метод не заменяет знание целевой архитектуры."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Открыта авторская страница UBC с авторами, FSE1995, страницами18–28 и полной аннотацией.",
+    "thesis_sections": [
+      "Глава 1",
+      "Глава 2"
+    ],
+    "doi": "10.1145/222132.222136",
+    "bibliographic_ru": "Software Reflexion Models: Bridging the Gap Between Source and High-Level Models / Gail C. Murphy, David Notkin, Kevin Sullivan // Proceedings of the Third ACM SIGSOFT Symposium on Foundations of Software Engineering. — 1995. — С. 18–28. — DOI: 10.1145/222132.222136. — URL: https://www.cs.ubc.ca/~murphy/papers/rm/fse95.html (дата обращения: 16.10.2026). — Текст : электронный.",
+    "metadata_verification": {
+      "url": "https://api.crossref.org/works/10.1145/222132.222136",
+      "http_status": 200,
+      "provider": "Crossref; publisher-deposited DOI metadata",
+      "title": [
+        "Software reflexion models"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            1995,
+            10
+          ]
+        ]
+      },
+      "verification_date": "2026-10-16"
+    },
+    "pages": "18-28"
+  },
+  {
+    "key": "desilva2012",
+    "authors": [
+      "Lakshitha de Silva",
+      "Dharini Balasubramaniam"
+    ],
+    "title": "Controlling software architecture erosion: A survey",
+    "year": 2012,
+    "venue": "Journal of Systems and Software",
+    "url": "https://www.sciencedirect.com/science/article/pii/S0164121211002044",
+    "verified": true,
+    "source_type": "peer_reviewed",
+    "primary_or_secondary": "secondary",
+    "areas": [
+      "architecture_erosion",
+      "architecture_conformance",
+      "related_work"
+    ],
+    "supported_claims": [
+      "Обзор классифицирует подходы к эрозии по минимизации, предотвращению и восстановлению; авторы обсуждают необходимость сочетания нескольких стратегий."
+    ],
+    "limitations": [
+      "Обзор не даёт основания объявлять все статические инструменты неэффективными; разные стратегии решают разные задачи."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Проверены первичная страница Elsevier с аннотацией и структурой статьи и депозит издательских метаданных; том85, выпуск1,132–151,2012.",
+    "thesis_sections": [
+      "Глава 1",
+      "Глава 2"
+    ],
+    "doi": "10.1016/j.jss.2011.07.036",
+    "bibliographic_ru": "Controlling software architecture erosion: A survey / Lakshitha de Silva, Dharini Balasubramaniam // Journal of Systems and Software. — 2012. — Т. 85. — № 1. — С. 132–151. — DOI: 10.1016/j.jss.2011.07.036. — URL: https://www.sciencedirect.com/science/article/pii/S0164121211002044 (дата обращения: 16.10.2026). — Текст : электронный.",
+    "metadata_verification": {
+      "url": "https://api.crossref.org/works/10.1016/j.jss.2011.07.036",
+      "http_status": 200,
+      "provider": "Crossref; publisher-deposited DOI metadata",
+      "title": [
+        "Controlling software architecture erosion: A survey"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2012,
+            1
+          ]
+        ]
+      },
+      "verification_date": "2026-10-16"
+    },
+    "volume": "85",
+    "issue": "1",
+    "pages": "132-151"
+  },
+  {
+    "key": "li2022erosion",
+    "authors": [
+      "Ruiyin Li",
+      "Peng Liang",
+      "Mohamed Soliman",
+      "Paris Avgeriou"
+    ],
+    "title": "Understanding Software Architecture Erosion: A Systematic Mapping Study",
+    "year": 2022,
+    "venue": "Journal of Software: Evolution and Process",
+    "url": "https://arxiv.org/abs/2112.10934",
+    "verified": true,
+    "source_type": "peer_reviewed",
+    "primary_or_secondary": "secondary",
+    "areas": [
+      "architecture_erosion",
+      "systematic_mapping"
+    ],
+    "supported_claims": [
+      "Систематическое картирование73 исследований рассматривает причины, последствия, обнаружение и устранение эрозии; проблема включает технические и организационные факторы."
+    ],
+    "limitations": [
+      "Статическая проверка части зависимостей покрывает лишь один аспект архитектурной устойчивости."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Открыта авторская arXiv-запись2112.10934; сверены авторы, аннотация и DOI журнальной версии Wiley2022.",
+    "thesis_sections": [
+      "Глава 1",
+      "Глава 2"
+    ],
+    "doi": "10.1002/smr.2423",
+    "bibliographic_ru": "Understanding Software Architecture Erosion: A Systematic Mapping Study / Ruiyin Li, Peng Liang, Mohamed Soliman [и др.] // Journal of Software: Evolution and Process. — 2022. — Т. 34. — № 3. — Ст. e2423. — DOI: 10.1002/smr.2423. — URL: https://arxiv.org/abs/2112.10934 (дата обращения: 16.10.2026). — Текст : электронный.",
+    "metadata_verification": {
+      "url": "https://api.crossref.org/works/10.1002/smr.2423",
+      "http_status": 200,
+      "provider": "Crossref; publisher-deposited DOI metadata",
+      "title": [
+        "Understanding software architecture erosion: A systematic mapping study"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2022,
+            2,
+            9
+          ]
+        ]
+      },
+      "verification_date": "2026-10-16"
+    },
+    "volume": "34",
+    "issue": "3"
+  },
+  {
+    "key": "ducasse2009",
+    "authors": [
+      "Stéphane Ducasse",
+      "Damien Pollet"
+    ],
+    "title": "Software Architecture Reconstruction: A Process-Oriented Taxonomy",
+    "year": 2009,
+    "venue": "IEEE Transactions on Software Engineering",
+    "url": "https://rmod-files.lille.inria.fr/Team/Texts/Papers/Duca09c-TSE-SOAArchitectureExtraction.pdf",
+    "verified": true,
+    "source_type": "peer_reviewed",
+    "primary_or_secondary": "secondary",
+    "areas": [
+      "architecture_recovery",
+      "taxonomy"
+    ],
+    "supported_claims": [
+      "Восстановление архитектуры различается по целям, процессу, входам, техникам и выходам; архитектурные абстракции обычно не представлены в коде столь же явно, как классы и пакеты."
+    ],
+    "limitations": [
+      "Авторы подчёркивают неоднозначность описаний методов; восстановленная структура не тождественна нормативной целевой архитектуре."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Успешно открыт18-страничный авторский PDF на сервере INRIA; проверены авторы, аннотация и оси таксономии.",
+    "thesis_sections": [
+      "Глава 1",
+      "Глава 2"
+    ],
+    "doi": "10.1109/TSE.2009.19",
+    "bibliographic_ru": "Software Architecture Reconstruction: A Process-Oriented Taxonomy / Stéphane Ducasse, Damien Pollet // IEEE Transactions on Software Engineering. — 2009. — Т. 35. — № 4. — С. 573–591. — DOI: 10.1109/TSE.2009.19. — URL: https://rmod-files.lille.inria.fr/Team/Texts/Papers/Duca09c-TSE-SOAArchitectureExtraction.pdf (дата обращения: 16.10.2026). — Текст : электронный.",
+    "metadata_verification": {
+      "url": "https://api.crossref.org/works/10.1109/TSE.2009.19",
+      "http_status": 200,
+      "provider": "Crossref; publisher-deposited DOI metadata",
+      "title": [
+        "Software Architecture Reconstruction: A Process-Oriented Taxonomy"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2009,
+            7
+          ]
+        ]
+      },
+      "verification_date": "2026-10-16"
+    },
+    "volume": "35",
+    "issue": "4",
+    "pages": "573-591"
+  },
+  {
+    "key": "terra2009",
+    "authors": [
+      "Ricardo Terra",
+      "Marco Tulio Valente"
+    ],
+    "title": "A dependency constraint language to manage object-oriented software architectures",
+    "year": 2009,
+    "venue": "Software: Practice and Experience",
+    "url": "https://professores.dcc.ufla.br/~terra/publications_files/2009_spe.pdf",
+    "verified": true,
+    "source_type": "peer_reviewed",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "architecture_constraints",
+      "DCL",
+      "static_conformance"
+    ],
+    "supported_claims": [
+      "DCL задаёт допустимые и недопустимые структурные зависимости объектно ориентированных модулей; ограничения проверяются статически."
+    ],
+    "limitations": [
+      "Подход зависит от формулировки ограничений и отображения модулей; он не предназначен для произвольной семантики требований."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Открыт22-страничный авторский PDF; на странице Wiley сверены авторы, год, том39,1073–1094 и DOI.",
+    "thesis_sections": [
+      "Глава 1",
+      "Глава 2"
+    ],
+    "doi": "10.1002/spe.931",
+    "bibliographic_ru": "A dependency constraint language to manage object-oriented software architectures / Ricardo Terra, Marco Tulio Valente // Software: Practice and Experience. — 2009. — Т. 39. — № 12. — С. 1073–1094. — DOI: 10.1002/spe.931. — URL: https://professores.dcc.ufla.br/~terra/publications_files/2009_spe.pdf (дата обращения: 16.10.2026). — Текст : электронный.",
+    "metadata_verification": {
+      "url": "https://api.crossref.org/works/10.1002/spe.931",
+      "http_status": 200,
+      "provider": "Crossref; publisher-deposited DOI metadata",
+      "title": [
+        "A dependency constraint language to manage object‐oriented software architectures"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2009,
+            6,
+            8
+          ]
+        ]
+      },
+      "verification_date": "2026-10-16",
+      "abstract_inspected": true
+    },
+    "volume": "39",
+    "issue": "12",
+    "pages": "1073-1094"
+  },
+  {
+    "key": "ali2017consistency",
+    "authors": [
+      "Nour Ali",
+      "Sean Baker",
+      "Ross O’Crowley",
+      "Sebastian Herold",
+      "Jim Buckley"
+    ],
+    "title": "Architecture consistency: State of the practice, challenges and requirements",
+    "year": 2018,
+    "venue": "Empirical Software Engineering",
+    "url": "https://link.springer.com/article/10.1007/s10664-017-9515-3",
+    "verified": true,
+    "source_type": "peer_reviewed",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "architecture_consistency",
+      "industrial_practice"
+    ],
+    "supported_claims": [
+      "Интервью с19 опытными инженерами выявили барьеры согласования архитектуры и реализации, включая трудоёмкость отображения кода и трудность обоснования затрат."
+    ],
+    "limitations": [
+      "Это качественное исследование практик, а не измерение качества конкретного детектора."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Успешно открыта первичная Springer-страница: авторы, аннотация, online15.05.2017. Издательские DOI-метаданные Crossref подтвердили журнальный том23,224–258; библиографический год2018.",
+    "thesis_sections": [
+      "Глава 1",
+      "Глава 2"
+    ],
+    "doi": "10.1007/s10664-017-9515-3",
+    "bibliographic_ru": "Architecture consistency: State of the practice, challenges and requirements / Nour Ali, Sean Baker, Ross O’Crowley [и др.] // Empirical Software Engineering. — 2018. — Т. 23. — № 1. — С. 224–258. — DOI: 10.1007/s10664-017-9515-3. — URL: https://link.springer.com/article/10.1007/s10664-017-9515-3 (дата обращения: 16.10.2026). — Текст : электронный.",
+    "metadata_verification": {
+      "url": "https://api.crossref.org/works/10.1007/s10664-017-9515-3",
+      "http_status": 200,
+      "provider": "Crossref; publisher-deposited DOI metadata",
+      "title": [
+        "Architecture consistency: State of the practice, challenges and requirements"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2017,
+            5,
+            15
+          ]
+        ]
+      },
+      "verification_date": "2026-10-16"
+    },
+    "volume": "23",
+    "issue": "1",
+    "pages": "224-258",
+    "online_first_year": 2017
+  },
+  {
+    "key": "aldrich2002archjava",
+    "authors": [
+      "Jonathan Aldrich",
+      "Craig Chambers",
+      "David Notkin"
+    ],
+    "title": "ArchJava: Connecting Software Architecture to Implementation",
+    "year": 2002,
+    "venue": "Proceedings of the 24th International Conference on Software Engineering",
+    "url": "https://www.cs.cmu.edu/~garlan/17811/Readings/aldrich-icse02.pdf",
+    "verified": true,
+    "source_type": "peer_reviewed",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "architecture_description",
+      "communication_integrity",
+      "language_extension"
+    ],
+    "supported_claims": [
+      "ArchJava объединяет архитектурные спецификации и Java-реализацию и обеспечивает communication integrity в рамках расширенного языка."
+    ],
+    "limitations": [
+      "Требуется использование расширения языка; гарантии относятся к его модели и не переносятся автоматически на произвольный существующий Java-код."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Успешно открыт11-страничный первичный PDF на CMU: авторы, ICSE2002, аннотация, формулировка communication integrity.",
+    "thesis_sections": [
+      "Глава 1",
+      "Глава 2"
+    ],
+    "bibliographic_ru": "ArchJava: Connecting Software Architecture to Implementation / Jonathan Aldrich, Craig Chambers, David Notkin // Proceedings of the 24th International Conference on Software Engineering. — 2002. — URL: https://www.cs.cmu.edu/~garlan/17811/Readings/aldrich-icse02.pdf (дата обращения: 16.10.2026). — Текст : электронный."
+  },
+  {
+    "key": "sangal2005",
+    "authors": [
+      "Neeraj Sangal",
+      "Ev Jordan",
+      "Vineet Sinha",
+      "Daniel Jackson"
+    ],
+    "title": "Using Dependency Models to Manage Complex Software Architecture",
+    "year": 2005,
+    "venue": "Proceedings of the 20th Annual ACM SIGPLAN Conference on Object-Oriented Programming, Systems, Languages, and Applications",
+    "url": "https://groups.csail.mit.edu/sdg/pubs/2005/oopsla05-dsm.pdf",
+    "verified": true,
+    "source_type": "peer_reviewed",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "dependency_structure_matrix",
+      "architecture_constraints"
+    ],
+    "supported_claims": [
+      "Метод извлекает зависимости статическим анализом и представляет их в матрице структуры зависимостей для исследования и ограничения архитектуры."
+    ],
+    "limitations": [
+      "Матрица отображает извлечённые связи; её семантика ограничена точностью извлечения и заданной декомпозицией."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Успешно открыт10-страничный PDF группы авторов MIT CSAIL; проверены заглавие, все4 автора и аннотация.",
+    "thesis_sections": [
+      "Глава 1",
+      "Глава 2"
+    ],
+    "doi": "10.1145/1094811.1094824",
+    "bibliographic_ru": "Using Dependency Models to Manage Complex Software Architecture / Neeraj Sangal, Ev Jordan, Vineet Sinha [и др.] // Proceedings of the 20th Annual ACM SIGPLAN Conference on Object-Oriented Programming, Systems, Languages, and Applications. — 2005. — С. 167–176. — DOI: 10.1145/1094811.1094824. — URL: https://groups.csail.mit.edu/sdg/pubs/2005/oopsla05-dsm.pdf (дата обращения: 16.10.2026). — Текст : электронный.",
+    "metadata_verification": {
+      "url": "https://api.crossref.org/works/10.1145/1094811.1094824",
+      "http_status": 200,
+      "provider": "Crossref; publisher-deposited DOI metadata",
+      "title": [
+        "Using dependency models to manage complex software architecture"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2005,
+            10,
+            12
+          ]
+        ]
+      },
+      "verification_date": "2026-10-16"
+    },
+    "pages": "167-176"
+  },
+  {
+    "key": "archunit-docs",
+    "authors": [
+      "TNG Technology Consulting GmbH"
+    ],
+    "title": "ArchUnit User Guide",
+    "year": null,
+    "venue": "Официальная документация ArchUnit",
+    "url": "https://www.archunit.org/userguide/html/000_Index.html",
+    "verified": true,
+    "source_type": "official_documentation",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "architecture_tools",
+      "Java",
+      "architecture_rules"
+    ],
+    "supported_claims": [
+      "ArchUnit импортирует Java bytecode и позволяет тестировать зависимости классов и пакетов, слои, срезы, циклы и пользовательские ограничения в тестовом фреймворке."
+    ],
+    "limitations": [
+      "Java bytecode является входом инструмента; в документации нет основания приписывать ему универсальную проверку произвольных текстовых требований."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Открыт официальный User Guide версии1.5.1; прочитаны Introduction, What to Check, layeredArchitecture, cycle checks и раздел пользовательских правил.",
+    "thesis_sections": [
+      "Глава 1",
+      "Глава 2"
+    ],
+    "bibliographic_ru": "ArchUnit User Guide / TNG Technology Consulting GmbH // Официальная документация ArchUnit. — URL: https://www.archunit.org/userguide/html/000_Index.html (дата обращения: 16.10.2026). — Текст : электронный."
+  },
+  {
+    "key": "jqassistant-docs",
+    "authors": [
+      "jQAssistant Project"
+    ],
+    "title": "jQAssistant User Manual",
+    "year": null,
+    "venue": "Официальная документация jQAssistant",
+    "url": "https://jqassistant.github.io/jqassistant/current/",
+    "verified": true,
+    "source_type": "official_documentation",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "architecture_tools",
+      "graph_queries",
+      "Cypher"
+    ],
+    "supported_claims": [
+      "jQAssistant хранит результаты сканирования в графе и использует Cypher concepts/constraints; документация описывает анализ, правила и baseline management."
+    ],
+    "limitations": [
+      "Проверки зависят от сканеров, модели и корректности запросов; нельзя утверждать отсутствие пользовательской расширяемости."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Успешно открыт официальный User Manual; прочитаны примеры Cypher constraints/concepts и управление baseline.",
+    "thesis_sections": [
+      "Глава 1",
+      "Глава 2"
+    ],
+    "bibliographic_ru": "jQAssistant User Manual / jQAssistant Project // Официальная документация jQAssistant. — URL: https://jqassistant.github.io/jqassistant/current/ (дата обращения: 16.10.2026). — Текст : электронный."
+  },
+  {
+    "key": "sonargraph-docs",
+    "authors": [
+      "hello2morrow GmbH"
+    ],
+    "title": "Sonargraph-Architect",
+    "year": null,
+    "venue": "Официальная документация продукта",
+    "url": "https://www.hello2morrow.com/products/sonargraph/architect",
+    "verified": true,
+    "source_type": "official_documentation",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "architecture_tools",
+      "architecture_DSL",
+      "dependency_visualization"
+    ],
+    "supported_claims": [
+      "Sonargraph-Architect поддерживает архитектурный DSL, анализ зависимостей, циклы, метрики и quality gates; официально перечислены несколько языков, включая Java/Kotlin, TypeScript и Python3."
+    ],
+    "limitations": [
+      "Это документированные возможности, а не экспериментальное сравнение качества с ArchGuard; сведения о цене и маркетинговой экономии не используются."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Проверена официальная страница продукта: What you get, Architecture as code, dependency views; актуальность16.10.2026.",
+    "thesis_sections": [
+      "Глава 1",
+      "Глава 2"
+    ],
+    "bibliographic_ru": "Sonargraph-Architect / hello2morrow GmbH // Официальная документация продукта. — URL: https://www.hello2morrow.com/products/sonargraph/architect (дата обращения: 16.10.2026). — Текст : электронный."
+  },
+  {
+    "key": "cousot1977",
+    "authors": [
+      "Patrick Cousot",
+      "Radhia Cousot"
+    ],
+    "title": "Abstract interpretation: a unified lattice model for static analysis of programs by construction or approximation of fixpoints",
+    "year": 1977,
+    "venue": "Proceedings of the ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages",
+    "url": "https://www.di.ens.fr/~cousot/COUSOTpapers/POPL77.shtml",
+    "verified": true,
+    "source_type": "peer_reviewed",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "abstract_interpretation",
+      "soundness",
+      "approximation"
+    ],
+    "supported_claims": [
+      "Абстрактная интерпретация связывает свойства исполнения с вычислимой абстрактной семантикой и неподвижными точками; полезная информация может быть приближённой."
+    ],
+    "limitations": [
+      "Теория сама по себе не доказывает soundness ArchGuard: для этого потребовались бы явная семантика, абстракция и доказательство."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Открыта авторская ENS-страница: оба автора, POPL1977,238–252, развернутое описание lattice/fixpoints; на странице есть противоречивое порядковое число конференции, поэтому оно не воспроизводится.",
+    "thesis_sections": [
+      "Глава 1",
+      "Глава 2"
+    ],
+    "bibliographic_ru": "Abstract interpretation: a unified lattice model for static analysis of programs by construction or approximation of fixpoints / Patrick Cousot, Radhia Cousot // Proceedings of the ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages. — 1977. — URL: https://www.di.ens.fr/~cousot/COUSOTpapers/POPL77.shtml (дата обращения: 16.10.2026). — Текст : электронный."
+  },
+  {
+    "key": "nielson1999",
+    "authors": [
+      "Flemming Nielson",
+      "Hanne Riis Nielson",
+      "Chris Hankin"
+    ],
+    "title": "Principles of Program Analysis",
+    "year": 1999,
+    "venue": "Springer Berlin, Heidelberg",
+    "url": "https://link.springer.com/book/10.1007/978-3-662-03811-6",
+    "verified": true,
+    "source_type": "book",
+    "primary_or_secondary": "secondary",
+    "areas": [
+      "static_analysis",
+      "dataflow",
+      "constraints",
+      "abstract_interpretation"
+    ],
+    "supported_claims": [
+      "Книга объединяет анализ потоков данных, анализ ограничений, абстрактную интерпретацию и системы типов/эффектов как способы получать надёжную приближённую информацию о поведении программ."
+    ],
+    "limitations": [
+      "Упоминание этих методов в проекте не означает, что реализованы все их разновидности или формальные гарантии."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Открыта официальная Springer-страница: авторы, copyright1999, издательство, DOI, описание четырёх направлений и содержание.",
+    "thesis_sections": [
+      "Глава 1",
+      "Глава 2"
+    ],
+    "doi": "10.1007/978-3-662-03811-6",
+    "bibliographic_ru": "Principles of Program Analysis / Flemming Nielson, Hanne Riis Nielson, Chris Hankin. — Springer Berlin, Heidelberg. — 1999. — DOI: 10.1007/978-3-662-03811-6. — URL: https://link.springer.com/book/10.1007/978-3-662-03811-6 (дата обращения: 16.10.2026). — Текст : электронный.",
+    "metadata_verification": {
+      "url": "https://api.crossref.org/works/10.1007/978-3-662-03811-6",
+      "http_status": 200,
+      "provider": "Crossref; publisher-deposited DOI metadata",
+      "title": [
+        "Principles of Program Analysis"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            1999
+          ]
+        ]
+      },
+      "verification_date": "2026-10-16"
+    }
+  },
+  {
+    "key": "reps1995",
+    "authors": [
+      "Thomas Reps",
+      "Susan Horwitz",
+      "Mooly Sagiv"
+    ],
+    "title": "Precise Interprocedural Dataflow Analysis via Graph Reachability",
+    "year": 1995,
+    "venue": "Proceedings of the ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages",
+    "url": "https://pages.cs.wisc.edu/~fischer/cs701.f14/popl95.pdf",
+    "verified": true,
+    "source_type": "peer_reviewed",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "interprocedural_analysis",
+      "IFDS",
+      "graph_reachability"
+    ],
+    "supported_claims": [
+      "IFDS сводит конечные дистрибутивные межпроцедурные задачи к достижимости по допустимым путям графа, учитывающим согласованность вызовов и возвратов."
+    ],
+    "limitations": [
+      "Полиномиальная точность относится к указанному классу задач; произвольный ограниченный обход вызовов не становится IFDS-анализом."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Успешно открыт14-страничный оригинальный PDF University of Wisconsin; прочитаны аннотация и условия конечности/дистрибутивности.",
+    "thesis_sections": [
+      "Глава 1",
+      "Глава 2"
+    ],
+    "doi": "10.1145/199448.199462",
+    "bibliographic_ru": "Precise Interprocedural Dataflow Analysis via Graph Reachability / Thomas Reps, Susan Horwitz, Mooly Sagiv // Proceedings of the ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages. — 1995. — С. 49–61. — DOI: 10.1145/199448.199462. — URL: https://pages.cs.wisc.edu/~fischer/cs701.f14/popl95.pdf (дата обращения: 16.10.2026). — Текст : электронный.",
+    "metadata_verification": {
+      "url": "https://api.crossref.org/works/10.1145/199448.199462",
+      "http_status": 200,
+      "provider": "Crossref; publisher-deposited DOI metadata",
+      "title": [
+        "Precise interprocedural dataflow analysis via graph reachability"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            1995
+          ]
+        ]
+      },
+      "verification_date": "2026-10-16"
+    },
+    "pages": "49-61"
+  },
+  {
+    "key": "ferrante1987",
+    "authors": [
+      "Jeanne Ferrante",
+      "Karl J. Ottenstein",
+      "Joe D. Warren"
+    ],
+    "title": "The Program Dependence Graph and Its Use in Optimization",
+    "year": 1987,
+    "venue": "ACM Transactions on Programming Languages and Systems",
+    "url": "https://www.cs.utexas.edu/~pingali/CS395T/2009fa/papers/ferrante87.pdf",
+    "verified": true,
+    "source_type": "peer_reviewed",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "program_dependence_graph",
+      "control_dependence",
+      "data_dependence"
+    ],
+    "supported_claims": [
+      "PDG явно объединяет зависимости данных и управления между операциями программы и поддерживает преобразования, основанные на этих зависимостях."
+    ],
+    "limitations": [
+      "Архитектурный граф модулей отличается от PDG по уровню абстракции и типам рёбер."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Успешно открыт31-страничный оригинальный PDF; первая страница подтверждает авторов, PDG, зависимости данных и управления.",
+    "thesis_sections": [
+      "Глава 1",
+      "Глава 2"
+    ],
+    "doi": "10.1145/24039.24041",
+    "bibliographic_ru": "The Program Dependence Graph and Its Use in Optimization / Jeanne Ferrante, Karl J. Ottenstein, Joe D. Warren // ACM Transactions on Programming Languages and Systems. — 1987. — Т. 9. — № 3. — С. 319–349. — DOI: 10.1145/24039.24041. — URL: https://www.cs.utexas.edu/~pingali/CS395T/2009fa/papers/ferrante87.pdf (дата обращения: 16.10.2026). — Текст : электронный.",
+    "metadata_verification": {
+      "url": "https://api.crossref.org/works/10.1145/24039.24041",
+      "http_status": 200,
+      "provider": "Crossref; publisher-deposited DOI metadata",
+      "title": [
+        "The program dependence graph and its use in optimization"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            1987,
+            7
+          ]
+        ]
+      },
+      "verification_date": "2026-10-16"
+    },
+    "volume": "9",
+    "issue": "3",
+    "pages": "319-349"
+  },
+  {
+    "key": "tarjan1972",
+    "authors": [
+      "Robert Tarjan"
+    ],
+    "title": "Depth-First Search and Linear Graph Algorithms",
+    "year": 1972,
+    "venue": "SIAM Journal on Computing",
+    "url": "https://epubs.siam.org/doi/10.1137/0201010",
+    "verified": true,
+    "source_type": "peer_reviewed",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "graph_algorithms",
+      "strongly_connected_components",
+      "complexity"
+    ],
+    "supported_claims": [
+      "Поиск в глубину позволяет находить сильные компоненты ориентированного графа за время, линейное по числу вершин и рёбер."
+    ],
+    "limitations": [
+      "Графовый цикл является структурным фактом; его архитектурная недопустимость определяется правилом, а не одним фактом наличия цикла."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Успешно открыта первичная SIAM-страница: авторRobert Tarjan,1972,1(2),146–160, аннотация с границейk1V+k2E+k3.",
+    "thesis_sections": [
+      "Глава 1",
+      "Глава 2"
+    ],
+    "doi": "10.1137/0201010",
+    "bibliographic_ru": "Depth-First Search and Linear Graph Algorithms / Robert Tarjan // SIAM Journal on Computing. — 1972. — Т. 1. — № 2. — С. 146–160. — DOI: 10.1137/0201010. — URL: https://epubs.siam.org/doi/10.1137/0201010 (дата обращения: 16.10.2026). — Текст : электронный.",
+    "metadata_verification": {
+      "url": "https://api.crossref.org/works/10.1137/0201010",
+      "http_status": 200,
+      "provider": "Crossref; publisher-deposited DOI metadata",
+      "title": [
+        "Depth-First Search and Linear Graph Algorithms"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            1972,
+            6
+          ]
+        ]
+      },
+      "verification_date": "2026-10-16",
+      "abstract_inspected": true
+    },
+    "volume": "1",
+    "issue": "2",
+    "pages": "146-160"
+  },
+  {
+    "key": "grove2001callgraph",
+    "authors": [
+      "David Grove",
+      "Craig Chambers"
+    ],
+    "title": "A Framework for Call Graph Construction Algorithms",
+    "year": 2001,
+    "venue": "ACM Transactions on Programming Languages and Systems",
+    "url": "https://research.ibm.com/publications/a-framework-for-call-graph-construction-algorithms",
+    "verified": true,
+    "source_type": "peer_reviewed",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "call_graph",
+      "cost_precision_tradeoff"
+    ],
+    "supported_claims": [
+      "Авторы объединяют алгоритмы построения графа вызовов в параметризованную схему и эмпирически исследуют компромисс стоимости анализа и точности для объектных и функциональных языков."
+    ],
+    "limitations": [
+      "Точность разрешения вызовов зависит от выбранного алгоритма; наличие синтаксического call edge не подтверждает единственную реальную цель вызова."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Успешно открыта первичная страница IBM Research: дата01.11.2001, оба автора, ACM TOPLAS и полная аннотация.",
+    "thesis_sections": [
+      "Глава 1",
+      "Глава 2"
+    ],
+    "doi": "10.1145/506315.506316",
+    "bibliographic_ru": "A Framework for Call Graph Construction Algorithms / David Grove, Craig Chambers // ACM Transactions on Programming Languages and Systems. — 2001. — Т. 23. — № 6. — С. 685–746. — DOI: 10.1145/506315.506316. — URL: https://research.ibm.com/publications/a-framework-for-call-graph-construction-algorithms (дата обращения: 16.10.2026). — Текст : электронный.",
+    "metadata_verification": {
+      "url": "https://api.crossref.org/works/10.1145/506315.506316",
+      "http_status": 200,
+      "provider": "Crossref; publisher-deposited DOI metadata",
+      "title": [
+        "A framework for call graph construction algorithms"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2001,
+            11
+          ]
+        ]
+      },
+      "verification_date": "2026-10-16"
+    },
+    "volume": "23",
+    "issue": "6",
+    "pages": "685-746"
+  },
+  {
+    "key": "yamaguchi2014",
+    "authors": [
+      "Fabian Yamaguchi",
+      "Nico Golde",
+      "Daniel Arp",
+      "Konrad Rieck"
+    ],
+    "title": "Modeling and Discovering Vulnerabilities with Code Property Graphs",
+    "year": 2014,
+    "venue": "IEEE Symposium on Security and Privacy",
+    "url": "https://fabianyamaguchi.com/files/2014-ieeesp.pdf",
+    "verified": true,
+    "source_type": "peer_reviewed",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "code_property_graph",
+      "static_security",
+      "graph_queries"
+    ],
+    "supported_claims": [
+      "Code Property Graph объединяет синтаксические, потоковые и зависимостные представления для графовых запросов поиска уязвимых шаблонов."
+    ],
+    "limitations": [
+      "CPG — более богатое представление, чем один граф импортов; наличие графа не является доказательством полного поиска уязвимостей."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Успешно открыт15-страничный PDF на сайте первого автора; проверены заглавие, все4 автора и описание CPG.",
+    "thesis_sections": [
+      "Глава 1",
+      "Глава 2"
+    ],
+    "bibliographic_ru": "Modeling and Discovering Vulnerabilities with Code Property Graphs / Fabian Yamaguchi, Nico Golde, Daniel Arp [и др.] // IEEE Symposium on Security and Privacy. — 2014. — URL: https://fabianyamaguchi.com/files/2014-ieeesp.pdf (дата обращения: 16.10.2026). — Текст : электронный."
+  },
+  {
+    "key": "hagberg2008",
+    "authors": [
+      "Aric A. Hagberg",
+      "Daniel A. Schult",
+      "Pieter J. Swart"
+    ],
+    "title": "Exploring Network Structure, Dynamics, and Function using NetworkX",
+    "year": 2008,
+    "venue": "Proceedings of the 7th Python in Science Conference",
+    "url": "https://aric.hagberg.org/papers/hagberg-2008-exploring.pdf",
+    "verified": true,
+    "source_type": "conference_paper",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "NetworkX",
+      "graph_tooling"
+    ],
+    "supported_claims": [
+      "NetworkX предоставляет структуры для ориентированных и неориентированных графов, атрибутов вершин/рёбер и набор графовых алгоритмов."
+    ],
+    "limitations": [
+      "Библиотека графов не определяет сама семантику архитектурных сущностей или правил."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Успешно открыт5-страничный авторский PDF; авторы, SciPy2008 и содержание сверены также с официальной документацией NetworkX.",
+    "thesis_sections": [
+      "Глава 1",
+      "Глава 2"
+    ],
+    "doi": "10.25080/TCWV9851",
+    "bibliographic_ru": "Exploring Network Structure, Dynamics, and Function using NetworkX / Aric A. Hagberg, Daniel A. Schult, Pieter J. Swart // Proceedings of the 7th Python in Science Conference. — 2008. — С. 11–15. — DOI: 10.25080/TCWV9851. — URL: https://aric.hagberg.org/papers/hagberg-2008-exploring.pdf (дата обращения: 16.10.2026). — Текст : электронный.",
+    "metadata_verification": {
+      "url": "https://api.crossref.org/works/10.25080/TCWV9851",
+      "http_status": 200,
+      "provider": "Crossref; publisher-deposited DOI metadata",
+      "title": [
+        "Exploring Network Structure, Dynamics, and Function using NetworkX"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2008,
+            6,
+            28
+          ]
+        ]
+      },
+      "verification_date": "2026-10-16",
+      "abstract_inspected": true
+    },
+    "pages": "11-15"
+  },
+  {
+    "key": "networkx-docs",
+    "authors": [
+      "NetworkX Developers"
+    ],
+    "title": "NetworkX Documentation",
+    "year": null,
+    "venue": "Официальная документация NetworkX",
+    "url": "https://networkx.org/documentation/stable/",
+    "verified": true,
+    "source_type": "official_documentation",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "NetworkX",
+      "graph_algorithms"
+    ],
+    "supported_claims": [
+      "Официальная документация описывает создание, обработку и изучение структуры сложных сетей и программные интерфейсы графового анализа."
+    ],
+    "limitations": [
+      "Текущая документация3.7 не является свидетельством версии, установленной в замороженном эксперименте; версию проекта надо брать из его собственных артефактов."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Успешно открыта официальная stable-документацияNetworkX3.7; проверены описание и рекомендуемая ссылка на Hagberg et al.2008.",
+    "thesis_sections": [
+      "Глава 1",
+      "Глава 2"
+    ],
+    "bibliographic_ru": "NetworkX Documentation / NetworkX Developers // Официальная документация NetworkX. — URL: https://networkx.org/documentation/stable/ (дата обращения: 16.10.2026). — Текст : электронный."
+  },
+  {
+    "key": "treesitter-docs",
+    "authors": [
+      "Tree-sitter Project"
+    ],
+    "title": "Tree-sitter: Introduction",
+    "year": null,
+    "venue": "Официальная документация Tree-sitter",
+    "url": "https://tree-sitter.github.io/tree-sitter/",
+    "verified": true,
+    "source_type": "official_documentation",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "parsing",
+      "concrete_syntax_tree",
+      "incremental_parsing"
+    ],
+    "supported_claims": [
+      "Tree-sitter — генератор парсеров и библиотека инкрементального разбора, строящая конкретное синтаксическое дерево и сохраняющая полезную структуру при ошибках синтаксиса."
+    ],
+    "limitations": [
+      "Конкретное синтаксическое дерево не обеспечивает разрешение типов, межпроцедурную семантику или доказательство полноты анализа."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Успешно открыта официальная Introduction: concrete syntax tree, incremental parsing, robustness, перечень официальных bindings и grammars.",
+    "thesis_sections": [
+      "Глава 1",
+      "Глава 2"
+    ],
+    "bibliographic_ru": "Tree-sitter: Introduction / Tree-sitter Project // Официальная документация Tree-sitter. — URL: https://tree-sitter.github.io/tree-sitter/ (дата обращения: 16.10.2026). — Текст : электронный."
+  },
+  {
+    "key": "pytreesitter-docs",
+    "authors": [
+      "Tree-sitter Project"
+    ],
+    "title": "py-tree-sitter Documentation",
+    "year": null,
+    "venue": "Официальная документация Python bindings Tree-sitter",
+    "url": "https://tree-sitter.github.io/py-tree-sitter/",
+    "verified": true,
+    "source_type": "official_documentation",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "Python_API",
+      "parser_integration",
+      "Point"
+    ],
+    "supported_claims": [
+      "Документация Python bindings задаёт интерфейсы Parser, Language, Node и Point, необходимые для корректного обращения к результатам разбора."
+    ],
+    "limitations": [
+      "Текущая документация0.26.0 проверяет контракт API; факт конкретной ошибки совместимости в ArchGuard должен подтверждаться его журналом и кодом."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Успешно открыта официальная py-tree-sitter0.26.0 документация, index API с Point и Parser.",
+    "thesis_sections": [
+      "Глава 3"
+    ],
+    "bibliographic_ru": "py-tree-sitter Documentation / Tree-sitter Project // Официальная документация Python bindings Tree-sitter. — URL: https://tree-sitter.github.io/py-tree-sitter/ (дата обращения: 16.10.2026). — Текст : электронный."
+  },
+  {
+    "key": "chen2021",
+    "authors": [
+      "Mark Chen",
+      "Jerry Tworek",
+      "Heewoo Jun",
+      "и др."
+    ],
+    "title": "Evaluating Large Language Models Trained on Code",
+    "year": 2021,
+    "venue": "arXiv:2107.03374",
+    "url": "https://arxiv.org/abs/2107.03374",
+    "verified": true,
+    "source_type": "preprint",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "LLM_code",
+      "functional_correctness",
+      "HumanEval"
+    ],
+    "supported_claims": [
+      "Codex оценивается на генерации Python-кода по docstrings через функциональную корректность HumanEval; число сэмплов влияет на долю решённых задач."
+    ],
+    "limitations": [
+      "Успех генерации программы и проверка архитектурного соответствия — разные задачи; результаты HumanEval не подтверждают качество ArchGuard."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Открыта авторская arXiv-записьv2: название, авторы,2021, аннотация HumanEval и ограничения длинных цепочек операций.",
+    "thesis_sections": [
+      "Глава 1",
+      "Глава 2"
+    ],
+    "bibliographic_ru": "Evaluating Large Language Models Trained on Code / Mark Chen, Jerry Tworek, Heewoo Jun [и др.] // arXiv:2107.03374. — 2021. — URL: https://arxiv.org/abs/2107.03374 (дата обращения: 16.10.2026). — Текст : электронный."
+  },
+  {
+    "key": "feng2020codebert",
+    "authors": [
+      "Zhangyin Feng",
+      "Daya Guo",
+      "Duyu Tang",
+      "Nan Duan",
+      "Xiaocheng Feng",
+      "Ming Gong",
+      "Linjun Shou",
+      "Bing Qin",
+      "Ting Liu",
+      "Daxin Jiang",
+      "Ming Zhou"
+    ],
+    "title": "CodeBERT: A Pre-Trained Model for Programming and Natural Languages",
+    "year": 2020,
+    "venue": "Findings of the Association for Computational Linguistics: EMNLP2020",
+    "url": "https://aclanthology.org/2020.findings-emnlp.139/",
+    "verified": true,
+    "source_type": "peer_reviewed",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "code_representation",
+      "natural_language_code",
+      "code_search"
+    ],
+    "supported_claims": [
+      "CodeBERT обучает совместные представления программного и естественного языков и оценивается, в частности, на поиске кода и генерации документации."
+    ],
+    "limitations": [
+      "CodeBERT не является доказательством корректного выполнения архитектурных требований; его downstream-задачи имеют иную разметку."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Успешно открыта ACL Anthology: все11 авторов, год, EMNLP Findings,1536–1547, DOI и аннотация.",
+    "thesis_sections": [
+      "Глава 1",
+      "Глава 2"
+    ],
+    "doi": "10.18653/v1/2020.findings-emnlp.139",
+    "bibliographic_ru": "CodeBERT: A Pre-Trained Model for Programming and Natural Languages / Zhangyin Feng, Daya Guo, Duyu Tang [и др.] // Findings of the Association for Computational Linguistics: EMNLP 2020. — 2020. — С. 1536–1547. — DOI: 10.18653/v1/2020.findings-emnlp.139. — URL: https://aclanthology.org/2020.findings-emnlp.139/ (дата обращения: 16.10.2026). — Текст : электронный.",
+    "metadata_verification": {
+      "url": "https://api.crossref.org/works/10.18653/v1/2020.findings-emnlp.139",
+      "http_status": 200,
+      "provider": "Crossref; publisher-deposited DOI metadata",
+      "title": [
+        "CodeBERT: A Pre-Trained Model for Programming and Natural Languages"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2020
+          ]
+        ]
+      },
+      "verification_date": "2026-10-16"
+    },
+    "pages": "1536-1547"
+  },
+  {
+    "key": "guo2021graphcodebert",
+    "authors": [
+      "Daya Guo",
+      "Shuo Ren",
+      "Shuai Lu",
+      "Zhangyin Feng",
+      "Duyu Tang",
+      "Shujie Liu",
+      "Long Zhou",
+      "Nan Duan",
+      "Alexey Svyatkovskiy",
+      "Shengyu Fu",
+      "Michele Tufano",
+      "Shao Kun Deng",
+      "Colin Clement",
+      "Dawn Drain",
+      "Neel Sundaresan",
+      "Jian Yin",
+      "Daxin Jiang",
+      "Ming Zhou"
+    ],
+    "title": "GraphCodeBERT: Pre-training Code Representations with Data Flow",
+    "year": 2021,
+    "venue": "International Conference on Learning Representations",
+    "url": "https://arxiv.org/abs/2009.08366",
+    "verified": true,
+    "source_type": "peer_reviewed",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "graph_guided_models",
+      "dataflow",
+      "code_representation"
+    ],
+    "supported_claims": [
+      "GraphCodeBERT использует потоки данных и graph-guided masked attention, показывая полезность структурной информации для ряда задач представления кода."
+    ],
+    "limitations": [
+      "Модель обучается под другими целями и задачами; её результаты нельзя переносить на архитектурный детектор без отдельной оценки."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Открыта авторская arXiv-запись2009.08366v4; комментарий Accepted by ICLR2021, авторы и описание data flow вместо AST.",
+    "thesis_sections": [
+      "Глава 1",
+      "Глава 2"
+    ],
+    "bibliographic_ru": "GraphCodeBERT: Pre-training Code Representations with Data Flow / Daya Guo, Shuo Ren, Shuai Lu [и др.] // International Conference on Learning Representations. — 2021. — URL: https://arxiv.org/abs/2009.08366 (дата обращения: 16.10.2026). — Текст : электронный."
+  },
+  {
+    "key": "lewis2020rag",
+    "authors": [
+      "Patrick Lewis",
+      "Ethan Perez",
+      "Aleksandra Piktus",
+      "Fabio Petroni",
+      "Vladimir Karpukhin",
+      "Naman Goyal",
+      "Heinrich Küttler",
+      "Mike Lewis",
+      "Wen-tau Yih",
+      "Tim Rocktäschel",
+      "Sebastian Riedel",
+      "Douwe Kiela"
+    ],
+    "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+    "year": 2020,
+    "venue": "Advances in Neural Information Processing Systems",
+    "url": "https://proceedings.neurips.cc/paper/2020/hash/6b493230205f780e1bc26945df7481e5-Abstract.html",
+    "verified": true,
+    "source_type": "peer_reviewed",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "retrieval_augmented_generation",
+      "provenance",
+      "context_selection"
+    ],
+    "supported_claims": [
+      "RAG сочетает параметрическую модель с извлекаемой непараметрической памятью; внешние сведения подаются генератору через retrieval."
+    ],
+    "limitations": [
+      "Исходная работа посвящена knowledge-intensive NLP, а не архитектурному контролю; графовый отбор кода в ArchGuard имеет собственный контракт."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Успешно открыта первичная NeurIPS2020 страница с полной аннотацией параметрической/непараметрической памяти и provenance.",
+    "thesis_sections": [
+      "Глава 1",
+      "Глава 2"
+    ],
+    "bibliographic_ru": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks / Patrick Lewis, Ethan Perez, Aleksandra Piktus [и др.] // Advances in Neural Information Processing Systems. — 2020. — URL: https://proceedings.neurips.cc/paper/2020/hash/6b493230205f780e1bc26945df7481e5-Abstract.html (дата обращения: 16.10.2026). — Текст : электронный."
+  },
+  {
+    "key": "liu2024lostmiddle",
+    "authors": [
+      "Nelson F. Liu",
+      "Kevin Lin",
+      "John Hewitt",
+      "Ashwin Paranjape",
+      "Michele Bevilacqua",
+      "Fabio Petroni",
+      "Percy Liang"
+    ],
+    "title": "Lost in the Middle: How Language Models Use Long Contexts",
+    "year": 2024,
+    "venue": "Transactions of the Association for Computational Linguistics",
+    "url": "https://aclanthology.org/2024.tacl-1.9/",
+    "verified": true,
+    "source_type": "peer_reviewed",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "long_context",
+      "context_selection",
+      "LLM_limitations"
+    ],
+    "supported_claims": [
+      "В экспериментах с поиском информации в контексте качество зависит от положения релевантного фрагмента; большая длина допустимого контекста не гарантирует его равномерное использование."
+    ],
+    "limitations": [
+      "Исследованы конкретные модели и задачи; нельзя объявлять эффект универсальным количественным законом для всех моделей2026года."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Открыты первичная ACL Anthology2024 и авторский arXiv2307.03172; проверены авторы, заглавие и экспериментальная постановка.",
+    "thesis_sections": [
+      "Глава 1",
+      "Глава 2"
+    ],
+    "doi": "10.1162/tacl_a_00638",
+    "bibliographic_ru": "Lost in the Middle: How Language Models Use Long Contexts / Nelson F. Liu, Kevin Lin, John Hewitt [и др.] // Transactions of the Association for Computational Linguistics. — 2024. — Т. 12. — С. 157–173. — DOI: 10.1162/tacl_a_00638. — URL: https://aclanthology.org/2024.tacl-1.9/ (дата обращения: 16.10.2026). — Текст : электронный.",
+    "metadata_verification": {
+      "url": "https://api.crossref.org/works/10.1162/tacl_a_00638",
+      "http_status": 200,
+      "provider": "Crossref; publisher-deposited DOI metadata",
+      "title": [
+        "Lost in the Middle: How Language Models Use Long Contexts"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2024
+          ]
+        ]
+      },
+      "verification_date": "2026-10-16",
+      "abstract_inspected": true
+    },
+    "volume": "12",
+    "pages": "157-173"
+  },
+  {
+    "key": "zhang2023repocoder",
+    "authors": [
+      "Fengji Zhang",
+      "Bei Chen",
+      "Yue Zhang",
+      "Jacky Keung",
+      "Jin Liu",
+      "Daoguang Zan",
+      "Yi Mao",
+      "Jian-Guang Lou",
+      "Weizhu Chen"
+    ],
+    "title": "RepoCoder: Repository-Level Code Completion Through Iterative Retrieval and Generation",
+    "year": 2023,
+    "venue": "Proceedings of the2023 Conference on Empirical Methods in Natural Language Processing",
+    "url": "https://aclanthology.org/2023.emnlp-main.151/",
+    "verified": true,
+    "source_type": "peer_reviewed",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "repository_context",
+      "retrieval",
+      "code_completion"
+    ],
+    "supported_claims": [
+      "RepoCoder итеративно чередует извлечение контекста репозитория и генерацию для завершения кода, используя промежуточный результат для улучшения retrieval."
+    ],
+    "limitations": [
+      "Завершение кода не эквивалентно проверке требований; сравнение с ArchGuard допустимо по механизму контекста, но не по непосредственным метрикам задач."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Открыта ACL Anthology: все9 авторов, EMNLP2023,2471–2484, DOI и аннотация.",
+    "thesis_sections": [
+      "Глава 1",
+      "Глава 2"
+    ],
+    "doi": "10.18653/v1/2023.emnlp-main.151",
+    "bibliographic_ru": "RepoCoder: Repository-Level Code Completion Through Iterative Retrieval and Generation / Fengji Zhang, Bei Chen, Yue Zhang [и др.] // Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing. — 2023. — С. 2471–2484. — DOI: 10.18653/v1/2023.emnlp-main.151. — URL: https://aclanthology.org/2023.emnlp-main.151/ (дата обращения: 16.10.2026). — Текст : электронный.",
+    "metadata_verification": {
+      "url": "https://api.crossref.org/works/10.18653/v1/2023.emnlp-main.151",
+      "http_status": 200,
+      "provider": "Crossref; publisher-deposited DOI metadata",
+      "title": [
+        "RepoCoder: Repository-Level Code Completion Through Iterative Retrieval and Generation"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2023
+          ]
+        ]
+      },
+      "verification_date": "2026-10-16"
+    },
+    "pages": "2471-2484"
+  },
+  {
+    "key": "wu2024repoformer",
+    "authors": [
+      "Di Wu",
+      "Wasi Uddin Ahmad",
+      "Dejiao Zhang",
+      "Murali Krishna Ramanathan",
+      "Xiaofei Ma"
+    ],
+    "title": "Repoformer: Selective Retrieval for Repository-Level Code Completion",
+    "year": 2024,
+    "venue": "Proceedings of the41st International Conference on Machine Learning",
+    "url": "https://proceedings.mlr.press/v235/wu24a.html",
+    "verified": true,
+    "source_type": "peer_reviewed",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "selective_retrieval",
+      "context_cost",
+      "repository_context"
+    ],
+    "supported_claims": [
+      "Repoformer показывает, что постоянный retrieval может давать бесполезный или вредный контекст, и предлагает селективно вызывать извлечение."
+    ],
+    "limitations": [
+      "Это обучаемая политика для code completion; её оценки ускорения не являются измерениями стоимости ArchGuard."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Открыта официальная PMLR-страница ICML2024:5авторов,том235,53270–53290, аннотация; также проверена авторская arXiv-записьv2.",
+    "thesis_sections": [
+      "Глава 1",
+      "Глава 2"
+    ],
+    "bibliographic_ru": "Repoformer: Selective Retrieval for Repository-Level Code Completion / Di Wu, Wasi Uddin Ahmad, Dejiao Zhang [и др.] // Proceedings of the 41st International Conference on Machine Learning. — 2024. — Т. 235. — С. 53270–53290. — URL: https://proceedings.mlr.press/v235/wu24a.html (дата обращения: 16.10.2026). — Текст : электронный.",
+    "volume": "235",
+    "pages": "53270–53290"
+  },
+  {
+    "key": "jimenez2024swebench",
+    "authors": [
+      "Carlos E. Jimenez",
+      "John Yang",
+      "Alexander Wettig",
+      "Shunyu Yao",
+      "Kexin Pei",
+      "Ofir Press",
+      "Karthik Narasimhan"
+    ],
+    "title": "SWE-bench: Can Language Models Resolve Real-World GitHub Issues?",
+    "year": 2024,
+    "venue": "International Conference on Learning Representations",
+    "url": "https://arxiv.org/abs/2310.06770",
+    "verified": true,
+    "source_type": "peer_reviewed",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "LLM_evaluation",
+      "repository_tasks",
+      "benchmark_design"
+    ],
+    "supported_claims": [
+      "SWE-bench оценивает изменение реальных репозиториев по задачам из GitHub issues и pull requests, требующим работы с несколькими файлами и средой исполнения."
+    ],
+    "limitations": [
+      "Это benchmark исправления кода; его pass rate нельзя сравнивать с precision/recall архитектурных нарушений."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Открыта авторская arXiv-записьv3, комментарийICLR2024; все7 авторов и постановка2294issues/12Pythonrepos.",
+    "thesis_sections": [
+      "Глава 1",
+      "Глава 2"
+    ],
+    "bibliographic_ru": "SWE-bench: Can Language Models Resolve Real-World GitHub Issues? / Carlos E. Jimenez, John Yang, Alexander Wettig [и др.] // International Conference on Learning Representations. — 2024. — URL: https://arxiv.org/abs/2310.06770 (дата обращения: 16.10.2026). — Текст : электронный."
+  },
+  {
+    "key": "yang2024sweagent",
+    "authors": [
+      "John Yang",
+      "Carlos E. Jimenez",
+      "Alexander Wettig",
+      "Kilian Lieret",
+      "Shunyu Yao",
+      "Karthik Narasimhan",
+      "Ofir Press"
+    ],
+    "title": "SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering",
+    "year": 2024,
+    "venue": "Advances in Neural Information Processing Systems",
+    "url": "https://proceedings.neurips.cc/paper_files/paper/2024/hash/5a7c947568c1b1328ccc5230172e1e7c-Abstract-Conference.html",
+    "verified": true,
+    "source_type": "peer_reviewed",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "LLM_agents",
+      "tool_use",
+      "software_engineering"
+    ],
+    "supported_claims": [
+      "SWE-agent рассматривает интерфейс взаимодействия агента со средой как фактор качества решения задач software engineering, включая навигацию, правку файлов и запуск тестов."
+    ],
+    "limitations": [
+      "Автономный агент исправления кода и ограниченный анализатор соответствия имеют разные права и цели; нельзя подменять одно другим."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Проверены первичная NeurIPS2024 proceedings-страница,том37 и авторская arXiv-записьv3; все7авторов, аннотация ACI.",
+    "thesis_sections": [
+      "Глава 1",
+      "Глава 2"
+    ],
+    "bibliographic_ru": "SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering / John Yang, Carlos E. Jimenez, Alexander Wettig [и др.] // Advances in Neural Information Processing Systems. — 2024. — Т. 37. — URL: https://proceedings.neurips.cc/paper_files/paper/2024/hash/5a7c947568c1b1328ccc5230172e1e7c-Abstract-Conference.html (дата обращения: 16.10.2026). — Текст : электронный.",
+    "volume": "37"
+  },
+  {
+    "key": "li2024llmdfa",
+    "authors": [
+      "Chengpeng Wang",
+      "Wuqi Zhang",
+      "Zian Su",
+      "Xiangzhe Xu",
+      "Xiaoheng Xie",
+      "Xiangyu Zhang"
+    ],
+    "title": "LLMDFA: Analyzing Dataflow in Code with Large Language Models",
+    "year": 2024,
+    "venue": "Advances in Neural Information Processing Systems",
+    "url": "https://arxiv.org/abs/2402.10754",
+    "verified": true,
+    "source_type": "peer_reviewed",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "hybrid_analysis",
+      "LLM_dataflow",
+      "external_validation"
+    ],
+    "supported_claims": [
+      "LLMDFA декомпозирует анализ потоков на подзадачи, использует LLM вместе с парсером и автоматическим доказателем выполнимости путей для снижения галлюцинаций."
+    ],
+    "limitations": [
+      "Это явный предшественник сочетания LLM и статического/формального анализа; результаты на его задачах не доказывают полноту ArchGuard."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Открыта авторская arXiv-записьv2; все6 авторов, комментарийNeurIPS2024poster; прочитана аннотация о parsing library/theorem prover.",
+    "thesis_sections": [
+      "Глава 1",
+      "Глава 2"
+    ],
+    "bibliographic_ru": "LLMDFA: Analyzing Dataflow in Code with Large Language Models / Chengpeng Wang, Wuqi Zhang, Zian Su [и др.] // Advances in Neural Information Processing Systems. — 2024. — URL: https://arxiv.org/abs/2402.10754 (дата обращения: 16.10.2026). — Текст : электронный."
+  },
+  {
+    "key": "iris2025",
+    "authors": [
+      "Ziyang Li",
+      "Saikat Dutta",
+      "Mayur Naik"
+    ],
+    "title": "IRIS: LLM-Assisted Static Analysis for Detecting Security Vulnerabilities",
+    "year": 2025,
+    "venue": "International Conference on Learning Representations",
+    "url": "https://arxiv.org/abs/2405.17238",
+    "verified": true,
+    "source_type": "peer_reviewed",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "neurosymbolic_analysis",
+      "taint_specifications",
+      "security"
+    ],
+    "supported_claims": [
+      "IRIS сочетает вывод taint-спецификаций и контекстный анализ с LLM со статическим анализом целого репозитория; оценка выполнена на CWE-Bench-Java."
+    ],
+    "limitations": [
+      "Наличие такого предшественника исключает заявление о первом в мире сочетании статического анализа и LLM; нельзя сопоставлять его метрики с другим benchmark напрямую."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Открыта авторская arXiv-записьv3 от06.04.2025; авторы и аннотация; конференцияICLR2025 дополнительно проверена по странице proceedings.",
+    "thesis_sections": [
+      "Глава 1",
+      "Глава 2"
+    ],
+    "bibliographic_ru": "IRIS: LLM-Assisted Static Analysis for Detecting Security Vulnerabilities / Ziyang Li, Saikat Dutta, Mayur Naik // International Conference on Learning Representations. — 2025. — URL: https://arxiv.org/abs/2405.17238 (дата обращения: 16.10.2026). — Текст : электронный."
+  },
+  {
+    "key": "llift2023",
+    "authors": [
+      "Haonan Li",
+      "Yu Hao",
+      "Yizhuo Zhai",
+      "Zhiyun Qian"
+    ],
+    "title": "The Hitchhiker's Guide to Program Analysis: A Journey with Large Language Models",
+    "year": 2023,
+    "venue": "arXiv:2308.00245",
+    "url": "https://arxiv.org/abs/2308.00245",
+    "verified": true,
+    "source_type": "preprint",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "LLM_assisted_static_analysis",
+      "bug_specific_reasoning"
+    ],
+    "supported_claims": [
+      "LLift использует LLM в вспомогательной роли к статическому анализу на примере use-before-initialization и обсуждает сложность многофункционального контекста и недетерминизм."
+    ],
+    "limitations": [
+      "Результаты относятся к конкретному типу дефекта; это не доказательство универсальной семантической верификации."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Успешно открыта авторская arXiv-запись2308.00245: все4 автора и аннотация LLift.",
+    "thesis_sections": [
+      "Глава 1",
+      "Глава 2"
+    ],
+    "bibliographic_ru": "The Hitchhiker's Guide to Program Analysis: A Journey with Large Language Models / Haonan Li, Yu Hao, Yizhuo Zhai [и др.] // arXiv:2308.00245. — 2023. — URL: https://arxiv.org/abs/2308.00245 (дата обращения: 16.10.2026). — Текст : электронный."
+  },
+  {
+    "key": "vitale2026",
+    "authors": [
+      "Francesco Vitale",
+      "Francesco Flammini",
+      "Mauro Caporuscio",
+      "Nicola Mazzocca"
+    ],
+    "title": "Architecting software monitors for control-flow anomaly detection through large language models and conformance checking",
+    "year": 2026,
+    "venue": "Information and Software Technology",
+    "url": "https://arxiv.org/abs/2511.10876",
+    "verified": true,
+    "source_type": "peer_reviewed",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "LLM_conformance",
+      "runtime_monitoring",
+      "recent_related_work"
+    ],
+    "supported_claims": [
+      "Работа сочетает LLM-инструментирование исходного кода, журналы событий и conformance checking для обнаружения отклонений потока управления от проектной модели."
+    ],
+    "limitations": [
+      "Это runtime-подход на примере ERTMS/ETCS, а не статическое соответствие зависимостей архитектурным правилам; значения метрик preprint и журнальной версии различаются и здесь не переносятся."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Успешно открыта авторская arXiv-записьv2 от27.03.2026; авторы/метод; журнальная версияIST195,108133,2026 сверена с первичной страницей Elsevier и авторским списком публикаций. Прямая загрузка опубликованного PDF из университетского репозитория DiVA дала HTTP200; проверенный URL https://diva-portal.org/smash/get/diva2:2051032/FULLTEXT01.pdf.",
+    "thesis_sections": [
+      "Глава 1",
+      "Глава 2"
+    ],
+    "doi": "10.1016/j.infsof.2026.108133",
+    "bibliographic_ru": "Architecting software monitors for control-flow anomaly detection through large language models and conformance checking / Francesco Vitale, Francesco Flammini, Mauro Caporuscio [и др.] // Information and Software Technology. — 2026. — Т. 195. — Ст. 108133. — DOI: 10.1016/j.infsof.2026.108133. — URL: https://arxiv.org/abs/2511.10876 (дата обращения: 16.10.2026). — Текст : электронный.",
+    "metadata_verification": {
+      "url": "https://api.crossref.org/works/10.1016/j.infsof.2026.108133",
+      "http_status": 200,
+      "provider": "Crossref; publisher-deposited DOI metadata",
+      "title": [
+        "Architecting software monitors for control-flow anomaly detection through large language models and conformance checking"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2026,
+            7
+          ]
+        ]
+      },
+      "verification_date": "2026-10-16"
+    },
+    "volume": "195",
+    "pages": "108133",
+    "article_number": "108133"
+  },
+  {
+    "key": "kaufman2012leakage",
+    "authors": [
+      "Shachar Kaufman",
+      "Saharon Rosset",
+      "Claudia Perlich",
+      "Ori Stitelman"
+    ],
+    "title": "Leakage in data mining: Formulation, Detection, and Avoidance",
+    "year": 2012,
+    "venue": "ACM Transactions on Knowledge Discovery from Data",
+    "url": "https://doi.org/10.1145/2382577.2382579",
+    "verified": true,
+    "source_type": "peer_reviewed",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "evaluation_leakage",
+      "heldout",
+      "learn_predict_separation"
+    ],
+    "supported_claims": [
+      "Утечка — использование информации о целевой переменной, недоступной в легитимной ситуации предсказания; авторы обосновывают разделение learn/predict и контроль происхождения данных."
+    ],
+    "limitations": [
+      "Разделение файлов само по себе не исключает все виды утечки; нужны хронология выбора, изоляция truth и неизменность предсказаний."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Реальный HTTPS-запрос к Crossref API вернул200 и издательский депозит ACM с4авторами, годом2012, venue и полной аннотацией; дополнительно проверены авторская библиография Rosset и исходная публикацияKDD2011. Прямой интерфейсACM вернул403.",
+    "thesis_sections": [
+      "Глава 4",
+      "Глава 5"
+    ],
+    "doi": "10.1145/2382577.2382579",
+    "bibliographic_ru": "Leakage in data mining: Formulation, Detection, and Avoidance / Shachar Kaufman, Saharon Rosset, Claudia Perlich [и др.] // ACM Transactions on Knowledge Discovery from Data. — 2012. — Т. 6. — № 4. — С. 1–21. — Ст. 15. — DOI: 10.1145/2382577.2382579. — URL: https://doi.org/10.1145/2382577.2382579 (дата обращения: 16.10.2026). — Текст : электронный.",
+    "metadata_verification": {
+      "url": "https://api.crossref.org/works/10.1145/2382577.2382579",
+      "http_status": 200,
+      "provider": "Crossref; publisher-deposited DOI metadata",
+      "title": [
+        "Leakage in data mining"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2012,
+            12
+          ]
+        ]
+      },
+      "verification_date": "2026-10-16",
+      "abstract_inspected": true
+    },
+    "volume": "6",
+    "issue": "4",
+    "pages": "1-21",
+    "article_number": "15"
+  },
+  {
+    "key": "saito2015",
+    "authors": [
+      "Takaya Saito",
+      "Marc Rehmsmeier"
+    ],
+    "title": "The Precision-Recall Plot Is More Informative than the ROC Plot When Evaluating Binary Classifiers on Imbalanced Datasets",
+    "year": 2015,
+    "venue": "PLOS ONE",
+    "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0118432",
+    "verified": true,
+    "source_type": "peer_reviewed",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "precision_recall",
+      "confusion_matrix",
+      "class_imbalance"
+    ],
+    "supported_claims": [
+      "Precision/recall и матрица ошибок помогают оценивать положительные решения при дисбалансе классов; интерпретация ROC может скрывать практическую надёжность положительного ответа."
+    ],
+    "limitations": [
+      "Работа рассматривает бинарные классификаторы; многозначные ответы и abstention ArchGuard требуют дополнительно явного определения знаменателей и coverage."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Успешно открыта полная первичная PLOS-статья: оба автора,04.03.2015,10(3)e0118432, DOI, Abstract и Confusion Matrix.",
+    "thesis_sections": [
+      "Глава 4",
+      "Глава 5"
+    ],
+    "doi": "10.1371/journal.pone.0118432",
+    "bibliographic_ru": "The Precision-Recall Plot Is More Informative than the ROC Plot When Evaluating Binary Classifiers on Imbalanced Datasets / Takaya Saito, Marc Rehmsmeier // PLOS ONE. — 2015. — Т. 10. — № 3. — Ст. e0118432. — DOI: 10.1371/journal.pone.0118432. — URL: https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0118432 (дата обращения: 16.10.2026). — Текст : электронный.",
+    "metadata_verification": {
+      "url": "https://api.crossref.org/works/10.1371/journal.pone.0118432",
+      "http_status": 200,
+      "provider": "Crossref; publisher-deposited DOI metadata",
+      "title": [
+        "The Precision-Recall Plot Is More Informative than the ROC Plot When Evaluating Binary Classifiers on Imbalanced Datasets"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2015,
+            3,
+            4
+          ]
+        ]
+      },
+      "verification_date": "2026-10-16"
+    },
+    "volume": "10",
+    "issue": "3",
+    "pages": "e0118432"
+  },
+  {
+    "key": "elyaniv2010",
+    "authors": [
+      "Ran El-Yaniv",
+      "Yair Wiener"
+    ],
+    "title": "On the Foundations of Noise-free Selective Classification",
+    "year": 2010,
+    "venue": "Journal of Machine Learning Research",
+    "url": "https://www.jmlr.org/papers/v11/el-yaniv10a.html",
+    "verified": true,
+    "source_type": "peer_reviewed",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "abstention",
+      "selective_classification",
+      "risk_coverage"
+    ],
+    "supported_claims": [
+      "Selective classification допускает отказ от ответа и изучает компромисс между риском ошибки и долей покрытых решений."
+    ],
+    "limitations": [
+      "Теоретические гарантии шумонезависимой модели не переносятся на исследовательский анализатор; источник обосновывает необходимость совместно показывать качество и coverage."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Успешно открыта первичная JMLR-страница: оба автора,2010,11(53),1605–1641 и аннотация risk-coverage trade-off.",
+    "thesis_sections": [
+      "Глава 2",
+      "Глава 4",
+      "Глава 5"
+    ],
+    "bibliographic_ru": "On the Foundations of Noise-free Selective Classification / Ran El-Yaniv, Yair Wiener // Journal of Machine Learning Research. — 2010. — URL: https://www.jmlr.org/papers/v11/el-yaniv10a.html (дата обращения: 16.10.2026). — Текст : электронный."
+  },
+  {
+    "key": "geifman2017",
+    "authors": [
+      "Yonatan Geifman",
+      "Ran El-Yaniv"
+    ],
+    "title": "Selective Classification for Deep Neural Networks",
+    "year": 2017,
+    "venue": "Advances in Neural Information Processing Systems",
+    "url": "https://proceedings.neurips.cc/paper_files/paper/2017/hash/4a8423d5e91fda00bb7e46540e2b0cf1-Abstract.html",
+    "verified": true,
+    "source_type": "peer_reviewed",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "abstention",
+      "risk_coverage",
+      "selective_decisions"
+    ],
+    "supported_claims": [
+      "Селективный классификатор отклоняет часть примеров ради заданного уровня риска; coverage является самостоятельной характеристикой результата."
+    ],
+    "limitations": [
+      "Гарантии для нейросетевого классификатора на описанных авторами распределениях не являются гарантиями Security-анализатора."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Проверены первичная NeurIPS2017 proceedings-страница,том30 и авторская arXiv-записьv2; оба автора и risk-coverage постановка.",
+    "thesis_sections": [
+      "Глава 2",
+      "Глава 4",
+      "Глава 5"
+    ],
+    "bibliographic_ru": "Selective Classification for Deep Neural Networks / Yonatan Geifman, Ran El-Yaniv // Advances in Neural Information Processing Systems. — 2017. — Т. 30. — URL: https://proceedings.neurips.cc/paper_files/paper/2017/hash/4a8423d5e91fda00bb7e46540e2b0cf1-Abstract.html (дата обращения: 16.10.2026). — Текст : электронный.",
+    "volume": "30"
+  },
+  {
+    "key": "lipton2014f1",
+    "authors": [
+      "Zachary Chase Lipton",
+      "Charles Elkan",
+      "Balakrishnan Narayanaswamy"
+    ],
+    "title": "Thresholding Classifiers to Maximize F1 Score",
+    "year": 2014,
+    "venue": "arXiv:1402.1892",
+    "url": "https://arxiv.org/abs/1402.1892",
+    "verified": true,
+    "source_type": "preprint",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "F1",
+      "thresholding",
+      "metric_interpretation"
+    ],
+    "supported_claims": [
+      "F1 — гармоническое среднее precision и recall; оптимизация F1 может зависеть от порога и давать нежелательные решения при некоторых распределениях."
+    ],
+    "limitations": [
+      "F1 без контекста классов и правил отказа не описывает полную практическую полезность; в P037 нельзя менять замороженные пороги."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Открыта авторская arXiv-записьv2, проверены3автора и аннотация с определением F1 и примерами порогового поведения.",
+    "thesis_sections": [
+      "Глава 4",
+      "Глава 5"
+    ],
+    "bibliographic_ru": "Thresholding Classifiers to Maximize F1 Score / Zachary Chase Lipton, Charles Elkan, Balakrishnan Narayanaswamy // arXiv:1402.1892. — 2014. — URL: https://arxiv.org/abs/1402.1892 (дата обращения: 16.10.2026). — Текст : электронный."
+  },
+  {
+    "key": "meyes2019ablation",
+    "authors": [
+      "Richard Meyes",
+      "Melanie Lu",
+      "Constantin Waubert de Puiseau",
+      "Tobias Meisen"
+    ],
+    "title": "Ablation Studies in Artificial Neural Networks",
+    "year": 2019,
+    "venue": "arXiv:1901.08644",
+    "url": "https://arxiv.org/abs/1901.08644",
+    "verified": true,
+    "source_type": "preprint",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "ablation",
+      "component_contribution"
+    ],
+    "supported_claims": [
+      "Абляционное исследование оценивает изменение поведения системы при удалении её элементов; исходная работа рассматривает эту идею для искусственных нейронных сетей."
+    ],
+    "limitations": [
+      "Для гибридного pipeline удаление этапа меняет и условия отбора/стоимость: эффект нельзя интерпретировать как независимое причинное доказательство без контролируемого протокола."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Успешно открыта авторская arXiv-записьv2: все4автора и аннотация абляционных исследований.",
+    "thesis_sections": [
+      "Глава 4"
+    ],
+    "bibliographic_ru": "Ablation Studies in Artificial Neural Networks / Richard Meyes, Melanie Lu, Constantin Waubert de Puiseau [и др.] // arXiv:1901.08644. — 2019. — URL: https://arxiv.org/abs/1901.08644 (дата обращения: 16.10.2026). — Текст : электронный."
+  },
+  {
+    "key": "lipton2018scholarship",
+    "authors": [
+      "Zachary C. Lipton",
+      "Jacob Steinhardt"
+    ],
+    "title": "Troubling Trends in Machine Learning Scholarship",
+    "year": 2018,
+    "venue": "arXiv:1807.03341",
+    "url": "https://arxiv.org/abs/1807.03341",
+    "verified": true,
+    "source_type": "preprint",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "evaluation_integrity",
+      "scientific_claims"
+    ],
+    "supported_claims": [
+      "Авторы критикуют смешение объяснений и спекуляций, нечёткие термины и недостаточное различение источников улучшения; описание метода должно отделять измеренный эффект от гипотезы."
+    ],
+    "limitations": [
+      "Это методологическая позиционная статья, а не количественная оценка ArchGuard."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Успешно открыта авторская arXiv-записьv2 с обоими авторами и перечнем обсуждаемых проблем.",
+    "thesis_sections": [
+      "Глава 4",
+      "Заключение"
+    ],
+    "bibliographic_ru": "Troubling Trends in Machine Learning Scholarship / Zachary C. Lipton, Jacob Steinhardt // arXiv:1807.03341. — 2018. — URL: https://arxiv.org/abs/1807.03341 (дата обращения: 16.10.2026). — Текст : электронный."
+  },
+  {
+    "key": "arzt2014flowdroid",
+    "authors": [
+      "Steven Arzt",
+      "Siegfried Rasthofer",
+      "Christian Fritz",
+      "Eric Bodden",
+      "Alexandre Bartel",
+      "Jacques Klein",
+      "Yves Le Traon",
+      "Damien Octeau",
+      "Patrick McDaniel"
+    ],
+    "title": "FlowDroid: Precise Context, Flow, Field, Object-sensitive and Lifecycle-aware Taint Analysis for Android Apps",
+    "year": 2014,
+    "venue": "Proceedings of the ACM SIGPLAN Conference on Programming Language Design and Implementation",
+    "url": "https://jacquesklein2302.github.io/papers/2014-PLDI-flowdroid.pdf",
+    "verified": true,
+    "source_type": "peer_reviewed",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "taint_analysis",
+      "interprocedural_analysis",
+      "framework_lifecycle"
+    ],
+    "supported_claims": [
+      "FlowDroid использует чувствительность к контексту, потоку, полям и объектам вместе с моделью Android lifecycle для анализа утечек данных и уменьшения ложных тревог."
+    ],
+    "limitations": [
+      "Моделирование framework callbacks — существенная инженерная часть анализа; ограниченные Java/TS summaries ArchGuard не эквивалентны полному FlowDroid."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Успешно открыт11-страничный авторский PDF:9авторов, PLDI2014, аннотация и lifecycle/context/flow/field/object sensitivity.",
+    "thesis_sections": [
+      "Глава 1",
+      "Глава 5"
+    ],
+    "bibliographic_ru": "FlowDroid: Precise Context, Flow, Field, Object-sensitive and Lifecycle-aware Taint Analysis for Android Apps / Steven Arzt, Siegfried Rasthofer, Christian Fritz [и др.] // Proceedings of the ACM SIGPLAN Conference on Programming Language Design and Implementation. — 2014. — URL: https://jacquesklein2302.github.io/papers/2014-PLDI-flowdroid.pdf (дата обращения: 16.10.2026). — Текст : электронный."
+  },
+  {
+    "key": "codeql-docs",
+    "authors": [
+      "GitHub Inc."
+    ],
+    "title": "About Data Flow Analysis",
+    "year": null,
+    "venue": "Официальная документация CodeQL",
+    "url": "https://codeql.github.com/docs/writing-codeql-queries/about-data-flow-analysis/",
+    "verified": true,
+    "source_type": "official_documentation",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "CodeQL",
+      "dataflow",
+      "taint_analysis",
+      "static_security"
+    ],
+    "supported_claims": [
+      "CodeQL отличает локальный и глобальный поток данных и taint tracking; глобальный анализ требует моделирования вызовов и библиотек и вычислительно дороже локального."
+    ],
+    "limitations": [
+      "Документированные возможности CodeQL не являются benchmark-результатами сравнения с ArchGuard; нельзя объявлять все его правила простыми шаблонами."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Успешно открыта первичная CodeQL-страница About data flow analysis с разделами local/global flow, taint tracking и limitations.",
+    "thesis_sections": [
+      "Глава 1",
+      "Глава 5"
+    ],
+    "bibliographic_ru": "About Data Flow Analysis / GitHub Inc. // Официальная документация CodeQL. — URL: https://codeql.github.com/docs/writing-codeql-queries/about-data-flow-analysis/ (дата обращения: 16.10.2026). — Текст : электронный."
+  },
+  {
+    "key": "semgrep-docs",
+    "authors": [
+      "Semgrep Inc."
+    ],
+    "title": "Taint Analysis Overview",
+    "year": null,
+    "venue": "Официальная документация Semgrep",
+    "url": "https://docs.semgrep.dev/writing-rules/data-flow/taint-mode/overview",
+    "verified": true,
+    "source_type": "official_documentation",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "Semgrep",
+      "taint_sources_sinks_sanitizers",
+      "rule_extensibility"
+    ],
+    "supported_claims": [
+      "Taint-правила Semgrep задают sources, sinks и sanitizers с помощью паттернов; точность семантики источника зависит, в частности, от exact matching."
+    ],
+    "limitations": [
+      "Возможности разных редакций и режимов различаются; нельзя характеризовать весь инструмент только ограничениями одного бесплатного режима."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Успешно открыта первичная документация Semgrep с pattern-sources, pattern-sinks, exact и примерами распространения taint.",
+    "thesis_sections": [
+      "Глава 1",
+      "Глава 5"
+    ],
+    "bibliographic_ru": "Taint Analysis Overview / Semgrep Inc. // Официальная документация Semgrep. — URL: https://docs.semgrep.dev/writing-rules/data-flow/taint-mode/overview (дата обращения: 16.10.2026). — Текст : электронный."
+  },
+  {
+    "key": "cwe798",
+    "authors": [
+      "MITRE CWE Content Team"
+    ],
+    "title": "CWE-798: Use of Hard-coded Credentials",
+    "year": null,
+    "venue": "Common Weakness Enumeration",
+    "url": "https://cwe.mitre.org/data/definitions/798.html",
+    "verified": true,
+    "source_type": "official_specification",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "security_weakness",
+      "SEC001"
+    ],
+    "supported_claims": [
+      "Встроенные пароли и криптографические ключи относятся к hard-coded credentials."
+    ],
+    "limitations": [
+      "Строковая константа сама по себе не является доказательством секрета; требуется контекст использования."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Успешно открыта официальная запись CWE4.20; проверены номер, заглавие, Description и Extended Description. Год публикации не выдумывается: используется дата обращения.",
+    "thesis_sections": [
+      "Глава 5"
+    ],
+    "bibliographic_ru": "CWE-798: Use of Hard-coded Credentials / MITRE CWE Content Team // Common Weakness Enumeration. — URL: https://cwe.mitre.org/data/definitions/798.html (дата обращения: 16.10.2026). — Текст : электронный."
+  },
+  {
+    "key": "cwe89",
+    "authors": [
+      "MITRE CWE Content Team"
+    ],
+    "title": "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
+    "year": null,
+    "venue": "Common Weakness Enumeration",
+    "url": "https://cwe.mitre.org/data/definitions/89.html",
+    "verified": true,
+    "source_type": "official_specification",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "security_weakness",
+      "SEC002"
+    ],
+    "supported_claims": [
+      "SQL injection связана с попаданием внешнего ввода в SQL-команду без надлежащего разделения данных и синтаксиса."
+    ],
+    "limitations": [
+      "Наличие SQL API или конкатенации недостаточно без установленной зависимости от недоверенного ввода."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Успешно открыта официальная запись CWE4.20; проверены номер, заглавие, Description и Extended Description. Год публикации не выдумывается: используется дата обращения.",
+    "thesis_sections": [
+      "Глава 5"
+    ],
+    "bibliographic_ru": "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') / MITRE CWE Content Team // Common Weakness Enumeration. — URL: https://cwe.mitre.org/data/definitions/89.html (дата обращения: 16.10.2026). — Текст : электронный."
+  },
+  {
+    "key": "cwe78",
+    "authors": [
+      "MITRE CWE Content Team"
+    ],
+    "title": "CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
+    "year": null,
+    "venue": "Common Weakness Enumeration",
+    "url": "https://cwe.mitre.org/data/definitions/78.html",
+    "verified": true,
+    "source_type": "official_specification",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "security_weakness",
+      "SEC003"
+    ],
+    "supported_claims": [
+      "OS command injection возникает при влиянии недоверенного ввода на синтаксис команды операционной системы."
+    ],
+    "limitations": [
+      "Сам вызов запуска процесса не доказывает командную инъекцию."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Успешно открыта официальная запись CWE4.20; проверены номер, заглавие, Description и Extended Description. Год публикации не выдумывается: используется дата обращения.",
+    "thesis_sections": [
+      "Глава 5"
+    ],
+    "bibliographic_ru": "CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') / MITRE CWE Content Team // Common Weakness Enumeration. — URL: https://cwe.mitre.org/data/definitions/78.html (дата обращения: 16.10.2026). — Текст : электронный."
+  },
+  {
+    "key": "cwe22",
+    "authors": [
+      "MITRE CWE Content Team"
+    ],
+    "title": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
+    "year": null,
+    "venue": "Common Weakness Enumeration",
+    "url": "https://cwe.mitre.org/data/definitions/22.html",
+    "verified": true,
+    "source_type": "official_specification",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "security_weakness",
+      "SEC004"
+    ],
+    "supported_claims": [
+      "Path traversal связан с выходом сформированного из внешнего ввода пути за разрешённый родительский каталог."
+    ],
+    "limitations": [
+      "Наличие файловой операции не доказывает возможность выхода из каталога."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Успешно открыта официальная запись CWE4.20; проверены номер, заглавие, Description и Extended Description. Год публикации не выдумывается: используется дата обращения.",
+    "thesis_sections": [
+      "Глава 5"
+    ],
+    "bibliographic_ru": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') / MITRE CWE Content Team // Common Weakness Enumeration. — URL: https://cwe.mitre.org/data/definitions/22.html (дата обращения: 16.10.2026). — Текст : электронный."
+  },
+  {
+    "key": "cwe502",
+    "authors": [
+      "MITRE CWE Content Team"
+    ],
+    "title": "CWE-502: Deserialization of Untrusted Data",
+    "year": null,
+    "venue": "Common Weakness Enumeration",
+    "url": "https://cwe.mitre.org/data/definitions/502.html",
+    "verified": true,
+    "source_type": "official_specification",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "security_weakness",
+      "SEC005"
+    ],
+    "supported_claims": [
+      "Опасная десериализация включает обработку недоверенных данных без достаточной проверки допустимости результирующих объектов."
+    ],
+    "limitations": [
+      "Риски API и платформ различаются; неподдерживаемый парсер не должен объявлять безопасность."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Успешно открыта официальная запись CWE4.20; проверены номер, заглавие, Description и Extended Description. Год публикации не выдумывается: используется дата обращения.",
+    "thesis_sections": [
+      "Глава 5"
+    ],
+    "bibliographic_ru": "CWE-502: Deserialization of Untrusted Data / MITRE CWE Content Team // Common Weakness Enumeration. — URL: https://cwe.mitre.org/data/definitions/502.html (дата обращения: 16.10.2026). — Текст : электронный."
+  },
+  {
+    "key": "cwe918",
+    "authors": [
+      "MITRE CWE Content Team"
+    ],
+    "title": "CWE-918: Server-Side Request Forgery (SSRF)",
+    "year": null,
+    "venue": "Common Weakness Enumeration",
+    "url": "https://cwe.mitre.org/data/definitions/918.html",
+    "verified": true,
+    "source_type": "official_specification",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "security_weakness",
+      "SEC006"
+    ],
+    "supported_claims": [
+      "SSRF связан с запросом сервера к адресу из внешнего ввода без достаточного контроля фактического назначения."
+    ],
+    "limitations": [
+      "Строковая проверка URL не доказывает защиту от перенаправлений, альтернативных адресов и поведения среды."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Успешно открыта официальная запись CWE4.20; проверены номер, заглавие, Description и Extended Description. Год публикации не выдумывается: используется дата обращения.",
+    "thesis_sections": [
+      "Глава 5"
+    ],
+    "bibliographic_ru": "CWE-918: Server-Side Request Forgery (SSRF) / MITRE CWE Content Team // Common Weakness Enumeration. — URL: https://cwe.mitre.org/data/definitions/918.html (дата обращения: 16.10.2026). — Текст : электронный."
+  },
+  {
+    "key": "cwe79",
+    "authors": [
+      "MITRE CWE Content Team"
+    ],
+    "title": "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+    "year": null,
+    "venue": "Common Weakness Enumeration",
+    "url": "https://cwe.mitre.org/data/definitions/79.html",
+    "verified": true,
+    "source_type": "official_specification",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "security_weakness",
+      "SEC007"
+    ],
+    "supported_claims": [
+      "XSS предполагает неверное обезвреживание управляемого пользователем ввода перед включением в веб-вывод другим пользователям."
+    ],
+    "limitations": [
+      "Безопасность зависит от конкретного контекста вывода и применённого кодирования."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Успешно открыта официальная запись CWE4.20; проверены номер, заглавие, Description и Extended Description. Год публикации не выдумывается: используется дата обращения.",
+    "thesis_sections": [
+      "Глава 5"
+    ],
+    "bibliographic_ru": "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') / MITRE CWE Content Team // Common Weakness Enumeration. — URL: https://cwe.mitre.org/data/definitions/79.html (дата обращения: 16.10.2026). — Текст : электронный."
+  },
+  {
+    "key": "cwe327",
+    "authors": [
+      "MITRE CWE Content Team"
+    ],
+    "title": "CWE-327: Use of a Broken or Risky Cryptographic Algorithm",
+    "year": null,
+    "venue": "Common Weakness Enumeration",
+    "url": "https://cwe.mitre.org/data/definitions/327.html",
+    "verified": true,
+    "source_type": "official_specification",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "security_weakness",
+      "SEC008"
+    ],
+    "supported_claims": [
+      "Использование нарушенного или рискованного криптографического алгоритма может снижать конфиденциальность и целостность."
+    ],
+    "limitations": [
+      "Совпадение имени алгоритма без контекста применения не равно доказанной эксплуатации; синтаксический закрытый безопасный фрагмент не гарантирует безопасность системы."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Успешно открыта официальная запись CWE4.20; проверены номер, заглавие, Description и Extended Description. Год публикации не выдумывается: используется дата обращения.",
+    "thesis_sections": [
+      "Глава 5"
+    ],
+    "bibliographic_ru": "CWE-327: Use of a Broken or Risky Cryptographic Algorithm / MITRE CWE Content Team // Common Weakness Enumeration. — URL: https://cwe.mitre.org/data/definitions/327.html (дата обращения: 16.10.2026). — Текст : электронный."
+  },
+  {
+    "key": "cwe338",
+    "authors": [
+      "MITRE CWE Content Team"
+    ],
+    "title": "CWE-338: Use of Cryptographically Weak Pseudo-Random Number Generator (PRNG)",
+    "year": null,
+    "venue": "Common Weakness Enumeration",
+    "url": "https://cwe.mitre.org/data/definitions/338.html",
+    "verified": true,
+    "source_type": "official_specification",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "security_weakness",
+      "SEC009"
+    ],
+    "supported_claims": [
+      "Некриптографический PRNG представляет риск, когда применяется в контексте, требующем криптографической непредсказуемости."
+    ],
+    "limitations": [
+      "Обычная случайность для симуляции не тождественна security-sensitive randomness."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Успешно открыта официальная запись CWE4.20; проверены номер, заглавие, Description и Extended Description. Год публикации не выдумывается: используется дата обращения.",
+    "thesis_sections": [
+      "Глава 5"
+    ],
+    "bibliographic_ru": "CWE-338: Use of Cryptographically Weak Pseudo-Random Number Generator (PRNG) / MITRE CWE Content Team // Common Weakness Enumeration. — URL: https://cwe.mitre.org/data/definitions/338.html (дата обращения: 16.10.2026). — Текст : электронный."
+  },
+  {
+    "key": "cwe95",
+    "authors": [
+      "MITRE CWE Content Team"
+    ],
+    "title": "CWE-95: Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')",
+    "year": null,
+    "venue": "Common Weakness Enumeration",
+    "url": "https://cwe.mitre.org/data/definitions/95.html",
+    "verified": true,
+    "source_type": "official_specification",
+    "primary_or_secondary": "primary",
+    "areas": [
+      "security_weakness",
+      "SEC010"
+    ],
+    "supported_claims": [
+      "Eval injection связана с попаданием недоверенного синтаксиса в динамическое выполнение кода."
+    ],
+    "limitations": [
+      "Наличие eval API само по себе не доказывает внешнюю управляемость аргумента."
+    ],
+    "verification_date": "2026-10-16",
+    "verification_evidence": "Успешно открыта официальная запись CWE4.20; проверены номер, заглавие, Description и Extended Description. Год публикации не выдумывается: используется дата обращения.",
+    "thesis_sections": [
+      "Глава 5"
+    ],
+    "bibliographic_ru": "CWE-95: Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection') / MITRE CWE Content Team // Common Weakness Enumeration. — URL: https://cwe.mitre.org/data/definitions/95.html (дата обращения: 16.10.2026). — Текст : электронный."
+  }
+]

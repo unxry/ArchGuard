@@ -1,0 +1,26 @@
+@startuml
+skinparam defaultFontName Times New Roman
+skinparam defaultFontSize 20
+skinparam shadowing false
+skinparam backgroundColor white
+skinparam monochrome true
+skinparam roundcorner 0
+skinparam linetype ortho
+skinparam nodesep 35
+skinparam ranksep 35
+hide stereotype
+rectangle "Фиксация V3 и его\nисходников" as N0
+rectangle "FINAL: только разрешённые\nисходники" as N1
+rectangle "Seatbelt и прикладной\nfence" as N2
+rectangle "200 предсказаний без\ntruth" as N3
+rectangle "Реестр закрыт и\nзафиксирован" as N4
+rectangle "После этого: truth join и\nоценка" as N5
+N0 -right-> N1
+N1 -right-> N2
+N2 -down-> N3
+N3 -left-> N4
+N4 -left-> N5
+legend bottom
+Выполнен один авторитетный слепой запуск; настройки после FINAL отсутствуют
+endlegend
+@enduml

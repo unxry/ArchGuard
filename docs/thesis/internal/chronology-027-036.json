@@ -1,0 +1,156 @@
+{
+  "schema": "p037-stage-chronology-v1",
+  "read_scope": "Only public verification reports P027–P036; no private evidence or scientific execution.",
+  "rows": [
+    {
+      "stage": "P027",
+      "goal": "Зафиксировать самостоятельный Security-контракт",
+      "result": "SEC001–SEC010, отдельные SecurityFinding/SecurityEvidence, интерфейсы и firewall; исполняемых детекторов ещё нет; 2390 тестов.",
+      "material_problem": "Исторически зарезервированные SEC-названия отличаются от нового контракта; старый worktree-тест не допускает незакоммиченные новые файлы.",
+      "corrective_action": "Явно установить версионированный каталог, сохранить историческую документацию; quality запускать на отдельном implementation commit без изменения старых тестов.",
+      "status": "SECURITY_FOUNDATION_COMPLETE",
+      "scientific_relevance": "Отделение ARCH/SEC закреплено до разработки детекторов.",
+      "sources": [
+        "docs/verification/PROMPT_027.md"
+      ],
+      "source_sha256": {
+        "docs/verification/PROMPT_027.md": "3a20f44d4e25ef130d53d69cf26851d2dec1d3dc0d4c8f12dc822429e434e9f9"
+      }
+    },
+    {
+      "stage": "P028",
+      "goal": "Реализовать локальный статический анализ и dataflow V1",
+      "result": "Ограниченные intraprocedural propagation/aliases/branch joins; 10 детекторов; SEC001 IMPLEMENTED_V1, остальные PARTIAL_V1; TS SEC005 CONTRACT_ONLY; 2532 теста.",
+      "material_problem": "Динамические поля, циклы, heap, frameworks и неизвестные вызовы не покрываются; выход за бюджет нельзя интерпретировать как безопасность.",
+      "corrective_action": "UNKNOWN/PARTIAL и FAILED отделены; sanitation rule-specific, новая taint её инвалидирует; вывод требует конкретных source/sink evidence.",
+      "status": "SECURITY_STATIC_DATAFLOW_V1_COMPLETE",
+      "scientific_relevance": "80 инертных fixtures проверяют инженерное поведение, но ещё не эмпирическую эффективность.",
+      "sources": [
+        "docs/verification/PROMPT_028.md"
+      ],
+      "source_sha256": {
+        "docs/verification/PROMPT_028.md": "e79bf243d1823116c8fc029255cff82bc8a06eadf7f25b94cfc7475e4370b1a3"
+      }
+    },
+    {
+      "stage": "P029",
+      "goal": "Добавить ограниченную межпроцедурность V2",
+      "result": "Body-backed summaries, локальные/import/static вызовы, object/field aliases, 17 framework packs и пять proof subsets; 2658 тестов.",
+      "material_problem": "Рекурсия, неоднозначный dispatch, неизвестные transforms и динамический heap не дают достоверного summary; normalize и shell=false не являются общей безопасностью.",
+      "corrective_action": "Ограничения глубины/узлов/heap, UNKNOWN при неоднозначности, concrete rule-scoped proofs и их инвалидирование; никакого whole-program claim.",
+      "status": "SECURITY_INTERPROCEDURAL_V2_COMPLETE",
+      "scientific_relevance": "Frozen V2 становится историческим baseline; 97 engineering fixtures не объявлены benchmark.",
+      "sources": [
+        "docs/verification/PROMPT_029.md"
+      ],
+      "source_sha256": {
+        "docs/verification/PROMPT_029.md": "7853424b55097c2d2926482f3c650794405c49d6116e1021ccf0409cfdc71631"
+      }
+    },
+    {
+      "stage": "P030",
+      "goal": "Подготовить проспективный Security benchmark",
+      "result": "300 мини-проектов: DEV100/FINAL200, Java150/TS150, 10 правил×30; 600 reviewer packets; metrics и split protocol; 3035 тестов.",
+      "material_problem": "Общие API/boilerplate сохраняют lexical similarity; семь из 1000 cross-split пар имеют Jaccard≥0.8; ordinary no-finding V2 не даёт полного отрицательного.",
+      "corrective_action": "Точные/нормализованные пересечения нулевые; similarity раскрыта, случаев не фильтровать по детектору; PARTIAL/POTENTIAL/UNSUPPORTED отделены; COMPLETE нужен для definitive negative.",
+      "status": "SECURITY_BENCHMARK_FOUNDATION_COMPLETE",
+      "scientific_relevance": "Замысел мутации не truth; метрики условные, recovery/coverage фиксированы до результатов.",
+      "sources": [
+        "docs/verification/PROMPT_030.md"
+      ],
+      "source_sha256": {
+        "docs/verification/PROMPT_030.md": "9c6eb76b896be3519f4a91f1b29625b209b850793ee623d7046e4126a16cb11b"
+      }
+    },
+    {
+      "stage": "P031",
+      "goal": "Принять независимую human review и заморозить truth",
+      "result": "A/B по300; 290 соглашений, 10 конфликтов; κ=0.9408913583165859; 10 human adjudications; итог122POS158NEG20UNC; 3113 тестов.",
+      "material_problem": "Исходно ответов нет; nested layout и лишние B-поля; A master отличается от per-case в288 rationale/300 evidence-note; exact provenance требовала уточнения.",
+      "corrective_action": "Механически восстановлены frozen routes и ровно6 научных полей; source values сохранены; master оставлен historical/non-authoritative; координатор подтвердил exact per-case sets; human-only adjudication.",
+      "status": "SECURITY_HUMAN_TRUTH_COMPLETE",
+      "scientific_relevance": "DEV37/52/11, FINAL85/106/9; никаких detector/intent labels; человеческое происхождение процедурное, не криптографическое.",
+      "sources": [
+        "docs/verification/PROMPT_031.md"
+      ],
+      "source_sha256": {
+        "docs/verification/PROMPT_031.md": "838e23b5431a006345d631edc3a34bde6c2f64862b1ddabeab515277e737af9c"
+      }
+    },
+    {
+      "stage": "P032",
+      "goal": "Оценить frozen V2 на DEV до refinement",
+      "result": "100 слепых DEV predictions, затем truth join; TP7/FP0/TN0/FN0, recovery7/37, binary coverage7/89; 3127 passed/18 guarded skips.",
+      "material_problem": "Conditional P/R/F1=1 при30 positive nondefinitive и52 negative nondefinitive может вводить в заблуждение; historical tests пытались открыть protected stores; coverage bootstrap notice.",
+      "corrective_action": "P030 semantics неизменны; companions и знаменатели явны; skip-before-open guard, credential-free environment; raw outputs freeze до DEV truth; notice раскрыт.",
+      "status": "SECURITY_DEV_EVALUATION_COMPLETE",
+      "scientific_relevance": "Первый человеческий DEV baseline; application capability fence, OS isolation не заявлена; FINAL закрыт.",
+      "sources": [
+        "docs/verification/PROMPT_032.md"
+      ],
+      "source_sha256": {
+        "docs/verification/PROMPT_032.md": "d92ab3add89cc00628df35b25f2faae4e82242cdf0975ebddaddb7c95e8b074e"
+      }
+    },
+    {
+      "stage": "P033",
+      "goal": "Выполнить обобщённое DEV-guided refinement V3",
+      "result": "Две кандидатные версии и replay выбранной; выбран iteration-004: TP21/FP0, recovery21/37, coverage21/89; 3185 passed/18 guarded skips.",
+      "material_problem": "Первый кандидат TP20/FP1 из-за потерянного Path.of confinement fact; неясные calls/flow; ни один DEV negative не сертифицирован; old worktree gate остановил quality.",
+      "corrective_action": "Generic API/flow/proof corrections, не case-specific branches; ограниченный COMPLETE grammar TS SEC008; сохранить обе версии; implementation commit перед quality rerun.",
+      "status": "SECURITY_DEV_REFINEMENT_COMPLETE_CANDIDATE_FROZEN",
+      "scientific_relevance": "DEV использован для разработки; +37.8378pp recovery не является blind FINAL improvement; zero definitive negatives.",
+      "sources": [
+        "docs/verification/PROMPT_033.md"
+      ],
+      "source_sha256": {
+        "docs/verification/PROMPT_033.md": "c2eb016c282bb7155e182fee8982e702a2c2820f4aa4bb04196aaf74da447ec4"
+      }
+    },
+    {
+      "stage": "P034",
+      "goal": "Один раз получить FINAL predictions с OS-изоляцией",
+      "result": "Seatbelt deny-default плюс application fence; один worker/200 случаев, 41 definitive positive,0 definitive negative,137 PARTIAL,12 POTENTIAL,10 UNSUPPORTED; 3234 passed/24 skips.",
+      "material_problem": "Synthetic preflight не запускал dyld без literal root-directory read; один fixture не содержал полный receipt; full quality прерван пользователем на48%; host-specific custody.",
+      "corrective_action": "До benchmark исправлены profile и synthetic fixture; только directory entry / без descendants; восемь harmless sentinels запрещены; полный gate повторён; owner-readonly ограничения раскрыты.",
+      "status": "SECURITY_FINAL_BLIND_PREDICTION_COMPLETE",
+      "scientific_relevance": "Truth reads до freeze=0; writer закрыт; outcomes ещё не correctness; kernel-policy host boundary, не защита от privileged owner.",
+      "sources": [
+        "docs/verification/PROMPT_034.md"
+      ],
+      "source_sha256": {
+        "docs/verification/PROMPT_034.md": "df5cd05a0b75802018e8cf8a673865eaebdd71e6248c3c303f577699efa60dbe"
+      }
+    },
+    {
+      "stage": "P035",
+      "goal": "Открыть truth после freeze и оценить held-out FINAL",
+      "result": "N200/binary191; TP38/FP3/TN0/FN0; recovery38/85,coverage41/191,precision38/41; 3278 passed/28 skips,81% coverage.",
+      "material_problem": "47 positive и103 negative nondefinitive,0 definitive negatives; все3FP SEC001; shutdown audit-hook diagnostic; новый test basename collision остановил collection.",
+      "corrective_action": "Без tuning/rerun сохранить всю невыгодную статистику; finally очистить профиль без научного пересчёта; переименовать только новый тест и повторить quality; module-not-measured раскрыт.",
+      "status": "SECURITY_FINAL_EVALUATION_COMPLETE",
+      "scientific_relevance": "Recovery FINAL ниже DEV на12.0508744pp; нет P029 blind FINAL baseline; conditional FN0 не означает отсутствие пропусков.",
+      "sources": [
+        "docs/verification/PROMPT_035.md"
+      ],
+      "source_sha256": {
+        "docs/verification/PROMPT_035.md": "2771bc19013ece0ca9cc514c56e18215666b355d5dad945e01e4155381afbb89"
+      }
+    },
+    {
+      "stage": "P036",
+      "goal": "Закрыть bounded Security research extension",
+      "result": "Frozen scientific/claims/capability/limitations/reproducibility/custody registries; complete в ограниченной области; 3337 passed/29 skips,64% coverage.",
+      "material_problem": "Неверный public Architecture path при подготовке; private quality parser неверно разобрал TOTAL columns, freeze остановился до записи; coverage warning.",
+      "corrective_action": "Исправить только подготовку/парсинг и последовательность receipts; успешный full gate не повторять; сохранить warning и исторические несовершенства; source/candidate/metrics не менять.",
+      "status": "SECURITY_EXTENSION_COMPLETE_BOUNDED_RESEARCH",
+      "scientific_relevance": "Production readiness/soundness не заявлены, natural-prevalence generalization не установлена; original truth reads/analyzer reruns0.",
+      "sources": [
+        "docs/verification/PROMPT_036.md"
+      ],
+      "source_sha256": {
+        "docs/verification/PROMPT_036.md": "62e81a5bfa2b04dc1ff00aaa623eabe54dd08c866ee2c18df9799e693199f227"
+      }
+    }
+  ]
+}

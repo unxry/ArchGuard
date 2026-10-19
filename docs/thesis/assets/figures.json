@@ -1,0 +1,124 @@
+{
+  "pipeline": {
+    "svg": "pipeline.svg",
+    "png": "pipeline.png",
+    "width_cm": 16.5,
+    "type": "diagram",
+    "plantuml": "plantuml/pipeline.puml"
+  },
+  "architecture": {
+    "svg": "architecture.svg",
+    "png": "architecture.png",
+    "width_cm": 16.5,
+    "type": "diagram",
+    "plantuml": "plantuml/architecture.puml"
+  },
+  "static_pipeline": {
+    "svg": "static_pipeline.svg",
+    "png": "static_pipeline.png",
+    "width_cm": 16.5,
+    "type": "diagram",
+    "plantuml": "plantuml/static_pipeline.puml"
+  },
+  "iam_graph": {
+    "svg": "iam_graph.svg",
+    "png": "iam_graph.png",
+    "width_cm": 16.5,
+    "type": "diagram",
+    "plantuml": "plantuml/iam_graph.puml"
+  },
+  "dsl_flow": {
+    "svg": "dsl_flow.svg",
+    "png": "dsl_flow.png",
+    "width_cm": 16.5,
+    "type": "diagram",
+    "plantuml": "plantuml/dsl_flow.puml"
+  },
+  "graph_context": {
+    "svg": "graph_context.svg",
+    "png": "graph_context.png",
+    "width_cm": 16.5,
+    "type": "diagram",
+    "plantuml": "plantuml/graph_context.puml"
+  },
+  "hybrid_engine": {
+    "svg": "hybrid_engine.svg",
+    "png": "hybrid_engine.png",
+    "width_cm": 16.5,
+    "type": "diagram",
+    "plantuml": "plantuml/hybrid_engine.puml"
+  },
+  "finding_lifecycle": {
+    "svg": "finding_lifecycle.svg",
+    "png": "finding_lifecycle.png",
+    "width_cm": 16.5,
+    "type": "diagram",
+    "plantuml": "plantuml/finding_lifecycle.puml"
+  },
+  "experiment_design": {
+    "svg": "experiment_design.svg",
+    "png": "experiment_design.png",
+    "width_cm": 16.5,
+    "type": "diagram",
+    "plantuml": "plantuml/experiment_design.puml"
+  },
+  "ablations": {
+    "svg": "ablations.svg",
+    "png": "ablations.png",
+    "width_cm": 16.5,
+    "type": "diagram",
+    "plantuml": "plantuml/ablations.puml"
+  },
+  "security_flow": {
+    "svg": "security_flow.svg",
+    "png": "security_flow.png",
+    "width_cm": 16.5,
+    "type": "diagram",
+    "plantuml": "plantuml/security_flow.puml"
+  },
+  "security_blind": {
+    "svg": "security_blind.svg",
+    "png": "security_blind.png",
+    "width_cm": 16.5,
+    "type": "diagram",
+    "plantuml": "plantuml/security_blind.puml"
+  },
+  "security_review": {
+    "svg": "security_review.svg",
+    "png": "security_review.png",
+    "width_cm": 16.5,
+    "type": "diagram",
+    "plantuml": "plantuml/security_review.puml"
+  },
+  "custody": {
+    "svg": "custody.svg",
+    "png": "custody.png",
+    "width_cm": 16.5,
+    "type": "diagram",
+    "plantuml": "plantuml/custody.puml"
+  },
+  "architecture_results": {
+    "svg": "architecture_results.svg",
+    "png": "architecture_results.png",
+    "width_cm": 16.5,
+    "type": "chart"
+  },
+  "context_tradeoff": {
+    "svg": "context_tradeoff.svg",
+    "png": "context_tradeoff.png",
+    "width_cm": 16.5,
+    "type": "chart"
+  },
+  "security_recovery": {
+    "svg": "security_recovery.svg",
+    "png": "security_recovery.png",
+    "width_cm": 16.5,
+    "type": "chart"
+  },
+  "security_outcomes": {
+    "svg": "security_outcomes.svg",
+    "png": "security_outcomes.png",
+    "width_cm": 16.5,
+    "type": "chart"
+  }
+}

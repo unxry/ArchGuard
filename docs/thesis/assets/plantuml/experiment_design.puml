@@ -1,0 +1,27 @@
+@startuml
+skinparam defaultFontName Times New Roman
+skinparam defaultFontSize 20
+skinparam shadowing false
+skinparam backgroundColor white
+skinparam monochrome true
+skinparam roundcorner 0
+skinparam linetype ortho
+skinparam nodesep 35
+skinparam ranksep 35
+hide stereotype
+rectangle "Протокол и разбиение\nпроектов" as N0
+rectangle "DEV: настройка и выбор" as N1
+rectangle "Фиксация H2 при 0,75" as N2
+rectangle "Слепое получение LLM-\nответов" as N3
+rectangle "Фиксация предсказаний" as N4
+rectangle "Оценка FINAL: 300 случаев" as N5
+N0 -right-> N1
+N1 -right-> N2
+N2 -down-> N3
+N3 -left-> N4
+N4 -left-> N5
+legend bottom
+Все семь абляций учитываются; технически отсутствующие ответы не превращаются в
+успех
+endlegend
+@enduml

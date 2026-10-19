@@ -1,0 +1,58 @@
+{
+  "schema": "thesis-appendix-e-independent-review-v1",
+  "result": "PASS",
+  "appendix": "docs/thesis/source/appendices/06_security_results.md",
+  "sha256": "591ba291f21cad4350da3aa2b6a11ffc032429eff445f6305d35559062352132",
+  "tables": [
+    {
+      "table": "append_e_rules",
+      "rows": 10,
+      "numeric_cells": 90,
+      "result": "PASS"
+    },
+    {
+      "table": "append_e_languages",
+      "rows": 2,
+      "numeric_cells": 18,
+      "result": "PASS"
+    },
+    {
+      "table": "append_e_capabilities",
+      "rows": 3,
+      "numeric_cells": 27,
+      "result": "PASS"
+    },
+    {
+      "table": "append_e_agreement",
+      "rows": 4,
+      "numeric_cells": 20,
+      "result": "PASS"
+    },
+    {
+      "table": "append_e_generalization",
+      "rows": 3,
+      "numeric_cells": 24,
+      "result": "PASS"
+    }
+  ],
+  "numeric_cells_checked": 179,
+  "source_sha256": {
+    "experiments/security/security-final-evaluation-v1/public/security-final-rule-metrics.json": "6c38a7f26a582fc5f71756ac1b1c24f9be6884f9f095dcb6aed35c8a8896fcd3",
+    "experiments/security/security-final-evaluation-v1/public/security-final-language-metrics.json": "7e105520938c375735c1983e2889c54cb6ee7037410d9d3ad85a1c5c4f385a1a",
+    "experiments/security/security-final-evaluation-v1/public/security-final-capability-metrics.json": "92e175ad87e046192a8359752ceca9c147b4b23bad0c2af82c49f564ae0d4a7a",
+    "experiments/security/security-human-review-v1/public/security-human-agreement.json": "b5f9956c93c47040af1656eefcf4be9a54a9d8d019b222cb41db69fb41434105",
+    "experiments/security/security-dev-baseline-v1/public/security-dev-baseline-metrics.json": "71ab9a1a0fa8faf799d7b243154dd6d2699ed809ddb94d1c3f3fa288dd31b41a",
+    "experiments/security/security-dev-refinement-v3/public/security-dev-candidate-primary.json": "1bf86026618cd4ab3409900217b9c7eee6403015f246460949201a94dbdb4fa6",
+    "experiments/security/security-final-evaluation-v1/public/security-final-metrics.json": "57bd8f7877a1ee40794af217638f7161a30673f0e60e4f0eaf1c621a86ec7936",
+    "experiments/security/security-final-evaluation-v1/public/security-final-evaluation-resources.json": "8a65d48fe01f811e614992d2e272e25ef1aa907a5e3b3ed4a7256e53907cb1d0",
+    "experiments/security/security-final-evaluation-v1/public/security-final-error-summary.json": "da2aada52d7f0756864bf0455048e2b6c04994c96cda4f8c232ae1067e2b29e5"
+  },
+  "semantic_review": {
+    "conditional_confusion": "FN excludes nondefinitive positives; TN=0 retained",
+    "denominators": "N and binary B distinct; UNCERTAIN excluded only from B",
+    "nulls": "CONTRACT_ONLY precision undefined, represented by dash",
+    "resources": "join_and_metric_aggregation time includes both scopes; not join only",
+    "gaps": "exact overlapping frozen keys preserved",
+    "limitations": "no definitive negatives; no blind FINAL V2 comparison; DEV/FINAL unpaired; no new run"
+  }
+}

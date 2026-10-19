@@ -1,0 +1,28 @@
+@startuml
+skinparam defaultFontName Times New Roman
+skinparam defaultFontSize 20
+skinparam shadowing false
+skinparam backgroundColor white
+skinparam monochrome true
+skinparam roundcorner 0
+skinparam linetype ortho
+skinparam nodesep 35
+skinparam ranksep 35
+hide stereotype
+component "Локальный CLI" as CLI
+component "HTTP API\nhealth и system info" as API
+component "Приём и разбор\nисходников" as P
+component "IAM и графы" as IAM
+component "Static / Graph / LLM\nHybrid и свидетельства" as H
+component "Провайдер LLM" as LLM
+component "SQLAlchemy / Alembic\nоснова хранения" as DB
+CLI --> P
+P -right-> IAM
+IAM -right-> H
+H --> LLM
+API -[hidden]-> P
+DB -[hidden]right-> LLM
+legend bottom
+Прикладное постоянное хранение анализов и сервисная очередь не завершены
+endlegend
+@enduml

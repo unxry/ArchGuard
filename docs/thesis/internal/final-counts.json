@@ -1,0 +1,30 @@
+{
+  "pages": 213,
+  "words": 39138,
+  "characters_with_spaces": 314724,
+  "characters_without_spaces": 276717,
+  "source_words": 35059,
+  "figures": 17,
+  "tables": 51,
+  "equations": 8,
+  "appendices": 10,
+  "references": 65,
+  "docx_sha256": "71e83609e42e0592a5cd19a5b148799d5ba407fe6cdc2bd4771cb1c0b4202169",
+  "main_text_pages": 119,
+  "bibliography_pages": 11,
+  "appendix_pages": 74,
+  "front_matter_pages": 9,
+  "pdf_sha256": "b26ec0b84b6e15cf06c2f7b317f18d4bdf14c16e25e60530f6f1ef830240f007",
+  "source_types": {
+    "technical_report": 1,
+    "peer_reviewed": 30,
+    "official_documentation": 8,
+    "book": 1,
+    "conference_paper": 1,
+    "preprint": 5,
+    "official_specification": 10,
+    "university_regulation": 3,
+    "standard": 5,
+    "software_repository": 1
+  }
+}

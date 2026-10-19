@@ -1,0 +1,26 @@
+@startuml
+skinparam defaultFontName Times New Roman
+skinparam defaultFontSize 20
+skinparam shadowing false
+skinparam backgroundColor white
+skinparam monochrome true
+skinparam roundcorner 0
+skinparam linetype ortho
+skinparam nodesep 35
+skinparam ranksep 35
+hide stereotype
+rectangle "Исходный код и целевые\nправила" as N0
+rectangle "AST и промежуточная\nмодель IAM" as N1
+rectangle "Статические и графовые\nсвидетельства" as N2
+rectangle "Контекст для языковой\nмодели" as N3
+rectangle "Гибридное правило решения" as N4
+rectangle "Finding и проверяемое\nсвидетельство" as N5
+N0 -right-> N1
+N1 -right-> N2
+N2 -down-> N3
+N3 -left-> N4
+N4 -left-> N5
+legend bottom
+Архитектурные решения и отдельные Security-результаты не смешиваются
+endlegend
+@enduml

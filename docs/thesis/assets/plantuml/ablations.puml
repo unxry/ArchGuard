@@ -1,0 +1,29 @@
+@startuml
+skinparam defaultFontName Times New Roman
+skinparam defaultFontSize 20
+skinparam shadowing false
+skinparam backgroundColor white
+skinparam monochrome true
+skinparam roundcorner 0
+skinparam linetype ortho
+skinparam nodesep 35
+skinparam ranksep 35
+hide stereotype
+rectangle "A1 Static" as N0
+rectangle "A2 Graph" as N1
+rectangle "A3 LLM" as N2
+rectangle "A4 Static + Graph" as N3
+rectangle "A5 Static + LLM" as N4
+rectangle "A6 Graph + LLM" as N5
+rectangle "A7 Static + Graph + LLM" as N6
+N0 -[hidden]right-> N1
+N1 -[hidden]right-> N2
+N2 -[hidden]down-> N3
+N3 -[hidden]left-> N4
+N4 -[hidden]left-> N5
+N5 -[hidden]left-> N6
+legend bottom
+Сравнение зафиксировано на общей контролируемой выборке; не причинное
+доказательство
+endlegend
+@enduml

@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-19",
+  "result": "PASS",
+  "public_files_checked": 104,
+  "public_text_files_checked": 85,
+  "privacy_pattern_files": [],
+  "exact_long_duplicate_paragraph_groups": [],
+  "credentials_found": 0,
+  "private_case_data_found": 0,
+  "scientific_runs": 0,
+  "original_truth_reads": 0,
+  "source_verified": 65,
+  "source_unverified": 0,
+  "source_types": {
+    "technical_report": 1,
+    "peer_reviewed": 30,
+    "official_documentation": 8,
+    "book": 1,
+    "conference_paper": 1,
+    "preprint": 5,
+    "official_specification": 10,
+    "university_regulation": 3,
+    "standard": 5,
+    "software_repository": 1
+  },
+  "limitations": "Pattern scan complements manual aggregate/source review and OOXML audit; not a claim of universal secret detection. Private evidence was not opened."
+}

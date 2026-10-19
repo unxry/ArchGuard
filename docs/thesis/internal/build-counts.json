@@ -1,0 +1,922 @@
+{
+  "docx": "ArchGuard_AI_VKR_MASTER.docx",
+  "pages": 213,
+  "figures": 17,
+  "tables": 51,
+  "equations": 8,
+  "appendices": 10,
+  "references": 65,
+  "words": 39138,
+  "characters_with_spaces": 314724,
+  "characters_without_spaces": 276717,
+  "count_method": "OOXML body visible text, tables and TOC included; Unicode word sequences",
+  "citation_order": {
+    "garlan1994": 1,
+    "murphy1995": 2,
+    "liu2024lostmiddle": 3,
+    "nielson1999": 4,
+    "archguard": 5,
+    "ducasse2009": 6,
+    "desilva2012": 7,
+    "li2022erosion": 8,
+    "ali2017consistency": 9,
+    "terra2009": 10,
+    "sangal2005": 11,
+    "treesitter-docs": 12,
+    "pytreesitter-docs": 13,
+    "grove2001callgraph": 14,
+    "ferrante1987": 15,
+    "yamaguchi2014": 16,
+    "reps1995": 17,
+    "cousot1977": 18,
+    "tarjan1972": 19,
+    "hagberg2008": 20,
+    "networkx-docs": 21,
+    "chen2021": 22,
+    "feng2020codebert": 23,
+    "guo2021graphcodebert": 24,
+    "lewis2020rag": 25,
+    "zhang2023repocoder": 26,
+    "wu2024repoformer": 27,
+    "jimenez2024swebench": 28,
+    "yang2024sweagent": 29,
+    "llift2023": 30,
+    "li2024llmdfa": 31,
+    "iris2025": 32,
+    "vitale2026": 33,
+    "elyaniv2010": 34,
+    "geifman2017": 35,
+    "saito2015": 36,
+    "lipton2014f1": 37,
+    "kaufman2012leakage": 38,
+    "meyes2019ablation": 39,
+    "lipton2018scholarship": 40,
+    "archunit-docs": 41,
+    "jqassistant-docs": 42,
+    "sonargraph-docs": 43,
+    "aldrich2002archjava": 44,
+    "codeql-docs": 45,
+    "semgrep-docs": 46,
+    "arzt2014flowdroid": 47,
+    "cwe798": 48,
+    "cwe89": 49,
+    "cwe78": 50,
+    "cwe22": 51,
+    "cwe502": 52,
+    "cwe918": 53,
+    "cwe79": 54,
+    "cwe327": 55,
+    "cwe338": 56,
+    "cwe95": 57,
+    "stu2023": 58,
+    "gia2016": 59,
+    "gost7322017": 60,
+    "gostdescription2018": 61,
+    "gostreferences2008": 62,
+    "gostelectronic2022": 63,
+    "gosteskd2019": 64,
+    "originality2021": 65
+  },
+  "headings": [
+    {
+      "title": "ПЕРЕЧЕНЬ СОКРАЩЕНИЙ И ОБОЗНАЧЕНИЙ",
+      "level": 1,
+      "bookmark": "heading_1",
+      "appendix": ""
+    },
+    {
+      "title": "ВВЕДЕНИЕ",
+      "level": 1,
+      "bookmark": "heading_2",
+      "appendix": ""
+    },
+    {
+      "title": "1 Теоретические основы контроля архитектурного соответствия программного обеспечения",
+      "level": 1,
+      "bookmark": "heading_3",
+      "appendix": ""
+    },
+    {
+      "title": "1.1 Архитектура программной системы и её связь с исходным кодом",
+      "level": 2,
+      "bookmark": "heading_4",
+      "appendix": ""
+    },
+    {
+      "title": "1.2 Архитектурная эрозия, восстановление и проверка соответствия",
+      "level": 2,
+      "bookmark": "heading_5",
+      "appendix": ""
+    },
+    {
+      "title": "1.3 Статический анализ и границы синтаксических представлений",
+      "level": 2,
+      "bookmark": "heading_6",
+      "appendix": ""
+    },
+    {
+      "title": "1.4 Графовое представление архитектуры и выбор свидетельств",
+      "level": 2,
+      "bookmark": "heading_7",
+      "appendix": ""
+    },
+    {
+      "title": "1.5 Языковые модели для анализа кода и проблема контекста",
+      "level": 2,
+      "bookmark": "heading_8",
+      "appendix": ""
+    },
+    {
+      "title": "1.6 Гибридный анализ, неопределённость и требования к оценке",
+      "level": 2,
+      "bookmark": "heading_9",
+      "appendix": ""
+    },
+    {
+      "title": "1.7 Существующие инструменты и место предлагаемого подхода",
+      "level": 2,
+      "bookmark": "heading_10",
+      "appendix": ""
+    },
+    {
+      "title": "1.8 Постановка задачи и требования к методу",
+      "level": 2,
+      "bookmark": "heading_11",
+      "appendix": ""
+    },
+    {
+      "title": "Выводы по главе 1",
+      "level": 2,
+      "bookmark": "heading_12",
+      "appendix": ""
+    },
+    {
+      "title": "2 Разработка гибридного метода контроля архитектурного соответствия",
+      "level": 1,
+      "bookmark": "heading_13",
+      "appendix": ""
+    },
+    {
+      "title": "2.1 Постановка задачи и модель входных данных",
+      "level": 2,
+      "bookmark": "heading_14",
+      "appendix": ""
+    },
+    {
+      "title": "2.2 Языково независимая промежуточная архитектурная модель",
+      "level": 2,
+      "bookmark": "heading_15",
+      "appendix": ""
+    },
+    {
+      "title": "2.3 Целевая архитектура и язык правил",
+      "level": 2,
+      "bookmark": "heading_16",
+      "appendix": ""
+    },
+    {
+      "title": "2.4 Каталог архитектурных задач",
+      "level": 2,
+      "bookmark": "heading_17",
+      "appendix": ""
+    },
+    {
+      "title": "2.5 Статический и графовый анализ",
+      "level": 2,
+      "bookmark": "heading_18",
+      "appendix": ""
+    },
+    {
+      "title": "2.6 Семантический анализ и графовый отбор контекста",
+      "level": 2,
+      "bookmark": "heading_19",
+      "appendix": ""
+    },
+    {
+      "title": "2.7 Объединение свидетельств и принятие решения",
+      "level": 2,
+      "bookmark": "heading_20",
+      "appendix": ""
+    },
+    {
+      "title": "2.8 Прослеживаемость, отказы и границы метода",
+      "level": 2,
+      "bookmark": "heading_21",
+      "appendix": ""
+    },
+    {
+      "title": "3 Проектирование и реализация прототипа ArchGuard AI",
+      "level": 1,
+      "bookmark": "heading_22",
+      "appendix": ""
+    },
+    {
+      "title": "3.1 Архитектура программной системы",
+      "level": 2,
+      "bookmark": "heading_23",
+      "appendix": ""
+    },
+    {
+      "title": "3.2 Модели данных и разделение ответственности",
+      "level": 2,
+      "bookmark": "heading_24",
+      "appendix": ""
+    },
+    {
+      "title": "3.3 Приём исходников, разбор и жизненный цикл анализа",
+      "level": 2,
+      "bookmark": "heading_25",
+      "appendix": ""
+    },
+    {
+      "title": "3.4 API, хранение и граница фонового исполнения",
+      "level": 2,
+      "bookmark": "heading_26",
+      "appendix": ""
+    },
+    {
+      "title": "3.5 Обоснование принятых инженерных решений",
+      "level": 2,
+      "bookmark": "heading_27",
+      "appendix": ""
+    },
+    {
+      "title": "3.6 Проблемы реализации и принятые инженерные решения",
+      "level": 2,
+      "bookmark": "heading_28",
+      "appendix": ""
+    },
+    {
+      "title": "3.6.1 Координаты Tree-sitter и срок жизни синтаксических данных",
+      "level": 3,
+      "bookmark": "heading_29",
+      "appendix": ""
+    },
+    {
+      "title": "3.6.2 Разрешение символов и выравнивание архитектурного владельца",
+      "level": 3,
+      "bookmark": "heading_30",
+      "appendix": ""
+    },
+    {
+      "title": "3.6.3 Ограниченные графы и построение контекста",
+      "level": 3,
+      "bookmark": "heading_31",
+      "appendix": ""
+    },
+    {
+      "title": "3.6.4 Надёжность LLM transport и честный учёт незавершённых вызовов",
+      "level": 3,
+      "bookmark": "heading_32",
+      "appendix": ""
+    },
+    {
+      "title": "3.6.5 Независимая разметка и сохранение исходных человеческих данных",
+      "level": 3,
+      "bookmark": "heading_33",
+      "appendix": ""
+    },
+    {
+      "title": "3.6.6 Утечка признаков и нарушения модульных границ",
+      "level": 3,
+      "bookmark": "heading_34",
+      "appendix": ""
+    },
+    {
+      "title": "3.7 Проверка реализации и воспроизводимость",
+      "level": 2,
+      "bookmark": "heading_35",
+      "appendix": ""
+    },
+    {
+      "title": "4 Экспериментальное исследование архитектурного метода",
+      "level": 1,
+      "bookmark": "heading_36",
+      "appendix": ""
+    },
+    {
+      "title": "4.1 Цель, исследовательские вопросы и логика проверки гипотезы",
+      "level": 2,
+      "bookmark": "heading_37",
+      "appendix": ""
+    },
+    {
+      "title": "4.2 Развитие экспериментальной базы и сохранённые отрицательные результаты",
+      "level": 2,
+      "bookmark": "heading_38",
+      "appendix": ""
+    },
+    {
+      "title": "4.3 Development, финальная выборка и независимость эталона",
+      "level": 2,
+      "bookmark": "heading_39",
+      "appendix": ""
+    },
+    {
+      "title": "4.4 Фиксация моделей, слепое получение ответов и предсказаний",
+      "level": 2,
+      "bookmark": "heading_40",
+      "appendix": ""
+    },
+    {
+      "title": "4.5 Метрики и обращение с неопределёнными исходами",
+      "level": 2,
+      "bookmark": "heading_41",
+      "appendix": ""
+    },
+    {
+      "title": "4.6 Результаты всех семи комбинаций",
+      "level": 2,
+      "bookmark": "heading_42",
+      "appendix": ""
+    },
+    {
+      "title": "4.7 Правила, языки и парные сравнения",
+      "level": 2,
+      "bookmark": "heading_43",
+      "appendix": ""
+    },
+    {
+      "title": "4.8 Графовый контекст: экономия с умеренным снижением качества",
+      "level": 2,
+      "bookmark": "heading_44",
+      "appendix": ""
+    },
+    {
+      "title": "4.9 Ресурсы, стоимость и пределы вывода о масштабируемости",
+      "level": 2,
+      "bookmark": "heading_45",
+      "appendix": ""
+    },
+    {
+      "title": "4.10 Ответы на RQ и вывод о гипотезе",
+      "level": 2,
+      "bookmark": "heading_46",
+      "appendix": ""
+    },
+    {
+      "title": "4.11 Угрозы валидности",
+      "level": 2,
+      "bookmark": "heading_47",
+      "appendix": ""
+    },
+    {
+      "title": "5 Расширение статического анализа безопасности: метод, эксперимент и ограничения",
+      "level": 1,
+      "bookmark": "heading_48",
+      "appendix": ""
+    },
+    {
+      "title": "5.1 Назначение расширения и граница научных утверждений",
+      "level": 2,
+      "bookmark": "heading_49",
+      "appendix": ""
+    },
+    {
+      "title": "5.2 Фиксированный каталог правил и развитие реализации",
+      "level": 2,
+      "bookmark": "heading_50",
+      "appendix": ""
+    },
+    {
+      "title": "5.3 Ограниченная модель потоков и межпроцедурных связей",
+      "level": 2,
+      "bookmark": "heading_51",
+      "appendix": ""
+    },
+    {
+      "title": "5.4 Предметные условия защиты и сертификат отрицательного решения",
+      "level": 2,
+      "bookmark": "heading_52",
+      "appendix": ""
+    },
+    {
+      "title": "5.5 Планирование выборки и происхождение человеческой истины",
+      "level": 2,
+      "bookmark": "heading_53",
+      "appendix": ""
+    },
+    {
+      "title": "5.6 Разработка на DEV и однократное слепое предсказание FINAL",
+      "level": 2,
+      "bookmark": "heading_54",
+      "appendix": ""
+    },
+    {
+      "title": "5.7 Результаты FINAL и корректная интерпретация метрик",
+      "level": 2,
+      "bookmark": "heading_55",
+      "appendix": ""
+    },
+    {
+      "title": "5.8 Сопоставление DEV и FINAL, ресурсы и выводы",
+      "level": 2,
+      "bookmark": "heading_56",
+      "appendix": ""
+    },
+    {
+      "title": "6 Инженерная проверка, воспроизводимость и границы достоверности",
+      "level": 1,
+      "bookmark": "heading_57",
+      "appendix": ""
+    },
+    {
+      "title": "6.1 Различие корректности реализации и эффективности метода",
+      "level": 2,
+      "bookmark": "heading_58",
+      "appendix": ""
+    },
+    {
+      "title": "6.2 Фактически выполненная проверка и инженерные затруднения",
+      "level": 2,
+      "bookmark": "heading_59",
+      "appendix": ""
+    },
+    {
+      "title": "6.3 Фиксация результатов и управление происхождением данных",
+      "level": 2,
+      "bookmark": "heading_60",
+      "appendix": ""
+    },
+    {
+      "title": "6.4 Три уровня воспроизводимости",
+      "level": 2,
+      "bookmark": "heading_61",
+      "appendix": ""
+    },
+    {
+      "title": "6.5 Угрозы внутренней и конструктной валидности",
+      "level": 2,
+      "bookmark": "heading_62",
+      "appendix": ""
+    },
+    {
+      "title": "6.6 Внешняя валидность и достоверность выводов",
+      "level": 2,
+      "bookmark": "heading_63",
+      "appendix": ""
+    },
+    {
+      "title": "6.7 Готовность прототипа и направления развития",
+      "level": 2,
+      "bookmark": "heading_64",
+      "appendix": ""
+    },
+    {
+      "title": "ЗАКЛЮЧЕНИЕ",
+      "level": 1,
+      "bookmark": "heading_65",
+      "appendix": ""
+    },
+    {
+      "title": "ПРИЛОЖЕНИЕ А Каталог архитектурных правил и примеры DSL",
+      "level": 1,
+      "bookmark": "heading_66",
+      "appendix": "А"
+    },
+    {
+      "title": "А.1 Полнота каталога и привязка к реализации",
+      "level": 2,
+      "bookmark": "heading_67",
+      "appendix": "А"
+    },
+    {
+      "title": "А.2 Полный публичный пример ограничения слоёв",
+      "level": 2,
+      "bookmark": "heading_68",
+      "appendix": "А"
+    },
+    {
+      "title": "А.3 Полный публичный пример проверки цикла",
+      "level": 2,
+      "bookmark": "heading_69",
+      "appendix": "А"
+    },
+    {
+      "title": "А.4 Инварианты доказательства",
+      "level": 2,
+      "bookmark": "heading_70",
+      "appendix": "А"
+    },
+    {
+      "title": "ПРИЛОЖЕНИЕ Б Подробный протокол архитектурного эксперимента",
+      "level": 1,
+      "bookmark": "heading_71",
+      "appendix": "Б"
+    },
+    {
+      "title": "Б.1 Области данных и этапы допуска",
+      "level": 2,
+      "bookmark": "heading_72",
+      "appendix": "Б"
+    },
+    {
+      "title": "Б.2 Эталон и человеческое происхождение",
+      "level": 2,
+      "bookmark": "heading_73",
+      "appendix": "Б"
+    },
+    {
+      "title": "Б.3 Обучение и выбор",
+      "level": 2,
+      "bookmark": "heading_74",
+      "appendix": "Б"
+    },
+    {
+      "title": "Б.4 История FINAL acquisition и границы повторов",
+      "level": 2,
+      "bookmark": "heading_75",
+      "appendix": "Б"
+    },
+    {
+      "title": "Б.5 Freeze предсказаний и разрешённое открытие эталона",
+      "level": 2,
+      "bookmark": "heading_76",
+      "appendix": "Б"
+    },
+    {
+      "title": "Б.6 Интерпретация допустимых выводов",
+      "level": 2,
+      "bookmark": "heading_77",
+      "appendix": "Б"
+    },
+    {
+      "title": "ПРИЛОЖЕНИЕ В Полные результаты абляций",
+      "level": 1,
+      "bookmark": "heading_78",
+      "appendix": "В"
+    },
+    {
+      "title": "В.1 Общая популяция и выбранные конфигурации",
+      "level": 2,
+      "bookmark": "heading_79",
+      "appendix": "В"
+    },
+    {
+      "title": "В.2 Полнота решений и доступность",
+      "level": 2,
+      "bookmark": "heading_80",
+      "appendix": "В"
+    },
+    {
+      "title": "В.3 Точные приращения относительно отдельных вариантов",
+      "level": 2,
+      "bookmark": "heading_81",
+      "appendix": "В"
+    },
+    {
+      "title": "В.4 Ресурсные границы абляций",
+      "level": 2,
+      "bookmark": "heading_82",
+      "appendix": "В"
+    },
+    {
+      "title": "ПРИЛОЖЕНИЕ Г Дополнительные архитектурные результаты",
+      "level": 1,
+      "bookmark": "heading_83",
+      "appendix": "Г"
+    },
+    {
+      "title": "Г.1 Полные rule-level страты A7",
+      "level": 2,
+      "bookmark": "heading_84",
+      "appendix": "Г"
+    },
+    {
+      "title": "Г.2 Языковые и семейные результаты",
+      "level": 2,
+      "bookmark": "heading_85",
+      "appendix": "Г"
+    },
+    {
+      "title": "Г.3 Специализированные области и доступные LLM-ответы",
+      "level": 2,
+      "bookmark": "heading_86",
+      "appendix": "Г"
+    },
+    {
+      "title": "Г.4 Парные сравнения и границы инференции",
+      "level": 2,
+      "bookmark": "heading_87",
+      "appendix": "Г"
+    },
+    {
+      "title": "Г.5 Дополнительные ресурсные представления контекста",
+      "level": 2,
+      "bookmark": "heading_88",
+      "appendix": "Г"
+    },
+    {
+      "title": "ПРИЛОЖЕНИЕ Д Каталог и границы правил анализа безопасности",
+      "level": 1,
+      "bookmark": "heading_89",
+      "appendix": "Д"
+    },
+    {
+      "title": "Д.1 Матрица «правило × язык»",
+      "level": 2,
+      "bookmark": "heading_90",
+      "appendix": "Д"
+    },
+    {
+      "title": "Д.2 Сводки, доказательства и их инвалидация",
+      "level": 2,
+      "bookmark": "heading_91",
+      "appendix": "Д"
+    },
+    {
+      "title": "Д.3 Сертификат отрицательной полноты",
+      "level": 2,
+      "bookmark": "heading_92",
+      "appendix": "Д"
+    },
+    {
+      "title": "Д.4 Ограничения вычисления",
+      "level": 2,
+      "bookmark": "heading_93",
+      "appendix": "Д"
+    },
+    {
+      "title": "ПРИЛОЖЕНИЕ Е Полные сводные результаты расширения безопасности",
+      "level": 1,
+      "bookmark": "heading_94",
+      "appendix": "Е"
+    },
+    {
+      "title": "Е.1 Правила и языки",
+      "level": 2,
+      "bookmark": "heading_95",
+      "appendix": "Е"
+    },
+    {
+      "title": "Е.2 Capability и фактическое покрытие",
+      "level": 2,
+      "bookmark": "heading_96",
+      "appendix": "Е"
+    },
+    {
+      "title": "Е.3 Согласие человеческой разметки",
+      "level": 2,
+      "bookmark": "heading_97",
+      "appendix": "Е"
+    },
+    {
+      "title": "Е.4 Переход от разработки к отложенной оценке",
+      "level": 2,
+      "bookmark": "heading_98",
+      "appendix": "Е"
+    },
+    {
+      "title": "Е.5 Ошибки, ограничения и ресурсы",
+      "level": 2,
+      "bookmark": "heading_99",
+      "appendix": "Е"
+    },
+    {
+      "title": "ПРИЛОЖЕНИЕ Ж Воспроизводимость, происхождение артефактов и оформление",
+      "level": 1,
+      "bookmark": "heading_100",
+      "appendix": "Ж"
+    },
+    {
+      "title": "Ж.1 Уровни воспроизведения",
+      "level": 2,
+      "bookmark": "heading_101",
+      "appendix": "Ж"
+    },
+    {
+      "title": "Ж.2 Порядок проверки без новых экспериментов",
+      "level": 2,
+      "bookmark": "heading_102",
+      "appendix": "Ж"
+    },
+    {
+      "title": "Ж.3 Граница публичного и закрытого",
+      "level": 2,
+      "bookmark": "heading_103",
+      "appendix": "Ж"
+    },
+    {
+      "title": "Ж.4 Воспроизводимый Word-master",
+      "level": 2,
+      "bookmark": "heading_104",
+      "appendix": "Ж"
+    },
+    {
+      "title": "Ж.5 Нормативная основа оформления",
+      "level": 2,
+      "bookmark": "heading_105",
+      "appendix": "Ж"
+    },
+    {
+      "title": "ПРИЛОЖЕНИЕ И Хронология разработки и верификации P001–P036",
+      "level": 1,
+      "bookmark": "heading_106",
+      "appendix": "И"
+    },
+    {
+      "title": "И.1 Этапы P001–P006",
+      "level": 2,
+      "bookmark": "heading_107",
+      "appendix": "И"
+    },
+    {
+      "title": "И.2 Этапы P007–P012",
+      "level": 2,
+      "bookmark": "heading_108",
+      "appendix": "И"
+    },
+    {
+      "title": "И.3 Этапы P013–P018",
+      "level": 2,
+      "bookmark": "heading_109",
+      "appendix": "И"
+    },
+    {
+      "title": "И.4 Этапы P019–P024",
+      "level": 2,
+      "bookmark": "heading_110",
+      "appendix": "И"
+    },
+    {
+      "title": "И.5 Этапы P025–P030",
+      "level": 2,
+      "bookmark": "heading_111",
+      "appendix": "И"
+    },
+    {
+      "title": "И.6 Этапы P031–P036",
+      "level": 2,
+      "bookmark": "heading_112",
+      "appendix": "И"
+    },
+    {
+      "title": "И.7 Проверяемость и ограничения реконструкции",
+      "level": 2,
+      "bookmark": "heading_113",
+      "appendix": "И"
+    },
+    {
+      "title": "ПРИЛОЖЕНИЕ К Инженерные проблемы и принятые решения",
+      "level": 1,
+      "bookmark": "heading_114",
+      "appendix": "К"
+    },
+    {
+      "title": "К.1 Утечка решения детектора в структурный признак",
+      "level": 2,
+      "bookmark": "heading_115",
+      "appendix": "К"
+    },
+    {
+      "title": "К.2 Отсутствие положительных случаев в естественном OSS-этапе",
+      "level": 2,
+      "bookmark": "heading_116",
+      "appendix": "К"
+    },
+    {
+      "title": "К.3 Экономия контекста с частичной потерей качества",
+      "level": 2,
+      "bookmark": "heading_117",
+      "appendix": "К"
+    },
+    {
+      "title": "К.4 Технически отсутствующие ответы внешнего провайдера",
+      "level": 2,
+      "bookmark": "heading_118",
+      "appendix": "К"
+    },
+    {
+      "title": "К.5 Несоответствие раннего описания координат фактическому контракту",
+      "level": 2,
+      "bookmark": "heading_119",
+      "appendix": "К"
+    },
+    {
+      "title": "К.6 Транспортная раскладка человеческих ответов Security",
+      "level": 2,
+      "bookmark": "heading_120",
+      "appendix": "К"
+    },
+    {
+      "title": "К.7 Конфликт авторитетного набора и агрегированного транспорта",
+      "level": 2,
+      "bookmark": "heading_121",
+      "appendix": "К"
+    },
+    {
+      "title": "К.8 Дефект агрегированного арбитражного JSON",
+      "level": 2,
+      "bookmark": "heading_122",
+      "appendix": "К"
+    },
+    {
+      "title": "К.9 Ранний отказ проверки рабочего дерева",
+      "level": 2,
+      "bookmark": "heading_123",
+      "appendix": "К"
+    },
+    {
+      "title": "К.10 Недостаточное разрешение системной sandbox-политики",
+      "level": 2,
+      "bookmark": "heading_124",
+      "appendix": "К"
+    },
+    {
+      "title": "К.11 Ошибки явного экспорта и локальных типов",
+      "level": 2,
+      "bookmark": "heading_125",
+      "appendix": "К"
+    },
+    {
+      "title": "К.12 Совпадение имен тестовых модулей",
+      "level": 2,
+      "bookmark": "heading_126",
+      "appendix": "К"
+    },
+    {
+      "title": "К.13 Ошибка жизненного цикла профилирующего ограничителя",
+      "level": 2,
+      "bookmark": "heading_127",
+      "appendix": "К"
+    },
+    {
+      "title": "К.14 Прерванный длительный контроль",
+      "level": 2,
+      "bookmark": "heading_128",
+      "appendix": "К"
+    },
+    {
+      "title": "К.15 Предупреждение покрытия и изменение итогового процента",
+      "level": 2,
+      "bookmark": "heading_129",
+      "appendix": "К"
+    },
+    {
+      "title": "К.16 Оркестрация итогового receipt и замораживания",
+      "level": 2,
+      "bookmark": "heading_130",
+      "appendix": "К"
+    },
+    {
+      "title": "К.17 Редактируемые формулы и ссылки в Word",
+      "level": 2,
+      "bookmark": "heading_131",
+      "appendix": "К"
+    },
+    {
+      "title": "К.18 Переносы бланков и длинных таблиц",
+      "level": 2,
+      "bookmark": "heading_132",
+      "appendix": "К"
+    },
+    {
+      "title": "ПРИЛОЖЕНИЕ Л Ограничения и направления продолжения",
+      "level": 1,
+      "bookmark": "heading_133",
+      "appendix": "Л"
+    },
+    {
+      "title": "Л.1 Консолидированная граница научного результата",
+      "level": 2,
+      "bookmark": "heading_134",
+      "appendix": "Л"
+    },
+    {
+      "title": "Л.2 План дальнейшей проверки",
+      "level": 2,
+      "bookmark": "heading_135",
+      "appendix": "Л"
+    },
+    {
+      "title": "Л.3 Продуктовые задачи вне завершенного исследования",
+      "level": 2,
+      "bookmark": "heading_136",
+      "appendix": "Л"
+    }
+  ],
+  "source_sha256": {
+    "docs/thesis/source/00_frontmatter.md": "ba3cdd66a2fd9c6f6c310fb5db6a278431eb7ac59eaa4d33c70fdb2d81c4a17a",
+    "docs/thesis/source/01_introduction.md": "0446db4ab9341ffdc5031fa521abb59e3e888bb154f6a7896d11f348a1e23ca6",
+    "docs/thesis/source/02_chapter1.md": "88c9ef2c4b4e4ef3a5983f96d27de19c7588600224a3e66c2e3cb3afaaada504",
+    "docs/thesis/source/03_chapter2.md": "caba286830e7e9dea5e09420d92f6bdce4ef9daaead209f6663b87e4ce2b0efb",
+    "docs/thesis/source/04_chapter3.md": "de1c730a04cac8e668203e7a198b305da377f98aee911faa6985220d6e40f659",
+    "docs/thesis/source/05_chapter4.md": "8e83e795361549ae8aebaadace6a5e88862b4417fb7fdc80b46cd75bb722aea9",
+    "docs/thesis/source/06_chapter5.md": "0ec74e10939a4d4366805f50531727546766cabe183722e2e009b5089f3620f6",
+    "docs/thesis/source/07_chapter6.md": "2b4b08fe2723ca8b0a38bf81512f290137fdcd5de6463b7d04f7a355a99123c1",
+    "docs/thesis/source/08_conclusion.md": "4ff2357ac299e9e4cfd6d0d626cfc682b879747fea5b123a8d02c1929254be78",
+    "docs/thesis/source/appendices/01_arch_rules.md": "5fef44112103eac62f0bfd0fbfb1b2a2e5eef3ed9cdf67fc0dea6c868be4516f",
+    "docs/thesis/source/appendices/02_protocol.md": "506d4f03abce79f0e5f3681d3a02c9f742ef3bc9bbd144970e33d7daa5cae502",
+    "docs/thesis/source/appendices/03_ablations.md": "8526c9ccfec54abad16007069ae52056f1be1a6d8fac0c3ae498a6564d40af52",
+    "docs/thesis/source/appendices/04_arch_details.md": "7a06a5cc55d083592095bf8e3b46645e5e7a1902ca564cba68cb8826051083a7",
+    "docs/thesis/source/appendices/05_security_capabilities.md": "9c9bc17ce9ce020fe80cce96ea6dc09c662d93b42921f40cb214c933690eae6c",
+    "docs/thesis/source/appendices/06_security_results.md": "591ba291f21cad4350da3aa2b6a11ffc032429eff445f6305d35559062352132",
+    "docs/thesis/source/appendices/07_reproducibility.md": "cb62749d3161502fcc397b6fecf40a79aef127065579072220f84c90ee56802c",
+    "docs/thesis/source/appendices/08_chronology.md": "a60e0092ab069add64b6db9dcf08a278cf032b5426d04c02b9e526a8bac3e89f",
+    "docs/thesis/source/appendices/09_problems.md": "a7bae7558ef17fb5ffb070d02e3dbc00e4fda8cc5d1772a111436ea043f2fd74",
+    "docs/thesis/source/appendices/10_future.md": "d740a48fd4637443dbedd0a77e6c578d8f594c0e8ecd6b0d8d9a39ab025d0fab"
+  },
+  "source_words": 35059,
+  "source_characters": 296232,
+  "docx_sha256": "71e83609e42e0592a5cd19a5b148799d5ba407fe6cdc2bd4771cb1c0b4202169"
+}

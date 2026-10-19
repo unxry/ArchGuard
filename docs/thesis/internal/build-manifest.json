@@ -1,0 +1,113 @@
+{
+  "schema": "archguard-thesis-build-v1",
+  "author": "Бендас Роман Александрович",
+  "manuscript": [
+    "00_frontmatter.md",
+    "01_introduction.md",
+    "02_chapter1.md",
+    "03_chapter2.md",
+    "04_chapter3.md",
+    "05_chapter4.md",
+    "06_chapter5.md",
+    "07_chapter6.md",
+    "08_conclusion.md",
+    "appendices/01_arch_rules.md",
+    "appendices/02_protocol.md",
+    "appendices/03_ablations.md",
+    "appendices/04_arch_details.md",
+    "appendices/05_security_capabilities.md",
+    "appendices/06_security_results.md",
+    "appendices/07_reproducibility.md",
+    "appendices/08_chronology.md",
+    "appendices/09_problems.md",
+    "appendices/10_future.md"
+  ],
+  "landscape_appendices": [
+    "В",
+    "Г",
+    "Е",
+    "И"
+  ],
+  "abstract": "Разработан гибридный метод контроля архитектурного соответствия, объединяющий статические, графовые и семантические свидетельства. Реализован исследовательский прототип ArchGuard AI для Java и TypeScript. На контролируемой архитектурной выборке из 300 случаев выбранный вариант имеет precision 1,0 и F1 0,996656 при одном FN и одном отрицательном отказе от решения. Графовый контекст сокращает вход на 52,70% с умеренным снижением качества. Отдельное расширение безопасности на FINAL имеет 3 FP, 47 положительных и 103 отрицательных неокончательных ответа; окончательных отрицательных нет. Его условный recall 100% не означает полноту: эффективное обнаружение составляет 44,71%, бинарный охват — 21,47%. Представлены протоколы, ограничения и воспроизводимость.",
+  "administrative_confirmed": {
+    "author": "Бендас Роман Александрович",
+    "department": "кафедра программной инженерии",
+    "group": "ПО-51м",
+    "supervisor": "Петрик Е. А.",
+    "source": "Direct user confirmation on 2026-10-16"
+  },
+  "first_table_part_budget_pt": {
+    "append_d_rules": 210,
+    "append_d_catalog": 300,
+    "arch_catalog": 240,
+    "implementation_decisions": 200,
+    "architecture_resources": 180
+  },
+  "table_column_weights": {
+    "architecture-approaches": [
+      18,
+      24,
+      29,
+      29
+    ],
+    "arch_catalog": [
+      23,
+      21,
+      19,
+      37
+    ],
+    "data_ownership": [
+      20,
+      20,
+      60
+    ],
+    "technology_stack": [
+      20,
+      34,
+      46
+    ],
+    "implementation_decisions": [
+      24,
+      38,
+      38
+    ],
+    "repro_levels": [
+      15,
+      29,
+      28,
+      28
+    ],
+    "append_a_rule_binding": [
+      23,
+      15,
+      27,
+      35
+    ],
+    "append_d_matrix": [
+      14,
+      21,
+      21,
+      44
+    ],
+    "security_capabilities": [
+      14,
+      38,
+      24,
+      24
+    ],
+    "context_quality": [
+      19,
+      20,
+      12,
+      12,
+      12,
+      12,
+      13
+    ],
+    "append_g_artifacts": [
+      24,
+      39,
+      37
+    ]
+  }
+}

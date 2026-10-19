@@ -1,0 +1,27 @@
+@startuml
+skinparam defaultFontName Times New Roman
+skinparam defaultFontSize 20
+skinparam shadowing false
+skinparam backgroundColor white
+skinparam monochrome true
+skinparam roundcorner 0
+skinparam linetype ortho
+skinparam nodesep 35
+skinparam ranksep 35
+hide stereotype
+rectangle "Обнаруженная сущность" as N0
+rectangle "Привязка к исходному коду" as N1
+rectangle "Свидетельства компонентов" as N2
+rectangle "Контракт правила" as N3
+rectangle "Нормализация Finding" as N4
+rectangle "Сериализация\nисследовательского\nрезультата" as N5
+N0 -right-> N1
+N1 -right-> N2
+N2 -down-> N3
+N3 -left-> N4
+N4 -left-> N5
+legend bottom
+Это реализованный исследовательский поток, а не утверждение о готовом UI или
+системе jobs
+endlegend
+@enduml

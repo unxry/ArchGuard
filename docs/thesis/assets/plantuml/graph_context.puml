@@ -1,0 +1,26 @@
+@startuml
+skinparam defaultFontName Times New Roman
+skinparam defaultFontSize 20
+skinparam shadowing false
+skinparam backgroundColor white
+skinparam monochrome true
+skinparam roundcorner 0
+skinparam linetype ortho
+skinparam nodesep 35
+skinparam ranksep 35
+hide stereotype
+rectangle "Кандидат на нарушение" as N0
+rectangle "Целевая сущность и\nправило" as N1
+rectangle "Релевантный k-hop\nконтекст" as N2
+rectangle "Отобранный код и IAM" as N3
+rectangle "Структурированный запрос" as N4
+rectangle "Проверка ответа LLM" as N5
+N0 -right-> N1
+N1 -right-> N2
+N2 -down-> N3
+N3 -left-> N4
+N4 -left-> N5
+legend bottom
+Сокращение входа сопровождается умеренным снижением качества
+endlegend
+@enduml

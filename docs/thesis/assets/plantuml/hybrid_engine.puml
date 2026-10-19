@@ -1,0 +1,26 @@
+@startuml
+skinparam defaultFontName Times New Roman
+skinparam defaultFontSize 20
+skinparam shadowing false
+skinparam backgroundColor white
+skinparam monochrome true
+skinparam roundcorner 0
+skinparam linetype ortho
+skinparam nodesep 35
+skinparam ranksep 35
+hide stereotype
+rectangle "Статические\nсвидетельства" as S
+rectangle "Графовые\nсвидетельства" as G
+rectangle "Семантические\nоценки LLM" as L
+rectangle "Нормализация и применимость\nПриоритет детерминированных ограничений" as F
+rectangle "Решение Hybrid и свидетельства\nconfidence и severity имеют разный смысл" as R
+S -[hidden]right-> G
+G -[hidden]right-> L
+S --> F
+G --> F
+L --> F
+F --> R
+legend bottom
+LLM не отменяет доказанное запрещённое ребро
+endlegend
+@enduml

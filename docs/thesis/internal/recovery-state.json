@@ -1,0 +1,131 @@
+{
+  "stage": "P037.RESUME.A.1",
+  "reason": "Operational interruption; existing scientific results unchanged",
+  "author_authorized": "Бендас Роман Александрович",
+  "initial_head": "5e384141a6f9dbafb6654886e83fcad57def564e",
+  "initial_status": " D \"index(\\320\\262\\320\\270\\320\\267\\321\\203\\320\\260\\320\\273).html\"\n?? docs/thesis/.gitignore\n?? docs/thesis/ADMIN_FIELDS_TO_FILL.md\n?? docs/thesis/VKR_COMPLIANCE_REPORT.md\n?? docs/thesis/internal/\n?? docs/thesis/source/\n?? scripts/build_vkr_docx.py\n?? scripts/vkr_assets.py\n",
+  "initial_diff_stat": " ...\\320\\270\\320\\267\\321\\203\\320\\260\\320\\273).html\" | 303 ---------------------\n 1 file changed, 303 deletions(-)\n",
+  "tracked_builder_diffs_empty": true,
+  "untracked_tooling_lines": {
+    "scripts/build_vkr_docx.py": 549,
+    "scripts/vkr_assets.py": 150
+  },
+  "preserved_files": {
+    "docs/thesis/.gitignore": {
+      "bytes": 15,
+      "sha256": "b9960c3886a581845f7c4694f0b289dc306e151ddb6f6d809739678a1da507b7"
+    },
+    "docs/thesis/ADMIN_FIELDS_TO_FILL.md": {
+      "bytes": 3430,
+      "sha256": "6a5e8af0f4cff42b568662db8404c04daa4455a6caec4e078e1296a696d56391"
+    },
+    "docs/thesis/README.md": {
+      "bytes": 297,
+      "sha256": "aa7a2daa0a68cc384702ec10fd8094d5332bb2807fa30679c3b0b0c610919529"
+    },
+    "docs/thesis/VKR_COMPLIANCE_REPORT.md": {
+      "bytes": 14105,
+      "sha256": "f4a9733d93ea5c4ddc669ad9ceec84e08c54fbdadd7f5f7ddc32ed15b9752207"
+    },
+    "docs/thesis/internal/architecture-evidence.json": {
+      "bytes": 528029,
+      "sha256": "404b57218c819cf1f7e6b824a3fe52f40dee5d5571b39fede326d9767c155565"
+    },
+    "docs/thesis/internal/chronology-001-026.json": {
+      "bytes": 41394,
+      "sha256": "135bfcc4ae0d12bc0f99c40a96ae00cbd2aa3da229f261e0e6e106898a741197"
+    },
+    "docs/thesis/internal/literature-notes.md": {
+      "bytes": 12463,
+      "sha256": "6675c0737a3076a2fa067c2f945c12056455572e2b32faf0efb3b62b213cb29e"
+    },
+    "docs/thesis/internal/literature.json": {
+      "bytes": 110857,
+      "sha256": "cef317b6d4d2acebf39e1767440538a68c183e9099a27b874c8ad83f5f04e317"
+    },
+    "docs/thesis/internal/normative-evidence.json": {
+      "bytes": 21650,
+      "sha256": "7501edffdd4193209c681257cdcb6cae85ca7a40a96cba2c736aa7519bb54fc0"
+    },
+    "docs/thesis/source/01_introduction.md": {
+      "bytes": 21698,
+      "sha256": "817bc713e51997e9124c7a256633564aaac985e0656af14ebc6b5dcae904fb1a"
+    },
+    "docs/thesis/source/02_chapter1.md": {
+      "bytes": 56345,
+      "sha256": "01e5eaef1c4392d71f8e6058c2b4d1130355fa4f0d7757da528d341007501b8d"
+    },
+    "docs/thesis/source/03_chapter2.md": {
+      "bytes": 45573,
+      "sha256": "44f4b4a1db8a30831d519ab494555bfee5e0989bd4e638680912481d2b1234b5"
+    },
+    "docs/thesis/source/04_chapter3.md": {
+      "bytes": 43532,
+      "sha256": "de1c730a04cac8e668203e7a198b305da377f98aee911faa6985220d6e40f659"
+    },
+    "docs/thesis/source/05_chapter4.md": {
+      "bytes": 53719,
+      "sha256": "8e704b9fb4b82bfd08023f8ee86c64f3d80162a2748cedf627bd695147d7734c"
+    },
+    "docs/thesis/source/06_chapter5.md": {
+      "bytes": 59093,
+      "sha256": "84fad5f46b1a6421fd9b99423c38cec05a7b8cea3096a86b15fd98193c15a930"
+    },
+    "docs/thesis/source/07_chapter6.md": {
+      "bytes": 39828,
+      "sha256": "a4df4f144bacaf1756d96366a6c53591b19f6196d4b7918fcc37225119ce2d70"
+    },
+    "docs/thesis/source/08_conclusion.md": {
+      "bytes": 19451,
+      "sha256": "1f6c6e89e81561f2f357bc3abe83577b74446acd21e46d83d74f86c9715a6092"
+    },
+    "docs/thesis/source/appendices/01_arch_rules.md": {
+      "bytes": 9078,
+      "sha256": "5fef44112103eac62f0bfd0fbfb1b2a2e5eef3ed9cdf67fc0dea6c868be4516f"
+    },
+    "docs/thesis/source/appendices/02_protocol.md": {
+      "bytes": 12233,
+      "sha256": "63f663237272cc43d666d4f77c99be3c8c423cbb6176a1ce44287cf3920a8a9c"
+    },
+    "docs/thesis/source/appendices/03_ablations.md": {
+      "bytes": 9492,
+      "sha256": "f6f21303a1e4a021ea0956b6ebcc749d916c7a3d1ffe2deaa914b53c122eaaa1"
+    },
+    "docs/thesis/source/appendices/04_arch_details.md": {
+      "bytes": 7657,
+      "sha256": "f01a0fc9a500d689360a40f23387ae11576e0c8756acc906898db22032180b57"
+    },
+    "docs/thesis/source/appendices/09_problems.md": {
+      "bytes": 21755,
+      "sha256": "f2a17db88536c3a9f592a81853b8fc331ed5f24e332d2ad6eaeecc4f45817c17"
+    },
+    "docs/thesis/source/appendices/10_future.md": {
+      "bytes": 15007,
+      "sha256": "4bcbeab45130744b07caaa4bf5448b82abb68e43c126f52fce83b93da9d06d77"
+    },
+    "scripts/build_vkr_docx.py": {
+      "bytes": 30146,
+      "sha256": "1afb348a2d2da8c931ff2a4b109f6da32196737be2072f74f14391407ffb2e39"
+    },
+    "scripts/vkr_assets.py": {
+      "bytes": 13483,
+      "sha256": "4aa0bf0f3c1ba21da9d765baeaa00b093d0d145ac121c039652bdb75acdceb5d"
+    }
+  },
+  "files_discarded": [],
+  "scientific_executions": 0,
+  "resume_a2": {
+    "initial_status": " M docs/thesis/README.md\n D index(визуал).html\n?? docs/thesis/.gitignore\n?? docs/thesis/ADMIN_FIELDS_TO_FILL.md\n?? docs/thesis/ArchGuard_AI_VKR_MASTER.docx\n?? docs/thesis/THESIS_FACT_AUDIT.md\n?? docs/thesis/THESIS_INTEGRITY_AUDIT.md\n?? docs/thesis/THESIS_SOURCE_AUDIT.md\n?? docs/thesis/VKR_COMPLIANCE_REPORT.md\n?? docs/thesis/assets/\n?? docs/thesis/internal/\n?? docs/thesis/source/\n?? scripts/audit_vkr_docx.py\n?? scripts/build_vkr_docx.py\n?? scripts/vkr_assets.py",
+    "prechange_docx_sha256": "012b00e56103dc29f7e4be3a707d0d54815fd1405c4cd18163b41aafd2f579ac",
+    "prechange_pdf_sha256": "c269679345959e8ce24a7bb9e6589a4780e5c8b5295b67cdb16acf1a62ab0745",
+    "ignored_recovery_files": [
+      "tmp/recovery-a2/prechange.patch",
+      "tmp/recovery-a2/prechange-thesis.tar.gz"
+    ],
+    "initial_pages": 221,
+    "final_pages": 213,
+    "source_discarded": [],
+    "generated_files_rebuilt": "Canonical DOCX and QA render from preserved sources after targeted layout/editorial changes; PlantUML diagram assets replaced earlier generated diagrams. No thesis restart.",
+    "scientific_runs": 0
+  }
+}

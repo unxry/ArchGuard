@@ -1,0 +1,637 @@
+{
+  "schema": "archguard-thesis-docx-independent-audit-v1",
+  "audited_at_utc": "2026-10-19T20:07:03.972834+00:00",
+  "artifact": "docs/thesis/ArchGuard_AI_VKR_MASTER.docx",
+  "sha256": "71e83609e42e0592a5cd19a5b148799d5ba407fe6cdc2bd4771cb1c0b4202169",
+  "result": "PASS",
+  "public_only": true,
+  "scientific_runs": 0,
+  "private_case_reads": 0,
+  "artifact_modified": false,
+  "visual_layout_verified_by_this_script": false,
+  "checks": [
+    {
+      "check": "artifact_exists",
+      "status": "PASS",
+      "detail": "docs/thesis/ArchGuard_AI_VKR_MASTER.docx"
+    },
+    {
+      "check": "zip_integrity",
+      "status": "PASS",
+      "detail": "CRC validation of every member"
+    },
+    {
+      "check": "zip_unique_members",
+      "status": "PASS",
+      "detail": 35
+    },
+    {
+      "check": "zip_safe_member_names",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "check": "no_junk_macros_comments_embedded_objects",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "check": "all_xml_parts_parse",
+      "status": "PASS",
+      "detail": {
+        "parsed_parts": 17
+      }
+    },
+    {
+      "check": "public_safe_package_text",
+      "status": "PASS",
+      "detail": "All XML parts, properties, relationship targets and custom XML inspected"
+    },
+    {
+      "check": "embedded_media_count",
+      "status": "PASS",
+      "detail": {
+        "actual": 17,
+        "expected": 17
+      }
+    },
+    {
+      "check": "media_nonempty",
+      "status": "PASS",
+      "detail": 17
+    },
+    {
+      "check": "relationship_targets_resolve",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "check": "all_parts_have_content_types",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "check": "every_image_embedded_and_used",
+      "status": "PASS",
+      "detail": {
+        "linked_images": 17,
+        "media": 17
+      }
+    },
+    {
+      "check": "required_ooxml_parts",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "check": "no_revisions_comments_objects",
+      "status": "PASS",
+      "detail": {}
+    },
+    {
+      "check": "no_hidden_text",
+      "status": "PASS",
+      "detail": 0
+    },
+    {
+      "check": "field_structure_balanced",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "check": "required_native_fields",
+      "status": "PASS",
+      "detail": {
+        "NUMPAGES": 1,
+        "PAGEREF": 137,
+        "TOC": 1,
+        "REF": 89,
+        "SEQ": 68,
+        "PAGE": 1
+      }
+    },
+    {
+      "check": "bookmark_names_unique",
+      "status": "PASS",
+      "detail": 205
+    },
+    {
+      "check": "bookmark_pairs_complete",
+      "status": "PASS",
+      "detail": 205
+    },
+    {
+      "check": "native_references_resolve",
+      "status": "PASS",
+      "detail": {
+        "references": 226,
+        "errors": []
+      }
+    },
+    {
+      "check": "confirmed_admin_author",
+      "status": "PASS",
+      "detail": "Бендас Роман Александрович"
+    },
+    {
+      "check": "confirmed_admin_department",
+      "status": "PASS",
+      "detail": "кафедра программной инженерии"
+    },
+    {
+      "check": "confirmed_admin_group",
+      "status": "PASS",
+      "detail": "ПО-51м"
+    },
+    {
+      "check": "confirmed_admin_supervisor",
+      "status": "PASS",
+      "detail": "Петрик Е. А."
+    },
+    {
+      "check": "no_cached_field_errors",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "check": "fields_update_on_open",
+      "status": "PASS",
+      "detail": "Word updateFields"
+    },
+    {
+      "check": "section_1_geometry",
+      "status": "PASS",
+      "detail": {
+        "orientation": "portrait",
+        "size_twips": [
+          11906,
+          16838
+        ],
+        "margins_twips": {
+          "left": 1701,
+          "right": 850,
+          "top": 1134,
+          "bottom": 1134
+        }
+      }
+    },
+    {
+      "check": "section_2_geometry",
+      "status": "PASS",
+      "detail": {
+        "orientation": "landscape",
+        "size_twips": [
+          16838,
+          11906
+        ],
+        "margins_twips": {
+          "left": 1701,
+          "right": 850,
+          "top": 1134,
+          "bottom": 1134
+        }
+      }
+    },
+    {
+      "check": "section_3_geometry",
+      "status": "PASS",
+      "detail": {
+        "orientation": "landscape",
+        "size_twips": [
+          16838,
+          11906
+        ],
+        "margins_twips": {
+          "left": 1701,
+          "right": 850,
+          "top": 1134,
+          "bottom": 1134
+        }
+      }
+    },
+    {
+      "check": "section_4_geometry",
+      "status": "PASS",
+      "detail": {
+        "orientation": "portrait",
+        "size_twips": [
+          11906,
+          16838
+        ],
+        "margins_twips": {
+          "left": 1701,
+          "right": 850,
+          "top": 1134,
+          "bottom": 1134
+        }
+      }
+    },
+    {
+      "check": "section_5_geometry",
+      "status": "PASS",
+      "detail": {
+        "orientation": "landscape",
+        "size_twips": [
+          16838,
+          11906
+        ],
+        "margins_twips": {
+          "left": 1701,
+          "right": 850,
+          "top": 1134,
+          "bottom": 1134
+        }
+      }
+    },
+    {
+      "check": "section_6_geometry",
+      "status": "PASS",
+      "detail": {
+        "orientation": "portrait",
+        "size_twips": [
+          11906,
+          16838
+        ],
+        "margins_twips": {
+          "left": 1701,
+          "right": 850,
+          "top": 1134,
+          "bottom": 1134
+        }
+      }
+    },
+    {
+      "check": "section_7_geometry",
+      "status": "PASS",
+      "detail": {
+        "orientation": "landscape",
+        "size_twips": [
+          16838,
+          11906
+        ],
+        "margins_twips": {
+          "left": 1701,
+          "right": 850,
+          "top": 1134,
+          "bottom": 1134
+        }
+      }
+    },
+    {
+      "check": "section_8_geometry",
+      "status": "PASS",
+      "detail": {
+        "orientation": "portrait",
+        "size_twips": [
+          11906,
+          16838
+        ],
+        "margins_twips": {
+          "left": 1701,
+          "right": 850,
+          "top": 1134,
+          "bottom": 1134
+        }
+      }
+    },
+    {
+      "check": "portrait_and_landscape_sections",
+      "status": "PASS",
+      "detail": 8
+    },
+    {
+      "check": "style_Normal",
+      "status": "PASS",
+      "detail": {
+        "half_points": 28,
+        "line_twips": 360,
+        "first_line_twips": 850
+      }
+    },
+    {
+      "check": "style_Heading1",
+      "status": "PASS",
+      "detail": {
+        "half_points": 28,
+        "line_twips": 360,
+        "first_line_twips": 850
+      }
+    },
+    {
+      "check": "style_Heading2",
+      "status": "PASS",
+      "detail": {
+        "half_points": 28,
+        "line_twips": 360,
+        "first_line_twips": 850
+      }
+    },
+    {
+      "check": "style_Heading3",
+      "status": "PASS",
+      "detail": {
+        "half_points": 28,
+        "line_twips": 360,
+        "first_line_twips": 850
+      }
+    },
+    {
+      "check": "style_TableText",
+      "status": "PASS",
+      "detail": {
+        "half_points": 24,
+        "line_twips": 240,
+        "first_line_twips": 0
+      }
+    },
+    {
+      "check": "style_Equation",
+      "status": "PASS",
+      "detail": {
+        "half_points": 28,
+        "line_twips": 360,
+        "first_line_twips": 0
+      }
+    },
+    {
+      "check": "style_Bibliography",
+      "status": "PASS",
+      "detail": {
+        "half_points": 28,
+        "line_twips": 360,
+        "first_line_twips": 850
+      }
+    },
+    {
+      "check": "eight_editable_omml_equations",
+      "status": "PASS",
+      "detail": 8
+    },
+    {
+      "check": "math_no_source_tex_commands",
+      "status": "PASS",
+      "detail": "OMML math text; field switches excluded"
+    },
+    {
+      "check": "native_math_fractions",
+      "status": "PASS",
+      "detail": "Editable OMML numerator and denominator nodes"
+    },
+    {
+      "check": "no_unexpanded_authoring_markers",
+      "status": "PASS",
+      "detail": "Rendered visible body text"
+    },
+    {
+      "check": "administrative_placeholders",
+      "status": "INFO",
+      "detail": {
+        "count": 10,
+        "values": [
+          "[ЗАПОЛНИТЬ: ВИД ВКР ПО ПРОГРАММЕ ГИА]",
+          "[ЗАПОЛНИТЬ: ДАТА И НОМЕР ПРИКАЗА]",
+          "[ЗАПОЛНИТЬ: ЗАВЕДУЮЩИЙ КАФЕДРОЙ]",
+          "[ЗАПОЛНИТЬ: КОД И НАПРАВЛЕНИЕ]",
+          "[ЗАПОЛНИТЬ: НОРМОКОНТРОЛЬ]",
+          "[ЗАПОЛНИТЬ: ПОДПИСЬ И ДАТА УТВЕРЖДЕНИЯ]",
+          "[ЗАПОЛНИТЬ: ПРОФИЛЬ]",
+          "[ЗАПОЛНИТЬ: РЕЦЕНЗЕНТ]",
+          "[ЗАПОЛНИТЬ: СРОК ПРЕДСТАВЛЕНИЯ К ЗАЩИТЕ]",
+          "[ЗАПОЛНИТЬ: ШИФР СТУДЕНТА]"
+        ],
+        "meaning": "User-supplied administrative details remain visibly unfilled; no invented signatures"
+      }
+    },
+    {
+      "check": "manuscript_sources_present",
+      "status": "PASS",
+      "detail": 19
+    },
+    {
+      "check": "65_verified_source_citations",
+      "status": "PASS",
+      "detail": {
+        "cited_keys": 65,
+        "library_entries": 65
+      }
+    },
+    {
+      "check": "code_examples_preserved_verbatim",
+      "status": "PASS",
+      "detail": {
+        "source_lines": 23,
+        "word_lines": 23,
+        "meaning": "Literal code must preserve glob asterisks and indentation"
+      }
+    },
+    {
+      "check": "bibliography_matches_verified_entries",
+      "status": "PASS",
+      "detail": {
+        "actual_entries": 65,
+        "expected_entries": 65
+      }
+    },
+    {
+      "check": "all_numeric_citations_resolve_and_match",
+      "status": "PASS",
+      "detail": {
+        "actual_occurrences": 127,
+        "expected_occurrences": 127,
+        "unique_numbers": 65
+      }
+    },
+    {
+      "check": "all_caption_bookmarks_resolve",
+      "status": "PASS",
+      "detail": {
+        "figures": 17,
+        "tables": 51
+      }
+    },
+    {
+      "check": "source_equation_count",
+      "status": "PASS",
+      "detail": "Independent manuscript equation markers"
+    },
+    {
+      "check": "docx_build_source_snapshot_current",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "check": "negative_presence_feature_leakage_retained",
+      "status": "PASS",
+      "detail": "Required limitation located in actual DOCX visible text"
+    },
+    {
+      "check": "negative_presence_natural_oss_no_positives",
+      "status": "PASS",
+      "detail": "Required limitation located in actual DOCX visible text"
+    },
+    {
+      "check": "negative_presence_context_quality_decrease",
+      "status": "PASS",
+      "detail": "Required limitation located in actual DOCX visible text"
+    },
+    {
+      "check": "negative_presence_architecture_error_retained",
+      "status": "PASS",
+      "detail": "Required limitation located in actual DOCX visible text"
+    },
+    {
+      "check": "negative_presence_provider_missing_retained",
+      "status": "PASS",
+      "detail": "Required limitation located in actual DOCX visible text"
+    },
+    {
+      "check": "negative_presence_security_positive_nondefinitive",
+      "status": "PASS",
+      "detail": "Required limitation located in actual DOCX visible text"
+    },
+    {
+      "check": "negative_presence_security_negative_nondefinitive",
+      "status": "PASS",
+      "detail": "Required limitation located in actual DOCX visible text"
+    },
+    {
+      "check": "negative_presence_security_no_definitive_negatives",
+      "status": "PASS",
+      "detail": "Required limitation located in actual DOCX visible text"
+    },
+    {
+      "check": "negative_presence_security_final_decline",
+      "status": "PASS",
+      "detail": "Required limitation located in actual DOCX visible text"
+    },
+    {
+      "check": "negative_presence_no_blind_v2_final_baseline",
+      "status": "PASS",
+      "detail": "Required limitation located in actual DOCX visible text"
+    },
+    {
+      "check": "negative_presence_invoice_not_measured",
+      "status": "PASS",
+      "detail": "Required limitation located in actual DOCX visible text"
+    },
+    {
+      "check": "negative_presence_not_production_claim",
+      "status": "PASS",
+      "detail": "Required limitation located in actual DOCX visible text"
+    },
+    {
+      "check": "overclaim_context_review",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "check": "scientific_review_boundary",
+      "status": "INFO",
+      "detail": "Presence and contextual language checks complement THESIS_FACT_AUDIT.md and the independent manuscript review; they are not an automated proof of scientific validity. No truth/case data or scientific execution is used."
+    },
+    {
+      "check": "build_manifest_artifact_hash",
+      "status": "PASS",
+      "detail": "Exact built artifact, independently hashed"
+    }
+  ],
+  "measurements": {
+    "media_parts": [
+      "word/media/image1.png",
+      "word/media/image2.png",
+      "word/media/image3.png",
+      "word/media/image4.png",
+      "word/media/image5.png",
+      "word/media/image6.png",
+      "word/media/image7.png",
+      "word/media/image8.png",
+      "word/media/image9.png",
+      "word/media/image10.png",
+      "word/media/image11.png",
+      "word/media/image12.png",
+      "word/media/image13.png",
+      "word/media/image14.png",
+      "word/media/image15.png",
+      "word/media/image16.png",
+      "word/media/image17.png"
+    ],
+    "zip_members": 35,
+    "xml_parts": 17,
+    "fields": {
+      "NUMPAGES": 1,
+      "PAGEREF": 137,
+      "TOC": 1,
+      "REF": 89,
+      "SEQ": 68,
+      "PAGE": 1
+    },
+    "bookmarks": 205,
+    "equations": 8,
+    "paragraphs": 2869,
+    "table_parts": 71,
+    "section_geometry": [
+      {
+        "width": 11906,
+        "height": 16838,
+        "landscape": false
+      },
+      {
+        "width": 16838,
+        "height": 11906,
+        "landscape": true
+      },
+      {
+        "width": 16838,
+        "height": 11906,
+        "landscape": true
+      },
+      {
+        "width": 11906,
+        "height": 16838,
+        "landscape": false
+      },
+      {
+        "width": 16838,
+        "height": 11906,
+        "landscape": true
+      },
+      {
+        "width": 11906,
+        "height": 16838,
+        "landscape": false
+      },
+      {
+        "width": 16838,
+        "height": 11906,
+        "landscape": true
+      },
+      {
+        "width": 11906,
+        "height": 16838,
+        "landscape": false
+      }
+    ],
+    "source_sha256": {
+      "docs/thesis/source/00_frontmatter.md": "ba3cdd66a2fd9c6f6c310fb5db6a278431eb7ac59eaa4d33c70fdb2d81c4a17a",
+      "docs/thesis/source/01_introduction.md": "0446db4ab9341ffdc5031fa521abb59e3e888bb154f6a7896d11f348a1e23ca6",
+      "docs/thesis/source/02_chapter1.md": "88c9ef2c4b4e4ef3a5983f96d27de19c7588600224a3e66c2e3cb3afaaada504",
+      "docs/thesis/source/03_chapter2.md": "caba286830e7e9dea5e09420d92f6bdce4ef9daaead209f6663b87e4ce2b0efb",
+      "docs/thesis/source/04_chapter3.md": "de1c730a04cac8e668203e7a198b305da377f98aee911faa6985220d6e40f659",
+      "docs/thesis/source/05_chapter4.md": "8e83e795361549ae8aebaadace6a5e88862b4417fb7fdc80b46cd75bb722aea9",
+      "docs/thesis/source/06_chapter5.md": "0ec74e10939a4d4366805f50531727546766cabe183722e2e009b5089f3620f6",
+      "docs/thesis/source/07_chapter6.md": "2b4b08fe2723ca8b0a38bf81512f290137fdcd5de6463b7d04f7a355a99123c1",
+      "docs/thesis/source/08_conclusion.md": "4ff2357ac299e9e4cfd6d0d626cfc682b879747fea5b123a8d02c1929254be78",
+      "docs/thesis/source/appendices/01_arch_rules.md": "5fef44112103eac62f0bfd0fbfb1b2a2e5eef3ed9cdf67fc0dea6c868be4516f",
+      "docs/thesis/source/appendices/02_protocol.md": "506d4f03abce79f0e5f3681d3a02c9f742ef3bc9bbd144970e33d7daa5cae502",
+      "docs/thesis/source/appendices/03_ablations.md": "8526c9ccfec54abad16007069ae52056f1be1a6d8fac0c3ae498a6564d40af52",
+      "docs/thesis/source/appendices/04_arch_details.md": "7a06a5cc55d083592095bf8e3b46645e5e7a1902ca564cba68cb8826051083a7",
+      "docs/thesis/source/appendices/05_security_capabilities.md": "9c9bc17ce9ce020fe80cce96ea6dc09c662d93b42921f40cb214c933690eae6c",
+      "docs/thesis/source/appendices/06_security_results.md": "591ba291f21cad4350da3aa2b6a11ffc032429eff445f6305d35559062352132",
+      "docs/thesis/source/appendices/07_reproducibility.md": "cb62749d3161502fcc397b6fecf40a79aef127065579072220f84c90ee56802c",
+      "docs/thesis/source/appendices/08_chronology.md": "a60e0092ab069add64b6db9dcf08a278cf032b5426d04c02b9e526a8bac3e89f",
+      "docs/thesis/source/appendices/09_problems.md": "a7bae7558ef17fb5ffb070d02e3dbc00e4fda8cc5d1772a111436ea043f2fd74",
+      "docs/thesis/source/appendices/10_future.md": "d740a48fd4637443dbedd0a77e6c578d8f594c0e8ecd6b0d8d9a39ab025d0fab"
+    },
+    "references_sha256": "c16e4de304e12baa2c6cfda01d6c40b5c1998ca81fdafcd8c260b0b570bd1bbe"
+  }
+}

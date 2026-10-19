@@ -1,0 +1,27 @@
+@startuml
+skinparam defaultFontName Times New Roman
+skinparam defaultFontSize 20
+skinparam shadowing false
+skinparam backgroundColor white
+skinparam monochrome true
+skinparam roundcorner 0
+skinparam linetype ortho
+skinparam nodesep 35
+skinparam ranksep 35
+hide stereotype
+rectangle "YAML-спецификация" as N0
+rectangle "Валидация и нормализация" as N1
+rectangle "Распознавание модулей" as N2
+rectangle "Проверка разрешённых\nсвязей" as N3
+rectangle "Запрещённое ребро / иное\nправило" as N4
+rectangle "Детерминированное\nсвидетельство" as N5
+N0 -right-> N1
+N1 -right-> N2
+N2 -down-> N3
+N3 -left-> N4
+N4 -left-> N5
+legend bottom
+Без целевой спецификации можно описать аномалию, но не произвольное нарушение
+соответствия
+endlegend
+@enduml

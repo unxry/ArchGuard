@@ -1,0 +1,20 @@
+{
+  "schema": "archguard-thesis-page-review-v1",
+  "review_date": "2026-10-16",
+  "reviewer": "verified_literature",
+  "docx_sha256": "012b00e56103dc29f7e4be3a707d0d54815fd1405c4cd18163b41aafd2f579ac",
+  "pdf_sha256": "c269679345959e8ce24a7bb9e6589a4780e5c8b5295b67cdb16acf1a62ab0745",
+  "pdf_page_count": 221,
+  "assigned_range": [
+    61,
+    120
+  ],
+  "method": "Each assigned individual PNG inspected at original1414x2000 with tools.view_image(detail=original); corresponding full actual PDF extracted text read. No contact-sheet substitution.",
+  "supersedes": {
+    "docx_sha256": "352d162b448666b4e8701bf4a04b4a65af25f5ecbb9c4c39b0ef97d82bd94001",
+    "pdf_sha256": "fbba4616232a3c0fa19cc6c3bdd4511f5474c2a7b8a83c14480d0f21b99c7194",
+    "partial_pages": 18
+  },
+  "pages": [],
+  "complete": false
+}

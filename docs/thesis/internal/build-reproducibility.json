@@ -1,0 +1,7 @@
+{
+  "method": "Canonical source + existing generated assets, fresh in-memory Document, repeated build without renderer; identical DOCX bytes retain the already audited PDF mapping",
+  "docx_sha256": "71e83609e42e0592a5cd19a5b148799d5ba407fe6cdc2bd4771cb1c0b4202169",
+  "byte_identical": true,
+  "semantic_identical": true,
+  "scientific_executions": 0
+}

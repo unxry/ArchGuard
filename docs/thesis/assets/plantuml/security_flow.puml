@@ -1,0 +1,26 @@
+@startuml
+skinparam defaultFontName Times New Roman
+skinparam defaultFontSize 20
+skinparam shadowing false
+skinparam backgroundColor white
+skinparam monochrome true
+skinparam roundcorner 0
+skinparam linetype ortho
+skinparam nodesep 35
+skinparam ranksep 35
+hide stereotype
+rectangle "Источник и известный sink" as N0
+rectangle "Локальный поток и алиасы" as N1
+rectangle "Ограниченные сводки\nфункций" as N2
+rectangle "Правило-специфичный proof" as N3
+rectangle "Инвалидация при новой\nнеопределённости" as N4
+rectangle "Finding либо неполное\nрешение" as N5
+N0 -right-> N1
+N1 -right-> N2
+N2 -down-> N3
+N3 -left-> N4
+N4 -left-> N5
+legend bottom
+Обычное отсутствие finding не превращается в окончательный отрицательный ответ
+endlegend
+@enduml

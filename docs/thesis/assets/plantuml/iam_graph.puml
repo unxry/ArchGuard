@@ -1,0 +1,26 @@
+@startuml
+skinparam defaultFontName Times New Roman
+skinparam defaultFontSize 20
+skinparam shadowing false
+skinparam backgroundColor white
+skinparam monochrome true
+skinparam roundcorner 0
+skinparam linetype ortho
+skinparam nodesep 35
+skinparam ranksep 35
+hide stereotype
+rectangle "Файл и единица исходного\nкода" as N0
+rectangle "Символ / модуль в IAM" as N1
+rectangle "Ссылка на расположение" as N2
+rectangle "Направленная зависимость" as N3
+rectangle "Архитектурный граф" as N4
+rectangle "Путь и свидетельство\nправила" as N5
+N0 -right-> N1
+N1 -right-> N2
+N2 -down-> N3
+N3 -left-> N4
+N4 -left-> N5
+legend bottom
+Граф связывает представление кода и правило; не заменяет семантику языка
+endlegend
+@enduml
