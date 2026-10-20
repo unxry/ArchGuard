@@ -123,7 +123,7 @@ class Runtime:
                 source_root = str(Path(__file__).resolve().parents[2])
                 program = (
                     f"import sys;sys.path.insert(0,{source_root!r});"
-                    "from archguard.product.worker import main;main()"
+                    f"from archguard.product.worker import main;main(parent_pid={os.getpid()})"
                 )
                 job.process = await asyncio.create_subprocess_exec(
                     "/usr/bin/sandbox-exec",

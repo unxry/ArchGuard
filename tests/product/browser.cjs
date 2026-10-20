@@ -1,6 +1,7 @@
 'use strict';
 const {chromium}=require('playwright'),fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
-const out=path.resolve('docs/product/previews'),base=process.env.ARCHGUARD_URL||'http://127.0.0.1:8790';
+const out=path.resolve(process.env.ARCHGUARD_EVIDENCE_DIR||'docs/product/previews'),base=process.env.ARCHGUARD_URL||'http://127.0.0.1:8790';
+fs.mkdirSync(out,{recursive:true});
 (async()=>{
  const browser=await chromium.launch({headless:true}),context=await browser.newContext({viewport:{width:1920,height:1080},...(process.env.ARCHGUARD_NO_VIDEO?{}:{recordVideo:{dir:out,size:{width:1920,height:1080}}})}),p=await context.newPage(),video=p.video();
  const report={checks:[],errors:[],console:[],performance:{},viewports:[]};

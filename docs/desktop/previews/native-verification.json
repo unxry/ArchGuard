@@ -1,0 +1,130 @@
+{
+  "verification_dates": [
+    "2026-10-18",
+    "2026-10-20"
+  ],
+  "host": {
+    "architecture": "arm64",
+    "macos": "26.5.2"
+  },
+  "evidence_type": "actual installed AppKit/WKWebView window plus process/filesystem assertions",
+  "automated_tests": {
+    "product_and_desktop_pytest": {
+      "passed": 22,
+      "failed": 0,
+      "skipped": 0
+    },
+    "adapters": {
+      "passed": 16,
+      "failed": 0,
+      "skipped": 0
+    },
+    "browser": {
+      "passed": 29,
+      "errors": 0
+    },
+    "browser_supplement": {
+      "passed": 5,
+      "errors": 0
+    }
+  },
+  "checks": {
+    "normal_quit_process_cleanup": true,
+    "port_closed": true,
+    "session_snapshots_removed": true,
+    "relaunch_and_locale_persistence": true,
+    "repeated_launch_single_instance": true,
+    "native_sigkill_backend_cleanup": true,
+    "native_sigkill_port_closed": true,
+    "native_sigkill_snapshots_removed": true,
+    "native_missing_runtime_error": true,
+    "native_folder_chooser_analysis": true,
+    "native_relaunch_after_crash": true,
+    "native_json_export": true,
+    "native_json_import": true,
+    "frontend_files_unchanged": 28,
+    "installed_backend_matches_source": true,
+    "scientific_freeze_diff_paths": 0,
+    "native_use_included_example": true,
+    "native_backend_error_and_retry": true,
+    "installed_signature_verified_after_use": true,
+    "dmg_checksum_valid": true,
+    "installed_from_dmg": true,
+    "bundled_runtime_isolated_import": true
+  },
+  "native_ui_checks": [
+    "Six workspaces",
+    "Public example actual analysis: 4 modules, 3 imports, ARCH002 and SEC002",
+    "Evidence source lines and return to selected Atlas node",
+    "Overview to Atlas portal; directional light; replay",
+    "RU/EN; motion off",
+    "Native project folder selection, JSON import/export"
+  ],
+  "full_make_check": "NOT_RERUN; six known private baseline artifacts still absent; historical P040 gate incomplete",
+  "screenshots": {
+    "native-atlas.png": {
+      "width": 4718592,
+      "height": 4292935744,
+      "sha256": "b680f6aaece61e019fed4afade16f4cfbd39c272500585df7da3b09be3998b4d"
+    },
+    "native-backend-error.png": {
+      "width": 4718592,
+      "height": 4292935744,
+      "sha256": "5dd26e2a73b18ddea88841c8bf46da9cedc256aa848ec88d20d04668240428e4"
+    },
+    "native-evidence.png": {
+      "width": 4718592,
+      "height": 4292935744,
+      "sha256": "38075f867c4bb50c44e9bec0380b4e4458ce5a487872a87b6851123ca6c235a3"
+    },
+    "native-imported-atlas.png": {
+      "width": 4718592,
+      "height": 4292935744,
+      "sha256": "14b6fd183e21be69cc9c1b70028a931376662cc44e9bb5ca0779577987e34026"
+    },
+    "native-models.png": {
+      "width": 4718592,
+      "height": 4292935744,
+      "sha256": "07b26213fe7c6d6e328fab4d2777e5ebd5310a0e94bc416bfce97df7209fe6e8"
+    },
+    "native-motion-off.png": {
+      "width": 4718592,
+      "height": 4292935744,
+      "sha256": "03a0ccfd089686dc14458167932190788508deaa787929e59480b126e2a363ce"
+    },
+    "native-overview.png": {
+      "width": 4718592,
+      "height": 4292935744,
+      "sha256": "dc7b791aac1e6b7b2d3e848535ec85206e3884973ceeeb892cd56e664c9da68a"
+    },
+    "native-runs.png": {
+      "width": 4718592,
+      "height": 4292935744,
+      "sha256": "777698d664b8d8c162b413b2e490b297a4a50b9e514c884659b9bdbf143e0913"
+    },
+    "native-runtime-missing.png": {
+      "width": 4718592,
+      "height": 4292935744,
+      "sha256": "991ab23249522090abee2f8b86a6c0cd75575be5f192f658dd61298a80b9f1d5"
+    },
+    "native-security.png": {
+      "width": 4718592,
+      "height": 4292935744,
+      "sha256": "7da4c1d6dc5ceed7fb8fb4e29c8307ed407511939d7eb3acfeb62aa0c56fb88d"
+    },
+    "native-startup.png": {
+      "width": 4718592,
+      "height": 4292935744,
+      "sha256": "5abd56d42ca95ab89b2c181d47c65a44b871c0f11bfd917a34c6f1c0c589ae71"
+    }
+  },
+  "log_sha256": {
+    "p041-targeted.log": "da3dc9d0d9c10fc99e56f93fb96b76ea8c6c2a8d710fb752ed5f3a22f9d4f52d",
+    "p041-static.log": "364d96a80c42dafee6a939b010089d9d39fe43b3b37050087e9ce2b3c81f7e74",
+    "p041-adapters.log": "8cd17a238ee6b62dcc75f2d6539aa4ce10f5db32f188d83c708ea89a57dc0140",
+    "p041-browser.log": "a4315e0f67762a9a0688db066eb587b4176590bcda9ce01774cec5b0acbc5e36",
+    "p041-supplement.log": "55ad2f47a428053999839e93097b34caa23365117f18be153a9d13e6ce1d125e",
+    "p041-build.log": "1bbd380227f7b4efbb31d325fdd4bda01a8d10f5b5a3179787e2163c76a9f26c",
+    "p041-dmg-verify-final.log": "4d433fbd317f0837007a35aa948100e89b98abec40e3b5cd1d495199e6d985b9"
+  }
+}

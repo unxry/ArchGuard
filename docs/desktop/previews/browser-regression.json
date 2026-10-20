@@ -1,0 +1,72 @@
+{
+  "checks": [
+    "Startup contains six workspaces and no demo data",
+    "Project configuration and gated sources",
+    "Actual gateway job, visible stages, no simulated percentage",
+    "Real graph, findings and source provenance",
+    "Data-driven three volumetric layers and actual SVG edges",
+    "Overview selection, luminous portal and preserved Atlas context",
+    "Directed light follows the actual dependency path",
+    "Layer selection, fit and Inspector toggle",
+    "Actual finding opens source evidence and returns to the same node",
+    "Security keeps bounded V2 outcomes and actual SQL evidence",
+    "Models shows actual IAM and specification classes",
+    "Runs persist and reopen actual results",
+    "Motion settings and replay preserved",
+    "Help and Fullscreen preserved",
+    "RU/EN covers all six workspaces",
+    "Reduced motion suppresses portal, assembly and light",
+    "Desktop 1280×800",
+    "Desktop 1440×900",
+    "Desktop 1920×1080",
+    "Desktop 2560×1440",
+    "Demo is explicit, independent and separate from real data",
+    "216-node demo clustering, expansion, camera and idle cleanup",
+    "Real result reopened after demo has no synthetic metrics",
+    "CLI graph JSON import remains functional",
+    "Unclassified real graph has an honest single platform",
+    "Reload begins empty and saved local result is available",
+    "4× CPU motion measurement and finite idle",
+    "Narrow viewport gives desktop recommendation",
+    "No browser exceptions or console errors"
+  ],
+  "errors": [],
+  "console": [],
+  "performance": {
+    "cpuThrottle": 4,
+    "frames": 324,
+    "p95Ms": 17.59999999999991,
+    "longTasks": [],
+    "scene": "resting",
+    "active": false,
+    "scopes": 1
+  },
+  "viewports": [
+    {
+      "width": 1280,
+      "height": 800,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "overflow": false
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "overflow": false
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "overflow": false
+    }
+  ],
+  "summary": {
+    "passed": 29,
+    "failed": 0,
+    "jsErrors": 0,
+    "consoleErrors": 0
+  }
+}

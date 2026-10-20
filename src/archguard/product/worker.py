@@ -1,8 +1,11 @@
 """Bounded worker invoking existing analyzers; never imports or executes project code."""
 
 import json
+import os
 import resource
 import sys
+import threading
+import time
 from pathlib import Path
 from typing import Any
 from uuid import uuid5
@@ -133,7 +136,15 @@ def analyze(folder: Path, options: dict[str, Any]) -> dict[str, Any]:
         }
 
 
-def main() -> None:
+def main(parent_pid: int | None = None) -> None:
+    parent = parent_pid if parent_pid is not None else os.getppid()
+
+    def watch_parent() -> None:
+        while os.getppid() == parent:
+            time.sleep(0.25)
+        os._exit(3)
+
+    threading.Thread(target=watch_parent, daemon=True).start()
     if sys.platform != "darwin":
         resource.setrlimit(resource.RLIMIT_AS, (2 * 1024**3, 2 * 1024**3))
     resource.setrlimit(resource.RLIMIT_CPU, (20, 20))
