@@ -72,8 +72,13 @@ class Job:
 
 
 class Runtime:
-    def __init__(self, root: Path, state: Path, timeout: float = 45) -> None:
+    def __init__(
+        self, root: Path, state: Path, timeout: float = 45, single_project: bool = False
+    ) -> None:
         self.root, self.state, self.timeout = root.resolve(strict=True), state.resolve(), timeout
+        if not self.root.is_dir():
+            raise ValueError("PROJECT_DIRECTORY_REQUIRED")
+        self.single_project = single_project
         self.state.mkdir(parents=True, exist_ok=True, mode=0o700)
         os.chmod(self.state, 0o700)
         self.token = secrets.token_urlsafe(32)
@@ -81,13 +86,24 @@ class Runtime:
         self.sandbox = sys.platform == "darwin" and Path("/usr/bin/sandbox-exec").is_file()
         self.slots = asyncio.Semaphore(1)
 
-    def catalog(self) -> list[dict[str, str]]:
-        return [{"id": key, "name": name} for key, name in projects(self.root).items()]
+    def catalog(self) -> list[dict[str, Any]]:
+        items = []
+        for key, name in projects(self.root, self.single_project).items():
+            folder = self.root if self.single_project else self.root / name
+            spec = folder / "architecture.yaml"
+            items.append(
+                {
+                    "id": key,
+                    "name": name,
+                    "architecture_available": spec.is_file() and not spec.is_symlink(),
+                }
+            )
+        return items
 
     def start(self, project_id: str, architecture: bool, security: bool) -> Job:
         if not self.sandbox:
             raise ValueError("OS_SANDBOX_UNAVAILABLE")
-        name = projects(self.root).get(project_id)
+        name = projects(self.root, self.single_project).get(project_id)
         if name is None:
             raise ValueError("PROJECT_UNAVAILABLE")
         if any(j.status in STAGES - {"READY"} for j in self.jobs.values()):
@@ -104,7 +120,7 @@ class Runtime:
             folder = Path(tempfile.mkdtemp(prefix="archguard-job-")).resolve()
             try:
                 receipt = await asyncio.to_thread(
-                    snapshot, self.root, job.project_name, folder / "source"
+                    snapshot, self.root, job.project_name, folder / "source", self.single_project
                 )
                 if job.cancelled:
                     return
@@ -249,19 +265,36 @@ class Runtime:
 
     def saved(self) -> list[dict[str, Any]]:
         items = []
-        for file in sorted(
-            self.state.glob("*.json"), key=lambda p: p.stat().st_mtime, reverse=True
-        )[:20]:
-            if not file.is_symlink() and file.stat().st_size <= MAX_RESULT:
-                try:
-                    raw = json.loads(file.read_text())
-                    items.append(
-                        {
-                            "id": file.stem,
-                            "project": raw["project"],
-                            "snapshot": raw["provenance"]["snapshot_fingerprint"],
-                        }
-                    )
-                except (ValueError, KeyError):
-                    continue
+        files = [p for p in self.state.glob("*.json") if p.is_file() and not p.is_symlink()]
+        for file in sorted(files, key=lambda p: p.stat().st_mtime, reverse=True)[:20]:
+            if len(file.stem) != 32 or any(c not in "0123456789abcdef" for c in file.stem):
+                continue
+            try:
+                if file.stat().st_size > MAX_RESULT:
+                    raise ValueError("RESULT_SIZE_LIMIT")
+                raw = json.loads(file.read_text())
+                if (
+                    not isinstance(raw, dict)
+                    or not isinstance(raw.get("project"), dict)
+                    or not isinstance(raw["project"].get("name"), str)
+                    or not isinstance(raw.get("provenance"), dict)
+                    or not isinstance(raw["provenance"].get("snapshot_fingerprint"), str)
+                ):
+                    raise ValueError("RESULT_INVALID")
+                items.append(
+                    {
+                        "id": file.stem,
+                        "project": raw["project"],
+                        "snapshot": raw["provenance"]["snapshot_fingerprint"],
+                    }
+                )
+            except (OSError, ValueError, KeyError):
+                items.append(
+                    {
+                        "id": file.stem,
+                        "project": {"name": file.stem[:12]},
+                        "snapshot": "",
+                        "invalid": True,
+                    }
+                )
         return items

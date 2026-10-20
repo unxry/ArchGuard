@@ -1,0 +1,65 @@
+{
+  "version": "0.1.1",
+  "build": 42,
+  "date": "2026-10-20",
+  "host": {
+    "architecture": "arm64",
+    "macos": "26.5.2"
+  },
+  "checks": {
+    "pytest": 25,
+    "adapters": 16,
+    "workflow_browser": 7,
+    "product_browser": 29,
+    "supplement_browser": 5,
+    "javascript_errors": 0,
+    "native_in_app_project_link": true,
+    "native_local_project_control": true,
+    "selected_root_not_parent": true,
+    "no_spec_real_analysis_nodes": 4,
+    "no_spec_real_analysis_edges": 3,
+    "sibling_projects_excluded": true,
+    "native_no_spec_classification": "unclassified",
+    "native_delete_confirmation_cancel": true,
+    "native_quit_relaunch_selected_root": true,
+    "native_rapid_restart_single_backend": true,
+    "native_quit_process_port_snapshot_cleanup": true,
+    "native_quit_during_restart_cleanup": true,
+    "native_webkit_fullscreen_and_escape": true,
+    "installed_from_verified_dmg": true,
+    "strict_deep_signature_verified": true
+  },
+  "full_make_check": "NOT VERIFIED; six private historical prerequisites absent",
+  "signature": "ad-hoc",
+  "notarized": false,
+  "evidence": {
+    "p042-targeted.log": {
+      "sha256": "ec2ccaef424f1f25f3c012fe0c8e2c3d25f4b4094f0a8801ddb3bd67a689b212"
+    },
+    "p042-adapters.log": {
+      "sha256": "bc52b78213c69474bbd3f07ddc6412c0d30b9a264ebf312fb236fed3303ee346"
+    },
+    "p042-workflow.log": {
+      "sha256": "07cba589c924287c4b71c899252410d6d166624066995159caa0f8419427c49d"
+    },
+    "p042-browser.log": {
+      "sha256": "a4315e0f67762a9a0688db066eb587b4176590bcda9ce01774cec5b0acbc5e36"
+    },
+    "p042-supplement.log": {
+      "sha256": "55ad2f47a428053999839e93097b34caa23365117f18be153a9d13e6ce1d125e"
+    },
+    "p042-build.log": {
+      "sha256": "d5cbd6337bec8816e3cc784fb6f8c8065eed4b377468f45ea015b4addc2d08a3"
+    },
+    "p042-native-fullscreen.png": {
+      "sha256": "d7578cd22eb5627693f341a387f02edd05341c974a14e7ec89ee218c60929e6f"
+    },
+    "p042-native-no-spec-atlas.png": {
+      "sha256": "5fda2eea0a2b599b07f4db2799452617c4cdd4e56990ad438ec249401cabf5c1"
+    },
+    "p042-native-open-project.png": {
+      "sha256": "4b8a99848986e77c29dc886e2eff8bfb1671b61baecad6706df2f650ac775ccf"
+    }
+  },
+  "scientific_freeze_diff_paths": 0
+}

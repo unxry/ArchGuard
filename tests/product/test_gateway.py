@@ -45,6 +45,61 @@ def test_intake_rejects_path_escape(root: Path, tmp_path: Path, name: str) -> No
         snapshot(root, name, tmp_path / "copy")
 
 
+def test_single_project_intake_never_reads_siblings(tmp_path: Path) -> None:
+    selected = tmp_path / "Selected Project"
+    selected.mkdir()
+    (selected / "index.ts").write_text("export class Selected {}")
+    other = tmp_path / "Private Sibling"
+    other.mkdir()
+    (other / "secret.ts").write_text("PRIVATE_CANARY")
+    catalog = projects(selected, single_project=True)
+    assert list(catalog.values()) == [selected.name]
+    with pytest.raises(IntakeError):
+        snapshot(selected, other.name, tmp_path / "rejected", single_project=True)
+    receipt = snapshot(selected, selected.name, tmp_path / "copy", single_project=True)
+    assert receipt["files"] == 1
+    assert [p.name for p in (tmp_path / "copy").iterdir()] == ["index.ts"]
+
+
+def test_saved_result_deletion_requires_session_and_origin(root: Path, tmp_path: Path) -> None:
+    state = tmp_path / "state"
+    app = create_product_app(root, state)
+    result_id = "a" * 32
+    raw = {"project": {"name": "Test"}, "provenance": {"snapshot_fingerprint": "b" * 64}}
+    for index in range(18):
+        (state / (f"{index:032x}" + ".json")).write_text(json.dumps(raw))
+    (state / (result_id + ".json")).write_text("{damaged")
+    (state / ("c" * 32 + ".json")).write_text("[]")
+    with TestClient(app, base_url="http://127.0.0.1:8790") as client:
+        token = client.get("/api/product/session").json()["token"]
+        headers = {"X-ArchGuard-Token": token, "Origin": "http://127.0.0.1:8790"}
+        route = "/api/product/results/" + result_id
+        assert client.request("DELETE", route, json={}).status_code == 401
+        assert (
+            client.request(
+                "DELETE", route, json={}, headers={"X-ArchGuard-Token": token}
+            ).status_code
+            == 403
+        )
+        assert client.get(route, headers=headers).status_code == 422
+        assert len(client.get("/api/product/results", headers=headers).json()) == 20
+        assert client.request("DELETE", route, json={}, headers=headers).json() == {"deleted": True}
+        assert (
+            client.request(
+                "DELETE", "/api/product/results/invalid", json={}, headers=headers
+            ).status_code
+            == 404
+        )
+        assert (
+            client.request(
+                "DELETE", "/api/product/results/" + "0" * 32, json={}, headers=headers
+            ).status_code
+            == 200
+        )
+        assert len(client.get("/api/product/results", headers=headers).json()) == 18
+        assert not (state / ("0" * 32 + ".json")).exists()
+
+
 @pytest.mark.parametrize("kind", ["symlink", "hardlink", "oversize", "binary"])
 def test_intake_rejects_unsafe_sources(root: Path, tmp_path: Path, kind: str) -> None:
     outside = tmp_path / "outside.ts"

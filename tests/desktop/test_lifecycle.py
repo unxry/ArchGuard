@@ -1,6 +1,7 @@
 import json
 import os
 import select
+import shutil
 import signal
 import socket
 import subprocess
@@ -16,13 +17,15 @@ from archguard.product.desktop import clean_stale_sessions
 SAMPLE = Path(__file__).resolve().parents[2] / "examples/product"
 
 
-def launch(tmp_path: Path, root: Path = SAMPLE) -> subprocess.Popen[str]:
+def launch(
+    tmp_path: Path, root: Path = SAMPLE, *, single_project: bool = False
+) -> subprocess.Popen[str]:
     return subprocess.Popen(
         [
             sys.executable,
             "-m",
             "archguard.product.desktop",
-            "--projects-root",
+            "--project-dir" if single_project else "--projects-root",
             str(root),
             "--state-dir",
             str(tmp_path / "state"),
@@ -115,6 +118,43 @@ def test_backend_sigterm_does_not_hang_on_parent_pipe(tmp_path: Path) -> None:
     child.terminate()
     assert child.wait(timeout=4) in (0, -signal.SIGTERM)
     close(child)
+    assert closed(port)
+
+
+@pytest.mark.skipif(sys.platform != "darwin", reason="macOS execution sandbox")
+def test_open_actual_project_folder_without_spec(tmp_path: Path) -> None:
+    project = tmp_path / "Workspace with spaces" / "Actual Project"
+    shutil.copytree(SAMPLE / "observatory-ts", project)
+    (project / "architecture.yaml").unlink()
+    (project.parent / "Private Sibling").mkdir()
+    child = launch(tmp_path / "state", project, single_project=True)
+    try:
+        port = ready(child)["port"]
+        session = request(port, "/api/product/session")
+        assert session["capabilities"]["native_project_picker"] is True
+        token = session["token"]
+        catalog = request(port, "/api/product/projects", token)
+        assert len(catalog) == 1
+        assert catalog[0]["name"] == "Actual Project"
+        assert catalog[0]["architecture_available"] is False
+        job = request(
+            port,
+            "/api/product/jobs",
+            token,
+            {"project_id": catalog[0]["id"], "architecture": False, "security": True},
+        )
+        for _ in range(300):
+            status = request(port, "/api/product/jobs/" + job["id"], token)
+            if status["status"] in {"READY", "FAILED"}:
+                break
+            time.sleep(0.02)
+        assert status["status"] == "READY", status
+        result = request(port, "/api/product/results/" + job["id"], token)
+        assert len(result["graph"]["graph"]["nodes"]) == 4
+        assert len(result["graph"]["graph"]["edges"]) == 3
+        assert result["classification"] is None
+    finally:
+        close(child)
     assert closed(port)
     assert not list((tmp_path / "sessions").glob("run-*"))
 

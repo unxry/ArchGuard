@@ -1,0 +1,14 @@
+{
+  "checks": [
+    "Direct project options: no missing-spec failure; selection and security choice survive rerender",
+    "Double activation starts one real analysis; missing architecture.yaml is optional",
+    "Project choices remain selected when configuring another run",
+    "Cancel and restart ignore a delayed response from the previous analysis",
+    "Saved-result deletion requires a confirmation; cancel preserves the result",
+    "Storage limit explains recovery and leaves Run usable after rejection",
+    "Offline startup reconnects successfully without reloading the page"
+  ],
+  "passed": 7,
+  "failed": 0,
+  "jsErrors": []
+}

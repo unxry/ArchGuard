@@ -121,8 +121,8 @@ def main() -> None:
             "CFBundleExecutable": "ArchGuard",
             "CFBundlePackageType": "APPL",
             "CFBundleIconFile": "ArchGuard.icns",
-            "CFBundleShortVersionString": "0.1.0",
-            "CFBundleVersion": "41",
+            "CFBundleShortVersionString": "0.1.1",
+            "CFBundleVersion": "42",
             "LSMinimumSystemVersion": "13.0",
             "NSHighResolutionCapable": True,
             "NSPrincipalClass": "NSApplication",
@@ -133,8 +133,8 @@ def main() -> None:
         receipt = {
             "python": PYTHON_VERSION,
             "architecture": "arm64",
-            "version": "0.1.0",
-            "build": 41,
+            "version": "0.1.1",
+            "build": 42,
             "uv_lock_sha256": hashlib.sha256((ROOT / "uv.lock").read_bytes()).hexdigest(),
             "signing": "ad-hoc",
             "notarized": False,
@@ -173,7 +173,7 @@ def main() -> None:
             "Перетащите ArchGuard.app в Applications и откройте из Finder.\n\n"
             "Local ad-hoc signature; no Developer ID or Apple notarization.\n"
             "macOS may require explicit approval in Privacy & Security.\n"
-            "File > Choose Projects Folder selects a parent folder of projects.\n"
+            "File > Open Project selects the project folder itself.\n"
         )
         run(
             "hdiutil",

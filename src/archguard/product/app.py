@@ -26,8 +26,16 @@ class AnalysisRequest(BaseModel):
     security: bool = True
 
 
-def create_product_app(root: Path, state: Path, port: int = 8790, timeout: float = 45) -> FastAPI:
-    runtime = Runtime(root, state, timeout)
+def create_product_app(
+    root: Path,
+    state: Path,
+    port: int = 8790,
+    timeout: float = 45,
+    *,
+    single_project: bool = False,
+    desktop: bool = False,
+) -> FastAPI:
+    runtime = Runtime(root, state, timeout, single_project)
     origin = f"http://127.0.0.1:{port}"
     app = foundation_app()
 
@@ -87,12 +95,13 @@ def create_product_app(root: Path, state: Path, port: int = 8790, timeout: float
                 "zip": False,
                 "provider_calls": False,
                 "source_execution": False,
+                "native_project_picker": desktop,
             },
             "limits": {"files": 200, "source_bytes": 4194304, "timeout_seconds": timeout},
         }
 
     @app.get("/api/product/projects")
-    def list_projects() -> list[dict[str, str]]:
+    def list_projects() -> list[dict[str, Any]]:
         return runtime.catalog()
 
     @app.post("/api/product/jobs", status_code=202)
@@ -130,7 +139,23 @@ def create_product_app(root: Path, state: Path, port: int = 8790, timeout: float
         file = runtime.state / (identifier + ".json")
         if not file.is_file() or file.is_symlink() or file.stat().st_size > MAX_RESULT:
             raise HTTPException(404, "RESULT_UNAVAILABLE")
-        return json.loads(file.read_text())
+        try:
+            return json.loads(file.read_text())
+        except (OSError, ValueError):
+            raise HTTPException(422, "RESULT_INVALID") from None
+
+    @app.delete("/api/product/results/{identifier}")
+    def delete_result(identifier: str) -> dict[str, bool]:
+        if not re.fullmatch(r"[0-9a-f]{32}", identifier):
+            raise HTTPException(404, "RESULT_UNAVAILABLE")
+        file = runtime.state / (identifier + ".json")
+        if not file.is_file() or file.is_symlink():
+            raise HTTPException(404, "RESULT_UNAVAILABLE")
+        try:
+            file.unlink()
+        except OSError:
+            raise HTTPException(409, "RESULT_DELETE_FAILED") from None
+        return {"deleted": True}
 
     app.mount("/", StaticFiles(directory=Path(__file__).parent / "web", html=True), name="frontend")
     return app

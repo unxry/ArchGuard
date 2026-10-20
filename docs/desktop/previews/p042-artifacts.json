@@ -1,0 +1,18 @@
+{
+  "version": "0.1.1",
+  "build": 42,
+  "architecture": "arm64",
+  "python": "3.13.14",
+  "signing": "ad-hoc",
+  "notarized": false,
+  "artifacts": {
+    "ArchGuard-macos-arm64.dmg": {
+      "bytes": 76006644,
+      "sha256": "37e6ee4a490cb488ebe0a37ff87b57f3c98bbc3c4a8e8bc9dc9146239173698a"
+    },
+    "ArchGuard-macos-arm64.zip": {
+      "bytes": 43116332,
+      "sha256": "7d55ba82b4402f789fee9815f83bac289d04b49568466826a8330ff8c96092b8"
+    }
+  }
+}

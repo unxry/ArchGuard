@@ -17,7 +17,9 @@ class IntakeError(ValueError):
     pass
 
 
-def projects(root: Path) -> dict[str, str]:
+def projects(root: Path, single_project: bool = False) -> dict[str, str]:
+    if single_project:
+        return {hashlib.sha256(root.name.encode()).hexdigest()[:16]: root.name}
     return {
         hashlib.sha256(entry.name.encode()).hexdigest()[:16]: entry.name
         for entry in sorted(os.scandir(root), key=lambda item: item.name)
@@ -27,15 +29,17 @@ def projects(root: Path) -> dict[str, str]:
     }
 
 
-def snapshot(root: Path, name: str, destination: Path) -> dict[str, str | int]:
-    if name not in projects(root).values():
+def snapshot(
+    root: Path, name: str, destination: Path, single_project: bool = False
+) -> dict[str, str | int]:
+    if name not in projects(root, single_project).values():
         raise IntakeError("PROJECT_UNAVAILABLE")
     entries = total = count = 0
     digest = hashlib.sha256()
     flags = os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW
     root_fd = os.open(root, flags)
     try:
-        project_fd = os.open(name, flags, dir_fd=root_fd)
+        project_fd = os.dup(root_fd) if single_project else os.open(name, flags, dir_fd=root_fd)
     finally:
         os.close(root_fd)
     destination.mkdir(mode=0o700)

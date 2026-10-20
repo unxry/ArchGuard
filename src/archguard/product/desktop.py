@@ -44,7 +44,7 @@ def clean_stale_sessions(root: Path) -> None:
             continue
 
 
-async def serve(root: Path, state: Path, sessions: Path) -> None:
+async def serve(root: Path, state: Path, sessions: Path, single_project: bool = False) -> None:
     sessions.mkdir(parents=True, exist_ok=True, mode=0o700)
     clean_stale_sessions(sessions)
     folder = sessions / ("run-" + uuid4().hex)
@@ -61,7 +61,9 @@ async def serve(root: Path, state: Path, sessions: Path) -> None:
         listener.bind(("127.0.0.1", 0))
         listener.listen(128)
         port = listener.getsockname()[1]
-        app = create_product_app(root, state, port=port)
+        app = create_product_app(
+            root, state, port=port, single_project=single_project, desktop=True
+        )
         config = uvicorn.Config(app, log_config=None, log_level="critical", access_log=False)
         server = DesktopServer(config)
         loop = asyncio.get_running_loop()
@@ -106,7 +108,9 @@ async def serve(root: Path, state: Path, sessions: Path) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--projects-root", type=Path, required=True)
+    source = parser.add_mutually_exclusive_group(required=True)
+    source.add_argument("--projects-root", type=Path)
+    source.add_argument("--project-dir", type=Path)
     parser.add_argument("--state-dir", type=Path, required=True)
     parser.add_argument("--sessions-dir", type=Path, required=True)
     args = parser.parse_args()
@@ -114,7 +118,14 @@ def main() -> None:
     if sys.stdin.isatty():
         raise SystemExit("NATIVE_OWNER_REQUIRED")
     try:
-        asyncio.run(serve(args.projects_root, args.state_dir, args.sessions_dir))
+        asyncio.run(
+            serve(
+                args.project_dir or args.projects_root,
+                args.state_dir,
+                args.sessions_dir,
+                args.project_dir is not None,
+            )
+        )
     except Exception:
         print(json.dumps({"error": "BACKEND_START_FAILED"}), flush=True)
         os._exit(1)

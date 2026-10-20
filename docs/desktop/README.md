@@ -1,5 +1,10 @@
 # ArchGuard for macOS · P041
 
+> Current release: **0.1.1 / build 42**. See [workflow fixes and current verification](P042_FIXES.md).
+> This document records the original P041 build. Its parent-folder selection,
+> frontend hashes, checksums and test counts are historical; the current release
+> opens the project folder itself through **File → Open Project** or the in-app button.
+
 Native desktop integration of published P040 commit
 `71e173482082162172b059729faf176f8bdfc82a`, on
 `codex/archguard-native-desktop`. Verified on Apple Silicon, macOS 26.5.2,

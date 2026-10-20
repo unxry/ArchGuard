@@ -16,6 +16,7 @@ final class ArchGuardApp: NSObject, NSApplicationDelegate, WKNavigationDelegate,
     var origin: URL?
     var generation = 0
     var quitting = false
+    var restarting = false
     var lockFD: Int32 = -1
     var signals: [DispatchSourceSignal] = []
     var deadline: DispatchWorkItem?
@@ -25,6 +26,9 @@ final class ArchGuardApp: NSObject, NSApplicationDelegate, WKNavigationDelegate,
 
     var resources: URL { Bundle.main.resourceURL! }
     var projects: URL {
+        if let saved = UserDefaults.standard.string(forKey: "ProjectDirectory") {
+            return URL(fileURLWithPath: saved, isDirectory: true)
+        }
         if let saved = UserDefaults.standard.string(forKey: "ProjectsRoot") {
             return URL(fileURLWithPath: saved, isDirectory: true)
         }
@@ -64,7 +68,7 @@ final class ArchGuardApp: NSObject, NSApplicationDelegate, WKNavigationDelegate,
         appMenu.addItem(withTitle: "Quit ArchGuard", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
         let fileItem = NSMenuItem(); menu.addItem(fileItem)
         let file = NSMenu(title: "File"); fileItem.submenu = file
-        file.addItem(withTitle: "Choose Projects Folder… / Папка проектов…", action: #selector(chooseProjects), keyEquivalent: "o")
+        file.addItem(withTitle: "Open Project… / Открыть проект…", action: #selector(chooseProjects), keyEquivalent: "o")
         file.addItem(withTitle: "Use Included Example / Встроенный пример", action: #selector(useExample), keyEquivalent: "")
         file.addItem(.separator())
         file.addItem(withTitle: "Restart Local Engine / Перезапустить", action: #selector(restart), keyEquivalent: "r")
@@ -91,6 +95,7 @@ final class ArchGuardApp: NSObject, NSApplicationDelegate, WKNavigationDelegate,
         window.isReleasedWhenClosed = false
         let config = WKWebViewConfiguration()
         config.preferences.javaScriptCanOpenWindowsAutomatically = false
+        config.preferences.isElementFullscreenEnabled = true
         // No script message handlers or privileged JavaScript bridge.
         web = WKWebView(frame: window.contentView!.bounds, configuration: config)
         web.autoresizingMask = [.width, .height]
@@ -109,7 +114,7 @@ final class ArchGuardApp: NSObject, NSApplicationDelegate, WKNavigationDelegate,
         detail.textColor = .secondaryLabelColor; detail.alignment = .center
         retry = NSButton(title: "Retry / Повторить", target: self, action: #selector(restart))
         retry.bezelStyle = .rounded; retry.isHidden = true
-        let folder = NSButton(title: "Choose Projects Folder… / Папка проектов…", target: self, action: #selector(chooseProjects))
+        let folder = NSButton(title: "Open Project… / Открыть проект…", target: self, action: #selector(chooseProjects))
         folder.bezelStyle = .rounded
         let stack = NSStackView(views: [brand, message, detail, retry, folder])
         stack.orientation = .vertical; stack.alignment = .centerX; stack.spacing = 24
@@ -131,7 +136,7 @@ final class ArchGuardApp: NSObject, NSApplicationDelegate, WKNavigationDelegate,
     }
 
     func fail(_ code: String) {
-        deadline?.cancel(); origin = nil; web.stopLoading()
+        deadline?.cancel(); preferenceTimer?.invalidate(); origin = nil; web.stopLoading()
         overlay.isHidden = false; retry.isHidden = false
         message.stringValue = "Workspace could not start"
         detail.stringValue = "\(code) · Повторите запуск или выберите доступную папку проектов."
@@ -139,14 +144,15 @@ final class ArchGuardApp: NSObject, NSApplicationDelegate, WKNavigationDelegate,
     }
 
     func startBackend() {
-        guard !quitting else { return }
+        guard !quitting, backend == nil else { return }
         generation += 1; let current = generation
         loading(); origin = nil
         let python = resources.appendingPathComponent("python/bin/python3.13")
         guard FileManager.default.isExecutableFile(atPath: python.path) else { fail("RUNTIME_MISSING"); return }
         let child = Process(); let input = Pipe(); let stdout = Pipe()
         child.executableURL = python
-        child.arguments = ["-I", "-B", "-m", "archguard.product.desktop", "--projects-root", projects.path, "--state-dir", support.appendingPathComponent("Results").path, "--sessions-dir", support.appendingPathComponent("Runtime").path]
+        let sourceArgument = UserDefaults.standard.string(forKey: "ProjectDirectory") == nil ? "--projects-root" : "--project-dir"
+        child.arguments = ["-I", "-B", "-m", "archguard.product.desktop", sourceArgument, projects.path, "--state-dir", support.appendingPathComponent("Results").path, "--sessions-dir", support.appendingPathComponent("Runtime").path]
         child.environment = ["PATH": "/usr/bin:/bin", "LANG": "en_US.UTF-8", "HOME": support.path, "TMPDIR": NSTemporaryDirectory()]
         child.currentDirectoryURL = resources
         child.standardInput = input; child.standardOutput = stdout; child.standardError = FileHandle.nullDevice
@@ -216,22 +222,45 @@ final class ArchGuardApp: NSObject, NSApplicationDelegate, WKNavigationDelegate,
         wait()
     }
 
-    @objc func restart() { loading(); savePreferences { self.stopBackend { self.startBackend() } } }
+    @objc func restart() {
+        guard !quitting, !restarting else { return }
+        restarting = true; loading()
+        savePreferences {
+            self.stopBackend {
+                self.restarting = false
+                self.startBackend()
+            }
+        }
+    }
 
     @objc func chooseProjects() {
+        guard !quitting, !restarting, window.attachedSheet == nil else { return }
         let panel = NSOpenPanel(); panel.canChooseDirectories = true; panel.canChooseFiles = false
         panel.allowsMultipleSelection = false
-        panel.message = "Choose a folder containing only projects you intend to analyze. / Выберите родительскую папку проектов."
+        panel.title = "Open Project / Открыть проект"
+        panel.prompt = "Open / Открыть"
+        panel.directoryURL = projects
+        panel.message = "Select the project folder itself. Java / TypeScript sources stay on this Mac. / Выберите саму папку проекта."
         panel.beginSheetModal(for: window) { response in
             guard response == .OK, let url = panel.url else { return }
-            UserDefaults.standard.set(url.resolvingSymlinksInPath().path, forKey: "ProjectsRoot")
+            let directory = url.resolvingSymlinksInPath()
+            guard FileManager.default.isReadableFile(atPath: directory.path) else {
+                let alert = NSAlert(); alert.messageText = "Folder is not readable / Нет доступа к папке"
+                alert.beginSheetModal(for: self.window); return
+            }
+            UserDefaults.standard.set(directory.path, forKey: "ProjectDirectory")
+            UserDefaults.standard.removeObject(forKey: "ProjectsRoot")
             self.restart()
         }
     }
 
-    @objc func useExample() { UserDefaults.standard.removeObject(forKey: "ProjectsRoot"); restart() }
+    @objc func useExample() {
+        UserDefaults.standard.removeObject(forKey: "ProjectsRoot")
+        UserDefaults.standard.removeObject(forKey: "ProjectDirectory")
+        restart()
+    }
     @objc func about() {
-        NSApp.orderFrontStandardAboutPanel(options: [.applicationName: "ArchGuard", .applicationVersion: "0.1.0 · Desktop 041", .credits: NSAttributedString(string: "Local architecture observatory\nPython engine · Native WKWebView\nLocal ad-hoc build · not notarized")])
+        NSApp.orderFrontStandardAboutPanel(options: [.applicationName: "ArchGuard", .applicationVersion: "0.1.1 · Desktop 042", .credits: NSAttributedString(string: "Local architecture observatory\nPython engine · Native WKWebView\nLocal ad-hoc build · not notarized")])
     }
 
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool { true }
@@ -239,7 +268,7 @@ final class ArchGuardApp: NSObject, NSApplicationDelegate, WKNavigationDelegate,
         window?.makeKeyAndOrderFront(nil); return true
     }
     func applicationShouldTerminate(_ sender: NSApplication) -> NSApplication.TerminateReply {
-        guard backend != nil else { return .terminateNow }
+        if backend == nil { quitting = true; return .terminateNow }
         if quitting { return .terminateLater }
         quitting = true; savePreferences { self.stopBackend { NSApp.reply(toApplicationShouldTerminate: true) } }
         return .terminateLater
@@ -252,6 +281,11 @@ final class ArchGuardApp: NSObject, NSApplicationDelegate, WKNavigationDelegate,
 
     func webView(_ webView: WKWebView, decidePolicyFor action: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         guard let url = action.request.url else { decisionHandler(.cancel); return }
+        if url.absoluteString == "archguard://open-project", action.navigationType == .linkActivated,
+           action.sourceFrame.isMainFrame, action.sourceFrame.request.url.map(allowed) == true {
+            decisionHandler(.cancel)
+            DispatchQueue.main.async { self.chooseProjects() }; return
+        }
         if action.shouldPerformDownload, url.scheme == "blob", action.sourceFrame.isMainFrame,
            action.sourceFrame.request.url.map(allowed) == true {
             decisionHandler(.download); return
@@ -273,7 +307,10 @@ final class ArchGuardApp: NSObject, NSApplicationDelegate, WKNavigationDelegate,
         preferenceTimer?.invalidate()
         preferenceTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in self?.savePreferences() }
     }
-    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) { fail("WEBVIEW_LOAD_FAILED") }
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        guard (error as NSError).code != NSURLErrorCancelled else { return }
+        fail("WEBVIEW_LOAD_FAILED")
+    }
     func webViewWebContentProcessDidTerminate(_ webView: WKWebView) { fail("WEBVIEW_EXITED") }
     func webView(_ webView: WKWebView, runOpenPanelWith parameters: WKOpenPanelParameters, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping ([URL]?) -> Void) {
         guard frame.request.url.map(allowed) == true else { completionHandler(nil); return }
@@ -285,6 +322,12 @@ final class ArchGuardApp: NSObject, NSApplicationDelegate, WKNavigationDelegate,
         let panel = NSSavePanel(); panel.allowedContentTypes = [.json]
         panel.nameFieldStringValue = URL(fileURLWithPath: suggestedFilename).lastPathComponent
         panel.beginSheetModal(for: window) { answer in completionHandler(answer == .OK ? panel.url : nil) }
+    }
+    func download(_ download: WKDownload, didFailWithError error: Error, resumeData: Data?) {
+        guard (error as NSError).code != NSURLErrorCancelled else { return }
+        let alert = NSAlert(); alert.messageText = "Export failed / Не удалось сохранить JSON"
+        alert.informativeText = "Choose a writable destination and try again. / Выберите папку с правом записи и повторите экспорт."
+        alert.beginSheetModal(for: window)
     }
 
     func seedPreferences() {
@@ -298,9 +341,13 @@ final class ArchGuardApp: NSObject, NSApplicationDelegate, WKNavigationDelegate,
 
     func savePreferences(_ completion: (() -> Void)? = nil) {
         guard web.url.map(allowed) == true else { completion?(); return }
+        var finished = false
+        func finish() { guard !finished else { return }; finished = true; completion?() }
+        if completion != nil { DispatchQueue.main.asyncAfter(deadline: .now() + 0.8, execute: finish) }
         let keys = String(data: try! JSONSerialization.data(withJSONObject: preferenceKeys), encoding: .utf8)!
         web.evaluateJavaScript("Object.fromEntries(\(keys).map(k=>[k,localStorage.getItem('ag-cinematic-v3-'+k)]).filter(p=>p[1]!==null))") { result, _ in
-            defer { completion?() }
+            guard !finished else { return }
+            defer { finish() }
             guard let values = result as? [String: String] else { return }
             let safe = values.filter { self.preferenceKeys.contains($0.key) && $0.value.count <= 20 }
             UserDefaults.standard.set(safe, forKey: "CinematicPreferences")
